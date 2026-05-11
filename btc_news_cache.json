@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-11T09:00:26.3851892Z",
-  "score": 6,
-  "sentiment": "bullish",
+  "timestamp": "2026-05-11T14:00:34.8409224Z",
+  "score": 8,
+  "sentiment": "strongly_bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin flashes Kumo breakout with 186% average one-year return - historically bullish technical signal",
-    "Morgan Stanley's MSBT completes first month with zero outflows amid Bitcoin ETFs 6-week inflow streak",
-    "BlackRock filing for tokenized money market funds to sidestep regulatory yield issues, institutional adoption accelerating"
+    "Crypto funds log $858M in sixth straight week of inflows with Bitcoin receiving $706M as institutional appetite strengthens",
+    "Strategy resumes aggressive Bitcoin accumulation with $43M purchase and Saylor's 'never be a net seller' commitment signaling major corporate treasury confidence",
+    "CLARITY Act markup scheduled for May 14 with bipartisan stablecoin framework progress driving regulatory clarity and institutional adoption momentum"
   ],
-  "reasoning": "Bitcoin shows strong technical bullish signals with Kumo breakout and sustained institutional inflows through major Wall Street vehicles (Morgan Stanley, BlackRock). Regulatory clarity efforts (CLARITY Act progress, stablecoin framework discussions) and institutional infrastructure development create positive macro conditions despite scattered negative headlines about exploits and taxation.",
-  "risks": "Australia's capital gains tax changes on crypto holdings and potential regulatory friction from banking industry opposition to stablecoin standards could dampen sentiment if they spread to other jurisdictions.",
+  "reasoning": "The convergence of six consecutive weeks of institutional inflows ($858M last week alone), major corporate treasuries accelerating Bitcoin accumulation (Strategy, Circle, Capital B), and imminent regulatory clarity via the CLARITY Act creates a strong bullish setup for the 1-7 day timeframe. Technical support holding at $80K combined with $85K price targets and multiple Kumo breakout signals across major assets suggest momentum continuation with reduced downside risk.",
+  "risks": "Macro headwinds or Federal Reserve policy shifts could trigger risk-off sentiment that reverses the institutional inflow trend, and the OpenAI liability lawsuit represents emerging regulatory uncertainty for the broader crypto ecosystem.",
   "article_count": 36
 }
