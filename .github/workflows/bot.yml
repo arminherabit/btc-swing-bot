@@ -1,0 +1,35 @@
+name: BTC Swing Trading Bot
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'   # Every 4 hours
+  workflow_dispatch:          # Manual trigger from GitHub UI
+
+permissions:
+  contents: write             # Needed to commit state back to repo
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run swing bot
+        shell: pwsh
+        env:
+          BINANCE_API_KEY:    ${{ secrets.BINANCE_API_KEY }}
+          BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+        run: pwsh ./btc_bot.ps1 -Once
+
+      - name: Persist state to repo
+        run: |
+          git config user.name  "btc-bot[bot]"
+          git config user.email "btc-bot@users.noreply.github.com"
+          git add -f btc_state.json btc_news_cache.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "bot: state update $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git push || true
