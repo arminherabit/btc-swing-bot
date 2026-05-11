@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-11T14:00:34.8409224Z",
-  "score": 8,
-  "sentiment": "strongly_bullish",
+  "timestamp": "2026-05-11T19:00:42.1824714Z",
+  "score": 6,
+  "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Crypto funds log $858M in sixth straight week of inflows with Bitcoin receiving $706M as institutional appetite strengthens",
-    "Strategy resumes aggressive Bitcoin accumulation with $43M purchase and Saylor's 'never be a net seller' commitment signaling major corporate treasury confidence",
-    "CLARITY Act markup scheduled for May 14 with bipartisan stablecoin framework progress driving regulatory clarity and institutional adoption momentum"
+    "Bitcoin 'golden cross' appears for first time since 2023 with strengthening market structure and bullish MVRV shift",
+    "Strategy resumes $43M Bitcoin acquisitions after Saylor's mixed signals, signaling institutional conviction",
+    "Bitcoin forms same technical pattern that led to 400% rally from $17k to $69k; entering high-stakes week with 5 market-moving catalysts"
   ],
-  "reasoning": "The convergence of six consecutive weeks of institutional inflows ($858M last week alone), major corporate treasuries accelerating Bitcoin accumulation (Strategy, Circle, Capital B), and imminent regulatory clarity via the CLARITY Act creates a strong bullish setup for the 1-7 day timeframe. Technical support holding at $80K combined with $85K price targets and multiple Kumo breakout signals across major assets suggest momentum continuation with reduced downside risk.",
-  "risks": "Macro headwinds or Federal Reserve policy shifts could trigger risk-off sentiment that reverses the institutional inflow trend, and the OpenAI liability lawsuit represents emerging regulatory uncertainty for the broader crypto ecosystem.",
+  "reasoning": "Multiple bullish technical signals converge with strong institutional accumulation and favorable regulatory progress on stablecoins (CLARITY Act markup scheduled), while geopolitical tensions and macro headwinds remain manageable near-term tailwinds. Bitcoin's golden cross combined with strategic accumulation at $80k+ levels suggests institutional accumulation into what analysts view as a potential bull market inflection point.",
+  "risks": "US-Iran tensions, negative political sentiment toward crypto ahead of 2026 midterms, and Peter Schiff's SEC investigation calls against Saylor/MSTR could trigger sharp profit-taking if geopolitical escalation occurs or regulatory pressure intensifies unexpectedly.",
   "article_count": 36
 }
