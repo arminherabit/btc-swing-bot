@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-11T04:51:34.5530740Z",
+  "timestamp": "2026-05-11T09:00:26.3851892Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin rallies 2.3% after Trump calls Iran peace proposal 'totally unacceptable' with favorable US Senate decisions this week supporting BTC strength above $80,000",
-    "Saylor signals another Bitcoin buy with MicroStrategy's average cost at $75,537 and investment up 7.6%, demonstrating continued institutional conviction",
-    "Bitcoin holds $80K into weekly close as Morgan Stanley Bitcoin Trust completes first month with zero outflows amid 6-week ETF inflow streak, indicating institutional demand"
+    "Bitcoin flashes Kumo breakout with 186% average one-year return - historically bullish technical signal",
+    "Morgan Stanley's MSBT completes first month with zero outflows amid Bitcoin ETFs 6-week inflow streak",
+    "BlackRock filing for tokenized money market funds to sidestep regulatory yield issues, institutional adoption accelerating"
   ],
-  "reasoning": "Bitcoin is consolidating above the critical $80K support level with strong institutional buying signals from major players like MicroStrategy and Morgan Stanley, coupled with geopolitical tailwinds from Trump's Iran rhetoric that typically favor safe-haven assets. The combination of sustained ETF inflows, zero outflows from major institutional products, and insider buying from prominent Bitcoin advocates creates a bullish setup for the 1-7 day swing trading window.",
-  "risks": "Sudden regulatory clarity or adverse US Senate decisions on crypto legislation this week could trigger profit-taking from the $80K-$82.5K range, and a Sybil attack warning on Bitcoin's P2P network raises potential network integrity concerns that could spook risk-off traders.",
+  "reasoning": "Bitcoin shows strong technical bullish signals with Kumo breakout and sustained institutional inflows through major Wall Street vehicles (Morgan Stanley, BlackRock). Regulatory clarity efforts (CLARITY Act progress, stablecoin framework discussions) and institutional infrastructure development create positive macro conditions despite scattered negative headlines about exploits and taxation.",
+  "risks": "Australia's capital gains tax changes on crypto holdings and potential regulatory friction from banking industry opposition to stablecoin standards could dampen sentiment if they spread to other jurisdictions.",
   "article_count": 36
 }
