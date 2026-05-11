@@ -2,7 +2,7 @@ name: BTC Swing Trading Bot
 
 on:
   schedule:
-    - cron: '0 */4 * * *'   # Every 4 hours
+    - cron: '0 * * * *'   # Every 1 hour
   workflow_dispatch:          # Manual trigger from GitHub UI
 
 permissions:
