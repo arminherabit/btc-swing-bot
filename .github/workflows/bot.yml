@@ -26,6 +26,21 @@ jobs:
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
         run: pwsh ./btc_bot.ps1 -Once
 
+      - name: Generate dashboard
+        shell: pwsh
+        env:
+          BINANCE_API_KEY:    ${{ secrets.BINANCE_API_KEY }}
+          BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+        run: pwsh ./dashboard.ps1 -GenerateOnly
+
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard
+          path: dashboard.html
+          retention-days: 7
+
       - name: Persist state to repo
         run: |
           git config user.name  "btc-bot[bot]"
