@@ -3,18 +3,21 @@
   "api_secret":        "FROM_ENV",
   "anthropic_api_key": "FROM_ENV",
 
-  "paper_trading":    false,
-  "signal_threshold": "STRONG BUY",
+  "paper_trading": false,
 
-  "risk_percent":      1.0,
-  "stop_loss_percent": 1.5,
-  "max_position_usdt": 500.0,
+  "tranche_size_usdt": 167,
+  "max_tranches":      3,
 
-  "min_score_long":  4,
-  "entry_conditions_required": 4,
+  "rsi_tranche1":  38,
+  "rsi_tranche2":  32,
+  "rsi_tranche3":  28,
+  "rsi_exit":      60,
+
+  "dip_pct_required":  3.0,
+  "trailing_stop_pct": 3.0,
+  "hard_stop_pct":     5.0,
 
   "news_cache_hours":      4,
-  "news_block_threshold": -3,
-  "news_exit_threshold":  -7,
-  "news_boost_threshold":  5
+  "news_skip_threshold":  -5,
+  "news_boost_threshold":  6
 }
