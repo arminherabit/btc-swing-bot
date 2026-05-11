@@ -13,9 +13,9 @@ $ConfigPath = Join-Path $PSScriptRoot "btc_config.json"
 if (-not (Test-Path $ConfigPath)) { Write-Error "btc_config.json not found."; exit 1 }
 $cfg = Get-Content $ConfigPath | ConvertFrom-Json
 # Resolve secrets from environment variables when running in CI
-if ($cfg.api_key    -eq "FROM_ENV") { $cfg.api_key           = $env:BINANCE_API_KEY    }
-if ($cfg.api_secret -eq "FROM_ENV") { $cfg.api_secret        = $env:BINANCE_API_SECRET }
-if ($cfg.anthropic_api_key -eq "FROM_ENV") { $cfg.anthropic_api_key = $env:ANTHROPIC_API_KEY }
+if ($cfg.api_key    -eq "FROM_ENV") { $cfg.api_key           = "$($env:BINANCE_API_KEY)".Trim()    }
+if ($cfg.api_secret -eq "FROM_ENV") { $cfg.api_secret        = "$($env:BINANCE_API_SECRET)".Trim() }
+if ($cfg.anthropic_api_key -eq "FROM_ENV") { $cfg.anthropic_api_key = "$($env:ANTHROPIC_API_KEY)".Trim() }
 if ([string]::IsNullOrWhiteSpace($cfg.api_key)) { $cfg.paper_trading = $true }
 
 # -- Dot-source the news module --

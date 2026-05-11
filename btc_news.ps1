@@ -164,7 +164,7 @@ function Get-Newssentiment([string]$apiKey, [int]$cacheHours = 4) {
 # -- Standalone mode (run directly, not dot-sourced) --
 if ($MyInvocation.InvocationName -ne ".") {
     $cfg = Get-Content (Join-Path $PSScriptRoot "btc_config.json") | ConvertFrom-Json
-    if ($cfg.anthropic_api_key -eq "FROM_ENV") { $cfg.anthropic_api_key = $env:ANTHROPIC_API_KEY }
+    if ($cfg.anthropic_api_key -eq "FROM_ENV") { $cfg.anthropic_api_key = "$($env:ANTHROPIC_API_KEY)".Trim() }
     $now = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")
 
     Write-Host ""
