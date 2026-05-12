@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-12T10:00:25.3722951Z",
+  "timestamp": "2026-05-12T15:00:32.2855026Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "CLARITY Act markup scheduled for May 14 with six-week crypto fund inflow streak ($858M)",
-    "Bitcoin ETF inflows surge while price holds near $82,000 with macro catalysts this week (CPI, Fed Chair, Trump-Xi)",
-    "MSTR continues accumulating BTC ($43M buy), institutional adoption accelerating via Circle's $222M Arc sale and stablecoin infrastructure"
+    "CLARITY Act Senate markup May 14 with Bitcoin/Ethereum securities exemption provisions - major regulatory tailwind",
+    "Bitcoin ETF inflows surge while bear market drawdown remains historically shallow at 35% from ATH - institutional demand absorbing selling",
+    "Golden Cross signal on key valuation metric for first time in ~2 years + four signs of recovered bullish momentum - technical confirmation of strength"
   ],
-  "reasoning": "This week represents a critical macro convergence (CPI, new Fed chair, geopolitical tensions) combined with strong regulatory tailwinds from CLARITY Act progress and sustained institutional inflows into Bitcoin. The banking lobby's last-ditch resistance to the bill paradoxically signals desperation and indicates crypto-friendly legislation is gaining real momentum, supporting a bullish near-term outlook for 1-7 day swing trading.",
-  "risks": "CLARITY Act markup vote could face unexpected Democratic resistance or fail, and US-Iran tensions could trigger risk-off sentiment that temporarily pressures Bitcoin despite longer-term regulatory positives.",
+  "reasoning": "Multiple converging bullish catalysts over the next 1-7 days: the CLARITY Act markup scheduled for May 14 represents a significant regulatory win for Bitcoin, steady ETF inflows are absorbing selling pressure, and technical indicators (Golden Cross, liquidity recovery, network activity surge) confirm bullish momentum has returned. Corporate buying (MicroStrategy, Bitmine, Circle) and institutional positioning further support price stability and upside potential.",
+  "risks": "Geopolitical macro risks (US-Iran tensions, Trump-Xi collisions, new Fed Chair appointment this week) and potential CLARITY Act resistance from banking lobby/labor unions could trigger sudden negative headlines; Bhutan and other large holders continue selling, which could create unexpected supply pressure if momentum breaks.",
   "article_count": 36
 }
