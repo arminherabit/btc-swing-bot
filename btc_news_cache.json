@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-12T05:00:24.0310054Z",
+  "timestamp": "2026-05-12T10:00:25.3722951Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin funding rates turn positive with price holding $80K; analysts target $85K rally",
-    "CLARITY Act markup scheduled for Thursday with strongest crypto industry confidence in months despite banking lobby resistance",
-    "Strong ETF inflows surge (Circle +15%, Solana ETF strongest since February) indicating institutional capital rotation into crypto"
+    "CLARITY Act markup scheduled for May 14 with six-week crypto fund inflow streak ($858M)",
+    "Bitcoin ETF inflows surge while price holds near $82,000 with macro catalysts this week (CPI, Fed Chair, Trump-Xi)",
+    "MSTR continues accumulating BTC ($43M buy), institutional adoption accelerating via Circle's $222M Arc sale and stablecoin infrastructure"
   ],
-  "reasoning": "Multiple bullish technical and macro catalysts converge this week: positive funding rates at key support levels, surging spot ETF inflows from institutions, and the most significant regulatory breakthrough (CLARITY Act) in months despite banking opposition. Macro backdrop supports risk-on positioning with inflation data and geopolitical tensions creating traditional market volatility that historically benefits Bitcoin as uncorrelated asset.",
-  "risks": "CLARITY Act vote could fail if Democrat resistance holds, and major macro collision this week (Fed chair, CPI, US-Iran tensions) could trigger broad risk-off selling that overwhelms crypto-specific bullish catalysts.",
+  "reasoning": "This week represents a critical macro convergence (CPI, new Fed chair, geopolitical tensions) combined with strong regulatory tailwinds from CLARITY Act progress and sustained institutional inflows into Bitcoin. The banking lobby's last-ditch resistance to the bill paradoxically signals desperation and indicates crypto-friendly legislation is gaining real momentum, supporting a bullish near-term outlook for 1-7 day swing trading.",
+  "risks": "CLARITY Act markup vote could face unexpected Democratic resistance or fail, and US-Iran tensions could trigger risk-off sentiment that temporarily pressures Bitcoin despite longer-term regulatory positives.",
   "article_count": 36
 }
