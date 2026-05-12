@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-11T19:00:42.1824714Z",
-  "score": 6,
-  "sentiment": "bullish",
+  "timestamp": "2026-05-12T00:00:43.3093694Z",
+  "score": 7,
+  "sentiment": "strongly_bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin 'golden cross' appears for first time since 2023 with strengthening market structure and bullish MVRV shift",
-    "Strategy resumes $43M Bitcoin acquisitions after Saylor's mixed signals, signaling institutional conviction",
-    "Bitcoin forms same technical pattern that led to 400% rally from $17k to $69k; entering high-stakes week with 5 market-moving catalysts"
+    "CLARITY Act markup scheduled for Thursday with growing regulatory clarity momentum",
+    "Bitcoin ETF inflows surging alongside technical formation matching previous 400% rally setup",
+    "Multiple institutional tailwinds: Neuberger Berman $200M credit line to Ripple, Strategy buying $43M more BTC, stablecoin adoption accelerating"
   ],
-  "reasoning": "Multiple bullish technical signals converge with strong institutional accumulation and favorable regulatory progress on stablecoins (CLARITY Act markup scheduled), while geopolitical tensions and macro headwinds remain manageable near-term tailwinds. Bitcoin's golden cross combined with strategic accumulation at $80k+ levels suggests institutional accumulation into what analysts view as a potential bull market inflection point.",
-  "risks": "US-Iran tensions, negative political sentiment toward crypto ahead of 2026 midterms, and Peter Schiff's SEC investigation calls against Saylor/MSTR could trigger sharp profit-taking if geopolitical escalation occurs or regulatory pressure intensifies unexpectedly.",
+  "reasoning": "This week represents a densest macro catalyst window of 2026 with potential CLARITY Act passage, strong institutional inflows, and technical setups mirroring previous major rallies. Bitcoin's resistance at $84k appears positioned for a breakout as regulatory clarity reduces uncertainty premium and institutional adoption continues accelerating across stablecoins, ETFs, and enterprise holdings.",
+  "risks": "CLARITY Act failure or Democrat opposition could trigger sharp selloff, while geopolitical tensions (US-Iran) and potential Fed policy shifts could create volatility despite positive crypto sentiment.",
   "article_count": 36
 }
