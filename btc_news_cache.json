@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-12T15:00:32.2855026Z",
+  "timestamp": "2026-05-12T21:00:24.1503456Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "CLARITY Act Senate markup May 14 with Bitcoin/Ethereum securities exemption provisions - major regulatory tailwind",
-    "Bitcoin ETF inflows surge while bear market drawdown remains historically shallow at 35% from ATH - institutional demand absorbing selling",
-    "Golden Cross signal on key valuation metric for first time in ~2 years + four signs of recovered bullish momentum - technical confirmation of strength"
+    "Senate confirms Bitcoin-friendly Kevin Warsh to Fed Board, clearing path to chairmanship",
+    "DTCC integrates Chainlink for 24/7 collateral management - major institutional adoption signal",
+    "Bitcoin rare golden cross signal appears for first time in ~2 years; miners shift to AI infrastructure indicating conviction"
   ],
-  "reasoning": "Multiple converging bullish catalysts over the next 1-7 days: the CLARITY Act markup scheduled for May 14 represents a significant regulatory win for Bitcoin, steady ETF inflows are absorbing selling pressure, and technical indicators (Golden Cross, liquidity recovery, network activity surge) confirm bullish momentum has returned. Corporate buying (MicroStrategy, Bitmine, Circle) and institutional positioning further support price stability and upside potential.",
-  "risks": "Geopolitical macro risks (US-Iran tensions, Trump-Xi collisions, new Fed Chair appointment this week) and potential CLARITY Act resistance from banking lobby/labor unions could trigger sudden negative headlines; Bhutan and other large holders continue selling, which could create unexpected supply pressure if momentum breaks.",
+  "reasoning": "Multiple structural tailwinds converge: pro-crypto Fed leadership confirmation, massive institutional infrastructure integration (DTCC/Chainlink), and a statistically rare technical buy signal suggest strong institutional confidence in near-term upside. Regulatory clarity via CLARITY Act progress and real-world merchant adoption (Square 1M merchants) provide fundamental support despite some opposition.",
+  "risks": "MARA's $1.5B BTC liquidation to fund AI pivot signals miner capitulation and potential near-term selling pressure; geopolitical tensions (Hormuz strait, Iran conflicts) create macro headwinds that could rapidly reverse sentiment if escalation occurs.",
   "article_count": 36
 }
