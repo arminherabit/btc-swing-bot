@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-13T02:00:25.4695999Z",
-  "score": 7,
-  "sentiment": "strongly_bullish",
+  "timestamp": "2026-05-13T07:00:23.3779757Z",
+  "score": 6,
+  "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Kevin Warsh confirmed to Federal Reserve Board with pro-crypto stance, clearing path to chairmanship",
-    "CLARITY Act final 309-page draft released with strong regulatory framework positioning Bitcoin as regulated digital capital",
-    "Bitcoin Bull-Bear Cycle Indicator turns green for first time since March 2023; no major distribution signs despite 37% rally since April"
+    "Senate Confirms Bitcoin-Friendly Kevin Warsh to Fed Board, Clearing Path to Chairmanship",
+    "Arthur Hayes Says The Bitcoin Bull Market Has Begun: $126,000 Is Next",
+    "JPMorgan to launch tokenized money market fund for stablecoin issuers"
   ],
-  "reasoning": "The convergence of pro-crypto Federal Reserve leadership, comprehensive regulatory clarity legislation advancing through Senate markup, and on-chain indicators flashing green creates a strongly bullish macro environment for Bitcoin over the next 1-7 days. Major institutional infrastructure developments (JPMorgan tokenized funds, DTCC/Chainlink integration, Square's 1M merchants) and positive technical structure with contained volatility support sustained upward momentum.",
-  "risks": "Geopolitical escalation around the Strait of Hormuz creating broad macro economic uncertainty could trigger risk-off sentiment that overwhelms crypto-specific bullish catalysts; additionally, large miner capitulation (MARA's $1.5B BTC sale) signals potential supply pressure if other institutional holders follow the pivot toward AI infrastructure.",
+  "reasoning": "The confirmation of crypto-friendly Kevin Warsh to the Federal Reserve Board represents a significant macro tailwind for Bitcoin, signaling institutional acceptance at the highest levels of US monetary policy. Convergence of institutional infrastructure expansion (JPMorgan tokenized funds, Square's 1M merchants), positive regulatory momentum (Senate crypto bill debate), and influential macro analyst validation (Hayes' $126K target) creates a bullish technical and fundamental backdrop for the next 1-7 days.",
+  "risks": "Major miner capitulation (MARA's $1.5B BTC liquidation) and geopolitical escalation (Iran tensions/Strait of Hormuz disruption) could trigger a sudden risk-off reversal despite positive regulatory signals, especially if broader equity markets deteriorate.",
   "article_count": 36
 }
