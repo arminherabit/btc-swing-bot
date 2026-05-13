@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-13T11:00:30.6255285Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-13T16:00:31.0697510Z",
+  "score": -2,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Senate Confirms Bitcoin-Friendly Kevin Warsh to Fed Board, Clearing Path to Chairmanship",
-    "JPMorgan Files to Launch Tokenized Money Market Fund on Ethereum",
-    "Square Crosses 1 Million Bitcoin-Enabled Merchants as Real-World Adoption Continues to Grow"
+    "US PPI hit 6% matching 2022 levels, pushing BTC below $80k and reviving higher-for-longer rate concerns",
+    "JPMorgan and Charles Schwab launching tokenized products and spot Bitcoin trading platforms signal institutional bullishness",
+    "Senate CLARITY Act faces 100+ amendments ahead of Thursday markup with significant regulatory uncertainty"
   ],
-  "reasoning": "Positive institutional adoption signals (JPMorgan tokenized funds, Square's merchant expansion) and favorable regulatory developments (Kevin Warsh confirmation, CFTC backing prediction markets) provide meaningful bullish tailwinds. However, inflation concerns and significant corporate Bitcoin liquidations (MARA $1.5B, Exodus selling) create offsetting headwinds that limit upside momentum in the near term.",
-  "risks": "Hot inflation data reigniting Fed hawkishness and higher-for-longer rate expectations could cap Bitcoin's upside and reverse gains within the 1-7 day window.",
+  "reasoning": "Bitcoin faces near-term headwinds from hotter-than-expected inflation data that resurrects Fed rate hike concerns, offsetting positive institutional adoption catalysts. The regulatory environment remains highly uncertain with the markup vote Thursday potentially introducing additional volatility in the 1-7 day window.",
+  "risks": "A hawkish Fed pivot or additional inflation surprises could trigger a breakdown below $80k support, while legislative amendments could create negative regulatory sentiment for crypto markets.",
   "article_count": 36
 }
