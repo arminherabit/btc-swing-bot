@@ -5,7 +5,7 @@
   "total_qty": 0.0,
   "total_cost": 0.0,
   "highest_price": 0.0,
-  "last_signal": "WATCH: RSI 42 > threshold 38 for T1",
+  "last_signal": "WATCH: RSI 42.5 > threshold 38 for T1",
   "last_action": "none",
-  "last_run": "2026-05-13T20:00:25.9188703Z"
+  "last_run": "2026-05-13T21:00:24.6709805Z"
 }
