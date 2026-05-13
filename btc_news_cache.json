@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-13T07:00:23.3779757Z",
-  "score": 6,
+  "timestamp": "2026-05-13T11:00:30.6255285Z",
+  "score": 3,
   "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "recommendation": "proceed",
   "key_items": [
     "Senate Confirms Bitcoin-Friendly Kevin Warsh to Fed Board, Clearing Path to Chairmanship",
-    "Arthur Hayes Says The Bitcoin Bull Market Has Begun: $126,000 Is Next",
-    "JPMorgan to launch tokenized money market fund for stablecoin issuers"
+    "JPMorgan Files to Launch Tokenized Money Market Fund on Ethereum",
+    "Square Crosses 1 Million Bitcoin-Enabled Merchants as Real-World Adoption Continues to Grow"
   ],
-  "reasoning": "The confirmation of crypto-friendly Kevin Warsh to the Federal Reserve Board represents a significant macro tailwind for Bitcoin, signaling institutional acceptance at the highest levels of US monetary policy. Convergence of institutional infrastructure expansion (JPMorgan tokenized funds, Square's 1M merchants), positive regulatory momentum (Senate crypto bill debate), and influential macro analyst validation (Hayes' $126K target) creates a bullish technical and fundamental backdrop for the next 1-7 days.",
-  "risks": "Major miner capitulation (MARA's $1.5B BTC liquidation) and geopolitical escalation (Iran tensions/Strait of Hormuz disruption) could trigger a sudden risk-off reversal despite positive regulatory signals, especially if broader equity markets deteriorate.",
+  "reasoning": "Positive institutional adoption signals (JPMorgan tokenized funds, Square's merchant expansion) and favorable regulatory developments (Kevin Warsh confirmation, CFTC backing prediction markets) provide meaningful bullish tailwinds. However, inflation concerns and significant corporate Bitcoin liquidations (MARA $1.5B, Exodus selling) create offsetting headwinds that limit upside momentum in the near term.",
+  "risks": "Hot inflation data reigniting Fed hawkishness and higher-for-longer rate expectations could cap Bitcoin's upside and reverse gains within the 1-7 day window.",
   "article_count": 36
 }
