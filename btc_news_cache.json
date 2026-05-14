@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-14T07:00:29.7512873Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-14T12:00:24.4350076Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Kevin Warsh confirmed as Fed Chair - crypto-friendly replacement for Powell signals regulatory tailwind",
-    "CLARITY Act advances with Senate markup Thursday - major crypto legislation could 'rewire American finance'",
-    "US banks preparing for 'slow then fast' shift to digitized finance - institutional adoption acceleration ahead"
+    "Bitcoin ETFs shed $630M in largest daily exit since January amid inflation fears and Fed uncertainty",
+    "Bitcoin drops below $80,000 as profit-taking rises and US institutional demand falls sharply",
+    "Kevin Warsh confirmed as crypto-friendly Fed Chair, positive regulatory tailwinds offset by immediate profit-taking pressure"
   ],
-  "reasoning": "Positive regulatory catalysts (Warsh confirmation, CLARITY Act progress) provide structural support despite near-term profit-taking below $80k. However, macro headwinds (6% PPI inflation, bond yields at 1998 stress levels, declining US demand) create a mixed technical setup that favors cautious position accumulation rather than aggressive expansion.",
-  "risks": "Global financial crisis concerns (bond yields, inflation data) and weakening US demand could trigger accelerated profit-taking if Bitcoin loses $79k support, especially if Senate markup Thursday encounters unexpected opposition or amendment delays.",
+  "reasoning": "Bitcoin faces near-term headwinds from institutional profit-taking and weakening ETF inflows despite positive regulatory developments like Warsh's Fed confirmation and CFTC relief. The $80K level is being tested as a critical resistance zone with capital rotation toward altcoins and equities, creating downward pressure in the 1-7 day swing timeframe.",
+  "risks": "Continued institutional selling and a breakdown below $80,000 could trigger cascading liquidations and accelerate the decline toward lower technical support levels, particularly if global financial stress indicators worsen.",
   "article_count": 36
 }
