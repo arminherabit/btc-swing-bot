@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-13T21:00:24.5232447Z",
-  "score": 3,
-  "sentiment": "bullish",
+  "timestamp": "2026-05-14T02:00:21.2820933Z",
+  "score": 2,
+  "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Kevin Warsh confirmed as crypto-friendly Fed Chair replacing Powell",
-    "CLARITY Act Senate markup vote Thursday with 100+ amendments pending",
-    "Bitcoin traders expect fast move to $90K as selling pressure fades"
+    "Kevin Warsh confirmed as Fed Chair - crypto-friendly pivot signals long-term institutional support",
+    "CLARITY Act Senate vote Thursday with 100+ amendments - regulatory clarity bullish but passage uncertainty remains",
+    "Bitcoin breaks below $80K on 6% US PPI inflation print - near-term profit-taking and macro headwinds offsetting regulatory gains"
   ],
-  "reasoning": "Positive regulatory catalysts (Warsh confirmation, CLARITY Act advancement) and institutional adoption trends provide structural support, but short-term macro headwinds (6% US PPI inflation, bond yield stress, $70M whale shorts) create near-term volatility and resistance around $80-81K levels. The next 1-7 days hinge critically on CLARITY Act Thursday markup outcome and whether inflation data stabilizes.",
-  "risks": "Failed CLARITY Act vote or unfavorable amendments combined with deteriorating macroeconomic data (recession fears, rising bond yields at 1998 levels) could trigger sharp breakdown below $79K support.",
+  "reasoning": "The confirmation of pro-crypto Fed chair Kevin Warsh and advancing CLARITY Act legislation provide structural tailwinds for Bitcoin over weeks-to-months, but near-term technicals show profit-taking at resistance and macro inflation concerns (6% PPI matching 2022 levels) creating immediate downside pressure. The Thursday Senate vote is a critical catalyst with high execution risk given 100+ amendments, creating binary event uncertainty that could swing sentiment sharply either direction.",
+  "risks": "CLARITY Act fails to pass or emerges heavily amended/restrictive for DeFi, combined with continued US inflation data justifying Fed hawkishness, could trigger a decisive break below $80K support into capitulation selling.",
   "article_count": 36
 }
