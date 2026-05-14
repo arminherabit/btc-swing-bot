@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-14T12:00:24.4350076Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-14T17:00:40.3926240Z",
+  "score": 6,
+  "sentiment": "bullish",
+  "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin ETFs shed $630M in largest daily exit since January amid inflation fears and Fed uncertainty",
-    "Bitcoin drops below $80,000 as profit-taking rises and US institutional demand falls sharply",
-    "Kevin Warsh confirmed as crypto-friendly Fed Chair, positive regulatory tailwinds offset by immediate profit-taking pressure"
+    "Senate Banking Committee advances CLARITY Act with bipartisan support toward full Senate vote - major regulatory catalyst",
+    "Kevin Warsh confirmed as Bitcoin-friendly Fed Chair, creating favorable macro policy environment",
+    "Bitcoin holds $85K support as S&P 500 hits new ATH with skyrocketing risk appetite despite inflation concerns"
   ],
-  "reasoning": "Bitcoin faces near-term headwinds from institutional profit-taking and weakening ETF inflows despite positive regulatory developments like Warsh's Fed confirmation and CFTC relief. The $80K level is being tested as a critical resistance zone with capital rotation toward altcoins and equities, creating downward pressure in the 1-7 day swing timeframe.",
-  "risks": "Continued institutional selling and a breakdown below $80,000 could trigger cascading liquidations and accelerate the decline toward lower technical support levels, particularly if global financial stress indicators worsen.",
+  "reasoning": "The CLARITY Act's advancing through Senate committee with bipartisan backing and Bitcoin-friendly Fed chair confirmation represent substantial near-term catalysts that could unlock institutional capital flows. Bitcoin's recovery resilience despite macro headwinds, coupled with $30B+ estimated Bitcoin buying capacity from Strategy (MicroStrategy) and other corporate treasuries, suggests strong fundamental support above key $80K level.",
+  "risks": "A breakdown below $80K support combined with geopolitical tension from Trump's China visit or disappointing Senate CLARITY vote could trigger $1B+ in long liquidations and test lower structural support levels.",
   "article_count": 36
 }
