@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-14T02:00:21.2820933Z",
-  "score": 2,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-14T07:00:29.7512873Z",
+  "score": 3,
+  "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "Kevin Warsh confirmed as Fed Chair - crypto-friendly pivot signals long-term institutional support",
-    "CLARITY Act Senate vote Thursday with 100+ amendments - regulatory clarity bullish but passage uncertainty remains",
-    "Bitcoin breaks below $80K on 6% US PPI inflation print - near-term profit-taking and macro headwinds offsetting regulatory gains"
+    "Kevin Warsh confirmed as Fed Chair - crypto-friendly replacement for Powell signals regulatory tailwind",
+    "CLARITY Act advances with Senate markup Thursday - major crypto legislation could 'rewire American finance'",
+    "US banks preparing for 'slow then fast' shift to digitized finance - institutional adoption acceleration ahead"
   ],
-  "reasoning": "The confirmation of pro-crypto Fed chair Kevin Warsh and advancing CLARITY Act legislation provide structural tailwinds for Bitcoin over weeks-to-months, but near-term technicals show profit-taking at resistance and macro inflation concerns (6% PPI matching 2022 levels) creating immediate downside pressure. The Thursday Senate vote is a critical catalyst with high execution risk given 100+ amendments, creating binary event uncertainty that could swing sentiment sharply either direction.",
-  "risks": "CLARITY Act fails to pass or emerges heavily amended/restrictive for DeFi, combined with continued US inflation data justifying Fed hawkishness, could trigger a decisive break below $80K support into capitulation selling.",
+  "reasoning": "Positive regulatory catalysts (Warsh confirmation, CLARITY Act progress) provide structural support despite near-term profit-taking below $80k. However, macro headwinds (6% PPI inflation, bond yields at 1998 stress levels, declining US demand) create a mixed technical setup that favors cautious position accumulation rather than aggressive expansion.",
+  "risks": "Global financial crisis concerns (bond yields, inflation data) and weakening US demand could trigger accelerated profit-taking if Bitcoin loses $79k support, especially if Senate markup Thursday encounters unexpected opposition or amendment delays.",
   "article_count": 36
 }
