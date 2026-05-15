@@ -8,9 +8,16 @@ on:
 permissions:
   contents: write             # Needed to commit state back to repo
 
+# Drop any queued run the moment a newer one is ready.
+# This prevents runner starvation from stacking up stale cycles.
+concurrency:
+  group: btc-bot
+  cancel-in-progress: true
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    timeout-minutes: 10       # Hard cap — fail fast if runner stalls
 
     steps:
       - name: Checkout repo
