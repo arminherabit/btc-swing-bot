@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-14T21:55:54.2527275Z",
-  "score": 6,
-  "sentiment": "bullish",
+  "timestamp": "2026-05-15T02:00:32.4229338Z",
+  "score": 7,
+  "sentiment": "strongly_bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Senate Banking Committee advances CLARITY Act with 15-9 bipartisan vote, clearing major path to full Senate floor passage",
-    "Bitcoin surges past $82K on regulatory clarity momentum while institutional demand remains strong via STRC/SATA dividend mechanisms",
-    "S&P 500 hits new all-time highs with skyrocketing risk appetite, supporting Bitcoin's recovery above key $80-81K support levels"
+    "Senate Banking Committee advances CLARITY Act 15-9 with bipartisan support, clearing major hurdle for comprehensive crypto regulation and institutional adoption",
+    "Institutional capital inflows accelerating: Dartmouth endowment invests $14M in crypto ETFs, Onramp raises $12.5M Series A, Strategy's STRC/SATA preferred shares driving daily Bitcoin buying",
+    "Bitcoin breaks above $81-82K resistance on CLARITY Act momentum with analysts projecting $86K retest and potential $150K scenarios if major institutions allocate capital"
   ],
-  "reasoning": "The CLARITY Act advancement represents the most significant bullish catalyst, removing regulatory uncertainty and signaling bipartisan support for crypto market structure legitimacy. Combined with strong institutional inflows through MicroStrategy's STRC and Strive's SATA (daily 13% Bitcoin-backed dividends), and synchronized equity market strength, Bitcoin has multiple tailwinds supporting a $85-86K retest within the 1-7 day swing window.",
-  "risks": "The $80K breakdown and $1 billion long liquidation trap warning suggest one more shake-out could trigger cascading margin calls; additionally, bearish analysts flagging potential 50-78% crashes and redistribution phase patterns create elevated volatility risk if momentum falters.",
+  "reasoning": "The CLARITY Act's advancement represents a major regulatory catalyst removing uncertainty that has constrained institutional participation, while simultaneous structural inflows from preferred share mechanisms and endowment allocations create sustained demand. Multiple confluence factors—legislative clarity, institutional product proliferation, and technical breakout above key resistance—align for continued 1-7 day upside momentum.",
+  "risks": "A surprise Senate floor rejection or amendment gutting crypto provisions could trigger sharp liquidation cascade, especially with $1B in long positions crowded at leveraged levels between $79-80K support.",
   "article_count": 36
 }
