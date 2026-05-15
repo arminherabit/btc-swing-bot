@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-15T16:17:29.3493322Z",
-  "score": 4,
+  "timestamp": "2026-05-15T20:43:58.4339759Z",
+  "score": 3,
   "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin price dives under $79K as US bond market triggers 3% BTC price rout — macroeconomic headwinds from rising Treasury yields causing near-term weakness",
-    "Senate Advances CLARITY Act with bipartisan support — positive regulatory catalyst reducing institutional uncertainty and enabling crypto banking infrastructure",
-    "Strategy (MSTR) files to repurchase $1.5B convertible debt while holding 818,869 BTC — major institutional accumulation signal with largest corporate Bitcoin reserve"
+    "Trump family trust and major institutions (Mubadala, Winklevoss) accumulating Bitcoin and crypto stocks aggressively in Q1",
+    "Most pro-Bitcoin Federal Reserve Board composition in history signals favorable macro policy ahead",
+    "CLARITY Act advancing through Senate with crypto lobby gaining unprecedented political power despite partisan resistance"
   ],
-  "reasoning": "Bitcoin faces conflicting forces: near-term macroeconomic pressure from surging Treasury yields and ETF outflows (worst pace since February) creating a 1-3 day downside risk to $77-78K, but this is offset by strong fundamental tailwinds including CLARITY Act legislative progress, record institutional accumulation via Strategy/MSTR, Trump family trust Bitcoin purchases, and regulatory clarity attracting institutional capital. The swing trade setup suggests a capitulation dip in days 1-3 followed by a recovery higher into week 2 as regulatory momentum and institutional flows dominate.",
-  "risks": "Treasury yields continuing to spike above current levels could trigger broader risk-asset liquidation cascade, potentially pushing Bitcoin down 5-8% to $74-75K support if macro sentiment shifts sharply.",
+  "reasoning": "Strong institutional accumulation by Trump family, Mubadala, and major Bitcoin firms combined with historic pro-crypto Fed leadership creates sustained bullish momentum over 1-7 days. However, macro headwinds from Treasury yield surges and whale profit-taking at resistance levels ($79-82k) create near-term consolidation pressure that prevents a stronger bullish rating.",
+  "risks": "Treasury yields surging to new highs and large holders moving $700M+ BTC to exchanges for profit-taking could trigger a sharp pullback below $76,000 support if macro risk-off sentiment accelerates.",
   "article_count": 36
 }
