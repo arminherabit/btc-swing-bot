@@ -1,6 +1,6 @@
-# BTC Dip Ladder Bot
-# Strategy: Buy RSI dips in 3 tranches ($167 each), exit on RSI recovery or trailing stop.
-# Runs on Binance.US, gated by Claude news sentiment.
+# BTC Dip Ladder Bot v2
+# Improvements: bull/bear adaptive thresholds via SMA200, no volume gate,
+# 12h min hold before trailing stop, reduced dip requirement, raised RSI entries.
 
 param([switch]$Once)
 
@@ -97,7 +97,8 @@ function Load-State {
             foreach ($f in @("tranche_count","highest_price","total_cost","avg_entry","total_qty")) {
                 if ($null -eq $s.$f) { Add-Member -InputObject $s -NotePropertyName $f -NotePropertyValue 0 }
             }
-            if ($null -eq $s.last_action) { Add-Member -InputObject $s -NotePropertyName last_action -NotePropertyValue "none" }
+            if ($null -eq $s.last_action)  { Add-Member -InputObject $s -NotePropertyName last_action  -NotePropertyValue "none" }
+            if ($null -eq $s.entry_time)   { Add-Member -InputObject $s -NotePropertyName entry_time   -NotePropertyValue ""    }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -111,6 +112,7 @@ function Load-State {
         total_qty     = 0.0
         total_cost    = 0.0
         highest_price = 0.0
+        entry_time    = ""
         last_signal   = "INIT"
         last_action   = "none"
         last_run      = ""
@@ -124,17 +126,18 @@ function Save-State($s) {
 # -- Main cycle --
 
 function Run-Cycle {
-    $state = Load-State
-    $now   = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")
-    $price = Get-Price
+    $state   = Load-State
+    $nowDt   = (Get-Date).ToUniversalTime()
+    $now     = $nowDt.ToString("yyyy-MM-dd HH:mm:ss")
+    $price   = Get-Price
 
     Write-Host ""
-    Write-Host ("="*66)
-    Write-Host ("  BTC DIP LADDER BOT  --  {0} UTC" -f $now)
+    Write-Host ("="*68)
+    Write-Host ("  BTC DIP LADDER BOT v2  --  {0} UTC" -f $now)
     Write-Host ("  BTC: `${0}  |  Tranches: {1}/3  |  Status: {2}" -f `
         $price.ToString("N2"), [int]$state.tranche_count, `
         $(if ($state.in_position) { "IN POSITION" } else { "WATCHING" }))
-    Write-Host ("="*66)
+    Write-Host ("="*68)
 
     # -- News --
     $news      = Get-Newssentiment $cfg.anthropic_api_key ([int]$cfg.news_cache_hours)
@@ -144,21 +147,37 @@ function Run-Cycle {
     Write-Host ("  News: {0}/10 {1}  [{2}]" -f $news.Score, $news.Sentiment.ToUpper(), $cacheTag)
     Write-Host ("  {0}" -f $news.Reasoning)
 
-    # -- 4H indicators --
-    $candles   = Get-Klines "4h" 60
+    # -- Fetch 210 x 4H candles (200 for SMA200 + buffer for RSI) --
+    $candles         = Get-Klines "4h" 210
     [double[]]$closes = $candles | ForEach-Object { $_.Close }
-    $rsi4h     = [Math]::Round((Get-RSI $closes), 1)
+    $rsi4h           = [Math]::Round((Get-RSI $closes), 1)
 
+    # -- SMA200 and bull/bear mode --
+    [double[]]$last200 = $closes | Select-Object -Last 200
+    $sma200    = [Math]::Round(($last200 | Measure-Object -Sum).Sum / 200, 2)
+    $bullMode  = ($price -gt $sma200)
+    $modeLabel = if ($bullMode) { "BULL" } else { "BEAR" }
+
+    # -- Adaptive thresholds --
+    $bearOffset = [int]$cfg.rsi_bear_offset
+    $rsi1   = if ($bullMode) { [int]$cfg.rsi_tranche1 }        else { [int]$cfg.rsi_tranche1 - $bearOffset }
+    $rsi2   = if ($bullMode) { [int]$cfg.rsi_tranche2 }        else { [int]$cfg.rsi_tranche2 - $bearOffset }
+    $rsi3   = if ($bullMode) { [int]$cfg.rsi_tranche3 }        else { [int]$cfg.rsi_tranche3 - $bearOffset }
+    $dipReq = if ($bullMode) { [double]$cfg.dip_pct_required }  else { [double]$cfg.dip_pct_bear }
+
+    # -- 5-day high and dip % --
     $recent      = $candles | Select-Object -Last 30
     $fiveDayHigh = ($recent | Measure-Object -Property High -Maximum).Maximum
     $dipPct      = [Math]::Round((($fiveDayHigh - $price) / $fiveDayHigh) * 100, 2)
 
+    # -- Volume (display only -- no longer gates entry) --
     [double[]]$vols = $candles | Select-Object -Last 21 | ForEach-Object { $_.Volume }
     $avgVol = ($vols[0..19] | Measure-Object -Sum).Sum / 20
-    $volOk  = ($vols[20] -ge $avgVol * 0.8)
+    $volPct = if ($avgVol -gt 0) { [Math]::Round(($vols[20] / $avgVol) * 100, 0) } else { 0 }
 
-    Write-Host ("  RSI(4H): {0}  |  Dip from 5d-high: {1}%  |  Volume: {2}" -f `
-        $rsi4h, $dipPct, $(if ($volOk) { "OK" } else { "LOW" }))
+    Write-Host ("  Mode: {0} (SMA200: `${1})  RSI(4H): {2}  Dip: {3}%  Vol: {4}% of avg" -f `
+        $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct)
+    Write-Host ("  Entry thresholds: T1<{0}  T2<{1}  T3<{2}  Dip>={3}%" -f $rsi1, $rsi2, $rsi3, $dipReq)
 
     # ── EXIT ──────────────────────────────────────────────────────────────────
 
@@ -171,15 +190,26 @@ function Run-Cycle {
         $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - [double]$cfg.trailing_stop_pct / 100.0), 2)
         $hardStop  = [Math]::Round($avgEntry * (1.0 - [double]$cfg.hard_stop_pct / 100.0), 2)
 
+        # -- Min hold time check (trailing stop only) --
+        $holdHours   = 0.0
+        $minHoldMet  = $false
+        if ($state.entry_time -ne "") {
+            try {
+                $holdHours  = [Math]::Round((New-TimeSpan -Start ([datetime]$state.entry_time) -End $nowDt).TotalHours, 1)
+                $minHoldMet = ($holdHours -ge [double]$cfg.min_hold_hours)
+            } catch { $minHoldMet = $true }
+        } else { $minHoldMet = $true }
+
         Write-Host ("  POSITION: avg `${0}  qty {1} BTC  PnL: {2}%" -f `
             $avgEntry.ToString("N2"), (Fmt-Qty $state.total_qty), $pnlPct)
-        Write-Host ("  Trail stop: `${0}  Hard stop: `${1}  Peak: `${2}" -f `
-            $trailStop.ToString("N2"), $hardStop.ToString("N2"), ([double]$state.highest_price).ToString("N2"))
+        Write-Host ("  Peak: `${0}  Trail: `${1}  Hard: `${2}  Held: {3}h / {4}h min" -f `
+            ([double]$state.highest_price).ToString("N2"), $trailStop.ToString("N2"), `
+            $hardStop.ToString("N2"), $holdHours, $cfg.min_hold_hours)
 
         $exitReason = ""
-        if ($rsi4h -ge [int]$cfg.rsi_exit) { $exitReason = "RSI " + $rsi4h + " >= " + $cfg.rsi_exit + " overbought" }
-        if ($price -le $trailStop)         { $exitReason = "Trailing stop hit at `$" + $trailStop }
-        if ($price -le $hardStop)          { $exitReason = "Hard stop hit at `$" + $hardStop }
+        if ($rsi4h -ge [int]$cfg.rsi_exit)             { $exitReason = "RSI " + $rsi4h + " >= " + $cfg.rsi_exit + " overbought" }
+        if ($minHoldMet -and $price -le $trailStop)    { $exitReason = "Trailing stop `$" + $trailStop + " (held " + $holdHours + "h)" }
+        if ($price -le $hardStop)                       { $exitReason = "Hard stop `$" + $hardStop }
 
         if ($exitReason -ne "") {
             Write-Host ("  EXIT SIGNAL: {0}" -f $exitReason)
@@ -193,11 +223,13 @@ function Run-Cycle {
                 $state.total_qty      = 0.0
                 $state.total_cost     = 0.0
                 $state.highest_price  = 0.0
+                $state.entry_time     = ""
                 $state.last_action    = "SELL"
                 $state.last_signal    = "EXIT: " + $exitReason
             }
         } else {
-            Write-Host ("  HOLDING  --  RSI {0} (sell at >= {1})" -f $rsi4h, $cfg.rsi_exit)
+            $trailStatus = if ($minHoldMet) { "active" } else { "armed in " + [Math]::Round([double]$cfg.min_hold_hours - $holdHours, 1) + "h" }
+            Write-Host ("  HOLDING  --  RSI {0} (sell >= {1})  Trail: {2}" -f $rsi4h, $cfg.rsi_exit, $trailStatus)
             $state.last_signal = "HOLD"
             $state.last_action = "hold"
         }
@@ -212,24 +244,26 @@ function Run-Cycle {
         $trancheUsdt = [double]$cfg.tranche_size_usdt
 
         $rsiThreshold = switch ($tc) {
-            0       { [int]$cfg.rsi_tranche1 }
-            1       { [int]$cfg.rsi_tranche2 }
-            2       { [int]$cfg.rsi_tranche3 }
+            0       { $rsi1 }
+            1       { $rsi2 }
+            2       { $rsi3 }
             default { 0 }
         }
 
-        $dipOk  = ($dipPct -ge [double]$cfg.dip_pct_required)
+        $dipOk  = ($dipPct -ge $dipReq)
         $rsiOk  = ($rsi4h  -le $rsiThreshold)
         $canAdd = ($tc -lt $maxTranches)
 
+        # News boost skips dip check for T1
         if ($newsBoost -and $tc -eq 0) { $dipOk = $true }
+        # Additional tranches don't need fresh dip check
         if ($tc -gt 0 -and $rsiOk)    { $dipOk = $true }
 
-        if ($canAdd -and $rsiOk -and $dipOk -and $volOk) {
+        if ($canAdd -and $rsiOk -and $dipOk) {
 
             $qty = [Math]::Round($trancheUsdt / $price, 5)
-            Write-Host ("  BUY TRANCHE {0}/3  RSI={1}  Dip={2}%  Qty={3} BTC @ `${4}" -f `
-                ($tc + 1), $rsi4h, $dipPct, (Fmt-Qty $qty), $price.ToString("N2"))
+            Write-Host ("  BUY TRANCHE {0}/3  RSI={1}  Dip={2}%  Mode={3}  Qty={4} BTC @ `${5}" -f `
+                ($tc + 1), $rsi4h, $dipPct, $modeLabel, (Fmt-Qty $qty), $price.ToString("N2"))
 
             $order = Place-MarketOrder "BUY" $qty
             if ($null -ne $order) {
@@ -241,17 +275,18 @@ function Run-Cycle {
                 $state.total_cost    = $newCost
                 $state.avg_entry     = [Math]::Round($newCost / $newQty, 2)
                 if ([double]$state.highest_price -lt $price) { $state.highest_price = $price }
+                # Record entry time on first tranche only
+                if ($tc -eq 0) { $state.entry_time = $nowDt.ToString("o") }
                 $state.last_action   = "BUY_T" + ($tc + 1)
-                $state.last_signal   = "BUY TRANCHE " + ($tc + 1) + "/3"
+                $state.last_signal   = "BUY TRANCHE " + ($tc + 1) + "/3 (" + $modeLabel + ")"
                 Write-Host ("  Avg entry: `${0}  Total: {1} BTC  Cost: `${2}" -f `
                     $state.avg_entry.ToString("N2"), (Fmt-Qty $newQty), $newCost.ToString("N2"))
             }
 
         } elseif ($canAdd) {
-            $reason = if (-not $rsiOk)  { "RSI " + $rsi4h + " > threshold " + $rsiThreshold + " for T" + ($tc+1) } `
-                      elseif (-not $dipOk)  { "dip " + $dipPct + "% < required " + $cfg.dip_pct_required + "%" } `
-                      elseif (-not $volOk)  { "volume too low" } `
-                      else                  { "conditions not met" }
+            $reason = if (-not $rsiOk) { "RSI " + $rsi4h + " > T" + ($tc+1) + " threshold " + $rsiThreshold + " (" + $modeLabel + ")" } `
+                      elseif (-not $dipOk) { "dip " + $dipPct + "% < required " + $dipReq + "% (" + $modeLabel + ")" } `
+                      else { "conditions not met" }
             Write-Host ("  WATCHING  --  {0}" -f $reason)
             if (-not $state.in_position) {
                 $state.last_signal = "WATCH: " + $reason
@@ -269,12 +304,12 @@ function Run-Cycle {
         }
     }
 
-    $state.last_run = (Get-Date).ToUniversalTime().ToString("o")
+    $state.last_run = $nowDt.ToString("o")
     Save-State $state
 
     Write-Host ""
     Write-Host ("  State saved. Next check in ~1 hour.")
-    Write-Host ("="*66)
+    Write-Host ("="*68)
 }
 
 # -- Entry point --

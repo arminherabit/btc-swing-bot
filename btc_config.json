@@ -8,14 +8,17 @@
   "tranche_size_usdt": 167,
   "max_tranches":      3,
 
-  "rsi_tranche1":  38,
-  "rsi_tranche2":  32,
-  "rsi_tranche3":  28,
-  "rsi_exit":      60,
+  "rsi_tranche1":   42,
+  "rsi_tranche2":   36,
+  "rsi_tranche3":   30,
+  "rsi_exit":       60,
+  "rsi_bear_offset": 7,
 
-  "dip_pct_required":  3.0,
+  "dip_pct_required": 1.5,
+  "dip_pct_bear":     4.0,
   "trailing_stop_pct": 3.0,
   "hard_stop_pct":     5.0,
+  "min_hold_hours":   12,
 
   "news_cache_hours":      4,
   "news_skip_threshold":  -5,
