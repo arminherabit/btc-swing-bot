@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-15T07:00:21.5250616Z",
+  "timestamp": "2026-05-15T12:00:35.8952052Z",
   "score": 7,
   "sentiment": "strongly_bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Senate Banking Committee advances CLARITY Act with 15-9 bipartisan vote, clearing major hurdle for comprehensive crypto regulation",
-    "Bitcoin surges past $82,000 as STRC and SATA fuel institutional Bitcoin credit boom with daily dividend mechanisms",
-    "Institutional adoption accelerates with Dartmouth endowment crypto exposure, Onramp $12.5M Series A funding, and major exchange infrastructure upgrades"
+    "Senate Banking Committee advances CLARITY Act 15-9 with bipartisan support, clearing major regulatory hurdle for crypto legislation",
+    "Strategy's STRC Bitcoin acquisition machine accumulates 818,869 BTC ($66B position) with $1.5B trading volume spike fueling mid-month rallies",
+    "Bitcoin surges past $82K on regulatory clarity catalyst as institutional adoption accelerates through preferred share dividend structures (SATA/STRC)"
   ],
-  "reasoning": "The CLARITY Act advancement represents a watershed moment for crypto legitimacy and removes regulatory uncertainty that has historically suppressed Bitcoin volatility. Concurrent institutional inflows through structured products (STRC daily dividends, SATA preferred shares), endowment allocations, and custody infrastructure expansion create a multi-catalyst bullish environment that should sustain upward momentum through the 7-day swing window.",
-  "risks": "A $1 billion liquidation trap exists below $80,000 if macro sentiment shifts or equities weaken, and any unexpected legislative setback could rapidly reverse the regulatory tailwind that is currently driving institutional capital deployment.",
+  "reasoning": "The CLARITY Act's advancement through Senate Banking Committee represents the most significant regulatory tailwind for crypto in years, removing existential uncertainty and opening institutional capital floodgates. Combined with Strategy's massive ongoing Bitcoin accumulation program (818K+ BTC) and new financial instruments (SATA daily dividends at 13%), macro conditions are aligning for sustained upside momentum despite short-term profit-taking at $82K resistance.",
+  "risks": "Bitcoin has failed three breakout attempts above $82K with elevated short-term holder selling, and profit-taking on Ethereum (3-week high realized profits) could indicate broader market fatigue that spreads to BTC if CLARITY Act fails in full Senate vote or faces unexpected legislative setbacks.",
   "article_count": 36
 }
