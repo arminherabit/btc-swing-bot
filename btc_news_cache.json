@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-15T12:00:35.8952052Z",
-  "score": 7,
-  "sentiment": "strongly_bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-05-15T16:17:29.3493322Z",
+  "score": 4,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Senate Banking Committee advances CLARITY Act 15-9 with bipartisan support, clearing major regulatory hurdle for crypto legislation",
-    "Strategy's STRC Bitcoin acquisition machine accumulates 818,869 BTC ($66B position) with $1.5B trading volume spike fueling mid-month rallies",
-    "Bitcoin surges past $82K on regulatory clarity catalyst as institutional adoption accelerates through preferred share dividend structures (SATA/STRC)"
+    "Bitcoin price dives under $79K as US bond market triggers 3% BTC price rout — macroeconomic headwinds from rising Treasury yields causing near-term weakness",
+    "Senate Advances CLARITY Act with bipartisan support — positive regulatory catalyst reducing institutional uncertainty and enabling crypto banking infrastructure",
+    "Strategy (MSTR) files to repurchase $1.5B convertible debt while holding 818,869 BTC — major institutional accumulation signal with largest corporate Bitcoin reserve"
   ],
-  "reasoning": "The CLARITY Act's advancement through Senate Banking Committee represents the most significant regulatory tailwind for crypto in years, removing existential uncertainty and opening institutional capital floodgates. Combined with Strategy's massive ongoing Bitcoin accumulation program (818K+ BTC) and new financial instruments (SATA daily dividends at 13%), macro conditions are aligning for sustained upside momentum despite short-term profit-taking at $82K resistance.",
-  "risks": "Bitcoin has failed three breakout attempts above $82K with elevated short-term holder selling, and profit-taking on Ethereum (3-week high realized profits) could indicate broader market fatigue that spreads to BTC if CLARITY Act fails in full Senate vote or faces unexpected legislative setbacks.",
+  "reasoning": "Bitcoin faces conflicting forces: near-term macroeconomic pressure from surging Treasury yields and ETF outflows (worst pace since February) creating a 1-3 day downside risk to $77-78K, but this is offset by strong fundamental tailwinds including CLARITY Act legislative progress, record institutional accumulation via Strategy/MSTR, Trump family trust Bitcoin purchases, and regulatory clarity attracting institutional capital. The swing trade setup suggests a capitulation dip in days 1-3 followed by a recovery higher into week 2 as regulatory momentum and institutional flows dominate.",
+  "risks": "Treasury yields continuing to spike above current levels could trigger broader risk-asset liquidation cascade, potentially pushing Bitcoin down 5-8% to $74-75K support if macro sentiment shifts sharply.",
   "article_count": 36
 }
