@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-16T11:00:25.9374796Z",
-  "score": 2,
+  "timestamp": "2026-05-16T16:00:23.6851558Z",
+  "score": 1,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Spot Bitcoin ETFs bleed $1B in a week, snapping six-week inflow run - capital rotation to AI stocks",
-    "US CLARITY Act brings regulatory clarity but Santiment warns crowd euphoria typically precedes reversals",
-    "US Treasury yields surge to new highs, pushing Bitcoin below $80,000 resistance - bond market reasserting control"
+    "Spot Bitcoin ETFs shed $1B in single week, snapping six-week inflow run amid macro uncertainty and AI stock rotation",
+    "US Treasury yields surge to new highs as bond market reclaims control, pushing Bitcoin below $82,000 resistance",
+    "US CLARITY Act generates bullish sentiment but Santiment warns crypto typically moves against crowd expectations"
   ],
-  "reasoning": "Bitcoin faces conflicting headwinds: positive regulatory momentum from CLARITY Act and strong institutional adoption signals (Mubadala +16%, Winklevoss $100M bet, Trump family purchases) are offset by rising Treasury yields, ETF outflows ($1B), and macro uncertainty around inflation/Fed rate expectations. The market is caught between genuine bullish catalysts and technical weakness, creating a consolidation range rather than a directional breakout over the 1-7 day swing window.",
-  "risks": "Unexpected Fed hawkish pivot or hotter-than-expected inflation data could trigger liquidations in leveraged positions and accelerate ETF outflows below the $80,000 support level.",
+  "reasoning": "Bitcoin faces conflicting pressures: negative institutional flows ($1B ETF outflows), rising Treasury yields constraining risk assets, and macro uncertainty offset somewhat by regulatory clarity tailwinds (CLARITY Act) and institutional adoption signals (Mubadala, Trump family, Winklevoss). The divergence between sentiment-driven euphoria and actual capital flows suggests a consolidation phase rather than decisive directional move.",
+  "risks": "Escalating Treasury yields and potential Fed rate-hike concerns could trigger rapid deleveraging of overleveraged retail positions, particularly given record leveraged ETF inflows creating fragile technical support near $80,000.",
   "article_count": 36
 }
