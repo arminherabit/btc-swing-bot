@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-16T16:00:23.6851558Z",
-  "score": 1,
-  "sentiment": "neutral",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-16T20:07:36.1029154Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Spot Bitcoin ETFs shed $1B in single week, snapping six-week inflow run amid macro uncertainty and AI stock rotation",
-    "US Treasury yields surge to new highs as bond market reclaims control, pushing Bitcoin below $82,000 resistance",
-    "US CLARITY Act generates bullish sentiment but Santiment warns crypto typically moves against crowd expectations"
+    "Bitcoin ETF flows reverse as US funds shed $1B amid inflation fears - most severe weekly capital flight since end of January",
+    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin back below $82,000 resistance",
+    "BlackRock just sold $317 million worth of Bitcoin as institutional investors pull hundreds of millions during market reversal"
   ],
-  "reasoning": "Bitcoin faces conflicting pressures: negative institutional flows ($1B ETF outflows), rising Treasury yields constraining risk assets, and macro uncertainty offset somewhat by regulatory clarity tailwinds (CLARITY Act) and institutional adoption signals (Mubadala, Trump family, Winklevoss). The divergence between sentiment-driven euphoria and actual capital flows suggests a consolidation phase rather than decisive directional move.",
-  "risks": "Escalating Treasury yields and potential Fed rate-hike concerns could trigger rapid deleveraging of overleveraged retail positions, particularly given record leveraged ETF inflows creating fragile technical support near $80,000.",
+  "reasoning": "Macro headwinds are overwhelming micro bullish catalysts as rising Treasury yields and capital flight from institutional investors create downward pressure on BTC. The bear trap narrative suggests limited downside capitulation, but the $1B+ weekly ETF outflows and liquidity tightening indicate the bond market has reasserted control over crypto trading.",
+  "risks": "Further Treasury yield spikes or negative US economic data could trigger accelerated institutional liquidations, pushing BTC toward the $75K-$76K support levels mentioned by technical analysts.",
   "article_count": 36
 }
