@@ -1,12 +1,12 @@
 {
   "in_position": true,
-  "tranche_count": 1,
-  "avg_entry": 78773.58,
-  "total_qty": 0.00212,
-  "total_cost": 167.0,
+  "tranche_count": 2,
+  "avg_entry": 78588.24,
+  "total_qty": 0.00425,
+  "total_cost": 334.0,
   "highest_price": 79404.68,
-  "last_signal": "HOLD",
-  "last_action": "hold",
-  "last_run": "2026-05-16T07:00:21.2878976Z",
+  "last_signal": "BUY TRANCHE 2/3 (BULL)",
+  "last_action": "BUY_T2",
+  "last_run": "2026-05-16T08:00:17.3849421Z",
   "entry_time": "2026-05-15T14:00:18.8410651Z"
 }
