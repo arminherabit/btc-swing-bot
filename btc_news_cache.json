@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-16T06:00:25.1976136Z",
-  "score": 4,
-  "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-05-16T11:00:25.9374796Z",
+  "score": 2,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "US CLARITY Act brings 'major spike of euphoria' to Bitcoin amid renewed legislative momentum",
-    "Trump Family Trust and institutional players (Mubadala, Gemini) executing significant Bitcoin-related purchases",
-    "Most pro-Bitcoin Federal Reserve Board to date could boost crypto industry"
+    "Spot Bitcoin ETFs bleed $1B in a week, snapping six-week inflow run - capital rotation to AI stocks",
+    "US CLARITY Act brings regulatory clarity but Santiment warns crowd euphoria typically precedes reversals",
+    "US Treasury yields surge to new highs, pushing Bitcoin below $80,000 resistance - bond market reasserting control"
   ],
-  "reasoning": "Multiple institutional tailwinds and pro-crypto regulatory progress (CLARITY Act advancement, pro-Bitcoin Fed leadership) are creating genuine medium-term bullish conditions, though short-term technical weakness below $82k and rising Treasury yields indicate consolidation before the next leg up. The convergence of corporate treasury accumulation (Trump family, Mubadala, Strategy), improved regulatory clarity, and Fed policy shift outweighs near-term macroeconomic headwinds for a 1-7 day swing trading window.",
-  "risks": "US Treasury yields surging to new highs and bond market reclaiming control could trigger a rapid reversal below $80k if inflation data disappoints or Fed rate-hike expectations return, particularly given stretched leverage in Bitcoin ETFs.",
+  "reasoning": "Bitcoin faces conflicting headwinds: positive regulatory momentum from CLARITY Act and strong institutional adoption signals (Mubadala +16%, Winklevoss $100M bet, Trump family purchases) are offset by rising Treasury yields, ETF outflows ($1B), and macro uncertainty around inflation/Fed rate expectations. The market is caught between genuine bullish catalysts and technical weakness, creating a consolidation range rather than a directional breakout over the 1-7 day swing window.",
+  "risks": "Unexpected Fed hawkish pivot or hotter-than-expected inflation data could trigger liquidations in leveraged positions and accelerate ETF outflows below the $80,000 support level.",
   "article_count": 36
 }
