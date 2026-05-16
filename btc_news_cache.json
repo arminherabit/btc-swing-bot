@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-16T01:00:23.1571587Z",
-  "score": 2,
-  "sentiment": "neutral",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-16T06:00:25.1976136Z",
+  "score": 4,
+  "sentiment": "bullish",
+  "recommendation": "boost_size",
   "key_items": [
-    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin back below $82,000 resistance",
-    "Trump family trust and institutional players (Mubadala, Gemini) continue accumulating Bitcoin and crypto assets despite price weakness",
-    "Bitcoin large holders move over $700 million to exchanges suggesting profit-taking, while regulatory clarity advances with Senate Banking Committee's Digital Asset Market Clarity Act"
+    "US CLARITY Act brings 'major spike of euphoria' to Bitcoin amid renewed legislative momentum",
+    "Trump Family Trust and institutional players (Mubadala, Gemini) executing significant Bitcoin-related purchases",
+    "Most pro-Bitcoin Federal Reserve Board to date could boost crypto industry"
   ],
-  "reasoning": "Bitcoin faces near-term headwinds from rising Treasury yields and macro liquidity tightening that's keeping the asset pinned below $82k resistance, with whale profit-taking adding downward pressure. However, strong institutional adoption signals (Trump family trades, Abu Dhabi's 16% Mubadala increase, MSTR's $1.5B buyback program, most pro-Bitcoin Fed board ever) and advancing regulatory clarity through the CLARITY Act provide structural support and suggest this weakness is temporary consolidation rather than trend reversal.",
-  "risks": "Further spike in US Treasury yields or Fed rate-hike expectations could trigger a sharp breakdown below the $76,000 support level as macro factors currently override positive crypto fundamentals.",
+  "reasoning": "Multiple institutional tailwinds and pro-crypto regulatory progress (CLARITY Act advancement, pro-Bitcoin Fed leadership) are creating genuine medium-term bullish conditions, though short-term technical weakness below $82k and rising Treasury yields indicate consolidation before the next leg up. The convergence of corporate treasury accumulation (Trump family, Mubadala, Strategy), improved regulatory clarity, and Fed policy shift outweighs near-term macroeconomic headwinds for a 1-7 day swing trading window.",
+  "risks": "US Treasury yields surging to new highs and bond market reclaiming control could trigger a rapid reversal below $80k if inflation data disappoints or Fed rate-hike expectations return, particularly given stretched leverage in Bitcoin ETFs.",
   "article_count": 36
 }
