@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-15T20:43:58.4339759Z",
-  "score": 3,
-  "sentiment": "bullish",
+  "timestamp": "2026-05-16T01:00:23.1571587Z",
+  "score": 2,
+  "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Trump family trust and major institutions (Mubadala, Winklevoss) accumulating Bitcoin and crypto stocks aggressively in Q1",
-    "Most pro-Bitcoin Federal Reserve Board composition in history signals favorable macro policy ahead",
-    "CLARITY Act advancing through Senate with crypto lobby gaining unprecedented political power despite partisan resistance"
+    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin back below $82,000 resistance",
+    "Trump family trust and institutional players (Mubadala, Gemini) continue accumulating Bitcoin and crypto assets despite price weakness",
+    "Bitcoin large holders move over $700 million to exchanges suggesting profit-taking, while regulatory clarity advances with Senate Banking Committee's Digital Asset Market Clarity Act"
   ],
-  "reasoning": "Strong institutional accumulation by Trump family, Mubadala, and major Bitcoin firms combined with historic pro-crypto Fed leadership creates sustained bullish momentum over 1-7 days. However, macro headwinds from Treasury yield surges and whale profit-taking at resistance levels ($79-82k) create near-term consolidation pressure that prevents a stronger bullish rating.",
-  "risks": "Treasury yields surging to new highs and large holders moving $700M+ BTC to exchanges for profit-taking could trigger a sharp pullback below $76,000 support if macro risk-off sentiment accelerates.",
+  "reasoning": "Bitcoin faces near-term headwinds from rising Treasury yields and macro liquidity tightening that's keeping the asset pinned below $82k resistance, with whale profit-taking adding downward pressure. However, strong institutional adoption signals (Trump family trades, Abu Dhabi's 16% Mubadala increase, MSTR's $1.5B buyback program, most pro-Bitcoin Fed board ever) and advancing regulatory clarity through the CLARITY Act provide structural support and suggest this weakness is temporary consolidation rather than trend reversal.",
+  "risks": "Further spike in US Treasury yields or Fed rate-hike expectations could trigger a sharp breakdown below the $76,000 support level as macro factors currently override positive crypto fundamentals.",
   "article_count": 36
 }
