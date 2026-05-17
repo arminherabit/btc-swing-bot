@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-17T06:00:23.7549019Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-05-17T11:00:27.6158493Z",
+  "score": -2,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin ETF flows reverse with $1B weekly outflow amid inflation fears - largest since January",
-    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin below $82k resistance",
-    "BlackRock sold $317M worth of Bitcoin as institutional investors pull hundreds of millions during market reversal"
+    "Bitcoin ETF flows reverse as US funds shed $1B amid inflation fears - major capital outflows signal investor caution",
+    "Bitcoin slides below $79K on macro fears with Treasury yields at multi-month highs - technical breakdown with macro headwinds",
+    "Italy's largest bank doubles crypto holdings to $235M and Abu Dhabi's Mubadala raises Bitcoin ETF stake 16% - institutional accumulation offsetting retail outflows"
   ],
-  "reasoning": "Strong macro headwinds from rising Treasury yields and tightening liquidity are overwhelming positive regulatory news (CLARITY Act), creating a liquidity-driven selloff that institutional investors are already front-running. Bitcoin's break below key support levels combined with ETF outflows and major fund liquidations signals near-term downside pressure despite bullish longer-term fundamentals from Trump administration support and institutional adoption.",
-  "risks": "Further Treasury yield spikes or credit market stress could accelerate capital flight from crypto assets, triggering a cascade of liquidations below $78k support as leveraged positions unwind.",
+  "reasoning": "Bitcoin faces near-term headwinds from macro uncertainty, elevated Treasury yields, and significant ETF outflows totaling $1B, pushing price below key support levels toward potential $75K-$77K retests. However, institutional buying (major banks, sovereign wealth funds, high-net-worth individuals like Mubadala and Trump family) and positive regulatory developments (CLARITY Act framework, Societe Generale's collateral strategy) provide underlying support that could stabilize price within 3-5 days.",
+  "risks": "Escalating geopolitical tensions (Iran), further Treasury yield spikes above 4.5%, or a broader equity market selloff could cascade into a capitulation move toward $75K, especially if ETF outflows accelerate beyond the current $1B weekly pace.",
   "article_count": 36
 }
