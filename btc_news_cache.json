@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-17T16:00:22.0813820Z",
-  "score": 4,
+  "timestamp": "2026-05-17T20:10:38.8565561Z",
+  "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "US CLARITY Act advanced by Senate Banking Committee (15-9 vote) - major regulatory catalyst for retail adoption",
-    "Institutional accumulation: Abu Dhabi's Mubadala raised Bitcoin ETF stake 16% to $566M, Italy's Intesa Sanpaolo doubled crypto holdings to $235M, Strategy filing $1.5B repurchase - strong smart money inflows",
-    "Long-term holder supply climbing back to August 2025 levels with 316K BTC moving into strong hands - indicates accumulation phase, not panic"
+    "Michael Saylor signals BTC buy with MSTR buyback of $1.5B in convertible notes; Strategy accumulating aggressively",
+    "Major institutional adoption: Abu Dhabi's Mubadala raises Bitcoin ETF stake 16% to $566M, Japan's biggest brokerages launching crypto trusts, Italy's Intesa Sanpaolo doubles holdings to $235M",
+    "CLARITY Act advances in Senate Banking Committee 15-9, removing regulatory uncertainty and unlocking retail adoption trust catalyst"
   ],
-  "reasoning": "Multiple institutional players (Mubadala, Intesa Sanpaolo, Winklevoss family, Trump family trust) are actively accumulating Bitcoin and crypto assets, signaling strong conviction despite current macro headwinds. The Senate's CLARITY Act advancement represents a major regulatory win that removes uncertainty and opens pathways for mainstream adoption, while on-chain data shows long-term holders are accumulating rather than capitulating, creating a foundation for upside movement once macro pressures ease.",
-  "risks": "Macro headwinds (Treasury yields near multi-month highs, Iran war uncertainty) and immediate price pressure keeping Bitcoin below $79K could trigger further selling if fixed-income markets don't reverse course as hypothesized, potentially opening path to $75K.",
+  "reasoning": "Strong institutional accumulation signals from mega-cap firms (Saylor/MSTR, Mubadala, Intesa Sanpaolo) combined with positive regulatory momentum (CLARITY Act markup) and major financial infrastructure buildout (Japan crypto trusts, CME 24/7 futures) create a supportive macro backdrop for Bitcoin. Current $78-79K pullback appears to be profit-taking within an uptrend rather than a bearish reversal, with long-term holders accumulating and macro fear creating tactical entry points.",
+  "risks": "Macro headwinds (US Treasury yields at multi-month highs, Iran war uncertainty) combined with technical breakdown below $77.7K support could trigger cascade liquidations toward $75K if risk-off sentiment accelerates.",
   "article_count": 36
 }
