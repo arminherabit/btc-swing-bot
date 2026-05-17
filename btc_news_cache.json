@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-17T01:00:23.3646832Z",
+  "timestamp": "2026-05-17T06:00:23.7549019Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin ETF flows reverse as US funds shed $1B amid inflation fears - most severe weekly capital flight since end of January",
-    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin back below $82,000 resistance",
-    "BlackRock Just Sold $317 Million Worth of Bitcoin - institutional investors pulling hundreds of millions during market reversal"
+    "Bitcoin ETF flows reverse with $1B weekly outflow amid inflation fears - largest since January",
+    "US Treasury yields surge to new highs as liquidity tightens, pushing Bitcoin below $82k resistance",
+    "BlackRock sold $317M worth of Bitcoin as institutional investors pull hundreds of millions during market reversal"
   ],
-  "reasoning": "Macro headwinds are dominating Bitcoin price action with rising US Treasury yields tightening liquidity and triggering significant institutional outflows from spot Bitcoin ETFs. The technical breakdown below $78K combined with $1B+ weekly ETF redemptions signals weakening demand, though some analysts view current levels as a 'bear trap' offering potential for mean reversion.",
-  "risks": "Continued surge in bond yields and further liquidity contraction could accelerate a deeper Bitcoin correction toward $75K support, especially if macroeconomic data deteriorates further.",
+  "reasoning": "Strong macro headwinds from rising Treasury yields and tightening liquidity are overwhelming positive regulatory news (CLARITY Act), creating a liquidity-driven selloff that institutional investors are already front-running. Bitcoin's break below key support levels combined with ETF outflows and major fund liquidations signals near-term downside pressure despite bullish longer-term fundamentals from Trump administration support and institutional adoption.",
+  "risks": "Further Treasury yield spikes or credit market stress could accelerate capital flight from crypto assets, triggering a cascade of liquidations below $78k support as leveraged positions unwind.",
   "article_count": 36
 }
