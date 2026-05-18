@@ -38,12 +38,26 @@ jobs:
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
         run: pwsh ./alpaca_bot.ps1 -Once
 
+      - name: Generate dashboard
+        shell: pwsh
+        env:
+          ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+        run: pwsh ./alpaca_dashboard_html.ps1 -GenerateOnly
+
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: alpaca-dashboard
+          path: alpaca_dashboard.html
+          retention-days: 7
+
       - name: Persist state to repo
         run: |
           git config user.name  "alpaca-bot[bot]"
           git config user.email "alpaca-bot@users.noreply.github.com"
-          git add -f alpaca_state.json 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "alpaca: state $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git add -f alpaca_state.json alpaca_dashboard.html 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "alpaca: state + dashboard $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           git push || true
 
       - name: Send SMS notification on trade
