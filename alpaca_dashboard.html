@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -92,9 +92,9 @@
   <div class="badges">
     <span class="badge" style="color:#d29922; border-color:#d29922;">PAPER TRADING</span>
     <span class="badge" style="color:#3fb950;  border-color:#3fb950;">OPEN</span>
-    <span class="badge" style="color:var(--sub); border-color:var(--border);">Closes 1:00 PM</span>
+    <span class="badge" style="color:var(--sub); border-color:var(--border);">Closes 8:00 PM</span>
   </div>
-  <span class="gen-time">Generated: 2026-05-18 10:08:42 &nbsp;|&nbsp; Auto-refresh: 30s</span>
+  <span class="gen-time">Generated: 2026-05-18 19:14:43 &nbsp;|&nbsp; Auto-refresh: 30s</span>
 </header>
 
 <!-- Account Stats -->
@@ -126,7 +126,7 @@
   </div>
   <div class="stat-card">
     <div class="label">Risk Per Trade</div>
-    <div class="value yellow">1.0%</div>
+    <div class="value yellow">1%</div>
     <div class="sub">Min R:R 1:2.5</div>
   </div>
 </div>
@@ -167,7 +167,7 @@ function fmtUSD(n) {
   return (n < 0 ? '-$' : '$') + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
 }
 
-// â”€â”€ Position cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Position cards ──────────────────────────────────────────────────────────
 const grid = document.getElementById('posGrid');
 if (!positions || positions.length === 0) {
   grid.innerHTML = '<div class="empty">No open positions</div>';
@@ -247,7 +247,7 @@ if (!positions || positions.length === 0) {
   });
 }
 
-// â”€â”€ Closed trades table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Closed trades table ──────────────────────────────────────────────────────
 const tbody = document.getElementById('closedBody');
 if (!closed || closed.length === 0) {
   tbody.innerHTML = '<tr><td colspan="6" class="empty">No filled orders today</td></tr>';
