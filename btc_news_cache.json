@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-18T05:00:23.0520581Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-18T10:00:23.6837618Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin whale-retail delta drops to ETF-era lows as smart money accumulates; 316K BTC moved to strong hands",
-    "Institutional adoption accelerating: Mubadala raises Bitcoin ETF stake 16% to $566M, CLARITY Act advanced by Senate Banking Committee 15-9",
-    "Macro headwinds temporary: Bitcoin $78-79K consolidation with $75K support level intact; fixed-income outflows could trigger medium-term rebound"
+    "Bitcoin price extends decline below $78,500 with downside pressure building aggressively",
+    "Bitcoin whale-retail delta drops to ETF-era lows as smart money turns cautious",
+    "CLARITY Act advances toward early August signing with institutional regulatory clarity improving"
   ],
-  "reasoning": "Bitcoin faces near-term macro pressure (Treasury yields, Iran concerns) keeping price below $79K, but strong institutional accumulation signals (whale behavior, ETF inflows, Mubadala/BlackRock moves) and regulatory tailwinds (CLARITY Act advancement) provide upside catalysts. Smart money positioning and long-term holder supply climbing suggest current dip is likely a bear trap rather than trend reversal.",
-  "risks": "Sustained macro deterioration or escalating geopolitical tensions could breach $75K support and trigger capitulation selling, particularly if fixed-income outflows fail to materialize as expected.",
+  "reasoning": "Near-term price action shows bearish technical weakness with $660M in liquidations and whale accumulation pausing, offset by positive macro catalysts including CLARITY Act regulatory progress, institutional inflows (Mubadala +16% BTC ETF stake, Gemini $100M commitment), and growing mainstream adoption. The neutral-to-slightly-bearish stance reflects short-term consolidation pressure around support levels while medium-term fundamentals remain constructive.",
+  "risks": "Persistent macro headwinds from elevated Treasury yields combined with waning whale participation and technical breakdown below $76,500 support could accelerate liquidations toward $75k if broader equity markets weaken.",
   "article_count": 36
 }
