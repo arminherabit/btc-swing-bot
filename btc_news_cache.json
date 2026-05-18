@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-18T00:13:42.3744864Z",
-  "score": 6,
+  "timestamp": "2026-05-18T05:00:23.0520581Z",
+  "score": 3,
   "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "recommendation": "proceed",
   "key_items": [
-    "Michael Saylor signals BTC buy as MicroStrategy files $1.5B convertible note repurchase; STRC hits record $1.53B daily volume",
-    "Institutional accumulation accelerates: Mubadala raises Bitcoin ETF stake 16% to $566M, Italy's Intesa Sanpaolo doubles crypto holdings to $235M, Winklevoss twins invest $100M in Gemini",
-    "Regulatory tailwinds strengthen: Senate Banking Committee advances CLARITY Act (15-9 vote), Japan's major brokerages (SBI, Rakuten, Nomura) line up crypto investment trusts by 2028"
+    "Bitcoin whale-retail delta drops to ETF-era lows as smart money accumulates; 316K BTC moved to strong hands",
+    "Institutional adoption accelerating: Mubadala raises Bitcoin ETF stake 16% to $566M, CLARITY Act advanced by Senate Banking Committee 15-9",
+    "Macro headwinds temporary: Bitcoin $78-79K consolidation with $75K support level intact; fixed-income outflows could trigger medium-term rebound"
   ],
-  "reasoning": "Strong institutional buying pressure from major corporations and sovereign wealth funds combined with positive regulatory developments (CLARITY Act advancement, Japan's crypto trust approvals) creates a solid bullish foundation despite macro headwinds. Bitcoin's pullback to $78-79K amid Treasury yield pressure represents a buying opportunity rather than capitulation, supported by on-chain signals showing long-term holder accumulation and whale positioning shifts.",
-  "risks": "Macro uncertainty (Iran war tensions, Treasury yields at multi-month highs) and Bitcoin's failed hold above $79K could trigger a retest of $75K support if equities sell off sharply or risk-off sentiment intensifies.",
+  "reasoning": "Bitcoin faces near-term macro pressure (Treasury yields, Iran concerns) keeping price below $79K, but strong institutional accumulation signals (whale behavior, ETF inflows, Mubadala/BlackRock moves) and regulatory tailwinds (CLARITY Act advancement) provide upside catalysts. Smart money positioning and long-term holder supply climbing suggest current dip is likely a bear trap rather than trend reversal.",
+  "risks": "Sustained macro deterioration or escalating geopolitical tensions could breach $75K support and trigger capitulation selling, particularly if fixed-income outflows fail to materialize as expected.",
   "article_count": 36
 }
