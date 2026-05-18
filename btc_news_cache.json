@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-18T10:00:23.6837618Z",
-  "score": -1,
+  "timestamp": "2026-05-18T15:00:30.6525238Z",
+  "score": 2,
   "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin price extends decline below $78,500 with downside pressure building aggressively",
-    "Bitcoin whale-retail delta drops to ETF-era lows as smart money turns cautious",
-    "CLARITY Act advances toward early August signing with institutional regulatory clarity improving"
+    "Saylor's Strategy acquires $2B Bitcoin, holdings reach 843,738 BTC - major institutional accumulation signal",
+    "Bitcoin falls to $76K-$77K on US-Iran tensions and Treasury yield pressure - geopolitical headwinds offsetting bullish fundamentals",
+    "CLARITY Act advances toward August signing, institutional custody consolidation (Standard Chartered/Zodia), multiple sovereign/corporate BTC adoption signals - regulatory tailwinds building"
   ],
-  "reasoning": "Near-term price action shows bearish technical weakness with $660M in liquidations and whale accumulation pausing, offset by positive macro catalysts including CLARITY Act regulatory progress, institutional inflows (Mubadala +16% BTC ETF stake, Gemini $100M commitment), and growing mainstream adoption. The neutral-to-slightly-bearish stance reflects short-term consolidation pressure around support levels while medium-term fundamentals remain constructive.",
-  "risks": "Persistent macro headwinds from elevated Treasury yields combined with waning whale participation and technical breakdown below $76,500 support could accelerate liquidations toward $75k if broader equity markets weaken.",
+  "reasoning": "Macro headwinds (geopolitical tensions, rising Treasury yields, ETF outflows totaling $672M liquidations) are creating near-term downside pressure toward $65K-$70K support, but this is being substantially offset by powerful institutional accumulation (Saylor $2B buy, Mubadala 16% increase, SpaceX $637M holdings, Gemini $100M bet) and regulatory clarity catalysts (CLARITY Act, Standard Chartered integration, South Korean stablecoin pilots, Iran Bitcoin insurance pilot). The market is consolidating conflicting signals with swing-trade volatility favoring tactical entries on weakness rather than continuation of recent rallies.",
+  "risks": "Rapid escalation of US-Iran military conflict or sharp acceleration in Treasury yields above 4.5% could trigger cascade liquidations and break critical support levels, especially given elevated leverage in derivatives markets.",
   "article_count": 36
 }
