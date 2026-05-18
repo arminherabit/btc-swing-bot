@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-17T20:10:38.8565561Z",
+  "timestamp": "2026-05-18T00:13:42.3744864Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Michael Saylor signals BTC buy with MSTR buyback of $1.5B in convertible notes; Strategy accumulating aggressively",
-    "Major institutional adoption: Abu Dhabi's Mubadala raises Bitcoin ETF stake 16% to $566M, Japan's biggest brokerages launching crypto trusts, Italy's Intesa Sanpaolo doubles holdings to $235M",
-    "CLARITY Act advances in Senate Banking Committee 15-9, removing regulatory uncertainty and unlocking retail adoption trust catalyst"
+    "Michael Saylor signals BTC buy as MicroStrategy files $1.5B convertible note repurchase; STRC hits record $1.53B daily volume",
+    "Institutional accumulation accelerates: Mubadala raises Bitcoin ETF stake 16% to $566M, Italy's Intesa Sanpaolo doubles crypto holdings to $235M, Winklevoss twins invest $100M in Gemini",
+    "Regulatory tailwinds strengthen: Senate Banking Committee advances CLARITY Act (15-9 vote), Japan's major brokerages (SBI, Rakuten, Nomura) line up crypto investment trusts by 2028"
   ],
-  "reasoning": "Strong institutional accumulation signals from mega-cap firms (Saylor/MSTR, Mubadala, Intesa Sanpaolo) combined with positive regulatory momentum (CLARITY Act markup) and major financial infrastructure buildout (Japan crypto trusts, CME 24/7 futures) create a supportive macro backdrop for Bitcoin. Current $78-79K pullback appears to be profit-taking within an uptrend rather than a bearish reversal, with long-term holders accumulating and macro fear creating tactical entry points.",
-  "risks": "Macro headwinds (US Treasury yields at multi-month highs, Iran war uncertainty) combined with technical breakdown below $77.7K support could trigger cascade liquidations toward $75K if risk-off sentiment accelerates.",
+  "reasoning": "Strong institutional buying pressure from major corporations and sovereign wealth funds combined with positive regulatory developments (CLARITY Act advancement, Japan's crypto trust approvals) creates a solid bullish foundation despite macro headwinds. Bitcoin's pullback to $78-79K amid Treasury yield pressure represents a buying opportunity rather than capitulation, supported by on-chain signals showing long-term holder accumulation and whale positioning shifts.",
+  "risks": "Macro uncertainty (Iran war tensions, Treasury yields at multi-month highs) and Bitcoin's failed hold above $79K could trigger a retest of $75K support if equities sell off sharply or risk-off sentiment intensifies.",
   "article_count": 36
 }
