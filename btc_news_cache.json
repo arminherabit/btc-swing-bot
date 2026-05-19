@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-19T04:00:28.5911613Z",
+  "timestamp": "2026-05-19T09:00:28.9174631Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Strategy (MSTR) massive $2B Bitcoin acquisition lifts holdings to 843,738 BTC - major institutional accumulation signal",
-    "Retail Bitcoin investor demand falls 73% with $2B futures selling pressure - bearish technicals despite bullish fundamentals",
-    "White House announces imminent Strategic Bitcoin Reserve announcement - potential major positive catalyst pending confirmation"
+    "White House imminent Strategic Bitcoin Reserve announcement",
+    "MicroStrategy spends $2B acquiring 843,738 BTC total holdings",
+    "Bitcoin price pressure from macroeconomic headwinds and Treasury yields with Japan selling $30B US debt"
   ],
-  "reasoning": "Bitcoin faces conflicting pressures: significant institutional buying (MSTR $2B, 500K BTC leaving exchanges, Galaxy NY BitLicense expansion) and foundational policy support (strategic reserve announcement, regulatory clarity) are offset by severe retail capitulation, $2B futures selling, weakened spot demand, and macroeconomic headwinds (Fed rate cut odds declining, Treasury yield pressure from Japan selling $30B US debt). The technical breakdown below $78K-$77.5K support contradicts fundamental strength, creating a swing-trade opportunity if support holds.",
-  "risks": "Failure to hold $76K support could trigger cascading liquidations and test $75K, exacerbated by negative macro signals (higher rate expectations, foreign central bank US debt selling, and geopolitical tensions with Iran creating volatility).",
+  "reasoning": "Positive institutional accumulation signals (MSTR, Capital B, Bitmine) and regulatory tailwinds (CBDC ban progress, SEC tokenization exemption, strategic reserve announcement) are offset by near-term technical breakdown below $77K-$78K support, macroeconomic pressure from rising Treasury yields, and negative sentiment from multiple altcoin foundation departures and exchange bankruptcies. The setup presents conflicting signals with structural support mechanisms competing against cyclical bearish technicals.",
+  "risks": "Continued macroeconomic deterioration driven by Treasury yields and potential geopolitical escalation (Iran tensions evidenced by suspicious Polymarket trading) could trigger cascade liquidations if BTC breaks below $76K psychological support level.",
   "article_count": 36
 }
