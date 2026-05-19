@@ -413,6 +413,28 @@ function Run-Cycle {
     }
 
     $state.last_run = $nowDt.ToString("o")
+
+    # ── Enrich state with telemetry so the live dashboard can read it ─────
+    $state.btc_price  = $price
+    $state.rsi        = $rsi4h
+    $state.mode       = $modeLabel
+    $state.sma200     = $sma200
+    $state.dip_pct    = $dipPct
+    $state.fng_value  = $fng.Value
+    $state.fng_label  = $fng.Label
+    $state.news_score = $news.Score
+    if ($state.in_position -and [double]$state.avg_entry -gt 0) {
+        $avgE  = [double]$state.avg_entry
+        $peakP = [double]$state.highest_price
+        $state.partial_target = [Math]::Round($avgE  * (1.0 + [double]$cfg.partial_profit_pct  / 100.0), 2)
+        $state.trail_stop     = [Math]::Round($peakP * (1.0 - [double]$cfg.trailing_stop_pct   / 100.0), 2)
+        $state.hard_stop      = [Math]::Round($avgE  * (1.0 - [double]$cfg.hard_stop_pct       / 100.0), 2)
+    } else {
+        $state.partial_target = 0
+        $state.trail_stop     = 0
+        $state.hard_stop      = 0
+    }
+
     Save-State $state
 
     Write-Host ""
