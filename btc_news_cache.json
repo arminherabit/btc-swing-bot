@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-19T14:00:25.3813142Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-19T18:00:35.5902075Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "White House announces imminent Strategic Bitcoin Reserve - major institutional adoption signal",
-    "SEC approves tokenized stocks framework opening crypto rails to equities market",
-    "Bitcoin ETF outflows ($649M) driven by long-term holder accumulation, not capitulation selling"
+    "Bitcoin price stays under $77K as US bond yields near 20-year highs -- BTC pinned below $77K amid rising yields",
+    "Recent Bitcoin holders sell $770M BTC at a loss amid $65K BTC price calls -- Short-term holders capitulating with $65K targets",
+    "Bitcoin ETFs Shed $649M in a Day as Long-Term BTC Holders accumulate -- Mixed signals with institutional flows diverging"
   ],
-  "reasoning": "Positive structural catalysts (strategic reserve, tokenized stocks SEC approval, institutional custody consolidation) outweigh near-term macro headwinds and regulatory noise. However, recent 7% retracement to $76K and lack of fresh momentum prevent stronger bullish conviction in the 1-7 day timeframe.",
-  "risks": "Macroeconomic pressure and Fed rate expectations could trigger further consolidation below $76K support if equity markets weaken or geopolitical tensions escalate.",
+  "reasoning": "Bitcoin faces significant near-term headwinds from elevated US bond yields (20-year highs) and technical weakness at $77K support level, with short-term holders capitulating and analysts calling for $65K-$70K targets. However, this is partially offset by long-term institutional accumulation (MSTR, Strategy, Strive buying heavily), SEC tokenization catalysts, and positive global regulatory developments (UK, Japan, SEC), which suggest support for a longer-term bullish thesis despite near-term volatility.",
+  "risks": "Break below $76K support level could trigger cascading liquidations toward $70K-$65K as technical levels fail and short-term holder capitulation accelerates.",
   "article_count": 36
 }
