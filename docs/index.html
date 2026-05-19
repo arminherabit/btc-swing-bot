@@ -3,638 +3,445 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ BTC Bot Live Dashboard</title>
+  <title>BTC Bot Dashboard</title>
   <style>
     :root {
       --bg:     #0d1117;
-      --bg2:    #161b22;
-      --bg3:    #21262d;
+      --card:   #161b22;
       --border: #30363d;
-      --text:   #e6edf3;
       --muted:  #8b949e;
+      --text:   #e6edf3;
       --green:  #3fb950;
       --red:    #f85149;
-      --yellow: #d29922;
+      --yellow: #e3b341;
       --blue:   #79c0ff;
-      --purple: #d2a8ff;
       --orange: #ffa657;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      min-height: 100vh;
-    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', sans-serif; min-height: 100vh; }
 
-    /* ── Header ── */
-    .header {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      position: sticky; top: 0; z-index: 10;
+    /* Header */
+    header {
+      background: var(--card); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      position: sticky; top: 0; z-index: 9;
     }
-    .header-left { display: flex; align-items: center; gap: 10px; }
-    .header-left h1 { font-size: 17px; font-weight: 700; }
-    .header-left .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-    .badge { background: #6639ba; color: #fff; border-radius: 4px; padding: 2px 7px; font-size: 10px; font-weight: 700; }
-    .live-price-wrap { text-align: right; }
-    .live-price { font-size: 30px; font-weight: 800; letter-spacing: -1px; color: var(--blue); transition: color 0.3s; }
-    .live-price.up   { color: var(--green); }
-    .live-price.down { color: var(--red);   }
-    .live-sub { font-size: 11px; color: var(--muted); }
+    .brand { display: flex; align-items: center; gap: 8px; }
+    .brand h1 { font-size: 16px; font-weight: 700; }
+    .brand small { font-size: 11px; color: var(--muted); display: block; margin-top: 1px; }
+    .badge { background: #6639ba; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
+    .price-block { text-align: right; }
+    .price-big { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--blue); transition: color .4s; }
+    .price-big.up   { color: var(--green); }
+    .price-big.down { color: var(--red);   }
+    .price-sub { font-size: 11px; color: var(--muted); }
 
-    /* ── Layout ── */
-    .main {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 960px)  { .main { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px)  { .main { grid-template-columns: 1fr; } }
-    .span2 { grid-column: span 2; }
-    .span3 { grid-column: 1 / -1; }
+    /* Grid */
+    .grid { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } }
+    .full { grid-column: 1 / -1; }
 
-    /* ── Cards ── */
-    .card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-    }
-    .card-title {
-      font-size: 10px; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.8px;
-      margin-bottom: 14px;
-    }
+    /* Card */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .card-head { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; }
 
-    /* ── Status pill ── */
-    .pill {
+    /* Status */
+    .status-pill {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 5px 14px; border-radius: 20px;
-      font-size: 13px; font-weight: 700; margin-bottom: 14px;
+      padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 14px;
     }
-    .pill-green { background: rgba(63,185,80,.12); color: var(--green); border: 1px solid var(--green); }
-    .pill-grey  { background: rgba(139,148,158,.1); color: var(--muted); border: 1px solid var(--border); }
+    .in-pos  { background: rgba(63,185,80,.12); color: var(--green); border: 1px solid var(--green); }
+    .no-pos  { background: rgba(139,148,158,.1); color: var(--muted); border: 1px solid var(--border); }
     .dot { width: 8px; height: 8px; border-radius: 50%; }
-    .dot-green { background: var(--green); animation: blink 1.8s infinite; }
-    .dot-grey  { background: var(--muted); }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .dot-g { background: var(--green); animation: blink 2s infinite; }
+    .dot-m { background: var(--muted); }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
-    /* ── Key-value rows ── */
-    .kv { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--bg3); }
+    /* Tranches */
+    .t-dots { display: flex; gap: 7px; align-items: center; margin: 6px 0 14px; }
+    .t-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); background: #21262d; }
+    .t-dot.on { background: var(--green); border-color: var(--green); }
+
+    /* KV rows */
+    .kv { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #21262d; }
     .kv:last-child { border-bottom: none; }
     .kv-k { font-size: 12px; color: var(--muted); }
     .kv-v { font-size: 13px; font-weight: 600; }
 
-    /* ── Big number ── */
-    .big { font-size: 32px; font-weight: 800; letter-spacing: -1px; }
-    .big-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    /* Big number */
+    .num-big { font-size: 34px; font-weight: 900; letter-spacing: -1.5px; }
+    .num-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-    /* ── Colors ── */
-    .c-green  { color: var(--green);  }
-    .c-red    { color: var(--red);    }
-    .c-yellow { color: var(--yellow); }
-    .c-blue   { color: var(--blue);   }
-    .c-orange { color: var(--orange); }
-    .c-muted  { color: var(--muted);  }
-    .c-purple { color: var(--purple); }
-
-    /* ── Tranches ── */
-    .tranche-row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
-    .td { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); }
-    .td.on { background: var(--green); border-color: var(--green); }
-
-    /* ── Exit targets ── */
-    .target { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--bg3); }
+    /* Exit target rows */
+    .target { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #21262d; }
     .target:last-child { border-bottom: none; }
-    .target-left .label { font-size: 12px; color: var(--muted); }
-    .target-left .price { font-size: 15px; font-weight: 700; margin-top: 2px; }
-    .target-left .dist  { font-size: 10px; color: var(--muted); margin-top: 1px; }
-    .tbadge {
-      font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 700;
-    }
-    .tbadge-yellow { background: rgba(210,153,34,.15); color: var(--yellow); border: 1px solid var(--yellow); }
-    .tbadge-green  { background: rgba(63,185,80,.12);  color: var(--green);  border: 1px solid var(--green);  }
-    .tbadge-red    { background: rgba(248,81,73,.12);   color: var(--red);    border: 1px solid var(--red);    }
-    .tbadge-grey   { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); }
+    .t-label { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+    .t-price { font-size: 15px; font-weight: 700; }
+    .t-detail { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .chip { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 5px; white-space: nowrap; }
+    .chip-y { background: rgba(227,179,65,.15); color: var(--yellow); border: 1px solid var(--yellow); }
+    .chip-g { background: rgba(63,185,80,.12); color: var(--green); border: 1px solid var(--green); }
+    .chip-r { background: rgba(248,81,73,.12); color: var(--red); border: 1px solid var(--red); }
+    .chip-m { background: #21262d; color: var(--muted); border: 1px solid var(--border); }
 
-    /* ── P&L table ── */
-    .ptable { width: 100%; border-collapse: collapse; font-size: 12px; }
-    .ptable th { padding: 6px 10px; text-align: right; color: var(--muted); font-size: 10px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
-    .ptable th:first-child { text-align: left; }
-    .ptable td { padding: 5px 10px; text-align: right; border-bottom: 1px solid var(--bg3); }
-    .ptable td:first-child { text-align: left; color: var(--muted); }
-    .ptable tr.now td { background: rgba(121,192,255,.07); font-weight: 700; }
-    .ptable tr:last-child td { border-bottom: none; }
-    .ptable td.note { font-size: 10px; color: var(--muted); }
+    /* Projected P&L table */
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    thead th { padding: 6px 10px; text-align: right; color: var(--muted); font-size: 10px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    thead th:first-child { text-align: left; }
+    tbody td { padding: 6px 10px; text-align: right; border-bottom: 1px solid #21262d; }
+    tbody td:first-child { text-align: left; color: var(--muted); }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr.cur td { background: rgba(121,192,255,.07); font-weight: 700; }
+    .note-cell { font-size: 10px; color: var(--muted); text-align: left !important; }
 
-    /* ── F&G gauge ── */
-    .fng-num { font-size: 52px; font-weight: 900; text-align: center; line-height: 1; }
-    .fng-lbl { font-size: 14px; font-weight: 700; text-align: center; margin: 4px 0 12px; }
-    .fng-track {
-      height: 10px; border-radius: 5px;
-      background: linear-gradient(to right, #1a7f37, #d29922, #f85149);
-      position: relative; margin: 8px 0;
-    }
-    .fng-pin {
-      position: absolute; top: -5px;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: #fff; border: 3px solid #0d1117;
-      transform: translateX(-50%);
-      box-shadow: 0 0 0 2px currentColor;
-      transition: left .6s ease;
-    }
-    .fng-row { display: flex; justify-content: space-between; font-size: 9px; color: var(--muted); }
-    .fng-status {
-      margin-top: 12px; padding: 8px; border-radius: 6px;
-      text-align: center; font-size: 12px; font-weight: 700;
-    }
+    /* F&G gauge */
+    .fng-big { font-size: 48px; font-weight: 900; text-align: center; line-height: 1; }
+    .fng-lbl { font-size: 13px; font-weight: 700; text-align: center; margin: 4px 0 12px; }
+    .gauge-track { height: 8px; border-radius: 4px; background: linear-gradient(to right,#1a7f37,#e3b341,#f85149); position: relative; margin-bottom: 5px; }
+    .gauge-pin { position: absolute; top: -6px; width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid #0d1117; transform: translateX(-50%); box-shadow: 0 0 0 2px currentColor; transition: left .6s; }
+    .gauge-lbls { display: flex; justify-content: space-between; font-size: 9px; color: var(--muted); }
+    .fng-box { margin-top: 10px; padding: 8px; border-radius: 6px; text-align: center; font-size: 12px; font-weight: 700; }
 
-    /* ── Entry conditions ── */
-    .progress-wrap { margin-top: 4px; }
-    .progress-track { height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-    .progress-fill  { height: 100%; border-radius: 2px; transition: width .5s; }
+    /* Color utils */
+    .g { color: var(--green); } .r { color: var(--red); } .y { color: var(--yellow); } .b { color: var(--blue); } .m { color: var(--muted); }
 
-    /* ── Mode badge ── */
-    .mode-bull { background:rgba(63,185,80,.12); color:var(--green); border:1px solid var(--green); border-radius:5px; padding:2px 9px; font-size:11px; font-weight:700; }
-    .mode-bear { background:rgba(248,81,73,.12); color:var(--red);   border:1px solid var(--red);   border-radius:5px; padding:2px 9px; font-size:11px; font-weight:700; }
+    /* Footer */
+    footer { text-align: center; padding: 14px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); }
+    footer a { color: var(--blue); text-decoration: none; }
 
-    /* ── Footer ── */
-    .footer {
-      text-align: center; padding: 14px;
-      font-size: 11px; color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-    .footer a { color: var(--blue); text-decoration: none; }
-
-    /* ── Skeleton loader ── */
-    .skeleton { background: var(--bg3); border-radius: 4px; animation: shimmer 1.5s infinite; }
-    @keyframes shimmer { 0%,100%{opacity:.5} 50%{opacity:1} }
-
-    /* ── Ghost placeholder ── */
-    .no-pos { padding: 28px 0; text-align: center; color: var(--muted); font-size: 13px; }
-    .no-pos .icon { font-size: 36px; margin-bottom: 8px; }
+    .empty { padding: 30px 0; text-align: center; color: var(--muted); font-size: 13px; }
+    .empty .ico { font-size: 32px; margin-bottom: 8px; }
   </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
-<div class="header">
-  <div class="header-left">
-    <span style="font-size:24px">⚡</span>
+<header>
+  <div class="brand">
+    <span style="font-size:22px">⚡</span>
     <div>
-      <h1>BTC Bot Live Dashboard &nbsp;<span class="badge">v3</span></h1>
-      <div class="sub">
-        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.8s infinite;margin-right:4px;vertical-align:middle;"></span>
-        Live · Binance.US BTCUSD · Updates every 10s
-      </div>
+      <h1>BTC Bot Dashboard <span class="badge">LIVE</span></h1>
+      <small id="lastRun">Loading…</small>
     </div>
   </div>
-  <div class="live-price-wrap">
-    <div class="live-price" id="livePrice">—</div>
-    <div class="live-sub" id="liveSub">Loading…</div>
+  <div class="price-block">
+    <div class="price-big" id="px">—</div>
+    <div class="price-sub" id="pxSub">Fetching price…</div>
   </div>
+</header>
+
+<div class="grid" id="grid">
+  <div class="card full" style="text-align:center;padding:40px;color:var(--muted)">Loading…</div>
 </div>
 
-<!-- ── Main Grid ── -->
-<div class="main" id="grid">
-  <!-- populated by JS -->
-  <div class="card span3" style="text-align:center;padding:40px;color:var(--muted);">Loading dashboard…</div>
-</div>
-
-<!-- ── Footer ── -->
-<div class="footer">
-  Next refresh: <strong id="cd">30</strong>s &nbsp;·&nbsp;
-  Bot runs every hour &nbsp;·&nbsp;
-  <a href="https://github.com/arminherabit/btc-swing-bot/actions" target="_blank">GitHub Actions ↗</a> &nbsp;·&nbsp;
-  <a href="https://github.com/arminherabit/btc-swing-bot" target="_blank">Source ↗</a>
-</div>
+<footer>
+  Refreshes every 30 s &nbsp;·&nbsp; Next: <strong id="cd">30</strong>s &nbsp;·&nbsp;
+  <a href="https://github.com/arminherabit/btc-swing-bot/actions" target="_blank">GitHub Actions ↗</a>
+</footer>
 
 <script>
-/* ───────────────────────────────────────────────────────────────
-   Configuration
-─────────────────────────────────────────────────────────────── */
-const STATE_URL = './state.json';
+/* ── Config ── */
 const PRICE_URL = 'https://api.binance.us/api/v3/ticker/price?symbol=BTCUSD';
 const FNG_URL   = 'https://api.alternative.me/fng/?limit=1';
-/* ───────────────────────────────────────────────────────────────
-   State
-─────────────────────────────────────────────────────────────── */
-let S        = null;   // bot state.json
-let livePx   = null;   // current BTC price
-let prevPx   = null;   // previous price (for color flash)
-let fngData  = null;   // fear & greed
-let cdSecs   = 30;
-let cdTimer  = null;
+const STATE_URL = './state.json';
 
-/* ───────────────────────────────────────────────────────────────
-   Fetch helpers
-─────────────────────────────────────────────────────────────── */
-async function getState() {
-  const r = await fetch(STATE_URL + '?_=' + Date.now());
-  if (!r.ok) throw new Error('state fetch failed');
-  return r.json();
-}
-async function getPrice() {
-  const r = await fetch(PRICE_URL + '&_=' + Date.now());
-  const d = await r.json();
-  return parseFloat(d.price);
-}
-async function getFng() {
-  const r = await fetch(FNG_URL + '&_=' + Date.now());
-  const d = await r.json();
-  return { value: parseInt(d.data[0].value), label: d.data[0].value_classification };
-}
+/* ── App state ── */
+let S = {}, px = null, prevPx = null, fng = null, cd = 30, timer = null;
 
-/* ───────────────────────────────────────────────────────────────
-   Format helpers
-─────────────────────────────────────────────────────────────── */
-const f$ = (n, d=2) => n == null || isNaN(n) ? '—'
-  : '$' + (+n).toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
-const fPct = (n, d=2) => n == null || isNaN(n) ? '—'
-  : (n >= 0 ? '+' : '') + (+n).toFixed(d) + '%';
-const fNum = (n, d=5) => n == null || isNaN(n) ? '—' : (+n).toFixed(d);
+/* ── Fetch ── */
+const get = (url) => fetch(url + (url.includes('?') ? '&' : '?') + '_=' + Date.now()).then(r => r.json());
 
-function timeSince(iso) {
+/* ── Format ── */
+const f$ = (n, d=2) => isNaN(+n) || n==null ? '—' : '$' + (+n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fp = (n, d=2) => isNaN(+n) || n==null ? '—' : (n>=0?'+':'')+((+n).toFixed(d))+'%';
+const ts = (iso) => {
   if (!iso) return '—';
-  const m = Math.floor((Date.now() - new Date(iso)) / 60000);
-  if (m < 1)  return 'just now';
-  if (m < 60) return m + 'm ago';
-  const h = Math.floor(m/60), mm = m % 60;
-  return h + 'h ' + mm + 'm ago';
-}
-function fmtTs(iso) {
-  if (!iso) return '—';
-  return new Date(iso).toLocaleString('en-US', {
-    month:'short', day:'numeric', hour:'2-digit', minute:'2-digit', timeZoneName:'short'
-  });
-}
-function fngColor(v) {
-  if (v >= 75) return 'var(--red)';
-  if (v >= 55) return 'var(--orange)';
-  if (v >= 45) return 'var(--yellow)';
-  if (v >= 25) return 'var(--green)';
-  return '#22c55e';
-}
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  return m < 1 ? 'just now' : m < 60 ? m+'m ago' : Math.floor(m/60)+'h '+m%60+'m ago';
+};
+const dt = (iso) => iso ? new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'}) : '—';
+const fngCol = v => v>=75?'var(--red)':v>=55?'var(--orange)':v>=45?'var(--yellow)':v>=25?'var(--green)':'#22c55e';
 
-/* ───────────────────────────────────────────────────────────────
-   Render
-─────────────────────────────────────────────────────────────── */
+/* ── Render ── */
 function render() {
-  const s     = S || {};
-  const px    = livePx;
-  const inPos = !!s.in_position;
-  const tc    = parseInt(s.tranche_count || 0);
-  const avgE  = parseFloat(s.avg_entry   || 0);
-  const qty   = parseFloat(s.total_qty   || 0);
-  const cost  = parseFloat(s.total_cost  || 0);
-  const peak  = parseFloat(s.highest_price || avgE);
-  const rsi   = parseFloat(s.rsi    || 0);
-  const sma   = parseFloat(s.sma200 || 0);
-  const dip   = parseFloat(s.dip_pct|| 0);
-  const mode  = s.mode || '—';
-  const fngV  = parseInt(s.fng_value || (fngData ? fngData.value : 50));
-  const fngL  = s.fng_label || (fngData ? fngData.label : 'Unknown');
-  const news  = s.news_score;
-  const partT = parseFloat(s.partial_target || 0);
-  const trail = parseFloat(s.trail_stop     || 0);
-  const hard  = parseFloat(s.hard_stop      || 0);
+  const s      = S || {};
+  const inPos  = !!s.in_position;
+  const tc     = +s.tranche_count || 0;
+  const avgE   = +s.avg_entry  || 0;
+  const qty    = +s.total_qty  || 0;
+  const cost   = +s.total_cost || 0;
+  const peak   = +s.highest_price || avgE;
+  const rsi    = +s.rsi    || 0;
+  const sma    = +s.sma200 || 0;
+  const dip    = +s.dip_pct|| 0;
+  const mode   = s.mode || '—';
+  const news   = s.news_score;
+  const partT  = +s.partial_target || 0;
+  const trailT = +s.trail_stop     || 0;
+  const hardT  = +s.hard_stop      || 0;
+  const fngV   = fng ? fng.value : (+s.fng_value || 50);
+  const fngL   = fng ? fng.label : (s.fng_label || 'Unknown');
 
-  // Current value & P&L
-  const curVal  = (px && qty) ? px * qty : 0;
-  const upnl    = curVal - cost;
-  const upnlPct = cost > 0 ? (upnl / cost) * 100 : 0;
+  // P&L calcs
+  const curVal = (px && qty) ? px * qty : 0;
+  const upnl   = curVal - cost;
+  const upnlP  = cost > 0 ? upnl / cost * 100 : 0;
+  const pnlCls = upnl >= 0 ? 'g' : 'r';
 
-  // Distances to targets
-  const distTo = (t) => (px && t) ? ((t - px) / px * 100) : null;
-  const dPart  = distTo(partT);
-  const dTrail = distTo(trail);
-  const dHard  = distTo(hard);
+  // Distance helpers
+  const dist = (t) => (px && t) ? (t - px) / px * 100 : null;
 
-  // Rsi thresholds (from mode)
-  const isBull = mode === 'BULL';
-  const rsi1  = isBull ? 42 : 35;
-  const dipR  = isBull ? 1.5 : 4.0;
+  // Bull/bear
+  const bull  = mode === 'BULL';
+  const rsi1  = bull ? 42 : 35;
+  const dipR  = bull ? 1.5 : 4.0;
+  const fngC  = fngCol(fngV);
+  const fngBlk = fngV >= 80, fngBst = fngV <= 25;
 
-  let html = '';
+  // Update header
+  document.getElementById('lastRun').textContent =
+    'Bot last ran: ' + ts(s.last_run) + (s.last_signal ? ' · ' + s.last_signal : '');
 
-  /* ── Card 1: Position Status ──────────────── */
-  html += `<div class="card">
-    <div class="card-title">📊 Position Status</div>
-    <div class="pill ${inPos ? 'pill-green' : 'pill-grey'}">
-      <span class="dot ${inPos ? 'dot-green' : 'dot-grey'}"></span>
-      ${inPos ? 'IN POSITION' : 'WATCHING — No Position'}
+  let h = '';
+
+  /* ── 1. Position Status ── */
+  h += `<div class="card">
+    <div class="card-head">📊 Position Status</div>
+    <div class="status-pill ${inPos ? 'in-pos' : 'no-pos'}">
+      <span class="dot ${inPos ? 'dot-g' : 'dot-m'}"></span>
+      ${inPos ? 'IN POSITION' : 'WATCHING — No Trade'}
     </div>`;
 
   if (inPos) {
-    html += `
-    <div style="margin-bottom:12px;">
-      <div style="font-size:11px;color:var(--muted);margin-bottom:5px;">Tranches deployed</div>
-      <div class="tranche-row">
-        ${[0,1,2].map(i => `<div class="td ${i < tc ? 'on' : ''}"></div>`).join('')}
-        <span style="font-size:12px;color:var(--muted);">${tc} / 3 &nbsp;($${(cost).toFixed(0)} deployed)</span>
-      </div>
+    h += `<div style="font-size:11px;color:var(--muted);margin-bottom:3px;">Tranches deployed</div>
+    <div class="t-dots">
+      ${[0,1,2].map(i=>`<div class="t-dot${i<tc?' on':''}"></div>`).join('')}
+      <span style="font-size:11px;color:var(--muted)">${tc}/3 &nbsp;·&nbsp; ${f$(cost,0)} deployed</span>
     </div>
-    <div class="kv"><span class="kv-k">Avg Entry Price</span><span class="kv-v c-blue">${f$(avgE)}</span></div>
-    <div class="kv"><span class="kv-k">BTC Quantity</span><span class="kv-v">${fNum(qty)} BTC</span></div>
-    <div class="kv"><span class="kv-k">Total Cost Basis</span><span class="kv-v">${f$(cost)}</span></div>
-    <div class="kv"><span class="kv-k">Current Value</span><span class="kv-v">${curVal ? f$(curVal) : '—'}</span></div>
-    <div class="kv"><span class="kv-k">Partial Profit</span><span class="kv-v ${s.partial_taken ? 'c-green' : 'c-muted'}">${s.partial_taken ? '✅ Taken (50%)' : '⏳ Pending'}</span></div>
-    <div class="kv"><span class="kv-k">Held Since</span><span class="kv-v" style="font-size:11px">${timeSince(s.entry_time)}</span></div>`;
+    <div class="kv"><span class="kv-k">Avg Entry Price</span><span class="kv-v b">${f$(avgE)}</span></div>
+    <div class="kv"><span class="kv-k">BTC Quantity</span><span class="kv-v">${qty.toFixed(5)} BTC</span></div>
+    <div class="kv"><span class="kv-k">Cost Basis</span><span class="kv-v">${f$(cost)}</span></div>
+    <div class="kv"><span class="kv-k">Current Value</span><span class="kv-v">${curVal?f$(curVal):'—'}</span></div>
+    <div class="kv"><span class="kv-k">Partial Profit Taken</span><span class="kv-v ${s.partial_taken?'g':'m'}">${s.partial_taken?'✅ Yes (50%)':'⏳ Pending'}</span></div>
+    <div class="kv"><span class="kv-k">Held Since</span><span class="kv-v" style="font-size:11px">${ts(s.entry_time)}</span></div>`;
   } else {
-    html += `<div class="no-pos"><div class="icon">👀</div>
-      Waiting for dip entry signal<br>
-      <span style="font-size:11px;margin-top:4px;display:block;">RSI must reach ${rsi1} (${mode} mode) · Dip ≥ ${dipR}%</span>
-    </div>`;
+    h += `<div class="empty"><div class="ico">👀</div>
+      Watching for dip entry<br>
+      <small>RSI &lt; ${rsi1} · Dip ≥ ${dipR}% · ${mode} mode</small></div>`;
   }
-  html += `</div>`;
+  h += `</div>`;
 
-  /* ── Card 2: Unrealized P&L ──────────────── */
-  const pnlColor = upnl >= 0 ? 'c-green' : 'c-red';
-  html += `<div class="card">
-    <div class="card-title">💰 Unrealized P&amp;L</div>`;
-
+  /* ── 2. P&L ── */
+  h += `<div class="card">
+    <div class="card-head">💰 Unrealized P&amp;L</div>`;
   if (inPos && px) {
-    const fromPeak = peak ? ((px - peak) / peak * 100) : null;
-    html += `
-    <div class="big ${pnlColor}">${upnl >= 0 ? '+' : ''}${f$(upnl)}</div>
-    <div class="big-sub">${fPct(upnlPct)} on $${cost.toFixed(0)} invested</div>
-    <div style="margin-top:16px;">
-      <div class="kv"><span class="kv-k">Live Price</span><span class="kv-v c-blue">${f$(px)}</span></div>
-      <div class="kv"><span class="kv-k">Peak Price (since entry)</span><span class="kv-v">${f$(peak)}</span></div>
-      <div class="kv"><span class="kv-k">Drawdown from Peak</span><span class="kv-v c-red">${fromPeak != null ? fPct(fromPeak) : '—'}</span></div>
-      <div class="kv"><span class="kv-k">Break-Even Price</span><span class="kv-v">${f$(avgE)}</span></div>
+    const fromPk = peak ? (px-peak)/peak*100 : null;
+    h += `<div class="num-big ${pnlCls}">${upnl>=0?'+':''}${f$(upnl)}</div>
+    <div class="num-sub">${fp(upnlP)} on ${f$(cost,0)} invested</div>
+    <div style="margin-top:16px">
+      <div class="kv"><span class="kv-k">Live Price</span><span class="kv-v b">${f$(px)}</span></div>
+      <div class="kv"><span class="kv-k">Peak Since Entry</span><span class="kv-v">${f$(peak)}</span></div>
+      <div class="kv"><span class="kv-k">Drawdown from Peak</span><span class="kv-v r">${fromPk!=null?fp(fromPk):'—'}</span></div>
+      <div class="kv"><span class="kv-k">Break-Even</span><span class="kv-v">${f$(avgE)}</span></div>
     </div>`;
   } else {
-    html += `<div class="no-pos"><div class="icon">💤</div>No open position</div>`;
+    h += `<div class="empty"><div class="ico">💤</div>No open position</div>`;
   }
-  html += `</div>`;
+  h += `</div>`;
 
-  /* ── Card 3: Exit Targets ──────────────── */
-  html += `<div class="card">
-    <div class="card-title">🎯 Exit Targets</div>`;
-
+  /* ── 3. Exit Targets ── */
+  h += `<div class="card">
+    <div class="card-head">🎯 Exit Targets</div>`;
   if (inPos) {
-    // Partial profit
     const ppDone = !!s.partial_taken;
-    const ppHit  = px && partT && px >= partT;
-    const partPct = avgE > 0 && partT > 0 ? (partT - avgE) / avgE * 100 : 5;
-    html += `<div class="target">
-      <div class="target-left">
-        <div class="label">⭐ Partial Profit (50% sell)</div>
-        <div class="price c-yellow">${f$(partT)}</div>
-        <div class="dist">+${partPct.toFixed(1)}% from avg${dPart != null ? ' · ' + fPct(dPart) + ' away' : ''}</div>
+    const ppPct  = avgE&&partT ? (partT-avgE)/avgE*100 : 5;
+    const dpPart = dist(partT), dpTrail = dist(trailT), dpHard = dist(hardT);
+    const trailPct = avgE&&trailT ? (trailT-avgE)/avgE*100 : null;
+    const hardPct  = avgE&&hardT  ? (hardT-avgE)/avgE*100  : null;
+
+    // Partial profit
+    h += `<div class="target">
+      <div><div class="t-label">⭐ Partial Profit — sell 50% of position</div>
+        <div class="t-price y">${f$(partT)}</div>
+        <div class="t-detail">+${ppPct.toFixed(1)}% from avg${dpPart!=null?' · '+fp(dpPart)+' away':''}</div>
       </div>
-      <span class="tbadge tbadge-yellow">${ppDone ? 'DONE ✅' : ppHit ? 'TRIGGERED' : 'PENDING'}</span>
+      <span class="chip chip-y">${ppDone?'DONE ✅':'PENDING'}</span>
     </div>`;
 
     // RSI exit
-    html += `<div class="target">
-      <div class="target-left">
-        <div class="label">📈 RSI Overbought Exit (Sell All)</div>
-        <div class="price c-green">RSI ≥ 60</div>
-        <div class="dist">Current RSI: ${rsi || '—'} &nbsp;(${rsi ? (60 - rsi).toFixed(1) + ' pts away' : '—'})</div>
+    h += `<div class="target">
+      <div><div class="t-label">📈 RSI Exit — sell entire position</div>
+        <div class="t-price g">RSI ≥ 60</div>
+        <div class="t-detail">Current RSI ${rsi||'—'} ${rsi?(60-rsi).toFixed(1)+' pts to trigger':''}</div>
       </div>
-      <span class="tbadge tbadge-green">${rsi >= 60 ? '🚨 TRIGGERED' : 'WATCHING'}</span>
+      <span class="chip chip-g">${rsi>=60?'🚨 NOW':'WATCHING'}</span>
     </div>`;
 
     // Trailing stop
-    const trailHit = px && trail && px <= trail;
-    const trailPct = peak > 0 && trail > 0 ? (trail - avgE) / avgE * 100 : null;
-    html += `<div class="target">
-      <div class="target-left">
-        <div class="label">🔁 Trailing Stop (3% below peak)</div>
-        <div class="price c-red">${f$(trail)}</div>
-        <div class="dist">${trailPct != null ? fPct(trailPct) + ' from avg' : ''} ${dTrail != null ? '· ' + fPct(dTrail) + ' from now' : ''}</div>
+    h += `<div class="target">
+      <div><div class="t-label">🔁 Trailing Stop — 3% below peak</div>
+        <div class="t-price r">${f$(trailT)}</div>
+        <div class="t-detail">${trailPct!=null?fp(trailPct)+' from avg':''}${dpTrail!=null?' · '+fp(dpTrail)+' from now':''}</div>
       </div>
-      <span class="tbadge tbadge-red">${trailHit ? '🚨 HIT' : 'ACTIVE'}</span>
+      <span class="chip chip-r">${(px&&trailT&&px<=trailT)?'🚨 HIT':'ACTIVE'}</span>
     </div>`;
 
     // Hard stop
-    const hardHit = px && hard && px <= hard;
-    const hardPct = avgE > 0 && hard > 0 ? (hard - avgE) / avgE * 100 : null;
-    html += `<div class="target">
-      <div class="target-left">
-        <div class="label">🛑 Hard Stop Loss (5% below avg)</div>
-        <div class="price c-red">${f$(hard)}</div>
-        <div class="dist">${hardPct != null ? fPct(hardPct) + ' from avg' : ''} ${dHard != null ? '· ' + fPct(dHard) + ' from now' : ''}</div>
+    h += `<div class="target">
+      <div><div class="t-label">🛑 Hard Stop — 5% below avg entry</div>
+        <div class="t-price r">${f$(hardT)}</div>
+        <div class="t-detail">${hardPct!=null?fp(hardPct)+' from avg':''}${dpHard!=null?' · '+fp(dpHard)+' from now':''}</div>
       </div>
-      <span class="tbadge tbadge-red">${hardHit ? '🚨 HIT' : 'PROTECTION'}</span>
+      <span class="chip chip-r">${(px&&hardT&&px<=hardT)?'🚨 HIT':'PROTECT'}</span>
     </div>`;
   } else {
-    html += `<div class="no-pos"><div class="icon">🎯</div>Entry triggers shown once a position is open</div>`;
+    h += `<div class="empty"><div class="ico">🎯</div>Shown when in a position</div>`;
   }
-  html += `</div>`;
+  h += `</div>`;
 
-  /* ── Card 4: P&L Projection Table (full width) ──────────────── */
-  html += `<div class="card span3">
-    <div class="card-title">📉📈 Projected P&amp;L — Price Scenarios</div>`;
+  /* ── 4. Entry Conditions (next tranche) ── */
+  h += `<div class="card">
+    <div class="card-head">📥 Entry Conditions — Next Tranche</div>`;
+  const rsiThresh = [rsi1, bull?36:29, bull?30:23];
+  const rsiLabel  = ['T1','T2','T3'];
+  const nextT     = Math.min(tc, 2);
+  h += `<div class="kv"><span class="kv-k">Mode</span>
+    <span class="kv-v"><span style="background:${bull?'rgba(63,185,80,.15)':'rgba(248,81,73,.12)'};color:${bull?'var(--green)':'var(--red)'};border:1px solid ${bull?'var(--green)':'var(--red)'};border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700">${bull?'🐂 BULL':'🐻 BEAR'}</span></span>
+  </div>
+  <div class="kv"><span class="kv-k">SMA 200 (4H)</span><span class="kv-v">${f$(sma,0)}</span></div>
+  <div class="kv"><span class="kv-k">Current RSI (4H)</span><span class="kv-v ${rsi&&rsi<rsiThresh[nextT]?'g':''}">${rsi||'—'} ${rsi&&rsi<rsiThresh[nextT]?'✅':''}</span></div>
+  <div class="kv"><span class="kv-k">RSI target (T${nextT+1})</span><span class="kv-v g">&lt; ${rsiThresh[nextT]}</span></div>
+  <div class="kv"><span class="kv-k">Dip from 5-day High</span><span class="kv-v ${dip>=dipR?'g':''}">${dip?dip.toFixed(2)+'%':'—'} ${dip>=dipR?'✅':'(need '+dipR+'%)'}</span></div>
+  <div class="kv"><span class="kv-k">News Score</span><span class="kv-v ${news==null?'m':news>=-5&&news<=6?'':'g'}">${news!=null?(news>=0?'+':'')+news+' / 10':'—'}</span></div>`;
+  h += `</div>`;
+
+  /* ── 5. Fear & Greed ── */
+  const fgBg  = fngBlk?'rgba(248,81,73,.1)':fngBst?'rgba(63,185,80,.1)':'rgba(255,255,255,.03)';
+  const fgTxt = fngBlk?'var(--red)':fngBst?'var(--green)':'var(--muted)';
+  const fgMsg = fngBlk?'🚫 ENTRIES BLOCKED (≥80)':fngBst?'✅ ENTRIES BOOSTED (≤25)':'✅ Neutral — entries allowed';
+  h += `<div class="card">
+    <div class="card-head">😨 Fear &amp; Greed Index</div>
+    <div class="fng-big" style="color:${fgC}">${fngV}</div>
+    <div class="fng-lbl" style="color:${fgC}">${fngL.toUpperCase()}</div>
+    <div class="gauge-track">
+      <div class="gauge-pin" style="left:${fngV}%;color:${fgC}"></div>
+    </div>
+    <div class="gauge-lbls"><span class="g">Fear</span><span>Neutral</span><span class="r">Greed</span></div>
+    <div class="fng-box" style="background:${fgBg};color:${fgTxt}">${fgMsg}</div>
+    <div style="margin-top:10px">
+      <div class="kv"><span class="kv-k">Block entries if</span><span class="kv-v r">≥ 80</span></div>
+      <div class="kv"><span class="kv-k">Boost entries if</span><span class="kv-v g">≤ 25</span></div>
+    </div>
+  </div>`;
+
+  /* ── 6. Market Signals ── */
+  h += `<div class="card">
+    <div class="card-head">📡 Market Signals</div>
+    <div class="kv"><span class="kv-k">RSI (4H Wilder 14)</span><span class="kv-v ${rsi>=60?'r':rsi<=rsi1?'g':'b'}">${rsi||'—'}</span></div>
+    <div style="height:5px;background:#21262d;border-radius:3px;overflow:hidden;margin-bottom:10px">
+      <div style="height:100%;width:${Math.min(100,rsi)}%;background:${rsi>=60?'var(--red)':rsi<=rsi1?'var(--green)':'var(--blue)'};border-radius:3px;transition:width .5s"></div>
+    </div>
+    <div class="kv"><span class="kv-k">RSI exit trigger</span><span class="kv-v r">≥ 60</span></div>
+    <div class="kv"><span class="kv-k">Dip from 5-day High</span><span class="kv-v ${dip>=dipR?'g':'m'}">${dip?dip.toFixed(2)+'%':'—'}</span></div>
+    <div class="kv"><span class="kv-k">Live BTC Price</span><span class="kv-v b">${f$(px)}</span></div>
+    <div class="kv"><span class="kv-k">Avg Entry</span><span class="kv-v">${f$(avgE)}</span></div>
+    <div class="kv"><span class="kv-k">Last Bot Run</span><span class="kv-v" style="font-size:11px">${ts(s.last_run)}</span></div>
+  </div>`;
+
+  /* ── 7. Projected P&L (full width) ── */
+  h += `<div class="card full">
+    <div class="card-head">📉📈 Projected P&amp;L — Price Scenarios</div>`;
 
   if (inPos && cost > 0 && avgE > 0) {
-    html += `<div style="overflow-x:auto;"><table class="ptable">
+    const rows = [-20,-15,-10,-5,-3,0,3,5,10,15,20,25,30];
+    h += `<div style="overflow-x:auto"><table>
       <thead><tr>
-        <th>BTC Move</th>
-        <th>Price Target</th>
+        <th style="text-align:left">BTC Move</th>
+        <th>Price</th>
         <th>Position Value</th>
-        <th>Profit / Loss ($)</th>
-        <th>Return (%)</th>
-        <th>Notes</th>
+        <th>Profit / Loss</th>
+        <th>Return</th>
+        <th style="text-align:left">Notes</th>
       </tr></thead>
       <tbody>`;
 
-    const scens = [-20,-15,-10,-5,-3,0,3,5,10,15,20,25,30];
-    scens.forEach(pct => {
-      const scPx  = avgE * (1 + pct / 100);
+    rows.forEach(pct => {
+      const scPx  = avgE * (1 + pct/100);
       const scVal = scPx * qty;
       const scPnl = scVal - cost;
-      const scPct = (scPnl / cost) * 100;
-      const isCur = px && Math.abs(px - scPx) / scPx < 0.025;
-      const cls   = scPnl >= 0 ? 'c-green' : 'c-red';
-
+      const scPct = scPnl / cost * 100;
+      const isCur = px && Math.abs(px - scPx)/scPx < 0.025;
+      const cls   = scPnl >= 0 ? 'g' : 'r';
       let note = '';
-      if (partT   && Math.abs(scPx - partT) / partT < 0.008) note = '⭐ Partial profit target';
-      else if (hard  && Math.abs(scPx - hard)  / hard  < 0.008) note = '🛑 Hard stop';
-      else if (trail && Math.abs(scPx - trail) / trail < 0.008) note = '🔁 Trail stop';
-      else if (pct === 0) note = '= Break even';
+      if (partT  && Math.abs(scPx-partT)/partT   < .008) note = '⭐ Partial profit target';
+      else if (hardT && Math.abs(scPx-hardT)/hardT < .008) note = '🛑 Hard stop';
+      else if (trailT && Math.abs(scPx-trailT)/trailT < .008) note = '🔁 Trail stop';
+      else if (pct===0) note = 'Break-even';
 
-      html += `<tr${isCur ? ' class="now"' : ''}>
-        <td style="font-weight:600">${pct >= 0 ? '+' : ''}${pct}%${isCur ? ' ← now' : ''}</td>
+      h += `<tr${isCur?' class="cur"':''}><td style="font-weight:600;color:${pct>0?'var(--green)':pct<0?'var(--red)':'var(--muted)'}">${pct>=0?'+':''}${pct}%${isCur?' ← now':''}</td>
         <td>${f$(scPx)}</td>
         <td>${f$(scVal)}</td>
-        <td class="${cls}" style="font-weight:700">${scPnl >= 0 ? '+' : ''}${f$(scPnl)}</td>
-        <td class="${cls}" style="font-weight:700">${fPct(scPct)}</td>
-        <td class="note">${note}</td>
-      </tr>`;
+        <td class="${cls}" style="font-weight:700">${scPnl>=0?'+':''}${f$(scPnl)}</td>
+        <td class="${cls}" style="font-weight:700">${fp(scPct)}</td>
+        <td class="note-cell">${note}</td></tr>`;
     });
-
-    html += `</tbody></table></div>`;
+    h += `</tbody></table></div>`;
   } else {
-    html += `<div class="no-pos"><div class="icon">📊</div>P&amp;L scenarios shown once a position is open</div>`;
+    h += `<div class="empty"><div class="ico">📊</div>Projected P&amp;L will appear when a position is open</div>`;
   }
-  html += `</div>`;
+  h += `</div>`;
 
-  /* ── Card 5: Market Signals ──────────────── */
-  const rsiBarW = Math.min(100, Math.max(0, rsi));
-  const rsiColor = rsi >= 60 ? 'var(--red)' : rsi <= 35 ? 'var(--green)' : 'var(--blue)';
-  const dipOk = dip >= dipR;
-
-  html += `<div class="card">
-    <div class="card-title">📡 Market Signals</div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-      <span class="kv-k">Trend Mode</span>
-      <span class="${isBull ? 'mode-bull' : 'mode-bear'}">${isBull ? '🐂 BULL' : '🐻 BEAR'}</span>
-    </div>
-    <div class="kv">
-      <span class="kv-k">RSI (4H Wilder 14)</span>
-      <span class="kv-v" style="color:${rsiColor}">${rsi || '—'}</span>
-    </div>
-    <div class="progress-wrap">
-      <div class="progress-track">
-        <div class="progress-fill" style="width:${rsiBarW}%;background:${rsiColor}"></div>
-      </div>
-    </div>
-    <div class="kv" style="margin-top:8px;">
-      <span class="kv-k">RSI exit threshold</span>
-      <span class="kv-v c-red">≥ 60</span>
-    </div>
-    <div class="kv">
-      <span class="kv-k">RSI T1 entry (${mode})</span>
-      <span class="kv-v c-green">&lt; ${rsi1}</span>
-    </div>
-    <div class="kv">
-      <span class="kv-k">Dip from 5-day High</span>
-      <span class="kv-v ${dipOk ? 'c-green' : 'c-muted'}">${dip ? dip.toFixed(2) + '%' : '—'} ${dipOk ? '✅' : '(need ' + dipR + '%)'}</span>
-    </div>
-    <div class="kv">
-      <span class="kv-k">SMA 200 (4H)</span>
-      <span class="kv-v">${f$(sma, 0)}</span>
-    </div>
-    <div class="kv">
-      <span class="kv-k">News Sentiment</span>
-      <span class="kv-v ${news == null ? 'c-muted' : news >= 6 ? 'c-green' : news <= -5 ? 'c-red' : ''}">${news != null ? (news >= 0 ? '+' : '') + news + ' / 10' : '—'}</span>
-    </div>
-  </div>`;
-
-  /* ── Card 6: Fear & Greed ──────────────── */
-  const fv   = fngData ? fngData.value : fngV;
-  const fl   = fngData ? fngData.label : fngL;
-  const fc   = fngColor(fv);
-  const fBlk = fv >= 80;
-  const fBst = fv <= 25;
-  const fSts = fBlk ? '🚫 ENTRIES BLOCKED' : fBst ? '✅ ENTRIES BOOSTED' : '✅ Neutral — Normal entry';
-  const fBg  = fBlk ? 'rgba(248,81,73,.1)' : fBst ? 'rgba(63,185,80,.1)' : 'var(--bg3)';
-  const fTxt = fBlk ? 'var(--red)' : fBst ? 'var(--green)' : 'var(--muted)';
-
-  html += `<div class="card">
-    <div class="card-title">😨 Fear &amp; Greed Index</div>
-    <div class="fng-num" style="color:${fc}">${fv}</div>
-    <div class="fng-lbl" style="color:${fc}">${fl.toUpperCase()}</div>
-    <div class="fng-track">
-      <div class="fng-pin" style="left:${fv}%;color:${fc}"></div>
-    </div>
-    <div class="fng-row">
-      <span class="c-green">Extreme Fear</span>
-      <span>Fear</span>
-      <span class="c-yellow">Neutral</span>
-      <span>Greed</span>
-      <span class="c-red">Extreme Greed</span>
-    </div>
-    <div class="fng-status" style="background:${fBg};color:${fTxt}">${fSts}</div>
-    <div style="margin-top:10px;">
-      <div class="kv"><span class="kv-k">Block threshold</span><span class="kv-v c-red">≥ 80 (Extreme Greed)</span></div>
-      <div class="kv"><span class="kv-k">Boost threshold</span><span class="kv-v c-green">≤ 25 (Extreme Fear)</span></div>
-    </div>
-  </div>`;
-
-  /* ── Card 7: Bot Status ──────────────── */
-  html += `<div class="card">
-    <div class="card-title">🤖 Bot Status</div>
-    <div class="kv">
-      <span class="kv-k">Last Signal</span>
-      <span class="kv-v" style="font-size:11px;max-width:160px;text-align:right;line-height:1.3">${s.last_signal || '—'}</span>
-    </div>
-    <div class="kv"><span class="kv-k">Last Action</span><span class="kv-v">${s.last_action || '—'}</span></div>
-    <div class="kv"><span class="kv-k">Last Bot Run</span><span class="kv-v" style="font-size:11px">${timeSince(s.last_run)}</span></div>
-    <div class="kv"><span class="kv-k">Run Timestamp</span><span class="kv-v" style="font-size:10px">${fmtTs(s.last_run)}</span></div>
-    <div class="kv"><span class="kv-k">Exchange</span><span class="kv-v">Binance.US</span></div>
-    <div class="kv"><span class="kv-k">Capital</span><span class="kv-v">$167 × 3 tranches</span></div>
-    <a href="https://github.com/arminherabit/btc-swing-bot/actions" target="_blank"
-       style="display:block;margin-top:14px;text-align:center;padding:9px;background:var(--bg3);border-radius:7px;color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;border:1px solid var(--border)">
-      View GitHub Actions ↗
-    </a>
-  </div>`;
-
-  document.getElementById('grid').innerHTML = html;
+  document.getElementById('grid').innerHTML = h;
 }
 
-/* ───────────────────────────────────────────────────────────────
-   Price ticker (every 10 s)
-─────────────────────────────────────────────────────────────── */
-async function tickPrice() {
+/* ── Price tick (every 10 s) ── */
+async function tickPx() {
   try {
-    const p = await getPrice();
-    const el = document.getElementById('livePrice');
+    const d = await get(PRICE_URL);
+    const p = parseFloat(d.price);
+    const el = document.getElementById('px');
     if (prevPx !== null) {
-      el.className = 'live-price ' + (p > prevPx ? 'up' : p < prevPx ? 'down' : '');
-      setTimeout(() => { el.className = 'live-price'; }, 1200);
+      el.className = 'price-big ' + (p > prevPx ? 'up' : p < prevPx ? 'down' : '');
+      setTimeout(() => el.className = 'price-big', 1200);
     }
-    prevPx = livePx;
-    livePx = p;
-    el.textContent = '$' + p.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-    document.getElementById('liveSub').textContent =
-      'Live · state from ' + timeSince(S && S.last_run);
+    prevPx = px; px = p;
+    el.textContent = '$' + p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+    document.getElementById('pxSub').textContent = 'Live Binance.US · ' + new Date().toLocaleTimeString();
     render();
-  } catch { /* silent */ }
+  } catch {}
 }
 
-/* ───────────────────────────────────────────────────────────────
-   Full refresh (state + F&G + price, every 30 s)
-─────────────────────────────────────────────────────────────── */
-async function fullRefresh() {
+/* ── Full refresh (state + F&G + price) ── */
+async function refresh() {
   try {
-    const [s, p, f] = await Promise.allSettled([getState(), getPrice(), getFng()]);
-    if (s.status === 'fulfilled') S       = s.value;
-    if (p.status === 'fulfilled') livePx  = p.value;
-    if (f.status === 'fulfilled') fngData = f.value;
-    if (livePx) {
-      const el = document.getElementById('livePrice');
-      el.textContent = '$' + livePx.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    const [sr, pr, fr] = await Promise.allSettled([get(STATE_URL), get(PRICE_URL), get(FNG_URL)]);
+    if (sr.status==='fulfilled') S   = sr.value;
+    if (pr.status==='fulfilled') px  = parseFloat(pr.value.price);
+    if (fr.status==='fulfilled') fng = { value: parseInt(fr.value.data[0].value), label: fr.value.data[0].value_classification };
+    if (px) {
+      document.getElementById('px').textContent = '$' + px.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+      document.getElementById('pxSub').textContent = 'Live Binance.US · ' + new Date().toLocaleTimeString();
     }
-    document.getElementById('liveSub').textContent =
-      'Live · state from ' + timeSince(S && S.last_run);
     render();
   } catch(e) { console.error(e); }
-  startCountdown();
+  startCd();
 }
 
-/* ───────────────────────────────────────────────────────────────
-   Countdown
-─────────────────────────────────────────────────────────────── */
-function startCountdown() {
-  cdSecs = 30;
-  if (cdTimer) clearInterval(cdTimer);
-  cdTimer = setInterval(() => {
-    cdSecs--;
+/* ── Countdown ── */
+function startCd() {
+  cd = 30;
+  if (timer) clearInterval(timer);
+  timer = setInterval(() => {
+    cd--;
     const el = document.getElementById('cd');
-    if (el) el.textContent = cdSecs;
-    if (cdSecs <= 0) { clearInterval(cdTimer); fullRefresh(); }
+    if (el) el.textContent = cd;
+    if (cd <= 0) { clearInterval(timer); refresh(); }
   }, 1000);
 }
 
-/* ───────────────────────────────────────────────────────────────
-   Boot
-─────────────────────────────────────────────────────────────── */
-fullRefresh();
-setInterval(tickPrice, 10000);
+/* ── Boot ── */
+refresh();
+setInterval(tickPx, 10000);
 </script>
 </body>
 </html>
