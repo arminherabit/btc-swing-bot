@@ -321,10 +321,10 @@ function render() {
   const fgMsg = fngBlk?'🚫 ENTRIES BLOCKED (≥80)':fngBst?'✅ ENTRIES BOOSTED (≤25)':'✅ Neutral — entries allowed';
   h += `<div class="card">
     <div class="card-head">😨 Fear &amp; Greed Index</div>
-    <div class="fng-big" style="color:${fgC}">${fngV}</div>
-    <div class="fng-lbl" style="color:${fgC}">${fngL.toUpperCase()}</div>
+    <div class="fng-big" style="color:${fngC}">${fngV}</div>
+    <div class="fng-lbl" style="color:${fngC}">${fngL.toUpperCase()}</div>
     <div class="gauge-track">
-      <div class="gauge-pin" style="left:${fngV}%;color:${fgC}"></div>
+      <div class="gauge-pin" style="left:${fngV}%;color:${fngC}"></div>
     </div>
     <div class="gauge-lbls"><span class="g">Fear</span><span>Neutral</span><span class="r">Greed</span></div>
     <div class="fng-box" style="background:${fgBg};color:${fgTxt}">${fgMsg}</div>
