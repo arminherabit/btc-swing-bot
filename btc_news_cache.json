@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-19T09:00:28.9174631Z",
-  "score": 2,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-19T14:00:25.3813142Z",
+  "score": 3,
+  "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "White House imminent Strategic Bitcoin Reserve announcement",
-    "MicroStrategy spends $2B acquiring 843,738 BTC total holdings",
-    "Bitcoin price pressure from macroeconomic headwinds and Treasury yields with Japan selling $30B US debt"
+    "White House announces imminent Strategic Bitcoin Reserve - major institutional adoption signal",
+    "SEC approves tokenized stocks framework opening crypto rails to equities market",
+    "Bitcoin ETF outflows ($649M) driven by long-term holder accumulation, not capitulation selling"
   ],
-  "reasoning": "Positive institutional accumulation signals (MSTR, Capital B, Bitmine) and regulatory tailwinds (CBDC ban progress, SEC tokenization exemption, strategic reserve announcement) are offset by near-term technical breakdown below $77K-$78K support, macroeconomic pressure from rising Treasury yields, and negative sentiment from multiple altcoin foundation departures and exchange bankruptcies. The setup presents conflicting signals with structural support mechanisms competing against cyclical bearish technicals.",
-  "risks": "Continued macroeconomic deterioration driven by Treasury yields and potential geopolitical escalation (Iran tensions evidenced by suspicious Polymarket trading) could trigger cascade liquidations if BTC breaks below $76K psychological support level.",
+  "reasoning": "Positive structural catalysts (strategic reserve, tokenized stocks SEC approval, institutional custody consolidation) outweigh near-term macro headwinds and regulatory noise. However, recent 7% retracement to $76K and lack of fresh momentum prevent stronger bullish conviction in the 1-7 day timeframe.",
+  "risks": "Macroeconomic pressure and Fed rate expectations could trigger further consolidation below $76K support if equity markets weaken or geopolitical tensions escalate.",
   "article_count": 36
 }
