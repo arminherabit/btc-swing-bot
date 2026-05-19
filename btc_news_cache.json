@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-19T18:00:35.5902075Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-19T22:49:41.0570917Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin price stays under $77K as US bond yields near 20-year highs -- BTC pinned below $77K amid rising yields",
-    "Recent Bitcoin holders sell $770M BTC at a loss amid $65K BTC price calls -- Short-term holders capitulating with $65K targets",
-    "Bitcoin ETFs Shed $649M in a Day as Long-Term BTC Holders accumulate -- Mixed signals with institutional flows diverging"
+    "Bitcoin miners becoming critical AI infrastructure suppliers with 27 GW planned power and $90B in AI deals - major structural bullish catalyst",
+    "Bitcoin dip buyers positioned at $70K support with strong institutional demand signals from ETF inflows and major treasury accumulation by MSTR and Strive",
+    "Regulatory clarity improving with SEC tokenized stock exemption coming, UK BoE supporting tokenization, and Japan Bitcoin ETF plans opening household savings channels"
   ],
-  "reasoning": "Bitcoin faces significant near-term headwinds from elevated US bond yields (20-year highs) and technical weakness at $77K support level, with short-term holders capitulating and analysts calling for $65K-$70K targets. However, this is partially offset by long-term institutional accumulation (MSTR, Strategy, Strive buying heavily), SEC tokenization catalysts, and positive global regulatory developments (UK, Japan, SEC), which suggest support for a longer-term bullish thesis despite near-term volatility.",
-  "risks": "Break below $76K support level could trigger cascading liquidations toward $70K-$65K as technical levels fail and short-term holder capitulation accelerates.",
+  "reasoning": "Macro backdrop is shifting positively with miners positioning as AI power brokers, institutional accumulation accelerating (MSTR, Strive, Bitwise), and regulatory frameworks solidifying across major economies. Near-term technical weakness below $77K appears to be capitulation setting up dip-buying opportunities rather than trend reversal, supported by orderbook data showing buyers queued at $70K.",
+  "risks": "Heavy ETF outflows exceeding $1B combined with resistance breakdown below $77K could trigger cascade liquidations if Bitcoin breaks $76K support level, though dip-buyer positioning may absorb significant selling pressure.",
   "article_count": 36
 }
