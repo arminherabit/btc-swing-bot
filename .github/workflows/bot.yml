@@ -58,6 +58,19 @@ jobs:
           git diff --staged --quiet || git commit -m "bot: state update $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
           git push || true
 
+      - name: Deploy dashboard to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID:    ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          # Skip gracefully if secrets not yet configured
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "Netlify secrets not configured — skipping deploy"
+            exit 0
+          fi
+          npm install -g netlify-cli --silent
+          netlify deploy --prod --dir=docs --message "bot cycle $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
       - name: Send SMS notification
         if: always()
         env:
