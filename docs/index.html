@@ -401,7 +401,35 @@ function render() {
     '</div>' +
   '</div>';
 
-  /* ── 7. Market Signals ── */
+  /* ── 7. RL Signal card ── */
+  const rlAction  = s.rl_action     || 'NONE';
+  const rlConf    = +(s.rl_confidence || 0);
+  const rlActive  = !!s.rl_override;
+  const rlColors  = { BUY_TRANCHE:'var(--green)', SELL_ALL:'var(--red)', SELL_PARTIAL:'var(--yellow)', HOLD:'var(--muted)', NONE:'var(--muted)' };
+  const rlIcons   = { BUY_TRANCHE:'📈', SELL_ALL:'💰', SELL_PARTIAL:'⭐', HOLD:'⏸️', NONE:'💤' };
+  const rlColor   = rlColors[rlAction] || 'var(--muted)';
+
+  h += '<div class="card">' +
+    '<div class="card-head">🤖 PPO RL Signal</div>' +
+    '<div style="text-align:center;padding:8px 0 12px">' +
+      '<div style="font-size:36px">' + (rlIcons[rlAction]||'💤') + '</div>' +
+      '<div style="font-size:20px;font-weight:800;color:' + rlColor + ';margin-top:6px">' + rlAction.replace('_',' ') + '</div>' +
+      '<div style="font-size:11px;color:var(--muted);margin-top:4px">Aggressiveness = 1.5</div>' +
+    '</div>' +
+    '<div style="margin:0 0 12px;padding:8px;border-radius:6px;background:' +
+      (rlActive ? 'rgba(63,185,80,.1)' : 'var(--bg3)') + ';text-align:center;font-size:12px;font-weight:700;color:' +
+      (rlActive ? 'var(--green)' : 'var(--muted)') + '">' +
+      (rlActive ? '✅ OVERRIDE ACTIVE — bot follows RL' : '⏸ Standby — using rule-based logic') +
+    '</div>' +
+    '<div class="kv"><span class="kv-k">Confidence</span>' +
+      '<span class="kv-v ' + (rlConf>=0.7?'g':rlConf>=0.5?'y':'r') + '">' + (rlConf*100).toFixed(0) + '%</span></div>' +
+    '<div class="kv"><span class="kv-k">Override gate</span><span class="kv-v">≥ 60%</span></div>' +
+    '<div class="kv"><span class="kv-k">Algorithm</span><span class="kv-v">PPO (MLP 256×256×128)</span></div>' +
+    '<div class="kv"><span class="kv-k">Training steps</span><span class="kv-v">1,000,000</span></div>' +
+    '<div class="kv"><span class="kv-k">Entropy coef</span><span class="kv-v">0.015 (aggressive)</span></div>' +
+  '</div>';
+
+  /* ── 8. Market Signals ── */
   h += `<div class="card">
     <div class="card-head">📡 Market Signals</div>
     <div class="kv"><span class="kv-k">RSI (4H Wilder 14)</span><span class="kv-v ${rsi>=60?'r':rsi<=rsi1?'g':'b'}">${rsi||'—'}</span></div>

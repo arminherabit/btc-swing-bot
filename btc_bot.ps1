@@ -221,12 +221,14 @@ function Load-State {
             if ($null -eq $s.partial_taken) { Add-Member -InputObject $s -NotePropertyName partial_taken -NotePropertyValue $false  }
             # Telemetry fields for live dashboard (added v3)
             foreach ($f in @("btc_price","rsi","sma200","dip_pct","fng_value","news_score","partial_target","trail_stop","hard_stop",
-                             "aggressiveness_factor","cycle_reward","reward_rolling_avg")) {
+                             "aggressiveness_factor","cycle_reward","reward_rolling_avg","rl_confidence")) {
                 if ($null -eq $s.$f) { Add-Member -InputObject $s -NotePropertyName $f -NotePropertyValue 0 }
             }
             if ($null -eq $s.mode)           { Add-Member -InputObject $s -NotePropertyName mode           -NotePropertyValue "" }
             if ($null -eq $s.fng_label)      { Add-Member -InputObject $s -NotePropertyName fng_label      -NotePropertyValue "" }
             if ($null -eq $s.reward_history) { Add-Member -InputObject $s -NotePropertyName reward_history -NotePropertyValue @()  }
+            if ($null -eq $s.rl_action)      { Add-Member -InputObject $s -NotePropertyName rl_action      -NotePropertyValue "NONE" }
+            if ($null -eq $s.rl_override)    { Add-Member -InputObject $s -NotePropertyName rl_override    -NotePropertyValue $false }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -262,6 +264,10 @@ function Load-State {
         cycle_reward          = 0.0
         reward_rolling_avg    = 0.0
         reward_history        = @()
+        # RL signal
+        rl_action             = "NONE"
+        rl_confidence         = 0.0
+        rl_override           = $false
     }
 }
 
@@ -271,18 +277,35 @@ function Save-State($s) {
 
 # ── Main cycle ────────────────────────────────────────────────────────────────
 
+function Load-RLSignal {
+    $path = Join-Path $PSScriptRoot "rl_signal.json"
+    if (-not (Test-Path $path)) { return $null }
+    try {
+        $sig = Get-Content $path | ConvertFrom-Json
+        if ($sig.override -eq $true -and $sig.action -ne "NONE") { return $sig }
+    } catch {}
+    return $null
+}
+
 function Run-Cycle {
     $state  = Load-State
+    $rl     = Load-RLSignal
     $nowDt  = (Get-Date).ToUniversalTime()
     $now    = $nowDt.ToString("yyyy-MM-dd HH:mm:ss")
     $price  = Get-Price
 
     Write-Host ""
     Write-Host ("="*70)
-    Write-Host ("  BTC DIP LADDER BOT v3  --  {0} UTC" -f $now)
+    Write-Host ("  BTC DIP LADDER BOT v3 + RL  --  {0} UTC" -f $now)
     Write-Host ("  BTC: `${0}  |  Tranches: {1}/3  |  Status: {2}" -f `
         $price.ToString("N2"), [int]$state.tranche_count, `
         $(if ($state.in_position) { "IN POSITION" } else { "WATCHING" }))
+    if ($null -ne $rl) {
+        Write-Host ("  RL Signal: {0}  Confidence: {1}%  AF: {2}  [OVERRIDE ACTIVE]" -f `
+            $rl.action, ([int]($rl.confidence * 100)), $rl.af)
+    } else {
+        Write-Host "  RL Signal: none (rule-based mode)"
+    }
     Write-Host ("="*70)
 
     # ── Fear & Greed Index ────────────────────────────────────────────────────
@@ -363,6 +386,66 @@ function Run-Cycle {
         $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct, `
         $(if ($divergence) { "YES (bullish)" } else { "no" }))
     Write-Host ("  Entry thresholds: T1<{0}  T2<{1}  T3<{2}  Dip>={3}%" -f $rsi1, $rsi2, $rsi3, $dipReq)
+
+    # ── RL SIGNAL OVERRIDE ────────────────────────────────────────────────────
+    # When the PPO model is confident (>=60%), it can trigger actions directly,
+    # bypassing the rule-based RSI/dip gates. Rule-based hard stops always fire.
+
+    if ($null -ne $rl) {
+        $rlAction = $rl.action
+
+        if ($rlAction -eq "SELL_ALL" -and $state.in_position -and [double]$state.total_qty -gt 0) {
+            $pnlPct = [Math]::Round((($price - [double]$state.avg_entry) / [double]$state.avg_entry) * 100, 2)
+            Write-Host ("  RL OVERRIDE: SELL_ALL  (conf={0}%  PnL={1}%)" -f ([int]($rl.confidence*100)), $pnlPct)
+            $order = Place-MarketOrder "SELL" ([double]$state.total_qty)
+            if ($null -ne $order) {
+                $state.in_position   = $false; $state.tranche_count = 0
+                $state.avg_entry     = 0.0;     $state.total_qty     = 0.0
+                $state.total_cost    = 0.0;     $state.highest_price = 0.0
+                $state.entry_time    = "";       $state.partial_taken = $false
+                $state.last_action   = "RL_SELL"
+                $state.last_signal   = "RL EXIT conf=$([int]($rl.confidence*100))% PnL=$pnlPct%"
+            }
+        }
+        elseif ($rlAction -eq "SELL_PARTIAL" -and $state.in_position `
+                -and -not [bool]$state.partial_taken -and [double]$state.total_qty -gt 0) {
+            $pnlPct  = [Math]::Round((($price - [double]$state.avg_entry) / [double]$state.avg_entry) * 100, 2)
+            $sellQty = [Math]::Round([double]$state.total_qty * 0.5, 5)
+            Write-Host ("  RL OVERRIDE: SELL_PARTIAL  (conf={0}%  PnL={1}%)" -f ([int]($rl.confidence*100)), $pnlPct)
+            $order = Place-MarketOrder "SELL" $sellQty
+            if ($null -ne $order) {
+                $state.total_qty     = [Math]::Round([double]$state.total_qty - $sellQty, 5)
+                $state.total_cost    = [Math]::Round([double]$state.total_cost * 0.5, 2)
+                $state.partial_taken = $true
+                $state.last_action   = "RL_PARTIAL"
+                $state.last_signal   = "RL PARTIAL conf=$([int]($rl.confidence*100))% PnL=$pnlPct%"
+            }
+        }
+        elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
+                -and [int]$state.tranche_count -lt [int]$cfg.max_tranches) {
+            $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
+            Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2})" -f `
+                ([int]$state.tranche_count + 1), ([int]($rl.confidence*100)), $rsi4h)
+            $order = Place-MarketOrder "BUY" $qty
+            if ($null -ne $order) {
+                $tc = [int]$state.tranche_count
+                $newQty              = [Math]::Round([double]$state.total_qty + $qty, 5)
+                $newCost             = [double]$state.total_cost + [double]$cfg.tranche_size_usdt
+                $state.in_position   = $true
+                $state.tranche_count = $tc + 1
+                $state.total_qty     = $newQty
+                $state.total_cost    = $newCost
+                $state.avg_entry     = [Math]::Round($newCost / $newQty, 2)
+                if ([double]$state.highest_price -lt $price) { $state.highest_price = $price }
+                if ($tc -eq 0) { $state.entry_time = $nowDt.ToString("o") }
+                $state.last_action   = "RL_BUY_T$($tc+1)"
+                $state.last_signal   = "RL BUY T$($tc+1)/3 conf=$([int]($rl.confidence*100))%"
+            }
+        }
+        else {
+            Write-Host ("  RL HOLD: {0} (no override action needed this cycle)" -f $rlAction)
+        }
+    }
 
     # ── EXIT & PARTIAL PROFIT ─────────────────────────────────────────────────
 
@@ -534,6 +617,16 @@ function Run-Cycle {
     $state.cycle_reward          = $cycleReward
     $state.reward_rolling_avg    = $rewardAvg
     $state.reward_history        = $rHist.ToArray()
+    # RL signal passthrough (for dashboard)
+    if ($null -ne $rl) {
+        $state.rl_action     = $rl.action
+        $state.rl_confidence = $rl.confidence
+        $state.rl_override   = $rl.override
+    } else {
+        $state.rl_action     = "NONE"
+        $state.rl_confidence = 0.0
+        $state.rl_override   = $false
+    }
     if ($state.in_position -and [double]$state.avg_entry -gt 0) {
         $avgE  = [double]$state.avg_entry
         $peakP = [double]$state.highest_price

@@ -25,6 +25,17 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: RL Inference (pre-signal)
+        run: |
+          # Install deps only when the model file exists
+          if [ -f btc_rl_model.zip ]; then
+            pip install -q stable-baselines3 gymnasium pandas numpy requests
+            python btc_rl_inference.py --state btc_state.json --out rl_signal.json
+          else
+            echo '{"action":"NONE","override":false,"reason":"no_model"}' > rl_signal.json
+            echo "No RL model found — bot uses rule-based logic this cycle"
+          fi
+
       - name: Run swing bot
         shell: pwsh
         env:
