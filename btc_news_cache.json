@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-20T14:00:31.7970499Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-20T19:01:45.9504242Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin's momentum is fading with support levels at $74,000-$76,000 at risk of triggering deeper correction",
-    "Bitcoin ETF outflows exceed $1 billion amid Treasury yield pressure and professional investor deleveraging",
-    "Trump administration pushes Fed to review crypto firms' payment rail access, creating regulatory tailwinds offset by near-term technical weakness"
+    "Trump Orders Fed to Review Crypto Access to U.S. Payment Rails",
+    "Tether Takes Control of Twenty One Capital After Buying Out SoftBank",
+    "Fairshake PAC's $20M backing pays off in three US state primaries"
   ],
-  "reasoning": "Bitcoin faces significant near-term technical headwinds with momentum fading below $77,000 and key support levels weakening, compounded by $1B+ ETF outflows and crowded trade unwinding. Positive regulatory developments (South Carolina CBDC ban, Fed payment rails review, crypto compliance progress) and long-term bullish analyst targets ($255K by year-end) provide foundational support but are insufficient to counteract immediate swing-trading downside risk.",
-  "risks": "Loss of $74,000-$76,000 support could trigger cascading liquidations and a move toward $70,000 as macro tests fail and leverage unwinds accelerate.",
+  "reasoning": "Positive regulatory tailwinds from Trump's executive order favoring crypto payment rail access and successful political backing from Fairshake PAC create a constructive macro environment for Bitcoin. However, near-term headwinds from US sell-off pressure, ETF outflows, rising Treasury yields, and legitimate quantum computing concerns limit upside momentum to modest bullish territory over the 1-7 day swing window.",
+  "risks": "Nvidia earnings miss or broader macro risk-off event could trigger sharp ETF outflows and test critical support levels, particularly given the already-evident capital retreat from Bitcoin holdings.",
   "article_count": 36
 }
