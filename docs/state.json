@@ -5,9 +5,9 @@
   "total_qty": 0.0,
   "total_cost": 0.0,
   "highest_price": 0.0,
-  "last_signal": "WATCH: RSI 72.1 > T1 threshold 35 (BEAR)",
+  "last_signal": "WATCH: RSI 72.2 > T1 threshold 35 (BEAR)",
   "last_action": "none",
-  "last_run": "2026-05-20T07:00:18.4401661Z",
+  "last_run": "2026-05-20T08:00:18.7406012Z",
   "entry_time": "",
   "partial_taken": false
 }
