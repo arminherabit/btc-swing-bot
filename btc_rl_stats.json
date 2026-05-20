@@ -1,0 +1,13 @@
+{
+  "final_portfolio": 544.61,
+  "total_return_pct": 8.92,
+  "n_trades": 5,
+  "win_rate": 0.0,
+  "bah_return_pct": 13.47,
+  "alpha_pct": -4.55,
+  "aggressiveness": 1.5,
+  "trained_at": "2026-05-20T17:30:09.744365+00:00",
+  "train_candles": 2000,
+  "val_candles": 500,
+  "timesteps": 1000000
+}
