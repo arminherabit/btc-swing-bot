@@ -5,9 +5,26 @@
   "total_qty": 0.0,
   "total_cost": 0.0,
   "highest_price": 0.0,
-  "last_signal": "WATCH: RSI 67.5 > T1 threshold 35 (BEAR)",
+  "last_signal": "WATCH: RSI 67.5 > T1 threshold 36 (BEAR)",
   "last_action": "none",
-  "last_run": "2026-05-20T16:00:22.2474389Z",
+  "last_run": "2026-05-20T16:51:03.8233021Z",
   "entry_time": "",
-  "partial_taken": false
+  "partial_taken": false,
+  "btc_price": 77255.95,
+  "rsi": 67.5,
+  "sma200": 78432.53,
+  "dip_pct": 2.44,
+  "fng_value": 27,
+  "news_score": -1,
+  "partial_target": 0,
+  "trail_stop": 0,
+  "hard_stop": 0,
+  "aggressiveness_factor": 0.1,
+  "cycle_reward": 0.0,
+  "reward_rolling_avg": 0.0,
+  "mode": "BEAR",
+  "fng_label": "Fear",
+  "reward_history": [
+    0.0
+  ]
 }
