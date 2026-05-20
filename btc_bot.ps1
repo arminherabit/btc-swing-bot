@@ -146,6 +146,67 @@ function Get-FearGreed {
     }
 }
 
+# ── Aggressiveness Factor (0.0 – 0.5) ────────────────────────────────────────
+# Combines all market signals into a single conviction score.
+# High AF = favorable conditions → loosen RSI gates, amplify return weight.
+# Low / negative AF = hostile conditions → tighten.
+function Compute-AggressivenessFactor([bool]$bullMode, $fng, $news, [bool]$divergence, [double]$rsi4h) {
+    # Base: bull market gets more rope than bear
+    $af = if ($bullMode) { 0.15 } else { 0.05 }
+
+    # Fear & Greed signal (extreme fear = great buying window)
+    if    ($fng.Value -le 15) { $af += 0.20 }  # Extreme Fear  – max boost
+    elseif($fng.Value -le 25) { $af += 0.15 }  # Extreme Fear
+    elseif($fng.Value -le 45) { $af += 0.05 }  # Fear
+    elseif($fng.Value -ge 80) { $af -= 0.20 }  # Extreme Greed – max penalty
+    elseif($fng.Value -ge 65) { $af -= 0.10 }  # Greed
+
+    # News sentiment
+    if    ($news.Score -ge  6) { $af += 0.10 }  # Strongly bullish
+    elseif($news.Score -ge  3) { $af += 0.05 }  # Mildly bullish
+    elseif($news.Score -le -5) { $af -= 0.10 }  # Strongly bearish
+    elseif($news.Score -le -2) { $af -= 0.05 }  # Mildly bearish
+
+    # RSI depth below threshold (deeper oversold = more confident)
+    if    ($rsi4h -le 25) { $af += 0.15 }
+    elseif($rsi4h -le 30) { $af += 0.10 }
+    elseif($rsi4h -le 35) { $af += 0.05 }
+
+    # Technical divergence = strong reversal signal
+    if ($divergence) { $af += 0.10 }
+
+    # Clamp to [-0.20, 0.50]
+    return [Math]::Round([Math]::Max(-0.20, [Math]::Min(0.50, $af)), 3)
+}
+
+# ── Cycle Reward ──────────────────────────────────────────────────────────────
+# reward = portfolio_return * (1 + aggressiveness_factor)
+#        - 0.3 * max_drawdown
+#        - transaction_costs
+#
+# Positive = position is paying off relative to risk taken.
+# Negative = drawdown or costs are eating the return.
+function Compute-Reward([double]$price, $state, [double]$af) {
+    $portfolioReturn = 0.0
+    $maxDrawdown     = 0.0
+    $txCosts         = 0.0
+
+    if ($state.in_position -and [double]$state.avg_entry -gt 0) {
+        $avgE            = [double]$state.avg_entry
+        $portfolioReturn = ($price - $avgE) / $avgE
+
+        $peak = [double]$state.highest_price
+        if ($peak -gt 0 -and $price -lt $peak) {
+            $maxDrawdown = ($peak - $price) / $peak
+        }
+        # 0.1% taker fee each side = 0.2% round-trip per tranche
+        $txCosts = 0.002 * [double]$state.tranche_count
+    }
+
+    $reward = $portfolioReturn * (1.0 + $af) - 0.3 * $maxDrawdown - $txCosts
+    return [Math]::Round($reward, 6)
+}
+
 # ── State ─────────────────────────────────────────────────────────────────────
 
 function Load-State {
@@ -159,11 +220,13 @@ function Load-State {
             if ($null -eq $s.entry_time)    { Add-Member -InputObject $s -NotePropertyName entry_time    -NotePropertyValue ""      }
             if ($null -eq $s.partial_taken) { Add-Member -InputObject $s -NotePropertyName partial_taken -NotePropertyValue $false  }
             # Telemetry fields for live dashboard (added v3)
-            foreach ($f in @("btc_price","rsi","sma200","dip_pct","fng_value","news_score","partial_target","trail_stop","hard_stop")) {
+            foreach ($f in @("btc_price","rsi","sma200","dip_pct","fng_value","news_score","partial_target","trail_stop","hard_stop",
+                             "aggressiveness_factor","cycle_reward","reward_rolling_avg")) {
                 if ($null -eq $s.$f) { Add-Member -InputObject $s -NotePropertyName $f -NotePropertyValue 0 }
             }
-            if ($null -eq $s.mode)      { Add-Member -InputObject $s -NotePropertyName mode      -NotePropertyValue "" }
-            if ($null -eq $s.fng_label) { Add-Member -InputObject $s -NotePropertyName fng_label -NotePropertyValue "" }
+            if ($null -eq $s.mode)           { Add-Member -InputObject $s -NotePropertyName mode           -NotePropertyValue "" }
+            if ($null -eq $s.fng_label)      { Add-Member -InputObject $s -NotePropertyName fng_label      -NotePropertyValue "" }
+            if ($null -eq $s.reward_history) { Add-Member -InputObject $s -NotePropertyName reward_history -NotePropertyValue @()  }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -183,17 +246,22 @@ function Load-State {
         last_action    = "none"
         last_run       = ""
         # Telemetry for live dashboard
-        btc_price      = 0.0
-        rsi            = 0.0
-        mode           = ""
-        sma200         = 0.0
-        dip_pct        = 0.0
-        fng_value      = 0
-        fng_label      = ""
-        news_score     = 0
-        partial_target = 0.0
-        trail_stop     = 0.0
-        hard_stop      = 0.0
+        btc_price             = 0.0
+        rsi                   = 0.0
+        mode                  = ""
+        sma200                = 0.0
+        dip_pct               = 0.0
+        fng_value             = 0
+        fng_label             = ""
+        news_score            = 0
+        partial_target        = 0.0
+        trail_stop            = 0.0
+        hard_stop             = 0.0
+        # Reward engine
+        aggressiveness_factor = 0.0
+        cycle_reward          = 0.0
+        reward_rolling_avg    = 0.0
+        reward_history        = @()
     }
 }
 
@@ -253,12 +321,33 @@ function Run-Cycle {
     $bullMode  = ($price -gt $sma200)
     $modeLabel = if ($bullMode) { "BULL" } else { "BEAR" }
 
-    # Adaptive thresholds
+    # ── Aggressiveness Factor & Reward ───────────────────────────────────────
+    $af = Compute-AggressivenessFactor $bullMode $fng $news $divergence $rsi4h
+    $cycleReward = Compute-Reward $price $state $af
+
+    # Rolling 24-cycle (24h) average reward
+    $rHist = [System.Collections.Generic.List[double]]::new()
+    if ($state.reward_history -is [System.Array] -and $state.reward_history.Count -gt 0) {
+        foreach ($v in $state.reward_history) { $rHist.Add([double]$v) }
+    }
+    $rHist.Add($cycleReward)
+    if ($rHist.Count -gt 24) { $rHist.RemoveAt(0) }
+    $rewardAvg = [Math]::Round(($rHist | Measure-Object -Sum).Sum / $rHist.Count, 6)
+
+    $afLabel = if ($af -ge 0.35) { "HIGH" } elseif ($af -ge 0.20) { "MEDIUM" } elseif ($af -ge 0.05) { "LOW" } else { "DEFENSIVE" }
+    Write-Host ("  Aggressiveness: {0} ({1})  Reward: {2}  Avg24h: {3}" -f $af, $afLabel, $cycleReward, $rewardAvg)
+
+    # ── Adaptive thresholds (AF loosens RSI gates) ────────────────────────────
+    # Each +0.10 AF adds 1 RSI point — e.g. AF=0.30 → RSI gate +3 pts
+    $afRsiBonus = [int]([Math]::Floor($af * 10))   # 0 to +5 pts
     $bearOffset = [int]$cfg.rsi_bear_offset
     $rsi1   = if ($bullMode) { [int]$cfg.rsi_tranche1 }       else { [int]$cfg.rsi_tranche1 - $bearOffset }
     $rsi2   = if ($bullMode) { [int]$cfg.rsi_tranche2 }       else { [int]$cfg.rsi_tranche2 - $bearOffset }
     $rsi3   = if ($bullMode) { [int]$cfg.rsi_tranche3 }       else { [int]$cfg.rsi_tranche3 - $bearOffset }
+    $rsi1  += $afRsiBonus; $rsi2 += $afRsiBonus; $rsi3 += $afRsiBonus
+    # High AF also trims the dip requirement (max 0.5% reduction)
     $dipReq = if ($bullMode) { [double]$cfg.dip_pct_required } else { [double]$cfg.dip_pct_bear }
+    if ($af -ge 0.30) { $dipReq = [Math]::Max(0.5, $dipReq - 0.5) }
 
     # 5-day high and dip %
     $recent      = $candles | Select-Object -Last 30
@@ -438,9 +527,13 @@ function Run-Cycle {
     $state.mode       = $modeLabel
     $state.sma200     = $sma200
     $state.dip_pct    = $dipPct
-    $state.fng_value  = $fng.Value
-    $state.fng_label  = $fng.Label
-    $state.news_score = $news.Score
+    $state.fng_value             = $fng.Value
+    $state.fng_label             = $fng.Label
+    $state.news_score            = $news.Score
+    $state.aggressiveness_factor = $af
+    $state.cycle_reward          = $cycleReward
+    $state.reward_rolling_avg    = $rewardAvg
+    $state.reward_history        = $rHist.ToArray()
     if ($state.in_position -and [double]$state.avg_entry -gt 0) {
         $avgE  = [double]$state.avg_entry
         $peakP = [double]$state.highest_price

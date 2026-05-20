@@ -334,7 +334,74 @@ function render() {
     </div>
   </div>`;
 
-  /* ── 6. Market Signals ── */
+  /* ── 6. Reward Engine ── */
+  const af     = +s.aggressiveness_factor || 0;
+  const reward = +s.cycle_reward          || 0;
+  const ravg   = +s.reward_rolling_avg    || 0;
+  const rHist  = Array.isArray(s.reward_history) ? s.reward_history.map(Number) : [];
+
+  const afLabel = af >= 0.35 ? 'HIGH 🔥' : af >= 0.20 ? 'MEDIUM' : af >= 0.05 ? 'LOW' : 'DEFENSIVE';
+  const afColor = af >= 0.35 ? 'var(--green)' : af >= 0.15 ? 'var(--blue)' : af >= 0 ? 'var(--yellow)' : 'var(--red)';
+  const afBarW  = Math.round(((af + 0.2) / 0.7) * 100);
+
+  const rewardColor = reward >= 0 ? 'var(--green)' : 'var(--red)';
+  const ravgColor   = ravg   >= 0 ? 'var(--green)' : 'var(--red)';
+
+  let sparkSvg = '';
+  if (rHist.length > 1) {
+    const mn = Math.min(...rHist), mx = Math.max(...rHist);
+    const range = mx - mn || 0.001;
+    const W = 300, H = 44;
+    const pts = rHist.map((v, i) => {
+      const x = (i / (rHist.length - 1)) * W;
+      const y = H - ((v - mn) / range) * H;
+      return x.toFixed(1) + ',' + y.toFixed(1);
+    }).join(' ');
+    const zeroY = H - ((0 - mn) / range) * H;
+    sparkSvg = '<svg width="' + W + '" height="' + H + '" style="display:block;margin-top:6px;overflow:visible">' +
+      '<line x1="0" y1="' + zeroY.toFixed(1) + '" x2="' + W + '" y2="' + zeroY.toFixed(1) + '" stroke="#30363d" stroke-width="1" stroke-dasharray="3,3"/>' +
+      '<polyline points="' + pts + '" fill="none" stroke="' + (ravg>=0?'var(--green)':'var(--red)') + '" stroke-width="2" stroke-linejoin="round"/>' +
+      '</svg>';
+  }
+
+  const pReturn = (inPos && px && avgE) ? (px - avgE) / avgE : 0;
+  const drawdown = (inPos && peak && px && px < peak) ? (peak - px) / peak : 0;
+
+  h += '<div class="card span2">' +
+    '<div class="card-head">⚡ Reward Engine &nbsp;<span style="font-size:9px;color:var(--muted);font-weight:400">reward = portfolio_return × (1 + AF) − 0.3 × drawdown − tx_costs</span></div>' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">' +
+      '<div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">' +
+        '<div style="font-size:10px;color:var(--muted);margin-bottom:4px">AGGRESSIVENESS FACTOR</div>' +
+        '<div style="font-size:28px;font-weight:900;color:' + afColor + '">' + af.toFixed(3) + '</div>' +
+        '<div style="font-size:11px;color:' + afColor + ';margin-top:2px">' + afLabel + '</div>' +
+        '<div style="height:5px;background:var(--border);border-radius:3px;margin-top:8px;overflow:hidden">' +
+          '<div style="height:100%;width:' + Math.min(100,Math.max(0,afBarW)) + '%;background:' + afColor + ';border-radius:3px;transition:width .5s"></div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">' +
+        '<div style="font-size:10px;color:var(--muted);margin-bottom:4px">CYCLE REWARD</div>' +
+        '<div style="font-size:28px;font-weight:900;color:' + rewardColor + '">' + (reward>=0?'+':'') + reward.toFixed(4) + '</div>' +
+        '<div style="font-size:11px;color:var(--muted);margin-top:2px">this hour</div>' +
+      '</div>' +
+      '<div style="background:#21262d;border-radius:8px;padding:12px;text-align:center">' +
+        '<div style="font-size:10px;color:var(--muted);margin-bottom:4px">24H AVG REWARD</div>' +
+        '<div style="font-size:28px;font-weight:900;color:' + ravgColor + '">' + (ravg>=0?'+':'') + ravg.toFixed(4) + '</div>' +
+        '<div style="font-size:11px;color:var(--muted);margin-top:2px">' + rHist.length + ' cycles</div>' +
+      '</div>' +
+    '</div>' +
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">' +
+      '<div class="kv"><span class="kv-k">Portfolio Return</span><span class="kv-v ' + (pReturn>=0?'g':'r') + '">' + fp(pReturn*100) + '</span></div>' +
+      '<div class="kv"><span class="kv-k">Max Drawdown</span><span class="kv-v r">' + (drawdown>0?'-'+fp(drawdown*100):'0.00%') + '</span></div>' +
+      '<div class="kv"><span class="kv-k">TX Costs</span><span class="kv-v r">' + (inPos?'-'+(tc*0.2).toFixed(2)+'%':'—') + '</span></div>' +
+      '<div class="kv"><span class="kv-k">AF → RSI Bonus</span><span class="kv-v g">+' + Math.floor(af*10) + ' pts</span></div>' +
+    '</div>' +
+    '<div style="margin-top:10px">' +
+      '<div style="font-size:10px;color:var(--muted);margin-bottom:2px">Reward trend — last ' + rHist.length + ' hourly cycles</div>' +
+      (sparkSvg || '<div style="color:var(--muted);font-size:11px;padding:6px 0">Accumulating — shown after 2+ cycles</div>') +
+    '</div>' +
+  '</div>';
+
+  /* ── 7. Market Signals ── */
   h += `<div class="card">
     <div class="card-head">📡 Market Signals</div>
     <div class="kv"><span class="kv-k">RSI (4H Wilder 14)</span><span class="kv-v ${rsi>=60?'r':rsi<=rsi1?'g':'b'}">${rsi||'—'}</span></div>
@@ -348,7 +415,7 @@ function render() {
     <div class="kv"><span class="kv-k">Last Bot Run</span><span class="kv-v" style="font-size:11px">${ts(s.last_run)}</span></div>
   </div>`;
 
-  /* ── 7. Projected P&L (full width) ── */
+  /* ── 8. Projected P&L (full width) ── */
   h += `<div class="card full">
     <div class="card-head">📉📈 Projected P&amp;L — Price Scenarios</div>`;
 
