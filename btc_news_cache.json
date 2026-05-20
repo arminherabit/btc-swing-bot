@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-20T09:00:32.7458386Z",
+  "timestamp": "2026-05-20T14:00:31.7970499Z",
   "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin Price Slides Below $77,000 as ETF Exodus Tops $1 Billion",
-    "Bitcoin Fall Under $77,000 Triggers Spike In Social Media FUD",
-    "Wintermute Says Bitcoin Rally Was A Squeeze, Low $70,000s Loom"
+    "Bitcoin's momentum is fading with support levels at $74,000-$76,000 at risk of triggering deeper correction",
+    "Bitcoin ETF outflows exceed $1 billion amid Treasury yield pressure and professional investor deleveraging",
+    "Trump administration pushes Fed to review crypto firms' payment rail access, creating regulatory tailwinds offset by near-term technical weakness"
   ],
-  "reasoning": "Bitcoin faces near-term headwinds from over $1B in ETF outflows, weakening support at $76,000, and analyst warnings that the recent rally was leverage-driven rather than spot-demand driven, suggesting pullback risk toward $70,000s. Offsetting factors include positive regulatory developments (Trump fintech review, SEC tokenization exemption), institutional accumulation via MSTR and other vehicles, and strategic Bitcoin mining sector gains, but these are insufficient to outweigh current technical weakness and negative sentiment.",
-  "risks": "ETF outflows could accelerate if Treasury yields continue rising, triggering a cascade liquidation toward $70,000 support level within the 1-7 day window.",
+  "reasoning": "Bitcoin faces significant near-term technical headwinds with momentum fading below $77,000 and key support levels weakening, compounded by $1B+ ETF outflows and crowded trade unwinding. Positive regulatory developments (South Carolina CBDC ban, Fed payment rails review, crypto compliance progress) and long-term bullish analyst targets ($255K by year-end) provide foundational support but are insufficient to counteract immediate swing-trading downside risk.",
+  "risks": "Loss of $74,000-$76,000 support could trigger cascading liquidations and a move toward $70,000 as macro tests fail and leverage unwinds accelerate.",
   "article_count": 36
 }
