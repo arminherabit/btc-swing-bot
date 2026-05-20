@@ -158,6 +158,12 @@ function Load-State {
             if ($null -eq $s.last_action)   { Add-Member -InputObject $s -NotePropertyName last_action   -NotePropertyValue "none"  }
             if ($null -eq $s.entry_time)    { Add-Member -InputObject $s -NotePropertyName entry_time    -NotePropertyValue ""      }
             if ($null -eq $s.partial_taken) { Add-Member -InputObject $s -NotePropertyName partial_taken -NotePropertyValue $false  }
+            # Telemetry fields for live dashboard (added v3)
+            foreach ($f in @("btc_price","rsi","sma200","dip_pct","fng_value","news_score","partial_target","trail_stop","hard_stop")) {
+                if ($null -eq $s.$f) { Add-Member -InputObject $s -NotePropertyName $f -NotePropertyValue 0 }
+            }
+            if ($null -eq $s.mode)      { Add-Member -InputObject $s -NotePropertyName mode      -NotePropertyValue "" }
+            if ($null -eq $s.fng_label) { Add-Member -InputObject $s -NotePropertyName fng_label -NotePropertyValue "" }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -165,17 +171,29 @@ function Load-State {
         } catch {}
     }
     return [pscustomobject]@{
-        in_position   = $false
-        tranche_count = 0
-        avg_entry     = 0.0
-        total_qty     = 0.0
-        total_cost    = 0.0
-        highest_price = 0.0
-        entry_time    = ""
-        partial_taken = $false
-        last_signal   = "INIT"
-        last_action   = "none"
-        last_run      = ""
+        in_position    = $false
+        tranche_count  = 0
+        avg_entry      = 0.0
+        total_qty      = 0.0
+        total_cost      = 0.0
+        highest_price  = 0.0
+        entry_time     = ""
+        partial_taken  = $false
+        last_signal    = "INIT"
+        last_action    = "none"
+        last_run       = ""
+        # Telemetry for live dashboard
+        btc_price      = 0.0
+        rsi            = 0.0
+        mode           = ""
+        sma200         = 0.0
+        dip_pct        = 0.0
+        fng_value      = 0
+        fng_label      = ""
+        news_score     = 0
+        partial_target = 0.0
+        trail_stop     = 0.0
+        hard_stop      = 0.0
     }
 }
 
