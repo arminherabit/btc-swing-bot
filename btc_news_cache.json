@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-21T05:01:37.1082966Z",
+  "timestamp": "2026-05-21T10:02:27.0572273Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "SpaceX IPO filing reveals $1.45B Bitcoin position with 18,712 BTC, ranking 7th among public companies",
-    "Bitcoin rallies through $77K despite $2B spot ETF outflows, showing strong institutional support from long-term holders",
-    "Trump administration pushes Fed to grant crypto firms access to US payment rails, signaling major regulatory tailwind"
+    "SpaceX holds $1.45B Bitcoin position and planning major IPO, signaling institutional adoption",
+    "Trump administration pushing Fed to grant crypto access to payment rails, removing regulatory barriers",
+    "Bitcoin ETF inflows underperforming 2025-2024, suggesting institutional accumulation opportunity before rebound"
   ],
-  "reasoning": "The confluence of major institutional Bitcoin accumulation (SpaceX's massive holdings ahead of IPO), strong price resilience despite ETF outflows indicating genuine demand, and pro-crypto regulatory momentum under Trump create a constructive 1-7 day setup. Micro-cap regulatory wins (Minnesota banking law, South Carolina pro-crypto legislation) and infrastructure expansion (Coinbase stablecoin, payment rail access) reinforce institutional adoption momentum despite some macro headwinds.",
-  "risks": "Fed rate hike probability rising to 54% for December 2026 combined with BigTech earnings concerns could trigger renewed macro risk-off selling and reverse the current momentum.",
+  "reasoning": "Multiple pro-crypto policy catalysts (Trump Fed order, CLARITY Act progress, state-level custody laws) are removing regulatory friction while major institutional players like SpaceX and Grayscale continue accumulating, indicating conviction at current levels. The 54% Fed rate hike probability for 2026 creates near-term volatility but doesn't fundamentally alter Bitcoin's macro positioning as institutional infrastructure strengthens.",
+  "risks": "Fed rate hike expectations (54% chance) could trigger near-term profit-taking and macro headwinds within the 1-7 day swing window, potentially reversing gains despite positive regulatory momentum.",
   "article_count": 36
 }
