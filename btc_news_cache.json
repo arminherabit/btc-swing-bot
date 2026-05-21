@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-21T15:01:47.8217516Z",
-  "score": -2,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-21T20:01:34.2363265Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin's 'less aggressive demand' may lead to months of consolidation with risk of drop toward $65,000",
-    "Fed projections flip to 54% chance of rate hikes in 2026, creating macro headwind for BTC",
-    "Bitcoin struggling below $80,000 with weakening ETF flows and demand indicators"
+    "US lawmakers push Strategic Bitcoin Reserve bill with bipartisan support ($25B federal stash)",
+    "SpaceX files historic IPO revealing $1.45B Bitcoin treasury (18,712 BTC)",
+    "Bitcoin due 5%+ move soon with $77,000 focus amid macro tailwinds from tariff refunds"
   ],
-  "reasoning": "Mixed macro backdrop with significant bearish technical/demand signals offsetting modest institutional tailwinds (SpaceX $1.45B holdings, Kraken UAE expansion, Blockchain.com IPO). The confluence of weakening BTC demand, potential rate hikes, and technical exhaustion warnings suggests consolidation risk rather than decisive directional movement over the 1-7 day horizon.",
-  "risks": "Rapid drop toward $65,000 support if $80,000 resistance breaks decisively on weak volume, combined with potential Fed policy shock or macro risk-off event.",
+  "reasoning": "Positive macro catalysts from institutional adoption (SpaceX IPO treasury disclosure, proposed federal Bitcoin reserve) and technical setup suggesting imminent 5%+ volatility in bullish direction outweigh near-term distribution pressures. However, whale accumulation weakness, realized losses surge to $600M, and Mark Cuban's public Bitcoin exit create headwinds that prevent a stronger bullish conviction.",
+  "risks": "Quantum computing threat narrative gaining mainstream attention ($2B US government quantum investment) combined with exchange wallet vulnerability could trigger sudden FUD-driven selloff, especially if media amplifies security concerns during volatile price action.",
   "article_count": 36
 }
