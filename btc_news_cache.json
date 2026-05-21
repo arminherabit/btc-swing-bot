@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-21T00:01:59.7604754Z",
+  "timestamp": "2026-05-21T05:01:37.1082966Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin rallies through $77K despite spot BTC ETF outflows topping $2B — showing strong fundamental demand",
-    "Trump Orders Fed to Review Crypto Access to U.S. Payment Rails — major regulatory tailwind for institutional adoption",
-    "SpaceX holds $1.45B Bitcoin position and filing reveals corporate adoption trend"
+    "SpaceX IPO filing reveals $1.45B Bitcoin position with 18,712 BTC, ranking 7th among public companies",
+    "Bitcoin rallies through $77K despite $2B spot ETF outflows, showing strong institutional support from long-term holders",
+    "Trump administration pushes Fed to grant crypto firms access to US payment rails, signaling major regulatory tailwind"
   ],
-  "reasoning": "Multiple structural bullish catalysts converge: Bitcoin is consolidating above $77K despite ETF outflows (sign of strong underlying demand from long-term holders), regulatory momentum accelerates with Trump's Fed review order and CLARITY Act progression toward Senate, and high-profile corporate Bitcoin holdings (SpaceX, Tether expansion) signal institutional confidence. Near-term technicals support rally toward $80K as price predictions indicate.",
-  "risks": "Fed rate hike probability rising to 54% for 2026 poses macro headwind; $2B ETF outflows could intensify if BigTech earnings disappoint or broader market volatility spikes.",
+  "reasoning": "The confluence of major institutional Bitcoin accumulation (SpaceX's massive holdings ahead of IPO), strong price resilience despite ETF outflows indicating genuine demand, and pro-crypto regulatory momentum under Trump create a constructive 1-7 day setup. Micro-cap regulatory wins (Minnesota banking law, South Carolina pro-crypto legislation) and infrastructure expansion (Coinbase stablecoin, payment rail access) reinforce institutional adoption momentum despite some macro headwinds.",
+  "risks": "Fed rate hike probability rising to 54% for December 2026 combined with BigTech earnings concerns could trigger renewed macro risk-off selling and reverse the current momentum.",
   "article_count": 36
 }
