@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-20T19:01:45.9504242Z",
-  "score": 3,
+  "timestamp": "2026-05-21T00:01:59.7604754Z",
+  "score": 6,
   "sentiment": "bullish",
-  "recommendation": "proceed",
+  "recommendation": "boost_size",
   "key_items": [
-    "Trump Orders Fed to Review Crypto Access to U.S. Payment Rails",
-    "Tether Takes Control of Twenty One Capital After Buying Out SoftBank",
-    "Fairshake PAC's $20M backing pays off in three US state primaries"
+    "Bitcoin rallies through $77K despite spot BTC ETF outflows topping $2B — showing strong fundamental demand",
+    "Trump Orders Fed to Review Crypto Access to U.S. Payment Rails — major regulatory tailwind for institutional adoption",
+    "SpaceX holds $1.45B Bitcoin position and filing reveals corporate adoption trend"
   ],
-  "reasoning": "Positive regulatory tailwinds from Trump's executive order favoring crypto payment rail access and successful political backing from Fairshake PAC create a constructive macro environment for Bitcoin. However, near-term headwinds from US sell-off pressure, ETF outflows, rising Treasury yields, and legitimate quantum computing concerns limit upside momentum to modest bullish territory over the 1-7 day swing window.",
-  "risks": "Nvidia earnings miss or broader macro risk-off event could trigger sharp ETF outflows and test critical support levels, particularly given the already-evident capital retreat from Bitcoin holdings.",
+  "reasoning": "Multiple structural bullish catalysts converge: Bitcoin is consolidating above $77K despite ETF outflows (sign of strong underlying demand from long-term holders), regulatory momentum accelerates with Trump's Fed review order and CLARITY Act progression toward Senate, and high-profile corporate Bitcoin holdings (SpaceX, Tether expansion) signal institutional confidence. Near-term technicals support rally toward $80K as price predictions indicate.",
+  "risks": "Fed rate hike probability rising to 54% for 2026 poses macro headwind; $2B ETF outflows could intensify if BigTech earnings disappoint or broader market volatility spikes.",
   "article_count": 36
 }
