@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-21T10:02:27.0572273Z",
-  "score": 6,
-  "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-05-21T15:01:47.8217516Z",
+  "score": -2,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "SpaceX holds $1.45B Bitcoin position and planning major IPO, signaling institutional adoption",
-    "Trump administration pushing Fed to grant crypto access to payment rails, removing regulatory barriers",
-    "Bitcoin ETF inflows underperforming 2025-2024, suggesting institutional accumulation opportunity before rebound"
+    "Bitcoin's 'less aggressive demand' may lead to months of consolidation with risk of drop toward $65,000",
+    "Fed projections flip to 54% chance of rate hikes in 2026, creating macro headwind for BTC",
+    "Bitcoin struggling below $80,000 with weakening ETF flows and demand indicators"
   ],
-  "reasoning": "Multiple pro-crypto policy catalysts (Trump Fed order, CLARITY Act progress, state-level custody laws) are removing regulatory friction while major institutional players like SpaceX and Grayscale continue accumulating, indicating conviction at current levels. The 54% Fed rate hike probability for 2026 creates near-term volatility but doesn't fundamentally alter Bitcoin's macro positioning as institutional infrastructure strengthens.",
-  "risks": "Fed rate hike expectations (54% chance) could trigger near-term profit-taking and macro headwinds within the 1-7 day swing window, potentially reversing gains despite positive regulatory momentum.",
+  "reasoning": "Mixed macro backdrop with significant bearish technical/demand signals offsetting modest institutional tailwinds (SpaceX $1.45B holdings, Kraken UAE expansion, Blockchain.com IPO). The confluence of weakening BTC demand, potential rate hikes, and technical exhaustion warnings suggests consolidation risk rather than decisive directional movement over the 1-7 day horizon.",
+  "risks": "Rapid drop toward $65,000 support if $80,000 resistance breaks decisively on weak volume, combined with potential Fed policy shock or macro risk-off event.",
   "article_count": 36
 }
