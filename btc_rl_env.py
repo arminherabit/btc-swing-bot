@@ -30,7 +30,8 @@ class BTCTradingEnv(gym.Env):
         initial_capital: float = 500.0,
         tranche_size:    float = 167.0,
         max_tranches:    int   = 3,
-        tx_fee:          float = 0.001,   # 0.1% per leg (Binance.US taker)
+        tx_fee:          float = 0.001,   # real Binance.US taker fee
+        min_hold_steps:  int   = 3,       # must hold ≥3 steps (12h) before selling
         window:          int   = 1,       # set >1 for stacked-frame obs
     ):
         super().__init__()
@@ -40,6 +41,7 @@ class BTCTradingEnv(gym.Env):
         self.tranche_size   = tranche_size
         self.max_tranches   = max_tranches
         self.tx_fee         = tx_fee
+        self.min_hold_steps = min_hold_steps
         self.window         = window
 
         n_features = 16
@@ -62,10 +64,11 @@ class BTCTradingEnv(gym.Env):
         self.total_cost    = 0.0
         self.peak_price    = 0.0
         self.entry_step    = 0
-        self.partial_taken = False
-        self.cash          = self.initial_capital
-        self.trades        = []
-        self.episode_reward = 0.0
+        self.partial_taken      = False
+        self.cash               = self.initial_capital
+        self.trades             = []
+        self.episode_reward     = 0.0
+        self._last_realized_pnl = 0.0
 
     def _price(self, step=None):
         idx = step if step is not None else self.current_step
@@ -130,63 +133,77 @@ class BTCTradingEnv(gym.Env):
 
     # ── Reward ─────────────────────────────────────────────────────────────
 
-    def _reward(self, action: int) -> float:
-        price = self._price()
-        portfolio_return = 0.0
-        max_drawdown     = 0.0
-        tx_costs         = 0.0
+    def _reward(self, action: int, realized_pnl: float = 0.0) -> float:
+        """
+        Realized P&L is the PRIMARY signal — passed in from step() when a
+        trade closes.  All other shaping is light secondary guidance.
+        """
+        idx   = self.current_step
+        price = self._price(idx)
+        row   = self.df.iloc[idx]
+        rsi   = float(row.get("rsi",     50.0))
+        dip   = float(row.get("dip_pct",  0.0))
+        fng   = float(row.get("fng",     50.0))
 
-        if self.in_position and self.avg_entry > 0:
-            portfolio_return = (price - self.avg_entry) / self.avg_entry
+        # ── 1. Realized P&L on trade close (primary signal) ────────────────
+        reward = realized_pnl * (1.0 + self.aggressiveness)
+
+        # ── 2. Small per-step delta while in position ───────────────────────
+        if self.in_position and self.total_qty > 0:
+            prev_price = float(self.df.iloc[max(0, idx - 1)]["close"])
+            step_pct   = (price - prev_price) / max(prev_price, 1.0)
+            reward    += step_pct * 0.3            # gentle trend-following
+
+            # Drawdown penalty
             if self.peak_price > 0 and price < self.peak_price:
-                max_drawdown = (self.peak_price - price) / self.peak_price
-            tx_costs = self.tx_fee * 2.0 * self.tranche_count
+                dd      = (self.peak_price - price) / self.peak_price
+                reward -= 0.3 * dd
 
-        # ── Core formula ───────────────────────────────────────────────────
-        #   reward = portfolio_return * (1 + aggressiveness)
-        #          - 0.3 * max_drawdown
-        #          - transaction_costs
-        reward = (
-            portfolio_return * (1.0 + self.aggressiveness)
-            - 0.3 * max_drawdown
-            - tx_costs
-        )
+            # Tiny holding cost — avoids infinite hold
+            reward -= 0.00005
 
-        # ── Action quality shaping ─────────────────────────────────────────
-        row = self.df.iloc[self.current_step]
-        rsi = float(row.get("rsi", 50.0))
-        dip = float(row.get("dip_pct", 0.0))
-        fng = float(row.get("fng", 50.0))
-
+        # ── 3. Entry quality shaping ────────────────────────────────────────
         if action == BUY_TRANCHE:
             if rsi < 35 and dip >= 1.5:
-                reward += 0.003           # buying the dip = bonus
+                reward += 0.005
             if rsi < 25:
-                reward += 0.005           # capitulation buy = extra bonus
+                reward += 0.010
             if rsi > 65:
-                reward -= 0.008           # buying overbought = hard penalty
-            if fng >= 80:
-                reward -= 0.005           # buying extreme greed = penalty
+                reward -= 0.025           # hard penalty — don't buy tops
+            if rsi > 55 and dip < 1.0:
+                reward -= 0.010
+            if fng >= 75:
+                reward -= 0.010
 
+        # ── 4. Exit quality shaping (on top of realized P&L) ───────────────
         elif action == SELL_ALL:
-            if portfolio_return > 0.05:
-                reward += 0.006           # strong profit exit = bonus
-            elif portfolio_return > 0.02:
-                reward += 0.002
-            if max_drawdown > 0.06:
-                reward += 0.003           # cutting a deep loss = also rewarded
+            if self.in_position and self.avg_entry > 0:
+                ret = (price - self.avg_entry) / self.avg_entry
+                if ret > 0.06:
+                    reward += 0.010       # extra bonus for excellent exit
+                if ret < -0.05:
+                    reward += 0.005       # cutting a big loss = ok
 
         elif action == SELL_PARTIAL:
-            if portfolio_return > 0.04:
-                reward += 0.004           # locking gains = bonus
-            elif portfolio_return < 0.01:
-                reward -= 0.002           # partial sell before profit = small penalty
+            if self.in_position and self.avg_entry > 0:
+                ret = (price - self.avg_entry) / self.avg_entry
+                if ret > 0.04:
+                    reward += 0.008
+                elif ret < 0.01:
+                    reward -= 0.005
 
-        elif action == HOLD:
-            if self.in_position and max_drawdown > 0.06:
-                reward -= 0.003           # holding through big drawdown = penalty
-            if self.in_position and portfolio_return > 0.08 and rsi > 65:
-                reward -= 0.002           # not selling an obvious top = penalty
+        # ── 5. Penalise obvious mistakes while holding ──────────────────────
+        elif action == HOLD and self.in_position:
+            if self.peak_price > 0 and price < self.peak_price:
+                dd = (self.peak_price - price) / self.peak_price
+                if dd > 0.08:
+                    reward -= 0.012
+                elif dd > 0.05:
+                    reward -= 0.006
+            if self.avg_entry > 0:
+                ret = (price - self.avg_entry) / self.avg_entry
+                if ret > 0.10 and rsi > 70:
+                    reward -= 0.010
 
         return float(reward)
 
@@ -228,7 +245,10 @@ class BTCTradingEnv(gym.Env):
                     self.peak_price  = price
 
         elif action == SELL_PARTIAL:
-            if self.in_position and not self.partial_taken and self.total_qty > 0:
+            # Enforce minimum hold period
+            held = idx - self.entry_step if self.in_position else 0
+            if self.in_position and not self.partial_taken and self.total_qty > 0 \
+                    and held >= self.min_hold_steps:
                 sell_qty        = self.total_qty * 0.5
                 proceeds        = sell_qty * price * (1.0 - self.tx_fee)
                 self.cash       += proceeds
@@ -237,7 +257,8 @@ class BTCTradingEnv(gym.Env):
                 self.partial_taken = True
 
         elif action == SELL_ALL:
-            if self.in_position and self.total_qty > 0:
+            held = idx - self.entry_step if self.in_position else 0
+            if self.in_position and self.total_qty > 0 and held >= self.min_hold_steps:
                 proceeds  = self.total_qty * price * (1.0 - self.tx_fee)
                 pnl       = proceeds - self.total_cost
                 self.cash += proceeds
@@ -248,6 +269,7 @@ class BTCTradingEnv(gym.Env):
                     "return_pct":  pnl / self.total_cost * 100,
                     "steps_held":  idx - self.entry_step,
                 })
+                self._last_realized_pnl = pnl / max(self.total_cost, 1.0)
                 self.total_qty     = 0.0
                 self.total_cost    = 0.0
                 self.avg_entry     = 0.0
@@ -256,8 +278,10 @@ class BTCTradingEnv(gym.Env):
                 self.partial_taken = False
                 self.peak_price    = 0.0
 
-        # Compute reward BEFORE advancing step
-        reward = self._reward(action)
+        # Compute reward BEFORE advancing step — pass realized PnL if trade just closed
+        realized = getattr(self, "_last_realized_pnl", 0.0)
+        self._last_realized_pnl = 0.0
+        reward = self._reward(action, realized_pnl=realized)
         self.episode_reward += reward
 
         # ── Advance ─────────────────────────────────────────────────────────
