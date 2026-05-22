@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-22T16:01:53.8108700Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-22T21:01:40.7882250Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "SpaceX IPO with $1.45B Bitcoin treasury expands institutional BTC adoption",
-    "Michael Saylor calls $60K Bitcoin floor with 30% expected returns, bipartisan Strategic Bitcoin Reserve bill introduced",
-    "Mark Cuban Bitcoin sale and analyst warning on support break create near-term volatility but offset by institutional inflows"
+    "Bitcoin sold off to $76,000 with bears reclaiming control as price falls under $77K amid weak US demand",
+    "Mark Cuban sells most Bitcoin calling it a failed hedge; analyst predicts potential $50,000-$55,000 target after breaking 14-year support",
+    "Kalshi prediction market shows Bitcoin $100K probability dropped from 40% to zero as traders turn bearish; monthly Bollinger Bands at tightest levels signal volatility ahead"
   ],
-  "reasoning": "Multiple institutional catalysts (SpaceX IPO, Blockchain.com IPO filing, strategic reserve legislation, major corporate treasuries) provide strong medium-term support for Bitcoin, while high-profile bearish signals (Cuban's exit, 14-year support break, DeFi security concerns) create tactical sell pressure. The 1-7 day swing window likely experiences consolidation with upside bias as institutional positioning unfolds.",
-  "risks": "Bitcoin breaking below $50K support level if SpaceX IPO underperforms or broader tech sell-off materializes, combined with institutional capitulation and DeFi contagion concerns.",
+  "reasoning": "Multiple bearish technical signals converge with weakening sentiment: price breakdown below key support levels, institutional skepticism (Cuban's exit, Goldman Sachs XRP dump), and prediction market traders aggressively reducing 2026 bull run probability. Positive catalysts like institutional adoption (Tether, Nasdaq-Polymarket) and strategic reserve legislation offer some support but are overwhelmed by near-term technical weakness and negative sentiment shift.",
+  "risks": "Accelerating breakdown through $76,000 support could cascade liquidations toward $60,000-$50,000 targets if technical trendline resistance continues holding; regulatory uncertainty around prediction markets and tokenized stocks adds unpredictability.",
   "article_count": 36
 }
