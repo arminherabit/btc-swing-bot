@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-22T07:02:01.4695554Z",
-  "score": 3,
+  "timestamp": "2026-05-22T12:01:44.2226710Z",
+  "score": 6,
   "sentiment": "bullish",
-  "recommendation": "proceed",
+  "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin liquidity balance hints at developing rally toward $80K with short covering dynamics",
-    "US lawmakers renew strategic Bitcoin reserve push with bipartisan ARMA bill support",
-    "Bitcoin traders cutting short positions and going long despite weak macro data, targeting $82K"
+    "Bitcoin records 90-day uptrend resembling bull market rally with longest streak in bear market history",
+    "US lawmakers advance Strategic Bitcoin Reserve legislation with bipartisan support and $25B federal allocation",
+    "SpaceX IPO filing reveals $1.45B Bitcoin treasury (18,712 BTC), validating institutional Bitcoin adoption"
   ],
-  "reasoning": "Mixed macro backdrop is offset by strong technical setup with short-covering momentum and growing institutional interest via strategic reserve legislation. However, institutional selling pressure, weak ETF demand despite policy wins, and high-profile exits (Mark Cuban) create meaningful headwinds that cap upside potential in the 1-7 day window.",
-  "risks": "Weak macroeconomic data could trigger renewed risk-off sentiment and institutional hedging, reversing the current long positioning and threatening support levels below $76K.",
+  "reasoning": "Multiple institutional and regulatory tailwinds converge favorably: SpaceX's massive Bitcoin holdings in IPO filing signal mainstream corporate confidence, bipartisan U.S. Strategic Bitcoin Reserve legislation provides long-term policy support, and Bitcoin's 90-day uptrend already demonstrates strong momentum resilience. Negative news (Mark Cuban selling, Polymarket exploits, quantum computing concerns) remains isolated to specific assets/issues rather than systemic Bitcoin risks.",
+  "risks": "Mark Cuban's public Bitcoin sale and negative commentary could amplify FUD momentum if picked up by mainstream media, while quantum computing vulnerability concerns could resurface as headlines if technical progress accelerates.",
   "article_count": 36
 }
