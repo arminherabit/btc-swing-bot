@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-21T20:01:34.2363265Z",
-  "score": 3,
+  "timestamp": "2026-05-22T00:01:46.9543534Z",
+  "score": 6,
   "sentiment": "bullish",
-  "recommendation": "proceed",
+  "recommendation": "boost_size",
   "key_items": [
-    "US lawmakers push Strategic Bitcoin Reserve bill with bipartisan support ($25B federal stash)",
-    "SpaceX files historic IPO revealing $1.45B Bitcoin treasury (18,712 BTC)",
-    "Bitcoin due 5%+ move soon with $77,000 focus amid macro tailwinds from tariff refunds"
+    "Bitcoin longs surge despite weak macroeconomic data with $82K target emerging",
+    "Long-term holders control 71% of supply with $15M+ BTC, making sub-$60K levels 'extremely slim' chance",
+    "US Strategic Bitcoin Reserve bill gains bipartisan support and SpaceX IPO reveals $1.45B BTC treasury"
   ],
-  "reasoning": "Positive macro catalysts from institutional adoption (SpaceX IPO treasury disclosure, proposed federal Bitcoin reserve) and technical setup suggesting imminent 5%+ volatility in bullish direction outweigh near-term distribution pressures. However, whale accumulation weakness, realized losses surge to $600M, and Mark Cuban's public Bitcoin exit create headwinds that prevent a stronger bullish conviction.",
-  "risks": "Quantum computing threat narrative gaining mainstream attention ($2B US government quantum investment) combined with exchange wallet vulnerability could trigger sudden FUD-driven selloff, especially if media amplifies security concerns during volatile price action.",
+  "reasoning": "Bullish macro catalysts outweigh bearish sentiment: institutional adoption accelerates (SpaceX IPO, Strategic Reserve bill), on-chain metrics show strong long-term holder accumulation floors the downside, and trader positioning has flipped to net long despite economic headwinds suggesting contrarian strength. Mark Cuban's exit and Harvard's ETH liquidation are minor headwinds but are offset by broader institutional inflows and supportive regulatory momentum.",
+  "risks": "Quantum computing vulnerability narrative gaining traction could trigger panic selling if exchange security concerns escalate, and weak US macroeconomic data could trigger broader risk-off sentiment that temporarily breaks the $78,800 support level.",
   "article_count": 36
 }
