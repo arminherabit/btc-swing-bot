@@ -21,7 +21,7 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import make_vec_env
 from stable_baselines3.common.callbacks import EvalCallback, BaseCallback
 from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.vec_env import SubprocVecEnv
+from stable_baselines3.common.vec_env import SubprocVecEnv, DummyVecEnv
 import gymnasium as gym
 warnings.filterwarnings("ignore")
 
@@ -29,8 +29,8 @@ from btc_rl_env import BTCTradingEnv
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 AGGRESSIVENESS   = 1.5          # amplifier on portfolio_return
-TOTAL_TIMESTEPS  = 1_000_000    # training steps
-N_ENVS           = 4            # parallel environments
+TOTAL_TIMESTEPS  = 2_000_000    # training steps
+N_ENVS           = 1            # DummyVecEnv: 1 env is faster on Windows
 MODEL_PATH       = "btc_rl_model"
 BINANCE_URL      = "https://api.binance.us/api/v3/klines"
 SYMBOL           = "BTCUSD"
@@ -238,7 +238,7 @@ def main():
         return env
 
     print(f"Building {N_ENVS} parallel envs…")
-    vec_env = make_vec_env(make_env, n_envs=N_ENVS, vec_env_cls=SubprocVecEnv)
+    vec_env = make_vec_env(make_env, n_envs=N_ENVS, vec_env_cls=DummyVecEnv)
 
     # 3. PPO — aggressive exploration settings
     model = PPO(
@@ -252,11 +252,11 @@ def main():
         gamma         = 0.995,      # near-1 = long-term value focus
         gae_lambda    = 0.95,
         clip_range    = 0.2,
-        ent_coef      = 0.015,      # higher entropy = more exploration (aggressive)
+        ent_coef      = 0.02,       # higher entropy = more exploration (aggressive)
         vf_coef       = 0.5,
         max_grad_norm = 0.5,
         policy_kwargs = dict(
-            net_arch=[dict(pi=[256, 256, 128], vf=[256, 256, 128])],  # deeper nets
+            net_arch=[dict(pi=[128, 128], vf=[128, 128])],  # fast on CPU
         ),
     )
 
