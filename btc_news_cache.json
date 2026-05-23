@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-23T01:01:50.9082678Z",
+  "timestamp": "2026-05-23T06:01:48.7277103Z",
   "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Kevin Warsh sworn in as Fed chair with traders forecasting rate hikes in 2026, limiting monetary easing tailwinds",
-    "Bitcoin sold off to $76,000 with bears reclaiming control; technical resistance at upper trendline suppressing bullish momentum",
-    "Mixed institutional signals: Tether expanding Bitcoin holdings offset by Trump Media selling 2,650 BTC and Mark Cuban dumping holdings"
+    "Bitcoin rejected near $78,000 with bears reclaiming control; longest deleveraging since 2022 ending but options traders cautious",
+    "Multiple high-profile Bitcoin sales by Saylor/MicroStrategy (2026 exit plan), Mark Cuban (failed hedge), and Trump Media ($205M transfer) signal distribution pressure",
+    "Fidelity calls BTC an early bull market with tightest monthly Bollinger Bands ever, but Kalshi traders moved $100K odds from 40% to 0% YoY; regulatory headwinds (SEC tokenized stocks delay, insider trading probes) add uncertainty"
   ],
-  "reasoning": "Bitcoin faces conflicting forces with institutional adoption accelerating but macroeconomic headwinds intensifying under new Fed leadership signaling no rate cuts in 2026. Technical breakdown below $80,000 combined with major holder liquidations (Trump Media, Mark Cuban) and bearish Kalshi prediction markets (0% probability of $100K by year-end) suggest consolidation rather than directional conviction over the swing trading window.",
-  "risks": "Bitcoin monthly Bollinger Bands at tightest ever levels combined with upper trendline resistance breakdown could trigger accelerated deleveraging and test $60,000 support if negative macro catalysts emerge around Fed policy clarification.",
+  "reasoning": "Bitcoin faces conflicting signals with technical setup (tight BBands, early bull signals) offset by significant selling pressure from mega-holders and institutional distribution. The rejection below $78K combined with zero conviction on $100K targets suggests consolidation rather than immediate upside momentum for swing traders in the 1-7 day window.",
+  "risks": "Cascade of high-profile seller capitulation (Saylor, Cuban, Trump Media) could trigger forced liquidations if price breaks below $74-75K support, collapsing sentiment further and attracting retail panic selling.",
   "article_count": 36
 }
