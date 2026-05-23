@@ -338,9 +338,9 @@ function Run-Cycle {
     if ($state.last_stopout -ne "") {
         try {
             $stopHours = (New-TimeSpan -Start ([datetime]$state.last_stopout) -End $nowDt).TotalHours
-            if ($stopHours -lt 24.0) {
+            if ($stopHours -lt 8.0) {
                 $cooldownActive    = $true
-                $cooldownHoursLeft = [Math]::Round(24.0 - $stopHours, 1)
+                $cooldownHoursLeft = [Math]::Round(8.0 - $stopHours, 1)
                 $entryBlocked      = $true
             }
         } catch {}
