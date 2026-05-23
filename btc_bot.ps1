@@ -355,9 +355,20 @@ function Run-Cycle {
     [double[]]$closes = $candles | ForEach-Object { $_.Close }
     $rsi4h            = [Math]::Round((Get-RSI $closes), 1)
 
-    # RSI series for divergence detection
+    # RSI series for divergence detection + direction confirmation
     [double[]]$rsiSeries = Get-RSISeries $closes
     $divergence          = Get-BullishDivergence $closes $rsiSeries
+
+    # RSI direction: require RSI rising from low (higher low in last 2 bars)
+    # Prevents buying a falling knife — only enter when RSI is turning up
+    $rsiTurning = $false
+    if ($rsiSeries.Count -ge 4) {
+        $r1 = $rsiSeries[$rsiSeries.Count - 2]   # prev bar
+        $r2 = $rsiSeries[$rsiSeries.Count - 3]   # 2 bars ago
+        $r3 = $rsiSeries[$rsiSeries.Count - 4]   # 3 bars ago
+        # RSI made a low and is now rising: r2 < r3 AND r1 > r2 (turning up)
+        $rsiTurning = ($r2 -lt $r3 -and $r1 -gt $r2 -and $r1 -gt 0 -and $r2 -gt 0)
+    }
 
     # SMA200 and bull/bear mode
     [double[]]$last200 = $closes | Select-Object -Last 200
@@ -393,6 +404,11 @@ function Run-Cycle {
     $dipReq = if ($bullMode) { [double]$cfg.dip_pct_required } else { [double]$cfg.dip_pct_bear }
     if ($af -ge 0.30) { $dipReq = [Math]::Max(0.5, $dipReq - 0.5) }
 
+    # BEAR mode: cap at 2 tranches (less exposure in downtrend)
+    # BEAR mode: lower partial profit target (3% vs 5% — rallies are shorter)
+    $maxTranchesEff    = if ($bullMode) { [int]$cfg.max_tranches } else { [Math]::Min(2, [int]$cfg.max_tranches) }
+    $partialProfitPct  = if ($bullMode) { [double]$cfg.partial_profit_pct } else { [double]$cfg.partial_profit_pct_bear }
+
     # 5-day high and dip %
     $recent      = $candles | Select-Object -Last 30
     $fiveDayHigh = ($recent | Measure-Object -Property High -Maximum).Maximum
@@ -403,10 +419,11 @@ function Run-Cycle {
     $avgVol = ($vols[0..19] | Measure-Object -Sum).Sum / 20
     $volPct = if ($avgVol -gt 0) { [Math]::Round(($vols[20] / $avgVol) * 100, 0) } else { 0 }
 
-    Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}" -f `
+    Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}  RSI-Turning: {6}" -f `
         $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct, `
-        $(if ($divergence) { "YES (bullish)" } else { "no" }))
-    Write-Host ("  Entry thresholds: T1<{0}  T2<{1}  T3<{2}  Dip>={3}%" -f $rsi1, $rsi2, $rsi3, $dipReq)
+        $(if ($divergence) { "YES (bullish)" } else { "no" }), `
+        $(if ($rsiTurning) { "YES" } else { "no" }))
+    Write-Host ("  Entry thresholds: T1<{0}  T2<{1}  T3<{2}  Dip>={3}%  MaxTranches={4}" -f $rsi1, $rsi2, $rsi3, $dipReq, $maxTranchesEff)
 
     # ── RL SIGNAL OVERRIDE ────────────────────────────────────────────────────
     # When the PPO model is confident (>=60%), it can trigger actions directly,
@@ -488,7 +505,7 @@ function Run-Cycle {
         $trailPct  = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct + 1.5 }
         $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - $trailPct / 100.0), 2)
         $hardStop  = [Math]::Round($avgEntry * (1.0 - [double]$cfg.hard_stop_pct / 100.0), 2)
-        $partialTgt = [Math]::Round($avgEntry * (1.0 + [double]$cfg.partial_profit_pct / 100.0), 2)
+        $partialTgt = [Math]::Round($avgEntry * (1.0 + $partialProfitPct / 100.0), 2)
 
         # Hold time
         $holdHours  = 0.0; $minHoldMet = $true
@@ -566,7 +583,7 @@ function Run-Cycle {
     if (-not $entryBlocked) {
 
         $tc          = [int]$state.tranche_count
-        $maxTranches = [int]$cfg.max_tranches
+        $maxTranches = $maxTranchesEff     # BEAR=2, BULL=3
         $trancheUsdt = [double]$cfg.tranche_size_usdt
 
         $rsiThreshold = switch ($tc) {
@@ -576,9 +593,12 @@ function Run-Cycle {
             default { 0 }
         }
 
-        $dipOk  = ($dipPct -ge $dipReq)
-        $rsiOk  = ($rsi4h  -le $rsiThreshold)
-        $canAdd = ($tc -lt $maxTranches)
+        $dipOk     = ($dipPct -ge $dipReq)
+        $rsiOk     = ($rsi4h  -le $rsiThreshold)
+        $canAdd    = ($tc -lt $maxTranches)
+        # In BEAR mode require RSI turning up (bottom confirmation)
+        # In BULL mode or with divergence signal, skip turning check
+        $turningOk = ($bullMode -or $divergence -or $rsiTurning)
 
         # Boost conditions skip dip check for T1
         if (($entryBoosted -or $divergence) -and $tc -eq 0) { $dipOk = $true }
@@ -587,11 +607,11 @@ function Run-Cycle {
         # Additional tranches don't need fresh dip
         if ($tc -gt 0 -and $rsiOk) { $dipOk = $true }
 
-        if ($canAdd -and $rsiOk -and $dipOk) {
-            $entryReason = if ($divergence) { "DIVERGENCE" } elseif ($fngBoost) { "F&G FEAR BOOST" } elseif ($newsBoost) { "NEWS BOOST" } else { "RSI DIP" }
+        if ($canAdd -and $rsiOk -and $dipOk -and $turningOk) {
+            $entryReason = if ($divergence) { "DIVERGENCE" } elseif ($fngBoost) { "F&G FEAR BOOST" } elseif ($newsBoost) { "NEWS BOOST" } elseif ($rsiTurning) { "RSI TURN" } else { "RSI DIP" }
             $qty = [Math]::Round($trancheUsdt / $price, 5)
-            Write-Host ("  BUY TRANCHE {0}/3  [{1}]  RSI={2}  Dip={3}%  Mode={4}  Qty={5} BTC @ `${6}" -f `
-                ($tc + 1), $entryReason, $rsi4h, $dipPct, $modeLabel, (Fmt-Qty $qty), $price.ToString("N2"))
+            Write-Host ("  BUY TRANCHE {0}/{1}  [{2}]  RSI={3}  Dip={4}%  Mode={5}  Qty={6} BTC @ `${7}" -f `
+                ($tc + 1), $maxTranches, $entryReason, $rsi4h, $dipPct, $modeLabel, (Fmt-Qty $qty), $price.ToString("N2"))
 
             $order = Place-MarketOrder "BUY" $qty
             if ($null -ne $order) {
@@ -614,6 +634,7 @@ function Run-Cycle {
         } elseif ($canAdd) {
             $reason = if (-not $rsiOk) { "RSI " + $rsi4h + " > T" + ($tc+1) + " threshold " + $rsiThreshold + " (" + $modeLabel + ")" } `
                       elseif (-not $dipOk) { "dip " + $dipPct + "% < " + $dipReq + "% (" + $modeLabel + ")" } `
+                      elseif (-not $turningOk) { "RSI not yet turning up (BEAR confirmation)" } `
                       else { "conditions not met" }
             $divNote = if ($divergence) { " [divergence detected]" } else { "" }
             Write-Host ("  WATCHING  --  {0}{1}" -f $reason, $divNote)
@@ -622,7 +643,7 @@ function Run-Cycle {
                 $state.last_action = "none"
             }
         } else {
-            Write-Host ("  ALL 3 TRANCHES FILLED  --  waiting for exit signal")
+            Write-Host ("  ALL {0} TRANCHES FILLED  --  waiting for exit signal" -f $maxTranches)
         }
 
     } else {
