@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-22T21:01:40.7882250Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-05-23T01:01:50.9082678Z",
+  "score": -1,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin sold off to $76,000 with bears reclaiming control as price falls under $77K amid weak US demand",
-    "Mark Cuban sells most Bitcoin calling it a failed hedge; analyst predicts potential $50,000-$55,000 target after breaking 14-year support",
-    "Kalshi prediction market shows Bitcoin $100K probability dropped from 40% to zero as traders turn bearish; monthly Bollinger Bands at tightest levels signal volatility ahead"
+    "Kevin Warsh sworn in as Fed chair with traders forecasting rate hikes in 2026, limiting monetary easing tailwinds",
+    "Bitcoin sold off to $76,000 with bears reclaiming control; technical resistance at upper trendline suppressing bullish momentum",
+    "Mixed institutional signals: Tether expanding Bitcoin holdings offset by Trump Media selling 2,650 BTC and Mark Cuban dumping holdings"
   ],
-  "reasoning": "Multiple bearish technical signals converge with weakening sentiment: price breakdown below key support levels, institutional skepticism (Cuban's exit, Goldman Sachs XRP dump), and prediction market traders aggressively reducing 2026 bull run probability. Positive catalysts like institutional adoption (Tether, Nasdaq-Polymarket) and strategic reserve legislation offer some support but are overwhelmed by near-term technical weakness and negative sentiment shift.",
-  "risks": "Accelerating breakdown through $76,000 support could cascade liquidations toward $60,000-$50,000 targets if technical trendline resistance continues holding; regulatory uncertainty around prediction markets and tokenized stocks adds unpredictability.",
+  "reasoning": "Bitcoin faces conflicting forces with institutional adoption accelerating but macroeconomic headwinds intensifying under new Fed leadership signaling no rate cuts in 2026. Technical breakdown below $80,000 combined with major holder liquidations (Trump Media, Mark Cuban) and bearish Kalshi prediction markets (0% probability of $100K by year-end) suggest consolidation rather than directional conviction over the swing trading window.",
+  "risks": "Bitcoin monthly Bollinger Bands at tightest ever levels combined with upper trendline resistance breakdown could trigger accelerated deleveraging and test $60,000 support if negative macro catalysts emerge around Fed policy clarification.",
   "article_count": 36
 }
