@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-23T16:02:07.6658655Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-23T21:01:38.2157084Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "$1.26B Bitcoin ETF outflows spark 'contrarian' buy signal: Santiment",
-    "SEC approves Nasdaq to list Bitcoin index options on the exchange",
-    "Mark Cuban Sells Most of His Bitcoin, Calls It a Failed Hedge"
+    "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
+    "Bitcoin's hard-money thesis is colliding with 5% Treasury yields",
+    "Bitcoin Could Be Entering Critical Pullback Phase Below This Level"
   ],
-  "reasoning": "Mixed signals dominate: regulatory progress (Nasdaq Bitcoin options approval) and historical accumulation patterns from ETF outflows offer support, but significant headwinds persist including high-profile Bitcoin liquidations (Trump Media, Mark Cuban), weak transaction volumes, realized losses climbing, and ongoing regulatory uncertainty (SEC delays tokenized assets). The market remains in an uncertain consolidation phase with modest bearish lean.",
-  "risks": "Bitcoin's failure to reclaim key cost basis levels combined with continued institutional selling pressure could trigger a breakdown to lower technical support levels within the 1-7 day window.",
+  "reasoning": "Bitcoin faces near-term downward pressure from $1.26B in ETF outflows, breach below $75K support level, and technical weakness with $941M in liquidations triggering cascading selling. Macro headwinds from elevated Treasury yields conflicting with Bitcoin's hard-money narrative, combined with weak transaction volume and 40% probability of sub-$50K drop, create a risk-reward imbalance for swing traders over the next 1-7 days.",
+  "risks": "Further liquidation cascades below key support levels could accelerate downside momentum toward $70K-$72K, especially if macro sentiment deteriorates with continued Fed rate hold signals or additional regulatory uncertainty around exchange compliance.",
   "article_count": 36
 }
