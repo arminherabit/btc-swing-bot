@@ -229,6 +229,7 @@ function Load-State {
             if ($null -eq $s.reward_history) { Add-Member -InputObject $s -NotePropertyName reward_history -NotePropertyValue @()  }
             if ($null -eq $s.rl_action)      { Add-Member -InputObject $s -NotePropertyName rl_action      -NotePropertyValue "NONE" }
             if ($null -eq $s.rl_override)    { Add-Member -InputObject $s -NotePropertyName rl_override    -NotePropertyValue $false }
+            if ($null -eq $s.last_stopout)   { Add-Member -InputObject $s -NotePropertyName last_stopout   -NotePropertyValue "" }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -268,6 +269,8 @@ function Load-State {
         rl_action             = "NONE"
         rl_confidence         = 0.0
         rl_override           = $false
+        # Cooldown tracking
+        last_stopout          = ""
     }
 }
 
@@ -328,6 +331,24 @@ function Run-Cycle {
     # Combined block/boost (either source can block or boost)
     $entryBlocked = ($newsBlock -or $fngBlock)
     $entryBoosted = ($newsBoost -or $fngBoost)
+
+    # ── Stop-out cooldown: block re-entry for 24h after a stop fires ──────────
+    $cooldownActive = $false
+    $cooldownHoursLeft = 0.0
+    if ($state.last_stopout -ne "") {
+        try {
+            $stopHours = (New-TimeSpan -Start ([datetime]$state.last_stopout) -End $nowDt).TotalHours
+            if ($stopHours -lt 24.0) {
+                $cooldownActive    = $true
+                $cooldownHoursLeft = [Math]::Round(24.0 - $stopHours, 1)
+                $entryBlocked      = $true
+            }
+        } catch {}
+    }
+    if ($cooldownActive) {
+        Write-Host ("  COOLDOWN: stop-out {0}h ago — entries blocked for {1}h more" -f `
+            [Math]::Round((New-TimeSpan -Start ([datetime]$state.last_stopout) -End $nowDt).TotalHours, 1), $cooldownHoursLeft)
+    }
 
     # ── 4H candles: fetch 210 for SMA200 + RSI series ─────────────────────────
     $candles          = Get-Klines "4h" 210
@@ -422,7 +443,8 @@ function Run-Cycle {
             }
         }
         elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
-                -and [int]$state.tranche_count -lt [int]$cfg.max_tranches) {
+                -and [int]$state.tranche_count -lt [int]$cfg.max_tranches `
+                -and $rsi4h -le (switch ([int]$state.tranche_count) { 0 { $rsi1 }; 1 { $rsi2 }; 2 { $rsi3 }; default { 0 } })) {
             $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
             Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2})" -f `
                 ([int]$state.tranche_count + 1), ([int]($rl.confidence*100)), $rsi4h)
@@ -455,7 +477,9 @@ function Run-Cycle {
 
         $avgEntry  = [double]$state.avg_entry
         $pnlPct    = [Math]::Round((($price - $avgEntry) / $avgEntry) * 100, 2)
-        $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - [double]$cfg.trailing_stop_pct / 100.0), 2)
+        # Wider trail stop in BEAR mode (4.5%) to avoid getting shaken out by volatility
+        $trailPct  = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct + 1.5 }
+        $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - $trailPct / 100.0), 2)
         $hardStop  = [Math]::Round($avgEntry * (1.0 - [double]$cfg.hard_stop_pct / 100.0), 2)
         $partialTgt = [Math]::Round($avgEntry * (1.0 + [double]$cfg.partial_profit_pct / 100.0), 2)
 
@@ -518,6 +542,8 @@ function Run-Cycle {
                 $state.partial_taken  = $false
                 $state.last_action    = "SELL"
                 $state.last_signal    = "EXIT: " + $exitReason
+                # Record stop-out time for 24h cooldown
+                if ($exitReason -match "stop") { $state.last_stopout = $nowDt.ToString("o") }
             }
         } elseif ($exitReason -eq "") {
             Write-Host ("  HOLDING  --  RSI {0} (sell >= {1})  Trail {2}" -f $rsi4h, $cfg.rsi_exit, $trailStatus)
@@ -630,9 +656,10 @@ function Run-Cycle {
     if ($state.in_position -and [double]$state.avg_entry -gt 0) {
         $avgE  = [double]$state.avg_entry
         $peakP = [double]$state.highest_price
-        $state.partial_target = [Math]::Round($avgE  * (1.0 + [double]$cfg.partial_profit_pct  / 100.0), 2)
-        $state.trail_stop     = [Math]::Round($peakP * (1.0 - [double]$cfg.trailing_stop_pct   / 100.0), 2)
-        $state.hard_stop      = [Math]::Round($avgE  * (1.0 - [double]$cfg.hard_stop_pct       / 100.0), 2)
+        $dashTrailPct         = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct + 1.5 }
+        $state.partial_target = [Math]::Round($avgE  * (1.0 + [double]$cfg.partial_profit_pct / 100.0), 2)
+        $state.trail_stop     = [Math]::Round($peakP * (1.0 - $dashTrailPct                   / 100.0), 2)
+        $state.hard_stop      = [Math]::Round($avgE  * (1.0 - [double]$cfg.hard_stop_pct      / 100.0), 2)
     } else {
         $state.partial_target = 0
         $state.trail_stop     = 0
