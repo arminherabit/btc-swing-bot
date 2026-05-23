@@ -414,6 +414,13 @@ function Run-Cycle {
 
     if ($null -ne $rl) {
         $rlAction = $rl.action
+        # RSI threshold for current tranche (RL BUY must respect same gate as rule-based)
+        $rlRsiThreshold = switch ([int]$state.tranche_count) {
+            0       { $rsi1 }
+            1       { $rsi2 }
+            2       { $rsi3 }
+            default { 0 }
+        }
 
         if ($rlAction -eq "SELL_ALL" -and $state.in_position -and [double]$state.total_qty -gt 0) {
             $pnlPct = [Math]::Round((($price - [double]$state.avg_entry) / [double]$state.avg_entry) * 100, 2)
@@ -444,7 +451,7 @@ function Run-Cycle {
         }
         elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
                 -and [int]$state.tranche_count -lt [int]$cfg.max_tranches `
-                -and $rsi4h -le (switch ([int]$state.tranche_count) { 0 { $rsi1 }; 1 { $rsi2 }; 2 { $rsi3 }; default { 0 } })) {
+                -and $rsi4h -le $rlRsiThreshold) {
             $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
             Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2})" -f `
                 ([int]$state.tranche_count + 1), ([int]($rl.confidence*100)), $rsi4h)
