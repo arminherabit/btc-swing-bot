@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-24T02:01:49.2317329Z",
+  "timestamp": "2026-05-24T07:02:51.0446403Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
     "Analysts forecast a Bitcoin crash to the $60K level, revisiting 2026 low",
-    "Bitcoin's chances of falling below $50,000 hit 40%: Kalshi"
+    "Bitcoin ETFs Bleed $1.2 Billion in third most negative week on record"
   ],
-  "reasoning": "Multiple bearish technical and on-chain signals converge with weak capital flows ($1.25B ETF outflows this week) and mounting liquidations, while high Treasury yields (5%) compete with Bitcoin's hard-money thesis. Macro uncertainty combined with key resistance breaks below $75K and analyst crash forecasts create a near-term downside bias for swing traders.",
-  "risks": "A cascade of liquidations could accelerate the move toward $60K support if institutional capital rotation away from crypto accelerates or Fed rate hikes materialize beyond current projections.",
+  "reasoning": "Bitcoin is experiencing significant technical breakdown below $75K with massive ETF outflows ($1.2B in five days) and growing liquidation pressure ($941M), creating a cascade of forced selling. Multiple analyst forecasts for $60K targets combined with Mark Cuban and Trump Media selling positions signal weakening institutional confidence, though some positive developments like potential rate cuts and national Bitcoin reserve discussions provide limited upside offset.",
+  "risks": "Continued liquidation cascades could trigger rapid descent toward $60K support as technical breakdown accelerates capital flight from overextended long positions.",
   "article_count": 36
 }
