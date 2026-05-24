@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-23T21:01:38.2157084Z",
-  "score": -4,
+  "timestamp": "2026-05-24T02:01:49.2317329Z",
+  "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
-    "Bitcoin's hard-money thesis is colliding with 5% Treasury yields",
-    "Bitcoin Could Be Entering Critical Pullback Phase Below This Level"
+    "Analysts forecast a Bitcoin crash to the $60K level, revisiting 2026 low",
+    "Bitcoin's chances of falling below $50,000 hit 40%: Kalshi"
   ],
-  "reasoning": "Bitcoin faces near-term downward pressure from $1.26B in ETF outflows, breach below $75K support level, and technical weakness with $941M in liquidations triggering cascading selling. Macro headwinds from elevated Treasury yields conflicting with Bitcoin's hard-money narrative, combined with weak transaction volume and 40% probability of sub-$50K drop, create a risk-reward imbalance for swing traders over the next 1-7 days.",
-  "risks": "Further liquidation cascades below key support levels could accelerate downside momentum toward $70K-$72K, especially if macro sentiment deteriorates with continued Fed rate hold signals or additional regulatory uncertainty around exchange compliance.",
+  "reasoning": "Multiple bearish technical and on-chain signals converge with weak capital flows ($1.25B ETF outflows this week) and mounting liquidations, while high Treasury yields (5%) compete with Bitcoin's hard-money thesis. Macro uncertainty combined with key resistance breaks below $75K and analyst crash forecasts create a near-term downside bias for swing traders.",
+  "risks": "A cascade of liquidations could accelerate the move toward $60K support if institutional capital rotation away from crypto accelerates or Fed rate hikes materialize beyond current projections.",
   "article_count": 36
 }
