@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-24T07:02:51.0446403Z",
+  "timestamp": "2026-05-24T12:01:37.7293720Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
-    "Analysts forecast a Bitcoin crash to the $60K level, revisiting 2026 low",
-    "Bitcoin ETFs Bleed $1.2 Billion in third most negative week on record"
+    "Why is Bitcoin falling despite pro-crypto Kevin Warsh becoming Fed chair? -- Rising short-term bond yields and Warsh's hawkish comments in the past are reviving fears of a December rate hike",
+    "Analysts forecast a Bitcoin crash to the $60K level, revisiting 2026 low -- The price of Bitcoin is about $75,800 at the time of publication, a nearly 40% decrease from the all-time high"
   ],
-  "reasoning": "Bitcoin is experiencing significant technical breakdown below $75K with massive ETF outflows ($1.2B in five days) and growing liquidation pressure ($941M), creating a cascade of forced selling. Multiple analyst forecasts for $60K targets combined with Mark Cuban and Trump Media selling positions signal weakening institutional confidence, though some positive developments like potential rate cuts and national Bitcoin reserve discussions provide limited upside offset.",
-  "risks": "Continued liquidation cascades could trigger rapid descent toward $60K support as technical breakdown accelerates capital flight from overextended long positions.",
+  "reasoning": "Multiple bearish pressures converge: Bitcoin has broken below $75K with $1B+ in liquidations, bond yields rising with anticipated Fed rate hikes contradicting earlier pro-crypto sentiment, and major institutional capitulation (Mark Cuban, Trump Media selling). The macro environment has shifted from rate-cut expectations to hawkish Fed positioning, directly headwinds for risk assets. Positive regulation signals (national Bitcoin reserve proposals) and institutional adoption (BofA picking Bitcoin) are outweighed by liquidation cascades and technical breakdown below key support.",
+  "risks": "Continued liquidations could cascade below $75K toward analyst targets of $60K if key support fails and Fed maintains hawkish guidance through December rate hike cycle.",
   "article_count": 36
 }
