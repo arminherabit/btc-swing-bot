@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-24T12:01:37.7293720Z",
-  "score": -5,
+  "timestamp": "2026-05-24T17:01:46.7078534Z",
+  "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
-    "Why is Bitcoin falling despite pro-crypto Kevin Warsh becoming Fed chair? -- Rising short-term bond yields and Warsh's hawkish comments in the past are reviving fears of a December rate hike",
-    "Analysts forecast a Bitcoin crash to the $60K level, revisiting 2026 low -- The price of Bitcoin is about $75,800 at the time of publication, a nearly 40% decrease from the all-time high"
+    "Bitcoin falls below $75K with $941M liquidations as Fed rate hike fears resurface",
+    "Rising Treasury yields and Kevin Warsh's hawkish stance revive December rate hike expectations",
+    "Trump Media transfers 2,650 BTC to exchanges amid $455M losses, signaling potential selling pressure"
   ],
-  "reasoning": "Multiple bearish pressures converge: Bitcoin has broken below $75K with $1B+ in liquidations, bond yields rising with anticipated Fed rate hikes contradicting earlier pro-crypto sentiment, and major institutional capitulation (Mark Cuban, Trump Media selling). The macro environment has shifted from rate-cut expectations to hawkish Fed positioning, directly headwinds for risk assets. Positive regulation signals (national Bitcoin reserve proposals) and institutional adoption (BofA picking Bitcoin) are outweighed by liquidation cascades and technical breakdown below key support.",
-  "risks": "Continued liquidations could cascade below $75K toward analyst targets of $60K if key support fails and Fed maintains hawkish guidance through December rate hike cycle.",
+  "reasoning": "The narrative has shifted from Fed rate-cut optimism to rate-hike concerns, with bond markets pricing in 25bp increases by year-end and Treasury yields rising to 5%. This macroeconomic headwind combined with technical breakdown below $75K, large liquidation cascades, and insider selling (Trump Media) creates a near-term bearish setup that likely pressures price over the next 1-7 days.",
+  "risks": "Cascading liquidations and forced selling if BTC breaks below $72K support, potentially triggering another 10-15% drawdown as margin positions unwind.",
   "article_count": 36
 }
