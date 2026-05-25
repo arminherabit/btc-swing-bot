@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-25T08:01:38.3842366Z",
+  "timestamp": "2026-05-25T12:14:51.4178945Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin ETFs record 6-day loss streak with $1.55B net outflows, pushing 2026 toward net negative inflows",
-    "Bitcoin dives below $75K for first time in a month amid $1B in crypto liquidations and weak demand metrics",
-    "Fed minutes signal rate-hike risk rather than cuts, undermining Bitcoin's macro tailwind narrative"
+    "Bitcoin ETFs record 6-day loss streak with $1.55B net outflows; BTC dives below $75K",
+    "BlackRock and early Bitcoin whales selling significant holdings; demand metrics hit 2026 lows",
+    "Fed minutes signal rate-hike risks, not cuts; macro headwinds intensify with PCE inflation data pending"
   ],
-  "reasoning": "Near-term technical breakdown below $75K combined with deteriorating ETF flows and hawkish Fed signals create a bearish swing setup. Positive long-term catalysts (AI integration, corporate accumulation, regulatory progress) are insufficient to offset immediate selling pressure and demand weakness.",
-  "risks": "Liquidation cascade below $72.5K support could trigger panic selling and force further downside toward $70K if macro sentiment shifts negative or additional large holders exit positions.",
+  "reasoning": "Multiple institutional sellers (BlackRock $1B sale, Trump Media 2,650 BTC transfer, Satoshi-era whale $203M exit) combined with persistent ETF outflows totaling $1.55B over six days create substantial supply pressure. Weakening on-chain demand metrics, Fed rate-hike concerns, and liquidation risk near $75K resistance establish a bearish near-term setup despite some bullish infrastructure developments (Tether-Georgia stablecoin, Fed settlement rails).",
+  "risks": "Cascading liquidations below $75K could trigger a swift drop to $70K support, exacerbated by low trading demand and potential PCE inflation data volatility on Thursday.",
   "article_count": 36
 }
