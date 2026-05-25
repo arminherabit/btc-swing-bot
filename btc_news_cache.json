@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-24T22:01:48.5503904Z",
+  "timestamp": "2026-05-25T03:01:36.0535471Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
-    "Fed minutes turn Bitcoin's rate-cut trade into a hike-risk problem — Fed policymakers signaling higher rates longer",
-    "Trump Media Moves to Sell Bitcoin as Losses Reach $455 Million — $205M transfer to Crypto.com signals potential selling pressure"
+    "Fed minutes turn Bitcoin's rate-cut trade into a hike-risk problem — majority of policymakers signal no rate cuts expected",
+    "Trump Media (DJT) Moves to Sell Bitcoin as Losses Reach $455 Million — transferring 2,650 BTC signals institutional weakness"
   ],
-  "reasoning": "Bitcoin faces significant near-term headwinds from failed rate-cut expectations, with Fed minutes reversing the cutting narrative that underpinned recent rallies. Multiple large holder liquidations (Trump Media, Mark Cuban) combined with $1B in crypto liquidations and ETF outflows suggest momentum is deteriorating through key support at $75K.",
-  "risks": "If $72.5K support breaks decisively, capitulation could accelerate toward $70K as long liquidations cascade and institutional confidence erodes further.",
+  "reasoning": "Near-term technicals and macro headwinds are creating downward pressure: BTC broke below $75K with $1B in liquidations, Fed minutes eliminated rate-cut expectations that fueled the rally, and high-profile sellers (Trump Media, Mark Cuban) are exiting positions. Positive structural factors (bond crisis supercycle theory, MoonPay integration, corporate accumulation) are being overwhelmed by immediate negative catalysts in the 1-7 day swing timeframe.",
+  "risks": "Further Fed hawkishness or additional macro data pointing to higher rates could trigger a cascade to $72.5K-$70K support levels with accelerating liquidations.",
   "article_count": 36
 }
