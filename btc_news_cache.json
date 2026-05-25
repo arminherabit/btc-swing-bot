@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-25T03:01:36.0535471Z",
+  "timestamp": "2026-05-25T08:01:38.3842366Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin Dives Below $75K for First Time in a Month as Crypto Liquidations Near $1 Billion",
-    "Fed minutes turn Bitcoin's rate-cut trade into a hike-risk problem — majority of policymakers signal no rate cuts expected",
-    "Trump Media (DJT) Moves to Sell Bitcoin as Losses Reach $455 Million — transferring 2,650 BTC signals institutional weakness"
+    "Bitcoin ETFs record 6-day loss streak with $1.55B net outflows, pushing 2026 toward net negative inflows",
+    "Bitcoin dives below $75K for first time in a month amid $1B in crypto liquidations and weak demand metrics",
+    "Fed minutes signal rate-hike risk rather than cuts, undermining Bitcoin's macro tailwind narrative"
   ],
-  "reasoning": "Near-term technicals and macro headwinds are creating downward pressure: BTC broke below $75K with $1B in liquidations, Fed minutes eliminated rate-cut expectations that fueled the rally, and high-profile sellers (Trump Media, Mark Cuban) are exiting positions. Positive structural factors (bond crisis supercycle theory, MoonPay integration, corporate accumulation) are being overwhelmed by immediate negative catalysts in the 1-7 day swing timeframe.",
-  "risks": "Further Fed hawkishness or additional macro data pointing to higher rates could trigger a cascade to $72.5K-$70K support levels with accelerating liquidations.",
+  "reasoning": "Near-term technical breakdown below $75K combined with deteriorating ETF flows and hawkish Fed signals create a bearish swing setup. Positive long-term catalysts (AI integration, corporate accumulation, regulatory progress) are insufficient to offset immediate selling pressure and demand weakness.",
+  "risks": "Liquidation cascade below $72.5K support could trigger panic selling and force further downside toward $70K if macro sentiment shifts negative or additional large holders exit positions.",
   "article_count": 36
 }
