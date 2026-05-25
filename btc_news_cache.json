@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-25T12:14:51.4178945Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-05-25T17:01:45.5854697Z",
+  "score": -1,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin ETFs record 6-day loss streak with $1.55B net outflows; BTC dives below $75K",
-    "BlackRock and early Bitcoin whales selling significant holdings; demand metrics hit 2026 lows",
-    "Fed minutes signal rate-hike risks, not cuts; macro headwinds intensify with PCE inflation data pending"
+    "Institutional Bitcoin ETF outflows accelerate - $2.7B pulled from spot Bitcoin ETFs as rotation into altcoins (XRP, Solana, HYPE) accelerates",
+    "Technical rejection at 200-MA with support test near $76,000 - Bitcoin struggling above $78,000 with directional conviction difficult to sustain",
+    "Major holder selling pressure - Trump Media transferring 2,650 BTC to Crypto.com, Mark Cuban selling most Bitcoin holdings signals institutional/whale capitulation"
   ],
-  "reasoning": "Multiple institutional sellers (BlackRock $1B sale, Trump Media 2,650 BTC transfer, Satoshi-era whale $203M exit) combined with persistent ETF outflows totaling $1.55B over six days create substantial supply pressure. Weakening on-chain demand metrics, Fed rate-hike concerns, and liquidation risk near $75K resistance establish a bearish near-term setup despite some bullish infrastructure developments (Tether-Georgia stablecoin, Fed settlement rails).",
-  "risks": "Cascading liquidations below $75K could trigger a swift drop to $70K support, exacerbated by low trading demand and potential PCE inflation data volatility on Thursday.",
+  "reasoning": "Bitcoin faces near-term headwinds from significant institutional outflows rotating into altcoins and concerning technical rejection at key moving averages, offset partially by positive regulatory developments (Nasdaq Bitcoin options SEC approval, Fed settlement rails exploration) and accumulation signals in XRP that may redirect capital. The next 1-7 days will likely see consolidation or minor retracement as the market tests $76,000 support before committing to directional bias.",
+  "risks": "Breakdown below $76,000 support could trigger a cascade of liquidations and accelerate institutional outflows, potentially testing $73,000-$71,000 range as rotation into altcoins continues unabated.",
   "article_count": 36
 }
