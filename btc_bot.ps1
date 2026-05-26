@@ -422,7 +422,7 @@ function Run-Cycle {
     if ($state.last_action_time -ne "") {
         try { $idleHours = (New-TimeSpan -Start ([datetime]$state.last_action_time) -End $nowDt).TotalHours } catch {}
     }
-    if ($idleHours -ge 48.0 -and [int]$fng -le 30 -and -not $state.in_position -and -not $entryBlocked) {
+    if ($idleHours -ge 48.0 -and [int]$fng.Value -le 30 -and -not $state.in_position -and -not $entryBlocked) {
         $watchdogBoost  = 0.10
         $af             = [Math]::Round([Math]::Min(0.50, $af + $watchdogBoost), 2)
         $watchdogActive = $true
@@ -488,7 +488,7 @@ function Run-Cycle {
 
     $nearLabel = if ($nearSma200) { "  [SMA gap: $smaPctGap%  NEAR-SMA mode active]" } else { "" }
     if ($watchdogActive) {
-        Write-Host ("  Watchdog: ACTIVE  Idle {0:F1}h  F&G {1}  AF boosted +0.10" -f $idleHours, $fng)
+        Write-Host ("  Watchdog: ACTIVE  Idle {0:F1}h  F&G {1}  AF boosted +0.10" -f $idleHours, $fng.Value)
     }
     Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}  RSI-Turning: {6}{7}" -f `
         $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct, `
