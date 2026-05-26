@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-26T13:01:40.2483425Z",
-  "score": -4,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-26T18:01:39.5030980Z",
+  "score": 2,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "Crypto funds bleed $1.47B as risk-off sentiment deepens — Bitcoin ETF outflows accelerate with $2.7B withdrawn from spot funds over recent period",
-    "Bitcoin's Worst Outflow Week Of The Year Just Happened — $1.47B shed in single week amid Iran-related geopolitical uncertainty and macro headwinds",
-    "This signal shows Bitcoin is heading towards $60,000 tied to a $14 billion liquidation setup — Weakening ETF demand collides with leveraged position buildup risking deeper selling"
+    "Bitcoin liquidation hunts control BTC at $77K with failed rally attempts to $78K showing weakness",
+    "Major corporate Bitcoin accumulation continues: Strategy retired $1.5B debt (BTC untouched), Strive added 1,109 BTC to 16,500 total",
+    "Significant ETF outflows totaling $1.47B in worst week of 2026 amid Iran geopolitical tensions and macro uncertainty"
   ],
-  "reasoning": "Bitcoin faces significant headwinds from sustained institutional outflows ($2.7B from spot ETFs), a $14B liquidation setup pressuring toward $60K, and macro uncertainty from Iran tensions that failed to resolve positively. Competing positive catalysts (Trump Iran deal hints, Tether Georgia adoption, regulatory progress) are insufficient to offset the strong technical/flow deterioration and risk-off rotation into altcoins (HYPE, XRP, SOL).",
-  "risks": "Geopolitical escalation between US and Iran could trigger panic liquidations and accelerate the $60K bear target as leveraged positions unwind in lower liquidity conditions.",
+  "reasoning": "Bitcoin faces conflicting forces: institutional accumulation and corporate treasury strength provide underlying support, but weakening ETF demand, liquidation trap mechanics at $77-78K, and geopolitical uncertainty (Iran) create near-term selling pressure. The $14B liquidation setup poses tactical downside risk if support breaks, but lack of capitulation signals and continued whale buying suggest floor is being defended.",
+  "risks": "A breakdown below $77K could trigger cascading liquidations toward $60K if the $14B leverage position unwinds, particularly if geopolitical tensions escalate or macro confirmation turns negative.",
   "article_count": 36
 }
