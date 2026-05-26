@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-25T22:02:10.2872836Z",
-  "score": -1,
+  "timestamp": "2026-05-26T03:01:44.1232087Z",
+  "score": 2,
   "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin and Ethereum ETF outflows accelerate with $2.7B pulled as institutional investors rotate into XRP and Solana",
-    "Trump Media transfers 2,650 BTC (~$205M) to Crypto.com amid $455M losses, signaling potential forced selling pressure",
-    "Bitcoin rejected at 200-MA near $78K with support concerns at $76K; institutional exit narrative gaining traction"
+    "Bitcoin holds $77K as stocks rally with bulls targeting $82K",
+    "Bitcoin and Ethereum ETF outflows accelerate with $2.7B rotation into altcoins",
+    "Trump Media transfers 2,650 BTC (~$205M) to Crypto.com, signaling potential selling pressure"
   ],
-  "reasoning": "Mixed macro signals with institutional rotation away from BTC/ETH into altcoins (XRP, SOL) combined with forced selling from Trump Media creates near-term headwinds. Positive regulatory developments (Nasdaq Bitcoin options, Georgia stablecoin adoption, potential CFTC expansion) and bullish technical catalysts (XRP accumulation, AI trading infrastructure growth) are offset by clear institutional exit pressure and technical resistance at key levels.",
-  "risks": "Liquidation cascade if Bitcoin breaks below $76K support could accelerate ETF outflows and force margin calls, particularly given weak institutional conviction and the already-signaled Trump Media selling pressure.",
+  "reasoning": "Bitcoin shows mixed signals with near-term range support at $77-78K and potential rally targets to $80-82K, but institutional money is rotating away from BTC/ETH into altcoins and notable holders (Trump Media, Mark Cuban) are liquidating positions. The macro backdrop (stock rally, cooling tensions) supports bullish technicals, but on-chain data reveals rising exchange inflows and outflows from major ETFs suggest weakening institutional demand over the 1-7 day swing window.",
+  "risks": "Significant selling pressure from Trump Media's $205M BTC transfer to Crypto.com, combined with 10-day Binance inflow streak, could break below $77K support if broader market sentiment deteriorates.",
   "article_count": 36
 }
