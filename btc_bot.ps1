@@ -374,7 +374,14 @@ function Run-Cycle {
     [double[]]$last200 = $closes | Select-Object -Last 200
     $sma200    = [Math]::Round(($last200 | Measure-Object -Sum).Sum / 200, 2)
     $bullMode  = ($price -gt $sma200)
-    $modeLabel = if ($bullMode) { "BULL" } else { "BEAR" }
+
+    # ── Near-SMA200 transition zone ───────────────────────────────────────────
+    # When price is within 2% BELOW SMA200, relax to BULL RSI thresholds so the
+    # bot can catch the breakout setup. Safety caps (2 tranches, 4.5% trail,
+    # 3% partial profit, RSI-turn check) remain BEAR-level.
+    $smaPctGap  = if ($sma200 -gt 0) { [Math]::Round(($sma200 - $price) / $sma200 * 100, 2) } else { 99.0 }
+    $nearSma200 = (-not $bullMode) -and ($smaPctGap -gt 0) -and ($smaPctGap -le 2.0)
+    $modeLabel  = if ($bullMode) { "BULL" } elseif ($nearSma200) { "NEAR-SMA" } else { "BEAR" }
 
     # ── Aggressiveness Factor & Reward ───────────────────────────────────────
     $af = Compute-AggressivenessFactor $bullMode $fng $news $divergence $rsi4h
@@ -396,12 +403,15 @@ function Run-Cycle {
     # Each +0.10 AF adds 1 RSI point — e.g. AF=0.30 → RSI gate +3 pts
     $afRsiBonus = [int]([Math]::Floor($af * 10))   # 0 to +5 pts
     $bearOffset = [int]$cfg.rsi_bear_offset
-    $rsi1   = if ($bullMode) { [int]$cfg.rsi_tranche1 }       else { [int]$cfg.rsi_tranche1 - $bearOffset }
-    $rsi2   = if ($bullMode) { [int]$cfg.rsi_tranche2 }       else { [int]$cfg.rsi_tranche2 - $bearOffset }
-    $rsi3   = if ($bullMode) { [int]$cfg.rsi_tranche3 }       else { [int]$cfg.rsi_tranche3 - $bearOffset }
+    # NEAR-SMA200 uses BULL RSI thresholds (no offset) — price close to reclaiming SMA200
+    $rsi1   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche1 } else { [int]$cfg.rsi_tranche1 - $bearOffset }
+    $rsi2   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche2 } else { [int]$cfg.rsi_tranche2 - $bearOffset }
+    $rsi3   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche3 } else { [int]$cfg.rsi_tranche3 - $bearOffset }
     $rsi1  += $afRsiBonus; $rsi2 += $afRsiBonus; $rsi3 += $afRsiBonus
-    # High AF also trims the dip requirement (max 0.5% reduction)
-    $dipReq = if ($bullMode) { [double]$cfg.dip_pct_required } else { [double]$cfg.dip_pct_bear }
+    # Dip: BULL=1.5% | NEAR-SMA=2.0% (intermediate) | BEAR=4.0%
+    $dipReq = if ($bullMode) { [double]$cfg.dip_pct_required } `
+              elseif ($nearSma200) { 2.0 } `
+              else { [double]$cfg.dip_pct_bear }
     if ($af -ge 0.30) { $dipReq = [Math]::Max(0.5, $dipReq - 0.5) }
 
     # BEAR mode: cap at 2 tranches (less exposure in downtrend)
@@ -419,10 +429,11 @@ function Run-Cycle {
     $avgVol = ($vols[0..19] | Measure-Object -Sum).Sum / 20
     $volPct = if ($avgVol -gt 0) { [Math]::Round(($vols[20] / $avgVol) * 100, 0) } else { 0 }
 
-    Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}  RSI-Turning: {6}" -f `
+    $nearLabel = if ($nearSma200) { "  [SMA gap: $smaPctGap%  NEAR-SMA mode active]" } else { "" }
+    Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}  RSI-Turning: {6}{7}" -f `
         $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct, `
         $(if ($divergence) { "YES (bullish)" } else { "no" }), `
-        $(if ($rsiTurning) { "YES" } else { "no" }))
+        $(if ($rsiTurning) { "YES" } else { "no" }), $nearLabel)
     Write-Host ("  Entry thresholds: T1<{0}  T2<{1}  T3<{2}  Dip>={3}%  MaxTranches={4}" -f $rsi1, $rsi2, $rsi3, $dipReq, $maxTranchesEff)
 
     # ── RL SIGNAL OVERRIDE ────────────────────────────────────────────────────
@@ -597,8 +608,8 @@ function Run-Cycle {
         $rsiOk     = ($rsi4h  -le $rsiThreshold)
         $canAdd    = ($tc -lt $maxTranches)
         # In BEAR mode require RSI turning up (bottom confirmation)
-        # In BULL mode or with divergence signal, skip turning check
-        $turningOk = ($bullMode -or $divergence -or $rsiTurning)
+        # In BULL or NEAR-SMA200 mode, skip turning check (breakout setup)
+        $turningOk = ($bullMode -or $nearSma200 -or $divergence -or $rsiTurning)
 
         # Boost conditions skip dip check for T1
         if (($entryBoosted -or $divergence) -and $tc -eq 0) { $dipOk = $true }
