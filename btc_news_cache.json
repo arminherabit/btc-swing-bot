@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-26T03:01:44.1232087Z",
-  "score": 2,
+  "timestamp": "2026-05-26T08:02:18.3083753Z",
+  "score": -1,
   "sentiment": "neutral",
-  "recommendation": "proceed",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin holds $77K as stocks rally with bulls targeting $82K",
-    "Bitcoin and Ethereum ETF outflows accelerate with $2.7B rotation into altcoins",
-    "Trump Media transfers 2,650 BTC (~$205M) to Crypto.com, signaling potential selling pressure"
+    "Bitcoin ETF outflows accelerating with $2.7B pulled from spot BTC/ETH ETFs as institutions rotate to altcoins",
+    "Bitcoin volatility at 8-month low with derivatives suggesting $82K rally would trigger large short squeeze",
+    "Trump Media transferring 2,650 BTC (~$205M) to Crypto.com amid $455M losses, signaling potential selling pressure"
   ],
-  "reasoning": "Bitcoin shows mixed signals with near-term range support at $77-78K and potential rally targets to $80-82K, but institutional money is rotating away from BTC/ETH into altcoins and notable holders (Trump Media, Mark Cuban) are liquidating positions. The macro backdrop (stock rally, cooling tensions) supports bullish technicals, but on-chain data reveals rising exchange inflows and outflows from major ETFs suggest weakening institutional demand over the 1-7 day swing window.",
-  "risks": "Significant selling pressure from Trump Media's $205M BTC transfer to Crypto.com, combined with 10-day Binance inflow streak, could break below $77K support if broader market sentiment deteriorates.",
+  "reasoning": "Mixed signals with institutional ETF outflows and high-profile selling (Trump Media, Mark Cuban) creating near-term supply pressure, offset partially by low volatility suggesting compressed range and potential breakout setup. The rotation from BTC to HYPE, XRP, and SOL indicates weakening institutional demand for Bitcoin specifically despite positive macro catalysts like Iran deal optimism and potential Russell Index inclusion for crypto firms.",
+  "risks": "Continued ETF outflows combined with Trump Media liquidation could trigger a breakdown below key support levels, especially if the $75K level fails to hold as accumulation zone.",
   "article_count": 36
 }
