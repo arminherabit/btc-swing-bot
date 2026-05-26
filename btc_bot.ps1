@@ -230,6 +230,14 @@ function Load-State {
             if ($null -eq $s.rl_action)      { Add-Member -InputObject $s -NotePropertyName rl_action      -NotePropertyValue "NONE" }
             if ($null -eq $s.rl_override)    { Add-Member -InputObject $s -NotePropertyName rl_override    -NotePropertyValue $false }
             if ($null -eq $s.last_stopout)   { Add-Member -InputObject $s -NotePropertyName last_stopout   -NotePropertyValue "" }
+            if ($null -eq $s.last_action_time)      { Add-Member -InputObject $s -NotePropertyName last_action_time      -NotePropertyValue "" }
+            if ($null -eq $s.watchdog_boost_active) { Add-Member -InputObject $s -NotePropertyName watchdog_boost_active -NotePropertyValue $false }
+            if ($null -eq $s.scalp_in_position)     { Add-Member -InputObject $s -NotePropertyName scalp_in_position     -NotePropertyValue $false }
+            if ($null -eq $s.scalp_entry_price)     { Add-Member -InputObject $s -NotePropertyName scalp_entry_price     -NotePropertyValue 0.0 }
+            if ($null -eq $s.scalp_qty)             { Add-Member -InputObject $s -NotePropertyName scalp_qty             -NotePropertyValue 0.0 }
+            if ($null -eq $s.scalp_entry_time)      { Add-Member -InputObject $s -NotePropertyName scalp_entry_time      -NotePropertyValue "" }
+            if ($null -eq $s.last_scalp_exit_time)  { Add-Member -InputObject $s -NotePropertyName last_scalp_exit_time  -NotePropertyValue "" }
+            if ($null -eq $s.atr_pct_24h)           { Add-Member -InputObject $s -NotePropertyName atr_pct_24h           -NotePropertyValue 0.0 }
             if ($s.in_position -and [double]$s.total_qty -le 0) {
                 $s.in_position = $false; $s.tranche_count = 0
             }
@@ -271,11 +279,31 @@ function Load-State {
         rl_override           = $false
         # Cooldown tracking
         last_stopout          = ""
+        # Stale-watchdog (48h idle + low F&G → AF boost)
+        last_action_time      = ""
+        watchdog_boost_active = $false
+        # Range-scalp module (separate from main tranches)
+        scalp_in_position     = $false
+        scalp_entry_price     = 0.0
+        scalp_qty             = 0.0
+        scalp_entry_time      = ""
+        last_scalp_exit_time  = ""
+        atr_pct_24h           = 0.0
     }
 }
 
 function Save-State($s) {
     $s | ConvertTo-Json -Depth 5 | Set-Content $StatePath
+}
+
+# ── Trade outcome log (consumed by nightly RL retrain) ────────────────────────
+function Append-TradeLog($entry) {
+    $logPath = Join-Path $PSScriptRoot "trade_log.jsonl"
+    try {
+        $entry | ConvertTo-Json -Compress -Depth 4 | Add-Content -Path $logPath
+    } catch {
+        Write-Host ("  [warn] trade_log append failed: " + $_.Exception.Message)
+    }
 }
 
 # ── Main cycle ────────────────────────────────────────────────────────────────
@@ -346,7 +374,7 @@ function Run-Cycle {
         } catch {}
     }
     if ($cooldownActive) {
-        Write-Host ("  COOLDOWN: stop-out {0}h ago — entries blocked for {1}h more" -f `
+        Write-Host ("  COOLDOWN: stop-out {0}h ago -- entries blocked for {1}h more" -f `
             [Math]::Round((New-TimeSpan -Start ([datetime]$state.last_stopout) -End $nowDt).TotalHours, 1), $cooldownHoursLeft)
     }
 
@@ -360,7 +388,7 @@ function Run-Cycle {
     $divergence          = Get-BullishDivergence $closes $rsiSeries
 
     # RSI direction: require RSI rising from low (higher low in last 2 bars)
-    # Prevents buying a falling knife — only enter when RSI is turning up
+    # Prevents buying a falling knife -- only enter when RSI is turning up
     $rsiTurning = $false
     if ($rsiSeries.Count -ge 4) {
         $r1 = $rsiSeries[$rsiSeries.Count - 2]   # prev bar
@@ -376,15 +404,31 @@ function Run-Cycle {
     $bullMode  = ($price -gt $sma200)
 
     # ── Near-SMA200 transition zone ───────────────────────────────────────────
-    # When price is within 2% BELOW SMA200, relax to BULL RSI thresholds so the
+    # When price is within 3% BELOW SMA200, relax to BULL RSI thresholds so the
     # bot can catch the breakout setup. Safety caps (2 tranches, 4.5% trail,
     # 3% partial profit, RSI-turn check) remain BEAR-level.
     $smaPctGap  = if ($sma200 -gt 0) { [Math]::Round(($sma200 - $price) / $sma200 * 100, 2) } else { 99.0 }
-    $nearSma200 = (-not $bullMode) -and ($smaPctGap -gt 0) -and ($smaPctGap -le 2.0)
+    $nearSma200 = (-not $bullMode) -and ($smaPctGap -gt 0) -and ($smaPctGap -le 3.0)
     $modeLabel  = if ($bullMode) { "BULL" } elseif ($nearSma200) { "NEAR-SMA" } else { "BEAR" }
 
     # ── Aggressiveness Factor & Reward ───────────────────────────────────────
     $af = Compute-AggressivenessFactor $bullMode $fng $news $divergence $rsi4h
+
+    # ── Stale-watchdog: 48h+ idle AND Fear & Greed ≤30 → AF +0.10 boost ──────
+    # Forces engagement in long sideways markets where dip strategy never fires
+    $watchdogBoost = 0.0
+    $watchdogActive = $false
+    $idleHours = 9999.0
+    if ($state.last_action_time -ne "") {
+        try { $idleHours = (New-TimeSpan -Start ([datetime]$state.last_action_time) -End $nowDt).TotalHours } catch {}
+    }
+    if ($idleHours -ge 48.0 -and [int]$fng -le 30 -and -not $state.in_position -and -not $entryBlocked) {
+        $watchdogBoost  = 0.10
+        $af             = [Math]::Round([Math]::Min(0.50, $af + $watchdogBoost), 2)
+        $watchdogActive = $true
+    }
+    $state.watchdog_boost_active = $watchdogActive
+
     $cycleReward = Compute-Reward $price $state $af
 
     # Rolling 24-cycle (24h) average reward
@@ -400,10 +444,10 @@ function Run-Cycle {
     Write-Host ("  Aggressiveness: {0} ({1})  Reward: {2}  Avg24h: {3}" -f $af, $afLabel, $cycleReward, $rewardAvg)
 
     # ── Adaptive thresholds (AF loosens RSI gates) ────────────────────────────
-    # Each +0.10 AF adds 1 RSI point — e.g. AF=0.30 → RSI gate +3 pts
+    # Each +0.10 AF adds 1 RSI point -- e.g. AF=0.30 → RSI gate +3 pts
     $afRsiBonus = [int]([Math]::Floor($af * 10))   # 0 to +5 pts
     $bearOffset = [int]$cfg.rsi_bear_offset
-    # NEAR-SMA200 uses BULL RSI thresholds (no offset) — price close to reclaiming SMA200
+    # NEAR-SMA200 uses BULL RSI thresholds (no offset) -- price close to reclaiming SMA200
     $rsi1   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche1 } else { [int]$cfg.rsi_tranche1 - $bearOffset }
     $rsi2   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche2 } else { [int]$cfg.rsi_tranche2 - $bearOffset }
     $rsi3   = if ($bullMode -or $nearSma200) { [int]$cfg.rsi_tranche3 } else { [int]$cfg.rsi_tranche3 - $bearOffset }
@@ -415,7 +459,7 @@ function Run-Cycle {
     if ($af -ge 0.30) { $dipReq = [Math]::Max(0.5, $dipReq - 0.5) }
 
     # BEAR mode: cap at 2 tranches (less exposure in downtrend)
-    # BEAR mode: lower partial profit target (3% vs 5% — rallies are shorter)
+    # BEAR mode: lower partial profit target (3% vs 5% -- rallies are shorter)
     $maxTranchesEff    = if ($bullMode) { [int]$cfg.max_tranches } else { [Math]::Min(2, [int]$cfg.max_tranches) }
     $partialProfitPct  = if ($bullMode) { [double]$cfg.partial_profit_pct } else { [double]$cfg.partial_profit_pct_bear }
 
@@ -429,7 +473,23 @@ function Run-Cycle {
     $avgVol = ($vols[0..19] | Measure-Object -Sum).Sum / 20
     $volPct = if ($avgVol -gt 0) { [Math]::Round(($vols[20] / $avgVol) * 100, 0) } else { 0 }
 
+    # ── ATR % (24h, last 6 × 4H candles) -- used by range-scalp module ────────
+    $atrCandles = $candles | Select-Object -Last 6
+    $trList = @()
+    for ($i = 1; $i -lt $atrCandles.Count; $i++) {
+        $h = [double]$atrCandles[$i].High; $l = [double]$atrCandles[$i].Low
+        $pc = [double]$atrCandles[$i-1].Close
+        $tr = [Math]::Max([Math]::Max($h - $l, [Math]::Abs($h - $pc)), [Math]::Abs($l - $pc))
+        $trList += $tr
+    }
+    $atrAbs = if ($trList.Count -gt 0) { ($trList | Measure-Object -Sum).Sum / $trList.Count } else { 0 }
+    $atrPct = if ($price -gt 0) { [Math]::Round(($atrAbs / $price) * 100, 2) } else { 0.0 }
+    $state.atr_pct_24h = $atrPct
+
     $nearLabel = if ($nearSma200) { "  [SMA gap: $smaPctGap%  NEAR-SMA mode active]" } else { "" }
+    if ($watchdogActive) {
+        Write-Host ("  Watchdog: ACTIVE  Idle {0:F1}h  F&G {1}  AF boosted +0.10" -f $idleHours, $fng)
+    }
     Write-Host ("  Mode: {0} (SMA200: `${1})  RSI: {2}  Dip: {3}%  Vol: {4}%  Divergence: {5}  RSI-Turning: {6}{7}" -f `
         $modeLabel, $sma200.ToString("N0"), $rsi4h, $dipPct, $volPct, `
         $(if ($divergence) { "YES (bullish)" } else { "no" }), `
@@ -461,6 +521,13 @@ function Run-Cycle {
                 $state.entry_time    = "";       $state.partial_taken = $false
                 $state.last_action   = "RL_SELL"
                 $state.last_signal   = "RL EXIT conf=$([int]($rl.confidence*100))% PnL=$pnlPct%"
+                Append-TradeLog @{
+                    time = $nowDt.ToString("o"); kind = "RL_EXIT"; reason = "rl_override"
+                    entry_price = [double]$state.avg_entry; exit_price = $price
+                    qty = [double]$state.total_qty; pnl_pct = $pnlPct
+                    rl_confidence = [double]$rl.confidence
+                    mode = $modeLabel; rsi = $rsi4h; fng = $fng; news = $news; af = $af
+                }
             }
         }
         elseif ($rlAction -eq "SELL_PARTIAL" -and $state.in_position `
@@ -475,6 +542,12 @@ function Run-Cycle {
                 $state.partial_taken = $true
                 $state.last_action   = "RL_PARTIAL"
                 $state.last_signal   = "RL PARTIAL conf=$([int]($rl.confidence*100))% PnL=$pnlPct%"
+                Append-TradeLog @{
+                    time = $nowDt.ToString("o"); kind = "RL_PARTIAL"; reason = "rl_override"
+                    entry_price = [double]$state.avg_entry; exit_price = $price; qty = $sellQty
+                    pnl_pct = $pnlPct; rl_confidence = [double]$rl.confidence
+                    mode = $modeLabel; rsi = $rsi4h; fng = $fng; news = $news; af = $af
+                }
             }
         }
         elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
@@ -550,6 +623,13 @@ function Run-Cycle {
                 $state.last_signal  = "PARTIAL PROFIT +$([Math]::Round($pnlPct,1))% (PnL `$$realizedPnl)"
                 Write-Host ("  Sold {0} BTC @ `${1}  Realized PnL: `${2}  Remaining: {3} BTC" -f `
                     (Fmt-Qty $sellQty), $price.ToString("N2"), $realizedPnl.ToString("N2"), (Fmt-Qty $remainQty))
+                Append-TradeLog @{
+                    time = $nowDt.ToString("o"); kind = "PARTIAL_PROFIT"; reason = "partial_target"
+                    entry_price = $avgEntry; exit_price = $price; qty = $sellQty
+                    pnl_usd = $realizedPnl; pnl_pct = [Math]::Round($pnlPct,2)
+                    mode = $modeLabel; rsi = $rsi4h; fng = $fng; news = $news; af = $af
+                    tranche_count = [int]$state.tranche_count
+                }
             }
         }
 
@@ -565,8 +645,16 @@ function Run-Cycle {
             $order = Place-MarketOrder "SELL" ([double]$state.total_qty)
             if ($null -ne $order) {
                 $finalPnl = [Math]::Round(($price - $avgEntry) * [double]$state.total_qty, 2)
+                $finalPnlPct = [Math]::Round((($price - $avgEntry) / $avgEntry) * 100, 2)
                 Write-Host ("  SOLD {0} BTC @ ~`${1}  PnL on remaining: `${2}" -f `
                     (Fmt-Qty $state.total_qty), $price.ToString("N2"), $finalPnl.ToString("N2"))
+                Append-TradeLog @{
+                    time = $nowDt.ToString("o"); kind = "MAIN_EXIT"; reason = $exitReason
+                    entry_price = $avgEntry; exit_price = $price; qty = [double]$state.total_qty
+                    pnl_usd = $finalPnl; pnl_pct = $finalPnlPct
+                    mode = $modeLabel; rsi = $rsi4h; fng = $fng; news = $news; af = $af
+                    tranche_count = [int]$state.tranche_count
+                }
                 $state.in_position    = $false
                 $state.tranche_count  = 0
                 $state.avg_entry      = 0.0
@@ -637,6 +725,13 @@ function Run-Cycle {
                 if ($tc -eq 0) { $state.entry_time = $nowDt.ToString("o") }
                 $state.last_action   = "BUY_T" + ($tc + 1)
                 $state.last_signal   = "BUY T" + ($tc + 1) + "/3 [" + $entryReason + "] (" + $modeLabel + ")"
+                Append-TradeLog @{
+                    time = $nowDt.ToString("o"); kind = "MAIN_ENTRY"; tranche = ($tc + 1)
+                    entry_price = $price; qty = $tQty
+                    mode = $modeLabel; rsi = $rsi4h; dip_pct = $dipPct
+                    fng = $fng; news = $news; af = $af
+                    near_sma = [bool]$nearSma200; divergence = [bool]$divergence; rsi_turning = [bool]$rsiTurning
+                }
                 Write-Host ("  Avg entry: `${0}  Total: {1} BTC  Cost: `${2}  Partial target: `${3}" -f `
                     $state.avg_entry.ToString("N2"), (Fmt-Qty $newQty), $newCost.ToString("N2"), `
                     [Math]::Round($state.avg_entry * (1.0 + [double]$cfg.partial_profit_pct / 100.0), 2).ToString("N2"))
@@ -703,6 +798,84 @@ function Run-Cycle {
         $state.partial_target = 0
         $state.trail_stop     = 0
         $state.hard_stop      = 0
+    }
+
+    # ── Range-Scalp Module ───────────────────────────────────────────────────
+    # Tight-range scalping for low-ATR chop markets. Independent from main tranches.
+    # ENTRY:  no main position, no active scalp, ATR < threshold, RSI 40-58, cooldown elapsed
+    # EXIT:   TP +scalp_take_profit_pct, SL -scalp_stop_pct, or max-hold expired
+    if ([bool]$cfg.scalp_enabled) {
+        $scalpTpPct      = [double]$cfg.scalp_take_profit_pct
+        $scalpSlPct      = [double]$cfg.scalp_stop_pct
+        $scalpAtrMax     = [double]$cfg.scalp_atr_max_pct
+        $scalpCdHours    = [double]$cfg.scalp_cooldown_hours
+        $scalpMaxHold    = [double]$cfg.scalp_max_hold_hours
+        $scalpSizeUsdt   = [double]$cfg.scalp_size_usdt
+
+        # EXIT first
+        if ([bool]$state.scalp_in_position -and [double]$state.scalp_qty -gt 0) {
+            $sEntry    = [double]$state.scalp_entry_price
+            $sPnlPct   = [Math]::Round((($price - $sEntry) / $sEntry) * 100, 2)
+            $sHoldHrs  = 0.0
+            try { $sHoldHrs = (New-TimeSpan -Start ([datetime]$state.scalp_entry_time) -End $nowDt).TotalHours } catch {}
+
+            $sExit = ""
+            if     ($sPnlPct -ge  $scalpTpPct)  { $sExit = "TP +$sPnlPct%" }
+            elseif ($sPnlPct -le -$scalpSlPct)  { $sExit = "SL $sPnlPct%" }
+            elseif ($sHoldHrs -ge $scalpMaxHold){ $sExit = "TIMEOUT $([Math]::Round($sHoldHrs,1))h PnL=$sPnlPct%" }
+
+            if ($sExit -ne "") {
+                Write-Host ("  SCALP EXIT: {0}" -f $sExit)
+                $order = Place-MarketOrder "SELL" ([double]$state.scalp_qty)
+                if ($null -ne $order) {
+                    $state.scalp_in_position    = $false
+                    $state.scalp_entry_price    = 0.0
+                    $state.scalp_qty            = 0.0
+                    $state.scalp_entry_time     = ""
+                    $state.last_scalp_exit_time = $nowDt.ToString("o")
+                    $state.last_action          = "SCALP_EXIT"
+                    $state.last_signal          = "SCALP $sExit"
+                    Append-TradeLog @{
+                        time = $nowDt.ToString("o"); kind = "SCALP_EXIT"; reason = $sExit
+                        entry_price = $sEntry; exit_price = $price
+                        qty = [double]$state.scalp_qty; pnl_pct = $sPnlPct
+                        hold_hours = [Math]::Round($sHoldHrs, 2)
+                        mode = $modeLabel; rsi = $rsi4h; atr_pct = $atrPct
+                        fng = $fng; news = $news
+                    }
+                }
+            }
+        }
+        # ENTRY (only if no main position, no active scalp, conditions met)
+        elseif (-not $state.in_position -and -not [bool]$state.scalp_in_position `
+                -and -not $entryBlocked -and $atrPct -lt $scalpAtrMax `
+                -and $rsi4h -ge 40 -and $rsi4h -le 58) {
+            $cdElapsed = $true
+            if ($state.last_scalp_exit_time -ne "") {
+                try {
+                    $hrsSince = (New-TimeSpan -Start ([datetime]$state.last_scalp_exit_time) -End $nowDt).TotalHours
+                    $cdElapsed = ($hrsSince -ge $scalpCdHours)
+                } catch {}
+            }
+            if ($cdElapsed) {
+                $scalpQty = [Math]::Round($scalpSizeUsdt / $price, 5)
+                Write-Host ("  SCALP ENTRY: ATR={0}%  RSI={1}  Qty={2} BTC (~`${3})" -f $atrPct, $rsi4h, $scalpQty, $scalpSizeUsdt)
+                $order = Place-MarketOrder "BUY" $scalpQty
+                if ($null -ne $order) {
+                    $state.scalp_in_position = $true
+                    $state.scalp_entry_price = $price
+                    $state.scalp_qty         = $scalpQty
+                    $state.scalp_entry_time  = $nowDt.ToString("o")
+                    $state.last_action       = "SCALP_BUY"
+                    $state.last_signal       = "SCALP BUY ATR=$atrPct% RSI=$rsi4h"
+                }
+            }
+        }
+    }
+
+    # ── Stamp last_action_time on any real trade (clears stale-watchdog) ─────
+    if ($state.last_action -match '^(BUY_T|SELL|PARTIAL_SELL|RL_BUY|RL_SELL|RL_PARTIAL|SCALP_)') {
+        $state.last_action_time = $nowDt.ToString("o")
     }
 
     Save-State $state

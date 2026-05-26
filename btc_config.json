@@ -15,7 +15,7 @@
   "rsi_bear_offset": 7,
 
   "dip_pct_required": 1.5,
-  "dip_pct_bear":     4.0,
+  "dip_pct_bear":     3.0,
   "trailing_stop_pct": 3.0,
   "hard_stop_pct":     5.0,
   "min_hold_hours":   12,
@@ -29,5 +29,13 @@
 
   "news_cache_hours":      4,
   "news_skip_threshold":  -5,
-  "news_boost_threshold":  6
+  "news_boost_threshold":  6,
+
+  "scalp_enabled":          false,
+  "scalp_size_usdt":        50,
+  "scalp_take_profit_pct":  1.5,
+  "scalp_stop_pct":         1.0,
+  "scalp_atr_max_pct":      1.0,
+  "scalp_cooldown_hours":   4,
+  "scalp_max_hold_hours":   8
 }
