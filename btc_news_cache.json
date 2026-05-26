@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-26T18:01:39.5030980Z",
-  "score": 2,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-26T23:01:32.7752041Z",
+  "score": 3,
+  "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin liquidation hunts control BTC at $77K with failed rally attempts to $78K showing weakness",
-    "Major corporate Bitcoin accumulation continues: Strategy retired $1.5B debt (BTC untouched), Strive added 1,109 BTC to 16,500 total",
-    "Significant ETF outflows totaling $1.47B in worst week of 2026 amid Iran geopolitical tensions and macro uncertainty"
+    "Bitcoin mining stocks surge on AI infrastructure boom with major capacity expansions (TeraWulf 1GW Kentucky, Strive buying 1,109 BTC)",
+    "Corporate treasury demand accelerates as Strive reaches 16,500 BTC holdings and Smarter Web adds to positions",
+    "Liquidation hunting at $77K-78K range creating volatility but spot ETF demand weakness and $14B liquidation setup present downside risk"
   ],
-  "reasoning": "Bitcoin faces conflicting forces: institutional accumulation and corporate treasury strength provide underlying support, but weakening ETF demand, liquidation trap mechanics at $77-78K, and geopolitical uncertainty (Iran) create near-term selling pressure. The $14B liquidation setup poses tactical downside risk if support breaks, but lack of capitulation signals and continued whale buying suggest floor is being defended.",
-  "risks": "A breakdown below $77K could trigger cascading liquidations toward $60K if the $14B leverage position unwinds, particularly if geopolitical tensions escalate or macro confirmation turns negative.",
+  "reasoning": "Positive institutional adoption momentum from AI-infrastructure pivot and aggressive corporate Bitcoin accumulation by major holders (Strive, Smarter Web) offsets near-term technical weakness. However, weakening spot ETF demand, liquidation setup risk, and BTC unable to hold $78K suggest consolidation rather than strong uptrend in 1-7 day window.",
+  "risks": "Leveraged long positions combined with $14 billion liquidation setup could trigger sharp flush to $75K-74K if liquidation hunts intensify and spot ETF inflows remain anemic.",
   "article_count": 36
 }
