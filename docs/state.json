@@ -7,13 +7,13 @@
   "highest_price": 0.0,
   "last_signal": "WATCH: RSI 65.9 > T1 threshold 42 (NEAR-SMA)",
   "last_action": "none",
-  "last_run": "2026-05-26T14:02:04.0151561Z",
+  "last_run": "2026-05-26T15:01:36.4847273Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 77181.02,
+  "btc_price": 76894.35,
   "rsi": 65.9,
-  "sma200": 78497.04,
-  "dip_pct": 1.04,
+  "sma200": 78495.6,
+  "dip_pct": 1.41,
   "fng_value": 34,
   "news_score": -4,
   "partial_target": 0,
@@ -50,9 +50,9 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.0,
-  "rl_action": "NONE",
-  "rl_override": false,
+  "rl_confidence": 0.867,
+  "rl_action": "HOLD",
+  "rl_override": true,
   "last_stopout": "",
   "last_action_time": "",
   "watchdog_boost_active": false,
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 0.89
+  "atr_pct_24h": 1.06
 }
