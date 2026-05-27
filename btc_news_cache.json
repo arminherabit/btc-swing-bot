@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-27T03:01:48.7804155Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-27T08:01:40.4166765Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin drops after $78K pop, bears defend $77,000 and bulls hold $74,000 support",
-    "Bitcoin spot volume collapses 81% since October with $14B liquidation setup threatening $60,000",
-    "Major institutional accumulation continues (Strive adds 1,109 BTC, Smarter Web adds 10 BTC) offsetting technical weakness"
+    "Strive acquires 1,109 Bitcoin lifting holdings to 16,500 BTC as corporate treasury accumulation accelerates",
+    "Major institutional players (Smarter Web, TeraWulf) expanding Bitcoin positions amid AI data center pivot",
+    "Russell Index inclusions for crypto firms and $322B stablecoin market reaching record highs signal institutional maturation"
   ],
-  "reasoning": "Bitcoin faces conflicting forces: institutional treasury accumulation and mining sector strength from AI boom are supportive, but technical deterioration with collapsing spot volumes, weakening ETF inflows, and large liquidation setups create near-term downside pressure. The $74,000-$77,000 range represents a critical indecision zone with elevated risk of capitulation toward $60,000-$65,000 before any sustained recovery.",
-  "risks": "Head-and-shoulders formation with 81% volume collapse and $14B liquidation cascade could trigger capitulation sell-off toward $52,000-$60,000 if $74,000 support breaks.",
+  "reasoning": "Multiple large corporate treasury acquisitions and institutional adoption signals (Russell indexes, stablecoin growth, enterprise AI integration) provide solid medium-term support despite short-term $1.3B dark pool ETF sell pressure. However, near-term technicals show vulnerability with Ran Neuner's $40K breakdown warning and profit-taking from recent rallies creating consolidation risk.",
+  "risks": "A $1.3B BlackRock Bitcoin ETF dark pool sale combined with weakening chart structure could trigger a sharp reversal to $40K-$42K range if institutional momentum stalls or macro headwinds emerge.",
   "article_count": 36
 }
