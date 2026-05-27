@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-27T17:01:56.3625827Z",
-  "score": -4,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-27T22:01:46.1148448Z",
+  "score": 1,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin risks another 10% drop as May ends in red with historically bearish seasonal signal",
-    "BlackRock IBIT sees continued outflows ($1.3B block sale, 2,538 BTC to Coinbase Prime) signaling institutional retreat",
-    "China imposes two-year crypto access expiry for 1.4B people; HTX faces UK sanctions over Russia-linked flows creating regulatory headwinds"
+    "Bitcoin absorbed $1.3B IBIT block trade with minimal price movement showing strong absorption",
+    "BlackRock IBIT experiencing sustained outflows as institutional appetite freezes amid macro pressures",
+    "Mastercard BitLicense and CME 24/7 crypto launch represent long-term infrastructure gains but lack near-term catalysts"
   ],
-  "reasoning": "Bitcoin faces a convergence of bearish technical, institutional, and regulatory pressures over the 1-7 day swing window. While large institutions absorbed the $1.3B IBIT block trade without panic, consistent outflows from BlackRock products, May's red-month historical weakness, and escalating geopolitical regulatory risks (China crackdown, HTX UK sanctions) create a hostile near-term setup that outweighs positive infrastructure developments like Mastercard's BitLicense and Kraken yield offerings.",
-  "risks": "Continued ETF outflows combined with May seasonal decline could trigger a 10% drop to $55,000-$57,000 support if negative macro sentiment accelerates or additional regulatory enforcement action targets major exchanges.",
+  "reasoning": "Bitcoin is caught between positive structural developments (institutional adoption, regulatory clarity, large block trades absorbed smoothly) and near-term headwinds (negative ETF flows, macro uncertainty, leverage buildup). The market is consolidating around $75,000 with mixed directional signals and elevated volatility risk that could cut either way over the swing timeframe.",
+  "risks": "Macro headwinds and institutional profit-taking could trigger a sharp breakdown below $75,000 if negative ETF flows accelerate or leverage unwinds trigger cascade liquidations.",
   "article_count": 36
 }
