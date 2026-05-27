@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-26T23:01:32.7752041Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-27T03:01:48.7804155Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin mining stocks surge on AI infrastructure boom with major capacity expansions (TeraWulf 1GW Kentucky, Strive buying 1,109 BTC)",
-    "Corporate treasury demand accelerates as Strive reaches 16,500 BTC holdings and Smarter Web adds to positions",
-    "Liquidation hunting at $77K-78K range creating volatility but spot ETF demand weakness and $14B liquidation setup present downside risk"
+    "Bitcoin drops after $78K pop, bears defend $77,000 and bulls hold $74,000 support",
+    "Bitcoin spot volume collapses 81% since October with $14B liquidation setup threatening $60,000",
+    "Major institutional accumulation continues (Strive adds 1,109 BTC, Smarter Web adds 10 BTC) offsetting technical weakness"
   ],
-  "reasoning": "Positive institutional adoption momentum from AI-infrastructure pivot and aggressive corporate Bitcoin accumulation by major holders (Strive, Smarter Web) offsets near-term technical weakness. However, weakening spot ETF demand, liquidation setup risk, and BTC unable to hold $78K suggest consolidation rather than strong uptrend in 1-7 day window.",
-  "risks": "Leveraged long positions combined with $14 billion liquidation setup could trigger sharp flush to $75K-74K if liquidation hunts intensify and spot ETF inflows remain anemic.",
+  "reasoning": "Bitcoin faces conflicting forces: institutional treasury accumulation and mining sector strength from AI boom are supportive, but technical deterioration with collapsing spot volumes, weakening ETF inflows, and large liquidation setups create near-term downside pressure. The $74,000-$77,000 range represents a critical indecision zone with elevated risk of capitulation toward $60,000-$65,000 before any sustained recovery.",
+  "risks": "Head-and-shoulders formation with 81% volume collapse and $14B liquidation cascade could trigger capitulation sell-off toward $52,000-$60,000 if $74,000 support breaks.",
   "article_count": 36
 }
