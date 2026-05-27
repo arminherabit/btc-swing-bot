@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-27T12:38:47.0886662Z",
-  "score": 3,
-  "sentiment": "bullish",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-27T17:01:56.3625827Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Strive acquires 1,109 Bitcoin lifting holdings to 16,500 BTC - major institutional accumulation",
-    "Bitcoin analysis eyes sharp rebound after BTC collapses below M2 supply fair value - technical setup for bounce",
-    "$1.3B IBIT dark pool trade absorbed with barely any price movement - strong absorption capacity signals institutional demand"
+    "Bitcoin risks another 10% drop as May ends in red with historically bearish seasonal signal",
+    "BlackRock IBIT sees continued outflows ($1.3B block sale, 2,538 BTC to Coinbase Prime) signaling institutional retreat",
+    "China imposes two-year crypto access expiry for 1.4B people; HTX faces UK sanctions over Russia-linked flows creating regulatory headwinds"
   ],
-  "reasoning": "Multiple institutional players (Strive, Smarter Web, BitMine) are actively accumulating Bitcoin during weakness, signaling confidence in current valuations. Technical analysis suggests Bitcoin is massively undervalued relative to M2 supply metrics, creating asymmetric upside potential for swing traders over the next week.",
-  "risks": "Continued institutional ETF liquidations (witnessed with IBIT dark pool sale) or broader macro weakness could trigger another capitulation leg downward if support breaks.",
+  "reasoning": "Bitcoin faces a convergence of bearish technical, institutional, and regulatory pressures over the 1-7 day swing window. While large institutions absorbed the $1.3B IBIT block trade without panic, consistent outflows from BlackRock products, May's red-month historical weakness, and escalating geopolitical regulatory risks (China crackdown, HTX UK sanctions) create a hostile near-term setup that outweighs positive infrastructure developments like Mastercard's BitLicense and Kraken yield offerings.",
+  "risks": "Continued ETF outflows combined with May seasonal decline could trigger a 10% drop to $55,000-$57,000 support if negative macro sentiment accelerates or additional regulatory enforcement action targets major exchanges.",
   "article_count": 36
 }
