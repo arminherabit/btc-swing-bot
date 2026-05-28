@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-27T22:01:46.1148448Z",
-  "score": 1,
-  "sentiment": "neutral",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-28T03:01:49.3622187Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin absorbed $1.3B IBIT block trade with minimal price movement showing strong absorption",
-    "BlackRock IBIT experiencing sustained outflows as institutional appetite freezes amid macro pressures",
-    "Mastercard BitLicense and CME 24/7 crypto launch represent long-term infrastructure gains but lack near-term catalysts"
+    "Bitcoin miner inflows to Binance soar as BTC struggles to hold uptrend: Is $70K next?",
+    "Bitcoin Price Extends Decline Rapidly As Key Supports Collapse",
+    "Bitcoin Drop Linked To Hidden $1.3 Billion ETF Trade, Analyst Reveals"
   ],
-  "reasoning": "Bitcoin is caught between positive structural developments (institutional adoption, regulatory clarity, large block trades absorbed smoothly) and near-term headwinds (negative ETF flows, macro uncertainty, leverage buildup). The market is consolidating around $75,000 with mixed directional signals and elevated volatility risk that could cut either way over the swing timeframe.",
-  "risks": "Macro headwinds and institutional profit-taking could trigger a sharp breakdown below $75,000 if negative ETF flows accelerate or leverage unwinds trigger cascade liquidations.",
+  "reasoning": "Near-term bearish pressure is evident from eight consecutive days of spot ETF outflows exceeding $2 billion, miner capitulation flowing into exchanges, and technical breakdown through key support levels at $75,500 and $74,000. However, longer-term fundamentals remain supportive with institutional adoption accelerating (Mastercard BitLicense, IBIT block trades absorbing $1.3B with minimal slippage, and ARK's $750K 2030 target providing sentiment ballast), limiting downside to a swing-trade correction rather than sustained crash.",
+  "risks": "Bitcoin could test $70K-$65K if spot ETF redemptions continue and miner selling pressure intensifies amid AI pivot, particularly if technical breakdown extends below $74,000 support with the $50,000 monthly pattern warning.",
   "article_count": 36
 }
