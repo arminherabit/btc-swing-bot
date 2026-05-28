@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-28T08:01:47.7602828Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-28T13:01:41.6149543Z",
+  "score": -5,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Crypto markets shed $80B after fresh US strikes on Iran amid geopolitical tensions",
-    "Bitcoin funding spike shows longs defending $70K with critical support levels being tested",
-    "Bitcoin just absorbed a single $1.3B IBIT block trade with barely any price movement showing institutional accumulation"
+    "Crypto liquidations hit $935M as Bitcoin price dips to $72.6K with $70K as last defense line",
+    "BlackRock's IBIT suffers record $527.84M outflow signaling institutional weakness",
+    "Crypto markets shed $80B after US strikes on Iran escalating geopolitical risk"
   ],
-  "reasoning": "Near-term technicals show BTC struggling to hold key support levels ($70K-$75K) amid geopolitical uncertainty and miners pivoting to AI, creating downward pressure. However, significant institutional buying (large block trades absorbed with minimal slippage, Kraken vault deposits, strategic accumulation exceeding daily mining supply) and bullish long-term narratives (Cathie Wood's $750K-$1.25M targets, major financial players securing licenses) suggest underlying support that could stabilize or reverse losses in the 1-7 day window.",
-  "risks": "Further geopolitical escalation between US and Iran combined with regulatory headwinds (CFTC challenges, stalled pro-crypto legislation) could trigger a breakdown below $70K support and cascade liquidations in leveraged longs.",
+  "reasoning": "Multiple bearish catalysts converge on the swing timeframe: massive liquidations cascading below critical support levels, record institutional outflows from major Bitcoin ETFs, and geopolitical shock from Iran-US tensions triggering broad risk-off sentiment across crypto markets. While long-term positive developments exist (Mastercard BitLicense, ARK's $750K target, institutional adoption), near-term momentum has broken and defensive positioning at $70K support suggests further downside risk in the 1-7 day window.",
+  "risks": "A break below the $70,000 psychological support level could trigger capitulation selling and cascade liquidations toward $65,000-$68,000, particularly if geopolitical tensions escalate further or additional institutional outflows accelerate.",
   "article_count": 36
 }
