@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-28T13:01:41.6149543Z",
-  "score": -5,
+  "timestamp": "2026-05-28T17:01:48.4991673Z",
+  "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Crypto liquidations hit $935M as Bitcoin price dips to $72.6K with $70K as last defense line",
-    "BlackRock's IBIT suffers record $527.84M outflow signaling institutional weakness",
-    "Crypto markets shed $80B after US strikes on Iran escalating geopolitical risk"
+    "Bitcoin Price Falls 5.5% in 5 Days to Below 73,000 as Spot ETF Outflows Accelerate",
+    "Bitcoin Traders Increasingly Convinced Price Will Fall Below $70K by End of May -- Prediction market odds rising",
+    "Crypto Majors Slide on Iran Escalations, ETF Outflows -- Massive ETF outflows sent crypto sharply lower"
   ],
-  "reasoning": "Multiple bearish catalysts converge on the swing timeframe: massive liquidations cascading below critical support levels, record institutional outflows from major Bitcoin ETFs, and geopolitical shock from Iran-US tensions triggering broad risk-off sentiment across crypto markets. While long-term positive developments exist (Mastercard BitLicense, ARK's $750K target, institutional adoption), near-term momentum has broken and defensive positioning at $70K support suggests further downside risk in the 1-7 day window.",
-  "risks": "A break below the $70,000 psychological support level could trigger capitulation selling and cascade liquidations toward $65,000-$68,000, particularly if geopolitical tensions escalate further or additional institutional outflows accelerate.",
+  "reasoning": "Bitcoin faces near-term headwinds from accelerating spot ETF outflows, geopolitical tensions (US-Iran escalation), and prediction markets pricing in a break below $70K within days. However, bullish long-term narratives (ARK's $750K target, institutional adoption via Stacks staking, Standard Chartered's bullish Ethereum metrics) and open CME futures gaps at $67K provide technical support that prevents a stronger bearish rating.",
+  "risks": "Sustained ETF outflows combined with geopolitical risk escalation could trigger panic selling toward $67K-$70K CME gap levels within 1-3 days.",
   "article_count": 36
 }
