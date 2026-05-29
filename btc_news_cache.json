@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-29T08:01:47.5053628Z",
-  "score": -5,
+  "timestamp": "2026-05-29T12:34:34.5007947Z",
+  "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin's major holders halt buys as demand slows - CryptoQuant warns of deteriorating holding structure preceding sustained weakness",
-    "Bitcoin trapped under $74K with $9B options expiry looms - Bears in control with heavy ETF outflows and corporate selling pressure",
-    "Bitcoin slips below $74k for first time since April - Market recovery lost momentum with $1B in crypto liquidations across derivatives"
+    "Bitcoin's major holders halt buys as demand slows: CryptoQuant - deteriorating holding structure precedes sustained weakness",
+    "Bitcoin Price Falls 5.5% in 5 Days to Below 73,000 as Spot ETF Outflows Accelerate - institutional outflows intensifying",
+    "MicroStrategy moves $30M in Bitcoin to Coinbase Prime - major holder repositioning amid Strategy's $15B preferred stock burden"
   ],
-  "reasoning": "Multiple bearish on-chain signals (major holder capitulation, deteriorating momentum) combined with technical breakdown below $74K and significant ETF outflows create near-term downward pressure. Geopolitical tensions (US-Iran), $9B options expiry, and weak derivative positioning suggest 1-7 day weakness before potential stabilization.",
-  "risks": "Breakdown below critical $72K support could cascade into $60K retest zone as bearish technicals align with potential forced liquidations in overleveraged positions.",
+  "reasoning": "The confluence of institutional demand destruction (whale position deterioration, spot ETF outflows, major holder repositioning) combined with geopolitical headwinds (US-Iran tensions) creates a near-term bearish setup. However, offsetting factors like SEC clearing approval for Paxos, Texas direct custody adoption, and macro inflation stabilization prevent a stronger downside conviction over the 1-7 day swing window.",
+  "risks": "Critical support test around $72,000 failing could trigger capitulation cascade toward $60,000 if geopolitical tensions escalate or another macro shock emerges.",
   "article_count": 36
 }
