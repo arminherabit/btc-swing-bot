@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-28T22:01:35.9605191Z",
-  "score": -2,
-  "sentiment": "neutral",
+  "timestamp": "2026-05-29T03:01:49.8258043Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin slips below $74k as spot ETF outflows accelerate and momentum stalls",
-    "US-Iran tensions push oil higher, sending shock through risk assets and leverage positions",
-    "Treasury Secretary Bessent and Trump push for CLARITY Act crypto regulation, providing medium-term institutional support"
+    "Bitcoin slips below $74k for the first time since April as on-chain data shows momentum stalling",
+    "Bitcoin Price Falls 5.5% in 5 Days to Below 73,000 as Spot ETF Outflows Accelerate",
+    "Fidelity Digital Assets highlights 'growing evidence' of shift from dollar-based systems"
   ],
-  "reasoning": "Near-term technicals show weakness with active distribution signals, ETF outflows, and geopolitical headwinds creating downward pressure, but regulatory clarity initiatives and institutional accumulation (Saylor's HODL stance, UTXO staking) provide underlying support. The 1-7 day swing trading window faces conflicting forces: immediate bearish momentum from $72-75k range breakdown versus bullish regulatory tailwinds that could stabilize prices.",
-  "risks": "Further US-Iran escalation or risk-off sentiment could cascade margin liquidations, pushing Bitcoin toward $70k support as correlations with equities and oil remain elevated.",
+  "reasoning": "Near-term technicals show clear bearish momentum with break below $74k, ETF outflows accelerating, and on-chain data indicating stalled recovery, creating immediate downside pressure. However, macro tailwinds from institutional adoption (Fidelity commentary on de-dollarization, Cardone/Saylor accumulation, SEC crypto task force support) and geopolitical de-risking provide medium-term support floors around $70-72k.",
+  "risks": "Continued liquidation cascade triggered by US-Iran tensions, major altcoin contagion (SOL 30% OI drop), or hawkish Fed rhetoric could breach $70k support and trigger capitulation toward $64-68k range within 1-7 days.",
   "article_count": 36
 }
