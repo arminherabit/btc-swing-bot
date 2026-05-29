@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-29T12:34:34.5007947Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-05-29T17:01:56.3392578Z",
+  "score": -1,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin's major holders halt buys as demand slows: CryptoQuant - deteriorating holding structure precedes sustained weakness",
-    "Bitcoin Price Falls 5.5% in 5 Days to Below 73,000 as Spot ETF Outflows Accelerate - institutional outflows intensifying",
-    "MicroStrategy moves $30M in Bitcoin to Coinbase Prime - major holder repositioning amid Strategy's $15B preferred stock burden"
+    "Bitcoin ETFs bleed $2.8B in record nine-day outflow streak",
+    "Bitcoin falls out of global top 10 assets as market cap dips below $1.5T",
+    "CFTC Approves Bitcoin Perpetual Futures on Kalshi - regulatory tailwind"
   ],
-  "reasoning": "The confluence of institutional demand destruction (whale position deterioration, spot ETF outflows, major holder repositioning) combined with geopolitical headwinds (US-Iran tensions) creates a near-term bearish setup. However, offsetting factors like SEC clearing approval for Paxos, Texas direct custody adoption, and macro inflation stabilization prevent a stronger downside conviction over the 1-7 day swing window.",
-  "risks": "Critical support test around $72,000 failing could trigger capitulation cascade toward $60,000 if geopolitical tensions escalate or another macro shock emerges.",
+  "reasoning": "Bitcoin faces near-term headwinds from significant ETF outflows totaling $2.84B and loss of top-10 asset status, indicating weakening institutional demand and competitive pressure from AI/precious metals. However, regulatory approvals (CFTC perpetual futures, Coinbase derivatives expansion, Texas Bitcoin reserve, CLARITY Act momentum) and Michael Saylor's strategic Coinbase transfer suggest longer-term infrastructure development may be positioning for future rallies.",
+  "risks": "Continued ETF outflows combined with failed breakout above $83K could trigger further capitulation and test critical support levels over the next 7 days.",
   "article_count": 36
 }
