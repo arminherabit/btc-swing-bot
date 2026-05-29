@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-29T03:01:49.8258043Z",
-  "score": -4,
+  "timestamp": "2026-05-29T08:01:47.5053628Z",
+  "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin slips below $74k for the first time since April as on-chain data shows momentum stalling",
-    "Bitcoin Price Falls 5.5% in 5 Days to Below 73,000 as Spot ETF Outflows Accelerate",
-    "Fidelity Digital Assets highlights 'growing evidence' of shift from dollar-based systems"
+    "Bitcoin's major holders halt buys as demand slows - CryptoQuant warns of deteriorating holding structure preceding sustained weakness",
+    "Bitcoin trapped under $74K with $9B options expiry looms - Bears in control with heavy ETF outflows and corporate selling pressure",
+    "Bitcoin slips below $74k for first time since April - Market recovery lost momentum with $1B in crypto liquidations across derivatives"
   ],
-  "reasoning": "Near-term technicals show clear bearish momentum with break below $74k, ETF outflows accelerating, and on-chain data indicating stalled recovery, creating immediate downside pressure. However, macro tailwinds from institutional adoption (Fidelity commentary on de-dollarization, Cardone/Saylor accumulation, SEC crypto task force support) and geopolitical de-risking provide medium-term support floors around $70-72k.",
-  "risks": "Continued liquidation cascade triggered by US-Iran tensions, major altcoin contagion (SOL 30% OI drop), or hawkish Fed rhetoric could breach $70k support and trigger capitulation toward $64-68k range within 1-7 days.",
+  "reasoning": "Multiple bearish on-chain signals (major holder capitulation, deteriorating momentum) combined with technical breakdown below $74K and significant ETF outflows create near-term downward pressure. Geopolitical tensions (US-Iran), $9B options expiry, and weak derivative positioning suggest 1-7 day weakness before potential stabilization.",
+  "risks": "Breakdown below critical $72K support could cascade into $60K retest zone as bearish technicals align with potential forced liquidations in overleveraged positions.",
   "article_count": 36
 }
