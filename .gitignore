@@ -1,13 +1,38 @@
+# ── BTC bot runtime (no commit needed) ───────────────────────────────────────
 btc_news_cache.json
 btc_test_auth.ps1
 btc_debug_news.ps1
 btc_test_claude.ps1
 
-# Alpaca runtime files — do not commit
-# Note: alpaca_state.json IS committed by CI (git add -f) to persist state across runs
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Node / JS tools (diagram generation — not part of bot) ───────────────────
+node_modules/
+package-lock.json
+package.json
+create_btc_flow.js
+export_btc_flow.py
+
+# ── Diagram exports ───────────────────────────────────────────────────────────
+btc_bot_flow.png
+btc_bot_flow.pptx
+
+# ── Alpaca bot (lives in separate repo: arminherabit/alpaca-trading-bot) ──────
+alpaca_*.ps1
+alpaca_*.json
+alpaca_*.html
+ALPACA_SETUP.md
+Alpaca/
 pending_approval.json
 alpaca_stop.ps1
 alpaca_launch.ps1
 alpaca_schedule_setup.ps1
+
+# ── Misc local artifacts ──────────────────────────────────────────────────────
 *.env
 .env
+Music/
+.claude/worktrees/
