@@ -1,0 +1,50 @@
+name: Weekly RL Health Check
+
+# Every Monday 08:00 UTC: reads btc_rl_stats.json, checks retrain quality,
+# flags drift (low win rate, negative alpha, too few trades).
+# Writes a health report to rl_health_report.json and commits it.
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch: {}
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run RL health check
+        run: |
+          python btc_rl_health.py 2>&1 | tee rl_health_output.txt
+
+      - name: Commit health report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rl_health_report.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "health: weekly RL report $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+            git pull --rebase origin master
+            git push origin HEAD:master
+          else
+            echo "No health report changes to commit."
+          fi
+
+      - name: Upload health log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rl-health-${{ github.run_id }}
+          path: rl_health_output.txt
+          retention-days: 90

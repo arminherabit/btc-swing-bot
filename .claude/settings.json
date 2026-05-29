@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git rebase *)",
+      "Bash(gh workflow *)",
+      "Bash(gh run cancel *)",
+      "Bash(gh run rerun *)",
+      "Bash(curl -s https://api.alternative.me/*)",
+      "Bash(curl -s https://api.binance.us/*)"
+    ],
+    "deny": []
+  }
+}

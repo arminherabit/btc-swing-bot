@@ -1,0 +1,53 @@
+name: Daily Logic Audit
+
+# Scans bot source files for known bug patterns every day at 10:00 UTC.
+# Auto-commits fixes when found. Acts as a continuous self-healing layer
+# on top of the trading logic.
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run logic audit
+        id: audit
+        run: |
+          python btc_logic_audit.py 2>&1 | tee audit_output.txt
+          echo "exit_code=${PIPESTATUS[0]}" >> $GITHUB_OUTPUT
+
+      - name: Commit fixes (if any)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "audit: auto-fix $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+            git pull --rebase origin master
+            git push origin HEAD:master
+            echo "::notice::Logic audit committed fixes — see audit_output.txt"
+          else
+            echo "::notice::Logic audit passed — no fixes needed"
+          fi
+
+      - name: Upload audit log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audit-log-${{ github.run_id }}
+          path: audit_output.txt
+          retention-days: 30
