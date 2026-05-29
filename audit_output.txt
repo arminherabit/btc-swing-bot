@@ -1,0 +1,22 @@
+============================================================
+  BTC Bot Logic Audit
+============================================================
+
+  Checks passed : 9
+  Issues found  : 1
+  Fixes applied : 0
+
+--- PASSED ---
+  PASS  rsi_window_inference  (uses full closes array)
+  PASS  trade_log_qty  (MAIN_ENTRY logs $qty correctly)
+  PASS  rl_tranche_cap  (uses $maxTranchesEff correctly)
+  PASS  n_samples  (n_samples=20)
+  PASS  fng_training  (fetch_fng_history wired into engineer_features)
+  PASS  total_timesteps  (TOTAL_TIMESTEPS=2,000,000)
+  PASS  klines_candle_count  (Get-Klines 4h 210)
+  PASS  obs_features  (n_features=18 (expected 18))
+  PASS  walk_forward  (walk_forward_validate function present in btc_rl_train.py)
+
+--- ISSUES ---
+  FAIL  action_stamp_pattern  (missing actions in pattern: ['BUY_T', 'SELL', 'PARTIAL_SELL', 'RL_BUY', 'RL_SELL', 'RL_PARTIAL', 'SCALP_'])
+============================================================
