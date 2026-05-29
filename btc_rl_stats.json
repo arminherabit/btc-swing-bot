@@ -1,13 +1,49 @@
 {
-  "final_portfolio": 509.5,
-  "total_return_pct": 1.9,
-  "n_trades": 11,
-  "win_rate": 63.6,
-  "bah_return_pct": 3.1,
-  "alpha_pct": -1.2,
+  "final_portfolio": 500.05,
+  "total_return_pct": 0.01,
+  "n_trades": 1,
+  "win_rate": 100.0,
+  "bah_return_pct": 1.77,
+  "alpha_pct": -1.76,
   "aggressiveness": 1.5,
-  "trained_at": "2026-05-28T15:33:18.107735+00:00",
+  "trained_at": "2026-05-29T15:09:18.475681+00:00",
   "train_candles": 2000,
   "val_candles": 500,
-  "timesteps": 2000000
+  "timesteps": 2000000,
+  "obs_features": 18,
+  "walk_forward_folds": [
+    {
+      "final_portfolio": 471.31,
+      "total_return_pct": -5.74,
+      "n_trades": 3,
+      "win_rate": 66.7,
+      "bah_return_pct": -14.77,
+      "alpha_pct": 9.03,
+      "fold": 1,
+      "train_candles": 1250,
+      "val_candles": 250
+    },
+    {
+      "final_portfolio": 474.44,
+      "total_return_pct": -5.11,
+      "n_trades": 4,
+      "win_rate": 50.0,
+      "bah_return_pct": -14.35,
+      "alpha_pct": 9.23,
+      "fold": 2,
+      "train_candles": 1500,
+      "val_candles": 300
+    },
+    {
+      "final_portfolio": 506.06,
+      "total_return_pct": 1.21,
+      "n_trades": 5,
+      "win_rate": 80.0,
+      "bah_return_pct": 3.75,
+      "alpha_pct": -2.54,
+      "fold": 3,
+      "train_candles": 1800,
+      "val_candles": 300
+    }
+  ]
 }
