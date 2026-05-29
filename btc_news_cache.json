@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-29T17:01:56.3392578Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-29T21:12:06.6698999Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin ETFs bleed $2.8B in record nine-day outflow streak",
-    "Bitcoin falls out of global top 10 assets as market cap dips below $1.5T",
-    "CFTC Approves Bitcoin Perpetual Futures on Kalshi - regulatory tailwind"
+    "CFTC approves Bitcoin perpetual futures in US market with Coinbase and Kalshi approval - major regulatory catalyst",
+    "Bitcoin testing $72K support level but analyst suggests 'end of dip' nearby - technical setup favorable for recovery",
+    "Coinbase integrates Deribit access for US institutional clients, expanding derivatives market infrastructure"
   ],
-  "reasoning": "Bitcoin faces near-term headwinds from significant ETF outflows totaling $2.84B and loss of top-10 asset status, indicating weakening institutional demand and competitive pressure from AI/precious metals. However, regulatory approvals (CFTC perpetual futures, Coinbase derivatives expansion, Texas Bitcoin reserve, CLARITY Act momentum) and Michael Saylor's strategic Coinbase transfer suggest longer-term infrastructure development may be positioning for future rallies.",
-  "risks": "Continued ETF outflows combined with failed breakout above $83K could trigger further capitulation and test critical support levels over the next 7 days.",
+  "reasoning": "The CFTC's landmark approval of US-regulated Bitcoin perpetual futures represents a significant institutional infrastructure expansion that removes offshore trading friction and legitimizes leverage trading domestically. However, Bitcoin's recent weakness to six-week lows and divergence from strong stock markets, combined with regulatory opposition from JPMorgan and uncertainty around CLARITY Act passage, creates mixed momentum that tempers bullish enthusiasm in the near term.",
+  "risks": "Bitcoin's break below the $72K support zone could trigger capitulation selling and accelerate downside toward $70K technical levels, especially if macro headwinds intensify or the CLARITY Act faces legislative delays beyond the July 4 target.",
   "article_count": 36
 }
