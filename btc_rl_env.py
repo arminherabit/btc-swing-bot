@@ -44,7 +44,7 @@ class BTCTradingEnv(gym.Env):
         self.min_hold_steps = min_hold_steps
         self.window         = window
 
-        n_features = 16
+        n_features = 18   # +2: funding_rate_norm, daily_vs_sma50
         self.action_space      = spaces.Discrete(4)
         self.observation_space = spaces.Box(
             low=-np.inf, high=np.inf,
@@ -100,6 +100,12 @@ class BTCTradingEnv(gym.Env):
         fng     = float(row.get("fng", 50.0)) / 100.0
         news    = np.clip((float(row.get("news_score", 0.0)) + 10.0) / 20.0, 0.0, 1.0)
 
+        # ── Funding rate (annualised %, clipped ±200%) ─────────────────────
+        funding_norm = np.clip(float(row.get("funding_rate_annual", 0.0)) / 200.0, -1.0, 1.0)
+
+        # ── Daily SMA50 gap (price vs SMA50, clipped ±20%) ─────────────────
+        daily_vs_sma50 = np.clip(float(row.get("daily_vs_sma50", 0.0)), -1.0, 1.0)
+
         # ── Position state ──────────────────────────────────────────────────
         in_pos  = float(self.in_position)
         upnl    = 0.0
@@ -120,6 +126,8 @@ class BTCTradingEnv(gym.Env):
             in_pos, upnl, tc_norm,              # position state    (3)
             hold_h, drawdown,                   # risk state        (2)
             float(self.partial_taken),          # partial flag      (1)
+            funding_norm,                       # funding rate      (1) NEW
+            daily_vs_sma50,                     # daily SMA50 gap   (1) NEW
         ], dtype=np.float32)
 
     def _get_obs(self) -> np.ndarray:

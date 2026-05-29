@@ -137,6 +137,32 @@ def audit_n_samples():
         check("n_samples", False, "n_samples not found")
 
 
+# ── 9. RL env obs feature count ──────────────────────────────────────────────
+
+def audit_obs_features():
+    path = ROOT / "btc_rl_env.py"
+    if not path.exists():
+        return
+    src = read(path)
+    m = re.search(r"n_features\s*=\s*(\d+)", src)
+    if m:
+        n = int(m.group(1))
+        check("obs_features", n == 18, f"n_features={n} (expected 18)")
+    else:
+        check("obs_features", False, "n_features not found in btc_rl_env.py")
+
+
+# ── 10. Walk-forward validation present ──────────────────────────────────────
+
+def audit_walk_forward():
+    path = ROOT / "btc_rl_train.py"
+    if not path.exists():
+        return
+    src = read(path)
+    check("walk_forward", "walk_forward_validate" in src,
+          "walk_forward_validate function present in btc_rl_train.py")
+
+
 # ── 5. Real F&G in training ──────────────────────────────────────────────────
 
 def audit_fng_training():
@@ -223,6 +249,8 @@ def main():
     audit_action_stamp()
     audit_timesteps()
     audit_klines_count()
+    audit_obs_features()
+    audit_walk_forward()
 
     print(f"\n  Checks passed : {len(CHECKS_PASSED)}")
     print(f"  Issues found  : {len(ISSUES_FOUND)}")

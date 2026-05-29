@@ -40,6 +40,49 @@ LOOKBACK_CANDLES = 2500         # ~14 months of 4H data
 
 # ── Data fetching ───────────────────────────────────────────────────────────────
 
+def fetch_funding_rate_history(limit: int = 2500) -> pd.DataFrame:
+    """
+    Fetch historical 8H BTC funding rates from Binance futures.
+    Returns DataFrame with columns: fundingTime (UTC), funding_rate_annual (float).
+    """
+    print(f"Fetching funding rate history (up to {limit} records)…")
+    frames = []
+    end_time = None
+    remaining = limit
+
+    while remaining > 0:
+        batch = min(1000, remaining)
+        params = {"symbol": "BTCUSDT", "limit": batch}
+        if end_time:
+            params["endTime"] = end_time
+        try:
+            r = requests.get("https://fapi.binance.com/fapi/v1/fundingRate",
+                             params=params, timeout=10)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as e:
+            print(f"  [warn] Funding rate fetch failed: {e}")
+            break
+        if not data:
+            break
+        df = pd.DataFrame(data)
+        df["fundingTime"]          = pd.to_datetime(df["fundingTime"].astype(int), unit="ms", utc=True)
+        df["funding_rate_annual"]  = df["fundingRate"].astype(float) * 3 * 365 * 100
+        frames.insert(0, df[["fundingTime", "funding_rate_annual"]])
+        end_time   = int(data[0]["fundingTime"]) - 1
+        remaining -= batch
+        time.sleep(0.1)
+
+    if not frames:
+        print("  [warn] No funding rate data — using neutral 0.0")
+        return pd.DataFrame(columns=["fundingTime", "funding_rate_annual"])
+
+    out = pd.concat(frames).drop_duplicates("fundingTime").sort_values("fundingTime").reset_index(drop=True)
+    print(f"  Got {len(out)} funding rate records: "
+          f"{out['fundingTime'].iloc[0].date()} to {out['fundingTime'].iloc[-1].date()}")
+    return out
+
+
 def fetch_fng_history(limit: int = 2500) -> pd.DataFrame:
     """
     Fetch historical Fear & Greed Index from alternative.me.
@@ -130,7 +173,9 @@ def wilder_rsi(closes: np.ndarray, period: int = 14) -> np.ndarray:
     return rsi
 
 
-def engineer_features(df: pd.DataFrame, fng_df: pd.DataFrame = None) -> pd.DataFrame:
+def engineer_features(df: pd.DataFrame,
+                      fng_df:     pd.DataFrame = None,
+                      funding_df: pd.DataFrame = None) -> pd.DataFrame:
     df = df.copy()
     closes = df["close"].values
     highs  = df["high"].values
@@ -139,7 +184,7 @@ def engineer_features(df: pd.DataFrame, fng_df: pd.DataFrame = None) -> pd.DataF
     # RSI
     df["rsi"] = wilder_rsi(closes)
 
-    # SMA
+    # SMA (4H)
     df["sma50"]  = pd.Series(closes).rolling(50,  min_periods=1).mean().values
     df["sma200"] = pd.Series(closes).rolling(200, min_periods=1).mean().values
 
@@ -155,17 +200,42 @@ def engineer_features(df: pd.DataFrame, fng_df: pd.DataFrame = None) -> pd.DataF
     vol_ma = pd.Series(vols).rolling(20, min_periods=1).mean().values
     df["vol_ratio"] = np.where(vol_ma > 0, vols / vol_ma, 1.0)
 
-    # Real Fear & Greed (daily, forward-filled to 4H frequency)
-    # Falls back to neutral 50 if history unavailable.
+    # Real Fear & Greed (daily → forward-filled to 4H)
     if fng_df is not None and len(fng_df) > 0:
         df["date"] = df["open_time"].dt.normalize()
         df = df.merge(fng_df.rename(columns={"fng": "fng_daily"}), on="date", how="left")
         df["fng"] = df["fng_daily"].ffill().fillna(50).astype(float)
         df = df.drop(columns=["date", "fng_daily"])
     else:
-        df["fng"] = 50.0  # neutral fallback
+        df["fng"] = 50.0
 
-    df["news_score"] = 0.0  # neutral baseline (no historical news scores available)
+    df["news_score"] = 0.0  # neutral baseline
+
+    # ── NEW: Daily SMA50 gap (resample 4H → 1D, map back) ────────────────────
+    daily_close = df.set_index("open_time")["close"].resample("1D").last().dropna()
+    daily_sma50 = daily_close.rolling(50, min_periods=1).mean()
+    daily_map   = daily_sma50.reset_index()
+    daily_map.columns = ["date_key", "daily_sma50"]
+    daily_map["date_key"] = daily_map["date_key"].dt.normalize()
+    df["date_key"] = df["open_time"].dt.normalize()
+    df = df.merge(daily_map, on="date_key", how="left")
+    df["daily_sma50"]    = df["daily_sma50"].ffill().fillna(closes.mean())
+    df["daily_vs_sma50"] = np.clip(
+        (closes - df["daily_sma50"].values) / df["daily_sma50"].values, -1.0, 1.0
+    )
+    df = df.drop(columns=["date_key", "daily_sma50"])
+
+    # ── NEW: Funding rate (8H Binance futures, forward-filled to 4H) ─────────
+    if funding_df is not None and len(funding_df) > 0:
+        funding_df = funding_df.copy()
+        funding_df["time_4h"] = funding_df["fundingTime"].dt.floor("4h")
+        fmap = funding_df[["time_4h", "funding_rate_annual"]].drop_duplicates("time_4h")
+        df["time_4h"] = df["open_time"].dt.floor("4h")
+        df = df.merge(fmap, on="time_4h", how="left")
+        df["funding_rate_annual"] = df["funding_rate_annual"].ffill().fillna(0.0)
+        df = df.drop(columns=["time_4h"])
+    else:
+        df["funding_rate_annual"] = 0.0
 
     df = df.dropna().reset_index(drop=True)
     return df
@@ -187,6 +257,64 @@ class RewardLogger(BaseCallback):
                     print(f"  Episodes: {len(self.ep_rewards):5d}  "
                           f"Mean reward (last 50): {mean_r:+.4f}")
         return True
+
+
+# ── Walk-forward validation ─────────────────────────────────────────────────────
+
+def walk_forward_validate(df: pd.DataFrame, n_folds: int = 3) -> list:
+    """
+    Time-series walk-forward cross-validation.
+    Trains lightweight models (300k steps) on expanding windows,
+    validates on the next unseen slice. Checks for temporal generalization.
+
+    Returns list of per-fold stats dicts.
+    """
+    print("\n── Walk-Forward Validation ──────────────────────────────────────────")
+    n = len(df)
+    results = []
+    # Folds: 50%→60%, 60%→72%, 72%→84%
+    fold_bounds = [(0.50, 0.60), (0.60, 0.72), (0.72, 0.84)]
+
+    for fold_idx, (train_end_frac, val_end_frac) in enumerate(fold_bounds):
+        train_end = int(n * train_end_frac)
+        val_end   = int(n * val_end_frac)
+        df_tr  = df.iloc[:train_end].reset_index(drop=True)
+        df_val = df.iloc[train_end:val_end].reset_index(drop=True)
+
+        if len(df_tr) < 100 or len(df_val) < 50:
+            print(f"  Fold {fold_idx+1}: skipped (insufficient data)")
+            continue
+
+        print(f"\n  Fold {fold_idx+1}: train={len(df_tr)} candles → val={len(df_val)} candles")
+
+        fold_env = BTCTradingEnv(df_tr, aggressiveness=AGGRESSIVENESS)
+        fold_vec = DummyVecEnv([lambda e=fold_env: Monitor(e)])
+        fold_model = PPO(
+            "MlpPolicy", fold_vec, verbose=0,
+            learning_rate=3e-4, n_steps=2048, batch_size=256,
+            n_epochs=10, gamma=0.995, gae_lambda=0.95,
+            clip_range=0.2, ent_coef=0.02,
+            policy_kwargs=dict(net_arch=[dict(pi=[128, 128], vf=[128, 128])]),
+        )
+        fold_model.learn(total_timesteps=300_000)
+        fold_vec.close()
+
+        stats = run_backtest(fold_model, df_val)
+        stats["fold"] = fold_idx + 1
+        stats["train_candles"] = len(df_tr)
+        stats["val_candles"]   = len(df_val)
+        results.append(stats)
+
+    if results:
+        avg_wr    = sum(r["win_rate"]   for r in results) / len(results)
+        avg_alpha = sum(r["alpha_pct"]  for r in results) / len(results)
+        print(f"\n  Walk-forward summary: avg win_rate={avg_wr:.1f}%  avg_alpha={avg_alpha:+.2f}%")
+        if avg_wr < 40 or avg_alpha < -5:
+            print("  [warn] Model generalizes poorly across time folds — consider more data or tuning")
+        else:
+            print("  Temporal generalization: OK")
+    print("─" * 68)
+    return results
 
 
 # ── Backtest ────────────────────────────────────────────────────────────────────
@@ -257,9 +385,10 @@ def run_backtest(model, df: pd.DataFrame) -> dict:
 
 def main():
     # 1. Data
-    raw    = fetch_klines(SYMBOL, INTERVAL, LOOKBACK_CANDLES)
-    fng_df = fetch_fng_history(limit=900)
-    df     = engineer_features(raw, fng_df)
+    raw        = fetch_klines(SYMBOL, INTERVAL, LOOKBACK_CANDLES)
+    fng_df     = fetch_fng_history(limit=900)
+    funding_df = fetch_funding_rate_history(limit=2500)
+    df         = engineer_features(raw, fng_df, funding_df)
     print(f"Dataset: {len(df)} candles with {df.shape[1]} features\n")
 
     # Train / validation split (80/20)
@@ -308,19 +437,24 @@ def main():
     model.save(MODEL_PATH)
     print(f"Model saved → {MODEL_PATH}.zip")
 
-    # 6. Backtest on held-out validation data
-    print("\nValidation set backtest:")
+    # 6. Walk-forward validation (overfitting check)
+    wf_results = walk_forward_validate(df)
+
+    # 7. Final backtest on held-out validation data
+    print("\nFinal validation set backtest (last 20% of data):")
     stats = run_backtest(model, df_val)
 
     # Save stats
     with open("btc_rl_stats.json", "w") as f:
         json.dump({
             **stats,
-            "aggressiveness":  AGGRESSIVENESS,
-            "trained_at":      datetime.now(timezone.utc).isoformat(),
-            "train_candles":   len(df_train),
-            "val_candles":     len(df_val),
-            "timesteps":       TOTAL_TIMESTEPS,
+            "aggressiveness":     AGGRESSIVENESS,
+            "trained_at":         datetime.now(timezone.utc).isoformat(),
+            "train_candles":      len(df_train),
+            "val_candles":        len(df_val),
+            "timesteps":          TOTAL_TIMESTEPS,
+            "obs_features":       18,
+            "walk_forward_folds": wf_results,
         }, f, indent=2)
     print(f"\nStats saved → btc_rl_stats.json")
 

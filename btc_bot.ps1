@@ -134,6 +134,34 @@ function Get-BullishDivergence([double[]]$closes, [double[]]$rsiSeries) {
     return ($recent.Price -lt $older.Price -and $recent.RSI -gt $older.RSI)
 }
 
+# -- Binance Futures Funding Rate (annualised %) --
+# Positive = longs paying shorts (crowded long = slight bearish signal)
+# Negative = shorts paying longs (crowded short = contrarian buy signal)
+function Get-FundingRate {
+    try {
+        $r = Invoke-RestMethod -Uri "https://fapi.binance.com/fapi/v1/premiumIndex?symbol=BTCUSDT" -UseBasicParsing
+        $rate8h = [double]$r.lastFundingRate
+        $annualised = [Math]::Round($rate8h * 3 * 365 * 100, 2)  # 8h → annualised %
+        return [pscustomobject]@{ Rate = $annualised; Raw = $rate8h; Ok = $true }
+    } catch {
+        return [pscustomobject]@{ Rate = 0.0; Raw = 0.0; Ok = $false }
+    }
+}
+
+# -- Daily SMA50 for multi-timeframe trend filter --
+function Get-DailySma50([double]$currentPrice) {
+    try {
+        $url = $BaseUrl + "/api/v3/klines?symbol=" + $Symbol + "&interval=1d&limit=52"
+        $r   = Invoke-RestMethod -Uri $url -UseBasicParsing
+        [double[]]$dc = $r | ForEach-Object { [double]$_[4] }
+        $sma50 = [Math]::Round((($dc | Select-Object -Last 50) | Measure-Object -Sum).Sum / 50, 2)
+        $gapPct = if ($sma50 -gt 0) { [Math]::Round(($currentPrice - $sma50) / $sma50 * 100, 2) } else { 0.0 }
+        return [pscustomobject]@{ Sma50 = $sma50; GapPct = $gapPct; Ok = $true }
+    } catch {
+        return [pscustomobject]@{ Sma50 = 0.0; GapPct = 0.0; Ok = $false }
+    }
+}
+
 # -- Fear & Greed Index (0=Extreme Fear, 100=Extreme Greed) --
 function Get-FearGreed {
     try {
@@ -150,7 +178,10 @@ function Get-FearGreed {
 # Combines all market signals into a single conviction score.
 # High AF = favorable conditions → loosen RSI gates, amplify return weight.
 # Low / negative AF = hostile conditions → tighten.
-function Compute-AggressivenessFactor([bool]$bullMode, $fng, $news, [bool]$divergence, [double]$rsi4h) {
+function Compute-AggressivenessFactor(
+    [bool]$bullMode, $fng, $news, [bool]$divergence, [double]$rsi4h,
+    [double]$fundingRate = 0.0, [double]$dailyGapPct = 0.0) {
+
     # Base: bull market gets more rope than bear
     $af = if ($bullMode) { 0.15 } else { 0.05 }
 
@@ -174,6 +205,16 @@ function Compute-AggressivenessFactor([bool]$bullMode, $fng, $news, [bool]$diver
 
     # Technical divergence = strong reversal signal
     if ($divergence) { $af += 0.10 }
+
+    # Funding rate: crowded longs = bearish, crowded shorts = contrarian buy
+    if    ($fundingRate -gt 100) { $af -= 0.10 }  # >100% ann. = over-leveraged longs
+    elseif($fundingRate -gt  50) { $af -= 0.05 }
+    elseif($fundingRate -lt -50) { $af += 0.10 }  # heavy shorts = squeeze fuel
+    elseif($fundingRate -lt -20) { $af += 0.05 }
+
+    # Daily SMA50 trend alignment
+    if    ($dailyGapPct -gt  5) { $af += 0.05 }   # well above daily SMA50 = strength
+    elseif($dailyGapPct -lt -10) { $af -= 0.05 }  # deep below daily SMA50 = caution
 
     # Clamp to [-0.20, 0.50]
     return [Math]::Round([Math]::Max(-0.20, [Math]::Min(0.50, $af)), 3)
@@ -356,6 +397,23 @@ function Run-Cycle {
     $cacheTag  = if ($news.FromCache) { "cached {0}h" -f $news.CacheAge } else { "fresh" }
     Write-Host ("  News: {0}/10 {1}  [{2}]  -- {3}" -f $news.Score, $news.Sentiment.ToUpper(), $cacheTag, $news.Reasoning)
 
+    # ── Funding Rate (Binance perpetual futures) ──────────────────────────────
+    $funding = Get-FundingRate
+    $fundingTag = if (-not $funding.Ok) { "unavailable" } `
+                  elseif ($funding.Rate -gt 100) { "CROWDED LONG -- bearish signal" } `
+                  elseif ($funding.Rate -lt -20) { "CROWDED SHORT -- contrarian buy" } `
+                  else { "neutral" }
+    Write-Host ("  Funding Rate: {0}% ann.  [{1}]" -f $funding.Rate, $fundingTag)
+
+    # ── Daily SMA50 (multi-timeframe trend) ───────────────────────────────────
+    $daily = Get-DailySma50 $price
+    $dailyTag = if (-not $daily.Ok) { "unavailable" } `
+                elseif ($daily.GapPct -gt 5)   { "ABOVE -- trend aligned" } `
+                elseif ($daily.GapPct -lt -10)  { "DEEP BELOW -- caution" } `
+                elseif ($daily.GapPct -lt 0)    { "below -- weak" } `
+                else { "near SMA50" }
+    Write-Host ("  Daily SMA50: `${0}  Gap: {1}%  [{2}]" -f $daily.Sma50.ToString("N0"), $daily.GapPct, $dailyTag)
+
     # Combined block/boost (either source can block or boost)
     $entryBlocked = ($newsBlock -or $fngBlock)
     $entryBoosted = ($newsBoost -or $fngBoost)
@@ -412,7 +470,7 @@ function Run-Cycle {
     $modeLabel  = if ($bullMode) { "BULL" } elseif ($nearSma200) { "NEAR-SMA" } else { "BEAR" }
 
     # ── Aggressiveness Factor & Reward ───────────────────────────────────────
-    $af = Compute-AggressivenessFactor $bullMode $fng $news $divergence $rsi4h
+    $af = Compute-AggressivenessFactor $bullMode $fng $news $divergence $rsi4h $funding.Rate $daily.GapPct
 
     # ── Stale-watchdog: 48h+ idle AND Fear & Greed ≤30 → AF +0.10 boost ──────
     # Forces engagement in long sideways markets where dip strategy never fires
@@ -683,7 +741,19 @@ function Run-Cycle {
 
         $tc          = [int]$state.tranche_count
         $maxTranches = $maxTranchesEff     # BEAR=2, BULL=3
-        $trancheUsdt = [double]$cfg.tranche_size_usdt
+
+        # ── Volatility-adjusted position sizing ───────────────────────────────
+        # Low ATR (calm market)  → size up slightly (less slippage, tighter range)
+        # High ATR (wild market) → size down (wider stops, more risk per unit)
+        $atrScalar = if     ($atrPct -lt 0.4) { 1.20 }
+                     elseif ($atrPct -lt 0.8) { 1.05 }
+                     elseif ($atrPct -lt 1.2) { 1.00 }
+                     elseif ($atrPct -lt 1.8) { 0.85 }
+                     else                     { 0.70 }
+        # AF bonus: HIGH conviction → up to 15% larger tranche
+        $afBonus = if ($af -ge 0.35) { 0.15 } elseif ($af -ge 0.20) { 0.08 } else { 0.0 }
+        $trancheUsdt = [Math]::Round([double]$cfg.tranche_size_usdt * $atrScalar * (1.0 + $afBonus), 0)
+        $trancheUsdt = [Math]::Max(100.0, [Math]::Min(300.0, $trancheUsdt))
 
         $rsiThreshold = switch ($tc) {
             0       { $rsi1 }

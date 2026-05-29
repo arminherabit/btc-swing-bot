@@ -77,6 +77,23 @@ def fetch_fng():
     return 50, "Unknown"
 
 
+def fetch_funding_rate() -> float:
+    """Binance futures funding rate → annualised %. Returns 0.0 on failure."""
+    data = safe_get("https://fapi.binance.com/fapi/v1/premiumIndex", {"symbol": "BTCUSDT"})
+    if data and "lastFundingRate" in data:
+        return round(float(data["lastFundingRate"]) * 3 * 365 * 100, 2)
+    return 0.0
+
+
+def fetch_daily_sma50(symbol="BTCUSD") -> float:
+    """Daily SMA50 from Binance spot 1d candles. Returns 0.0 on failure."""
+    data = safe_get(f"{BINANCE}/klines", {"symbol": symbol, "interval": "1d", "limit": 52})
+    if not data or len(data) < 50:
+        return 0.0
+    closes = [float(c[4]) for c in data]
+    return float(np.mean(closes[-50:]))
+
+
 def load_state(path):
     try:
         with open(path) as f:
@@ -87,7 +104,8 @@ def load_state(path):
 
 # ── Build observation (must match btc_rl_env._features exactly) ───────────────
 
-def build_obs(closes, highs, vols, state, fng_val, news_score=0.0):
+def build_obs(closes, highs, vols, state, fng_val, news_score=0.0,
+              funding_rate=0.0, daily_sma50=0.0):
     price  = closes[-1]
     sma50  = float(np.mean(closes[-50:]))  if len(closes) >= 50  else price
     sma200 = float(np.mean(closes[-200:])) if len(closes) >= 200 else price
@@ -133,6 +151,13 @@ def build_obs(closes, highs, vols, state, fng_val, news_score=0.0):
     if in_pos and peak_price > 0 and price < peak_price:
         drawdown = np.clip((peak_price - price) / peak_price / 0.10, 0.0, 1.0)
 
+    # New features
+    funding_norm   = np.clip(funding_rate / 200.0, -1.0, 1.0)
+    daily_vs_sma50 = np.clip(
+        (price - daily_sma50) / daily_sma50 if daily_sma50 > 0 else 0.0,
+        -1.0, 1.0
+    )
+
     obs = np.array([
         rsi / 100.0,
         np.clip((price - sma200) / sma200, -0.4, 0.4) / 0.4,
@@ -146,6 +171,8 @@ def build_obs(closes, highs, vols, state, fng_val, news_score=0.0):
         tranche_cnt / 3.0,
         hold_h, drawdown,
         partial_tkn,
+        funding_norm,    # NEW
+        daily_vs_sma50,  # NEW
     ], dtype=np.float32)
 
     return obs, {
@@ -239,10 +266,25 @@ def main():
     # Load news score from state (bot already computed it)
     news_score = float(state.get("news_score", 0.0))
 
-    # Build observation
-    obs, market = build_obs(closes, highs, vols, state, fng_val, news_score)
+    # Fetch new signals
+    funding_rate = fetch_funding_rate()
+    daily_sma50  = fetch_daily_sma50()
+    print(f"  Funding Rate: {funding_rate:+.1f}% ann.  Daily SMA50: ${daily_sma50:,.0f}")
+
+    # Build observation (18 features)
+    obs, market = build_obs(closes, highs, vols, state, fng_val, news_score,
+                            funding_rate, daily_sma50)
     print(f"  RSI: {market['rsi']:.1f}  Dip: {market['dip_pct']:.2f}%  "
           f"SMA200: ${market['sma200']:,.0f}")
+
+    # Handle model trained on old obs space (16 features) gracefully
+    expected = model.observation_space.shape[0]
+    if expected != len(obs):
+        print(f"  [warn] Model expects {expected} features, built {len(obs)} — truncating/padding to match.")
+        if expected < len(obs):
+            obs = obs[:expected]
+        else:
+            obs = np.pad(obs, (0, expected - len(obs)))
 
     # Predict
     action, confidence, dist = predict_with_confidence(model, obs, n_samples=30)
