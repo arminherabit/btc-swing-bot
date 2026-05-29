@@ -91,7 +91,7 @@ def build_obs(closes, highs, vols, state, fng_val, news_score=0.0):
     price  = closes[-1]
     sma50  = float(np.mean(closes[-50:]))  if len(closes) >= 50  else price
     sma200 = float(np.mean(closes[-200:])) if len(closes) >= 200 else price
-    rsi    = wilder_rsi(closes[-30:])
+    rsi    = wilder_rsi(closes)  # use all candles — Wilder smoothing needs long history
 
     five_day_high = max(highs[-30:])
     dip_pct = (five_day_high - price) / five_day_high * 100 if five_day_high > 0 else 0.0

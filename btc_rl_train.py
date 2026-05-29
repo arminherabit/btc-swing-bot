@@ -40,6 +40,34 @@ LOOKBACK_CANDLES = 2500         # ~14 months of 4H data
 
 # ── Data fetching ───────────────────────────────────────────────────────────────
 
+def fetch_fng_history(limit: int = 2500) -> pd.DataFrame:
+    """
+    Fetch historical Fear & Greed Index from alternative.me.
+    Returns a DataFrame with columns: date (date), fng (int).
+    The API returns daily values (one per day); we forward-fill to 4H candle frequency.
+    Max ~900 days available from the API.
+    """
+    print(f"Fetching Fear & Greed history (up to {limit} days)…")
+    try:
+        r = requests.get(
+            f"https://api.alternative.me/fng/?limit={min(limit, 900)}&format=json",
+            timeout=15
+        )
+        r.raise_for_status()
+        data = r.json().get("data", [])
+        rows = []
+        for entry in data:
+            ts  = int(entry["timestamp"])
+            val = int(entry["value"])
+            rows.append({"date": pd.Timestamp(ts, unit="s", tz="UTC").normalize(), "fng": val})
+        df = pd.DataFrame(rows).drop_duplicates("date").sort_values("date").reset_index(drop=True)
+        print(f"  Got {len(df)} daily F&G records: {df['date'].iloc[0].date()} to {df['date'].iloc[-1].date()}")
+        return df
+    except Exception as e:
+        print(f"  [warn] F&G history fetch failed: {e}  — using neutral 50")
+        return pd.DataFrame(columns=["date", "fng"])
+
+
 def fetch_klines(symbol: str, interval: str, limit: int = 2500) -> pd.DataFrame:
     """Download historical OHLCV from Binance.US (public endpoint, no auth)."""
     print(f"Fetching {limit} × {interval} candles for {symbol}…")
@@ -76,7 +104,7 @@ def fetch_klines(symbol: str, interval: str, limit: int = 2500) -> pd.DataFrame:
 
     out = pd.concat(frames, ignore_index=True)
     out = out.drop_duplicates("open_time").sort_values("open_time").reset_index(drop=True)
-    print(f"  Got {len(out)} candles: {out['open_time'].iloc[0]} → {out['open_time'].iloc[-1]}")
+    print(f"  Got {len(out)} candles: {out['open_time'].iloc[0]} to {out['open_time'].iloc[-1]}")
     return out
 
 
@@ -102,7 +130,7 @@ def wilder_rsi(closes: np.ndarray, period: int = 14) -> np.ndarray:
     return rsi
 
 
-def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
+def engineer_features(df: pd.DataFrame, fng_df: pd.DataFrame = None) -> pd.DataFrame:
     df = df.copy()
     closes = df["close"].values
     highs  = df["high"].values
@@ -127,10 +155,17 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     vol_ma = pd.Series(vols).rolling(20, min_periods=1).mean().values
     df["vol_ratio"] = np.where(vol_ma > 0, vols / vol_ma, 1.0)
 
-    # Placeholder F&G and news (neutral; live inference uses real values)
-    # In backtest we simulate F&G from RSI inversely (low RSI ≈ fear)
-    df["fng"]        = np.clip(df["rsi"].values * 1.1, 0, 100)
-    df["news_score"] = 0.0  # neutral baseline
+    # Real Fear & Greed (daily, forward-filled to 4H frequency)
+    # Falls back to neutral 50 if history unavailable.
+    if fng_df is not None and len(fng_df) > 0:
+        df["date"] = df["open_time"].dt.normalize()
+        df = df.merge(fng_df.rename(columns={"fng": "fng_daily"}), on="date", how="left")
+        df["fng"] = df["fng_daily"].ffill().fillna(50).astype(float)
+        df = df.drop(columns=["date", "fng_daily"])
+    else:
+        df["fng"] = 50.0  # neutral fallback
+
+    df["news_score"] = 0.0  # neutral baseline (no historical news scores available)
 
     df = df.dropna().reset_index(drop=True)
     return df
@@ -222,8 +257,9 @@ def run_backtest(model, df: pd.DataFrame) -> dict:
 
 def main():
     # 1. Data
-    raw = fetch_klines(SYMBOL, INTERVAL, LOOKBACK_CANDLES)
-    df  = engineer_features(raw)
+    raw    = fetch_klines(SYMBOL, INTERVAL, LOOKBACK_CANDLES)
+    fng_df = fetch_fng_history(limit=900)
+    df     = engineer_features(raw, fng_df)
     print(f"Dataset: {len(df)} candles with {df.shape[1]} features\n")
 
     # Train / validation split (80/20)

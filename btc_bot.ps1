@@ -551,7 +551,7 @@ function Run-Cycle {
             }
         }
         elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
-                -and [int]$state.tranche_count -lt [int]$cfg.max_tranches `
+                -and [int]$state.tranche_count -lt $maxTranchesEff `
                 -and $rsi4h -le $rlRsiThreshold) {
             $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
             Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2})" -f `
@@ -727,7 +727,7 @@ function Run-Cycle {
                 $state.last_signal   = "BUY T" + ($tc + 1) + "/3 [" + $entryReason + "] (" + $modeLabel + ")"
                 Append-TradeLog @{
                     time = $nowDt.ToString("o"); kind = "MAIN_ENTRY"; tranche = ($tc + 1)
-                    entry_price = $price; qty = $tQty
+                    entry_price = $price; qty = $qty
                     mode = $modeLabel; rsi = $rsi4h; dip_pct = $dipPct
                     fng = $fng; news = $news; af = $af
                     near_sma = [bool]$nearSma200; divergence = [bool]$divergence; rsi_turning = [bool]$rsiTurning
