@@ -7,13 +7,13 @@
   "highest_price": 0.0,
   "last_signal": "BLOCKED: News score -5 <= -5",
   "last_action": "none",
-  "last_run": "2026-05-29T10:01:36.9523841Z",
+  "last_run": "2026-05-29T11:01:31.6721964Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 73657.42,
+  "btc_price": 73518.69,
   "rsi": 59.4,
-  "sma200": 78200.88,
-  "dip_pct": 5.56,
+  "sma200": 78200.19,
+  "dip_pct": 5.74,
   "fng_value": 23,
   "news_score": -5,
   "partial_target": 0,
@@ -50,7 +50,7 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.967,
+  "rl_confidence": 1.0,
   "rl_action": "SELL_ALL",
   "rl_override": true,
   "last_stopout": "",
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 0.9
+  "atr_pct_24h": 0.91
 }
