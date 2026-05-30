@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-30T07:01:45.7423040Z",
-  "score": 6,
-  "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-05-30T12:03:54.1894309Z",
+  "score": 2,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "CFTC approves Bitcoin perpetual futures for US market - major institutional infrastructure catalyst",
-    "Bitcoin dip buyers placing $500M in bids near $70K support with options/futures convergence",
-    "CLARITY Act passes Senate Banking 15-9 with Trump support and July 4 legislative momentum"
+    "Spot Bitcoin ETFs see record 10-day outflow streak, analyst calls it 'contrarian indicator'",
+    "Bitcoin dip buyers place $500M in bids as $70K retest looms",
+    "CFTC approves Coinbase for US crypto perpetual futures trading"
   ],
-  "reasoning": "Multiple bullish catalysts converge: CFTC's approval of regulated US Bitcoin perpetual futures and Coinbase's global derivatives access significantly expand institutional access and legitimacy. Strong technical support at $70K with heavy order flow, combined with accelerating crypto regulatory clarity (CLARITY Act advancing with executive backing), creates favorable conditions for upside breakout over 1-7 day swing window.",
-  "risks": "JPMorgan and traditional finance opposition could slow CLARITY Act momentum; Senator Lummis warns next legislative window is 2030, suggesting consolidation risk if current bill stalls; macro inflation concerns resurface if data disappoints.",
+  "reasoning": "The market presents mixed signals with significant institutional outflows offset by strong retail dip-buying activity and growing regulatory clarity through CFTC approval of crypto derivatives. Technical support at $70K is well-defended with $500M in bids, while contrarian indicators suggest institutional outflows may precede a reversal, though regulatory headwinds from JPMorgan's anti-CLARITY Act stance add some friction.",
+  "risks": "Sustained institutional outflow momentum could accelerate if Bitcoin fails to hold $70K support, particularly if ETF selling continues at current pace and creates a negative feedback loop with retail confidence.",
   "article_count": 36
 }
