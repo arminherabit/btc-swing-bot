@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-30T16:39:02.7317579Z",
-  "score": 2,
+  "timestamp": "2026-05-30T21:01:39.3228830Z",
+  "score": 1,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Spot Bitcoin ETFs see record 10-day outflow streak totaling nearly $3 billion, while analyst calls it a contrarian indicator",
-    "CFTC approves Coinbase and regulated exchanges to offer Bitcoin perpetual futures, expanding institutional access",
-    "Bitcoin enters buy zone that previously led to 660% and 1,700% rallies according on-chain analysis"
+    "Spot Bitcoin ETFs see record 10-day outflow streak of $3B, but analyst calls it 'contrarian indicator'",
+    "CFTC approves first US-listed Bitcoin perpetual futures, expanding institutional access",
+    "Bitcoin 200-week MA crosses $61K with growing technical strength despite near-term selling pressure"
   ],
-  "reasoning": "Mixed signals dominate the near-term outlook: significant ETF outflows and negative retail sentiment are offset by expanding regulatory clarity (CFTC perps approval) and technical buy zone signals that historically preceded major rallies. The contrarian nature of record outflows alongside institutional framework improvements suggests consolidation rather than directional conviction over the 1-7 day window.",
-  "risks": "Large-scale ETF outflows coupled with retail sentiment weakness could accelerate downward momentum if Bitcoin fails to hold key technical support levels, particularly below the $61,000 200-week moving average.",
+  "reasoning": "The headline outflows from spot ETFs are offset by their characterization as contrarian bullish signals, while new regulatory approvals for Bitcoin perps expand institutional infrastructure positively. However, significant capital outflows ($40B+), whale selling pressure, and ongoing negative sentiment from traditional finance leaders like Jamie Dimon create headwinds that prevent a strongly bullish outlook.",
+  "risks": "Continued ETF redemptions could accelerate if Bitcoin fails to hold key support levels, triggering technical breakdown below $73K and cascading liquidations in leveraged positions.",
   "article_count": 36
 }
