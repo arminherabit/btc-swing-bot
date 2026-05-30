@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-30T12:03:54.1894309Z",
+  "timestamp": "2026-05-30T16:39:02.7317579Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Spot Bitcoin ETFs see record 10-day outflow streak, analyst calls it 'contrarian indicator'",
-    "Bitcoin dip buyers place $500M in bids as $70K retest looms",
-    "CFTC approves Coinbase for US crypto perpetual futures trading"
+    "Spot Bitcoin ETFs see record 10-day outflow streak totaling nearly $3 billion, while analyst calls it a contrarian indicator",
+    "CFTC approves Coinbase and regulated exchanges to offer Bitcoin perpetual futures, expanding institutional access",
+    "Bitcoin enters buy zone that previously led to 660% and 1,700% rallies according on-chain analysis"
   ],
-  "reasoning": "The market presents mixed signals with significant institutional outflows offset by strong retail dip-buying activity and growing regulatory clarity through CFTC approval of crypto derivatives. Technical support at $70K is well-defended with $500M in bids, while contrarian indicators suggest institutional outflows may precede a reversal, though regulatory headwinds from JPMorgan's anti-CLARITY Act stance add some friction.",
-  "risks": "Sustained institutional outflow momentum could accelerate if Bitcoin fails to hold $70K support, particularly if ETF selling continues at current pace and creates a negative feedback loop with retail confidence.",
+  "reasoning": "Mixed signals dominate the near-term outlook: significant ETF outflows and negative retail sentiment are offset by expanding regulatory clarity (CFTC perps approval) and technical buy zone signals that historically preceded major rallies. The contrarian nature of record outflows alongside institutional framework improvements suggests consolidation rather than directional conviction over the 1-7 day window.",
+  "risks": "Large-scale ETF outflows coupled with retail sentiment weakness could accelerate downward momentum if Bitcoin fails to hold key technical support levels, particularly below the $61,000 200-week moving average.",
   "article_count": 36
 }
