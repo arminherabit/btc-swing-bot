@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-30T02:01:43.3653646Z",
-  "score": 4,
+  "timestamp": "2026-05-30T07:01:45.7423040Z",
+  "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "CFTC backs crypto perpetual contracts with no-action letter for Coinbase and approval for Kalshi, opening US-regulated derivatives market",
-    "Bitcoin dip buyers place $500M in bids near $70K support with options/futures convergence at same level, indicating strong institutional accumulation",
-    "Treasury Secretary Bessent announces $1B crypto seizure from Iran while CLARITY Act advances through Senate with Trump's explicit backing for crypto-friendly legislation"
+    "CFTC approves Bitcoin perpetual futures for US market - major institutional infrastructure catalyst",
+    "Bitcoin dip buyers placing $500M in bids near $70K support with options/futures convergence",
+    "CLARITY Act passes Senate Banking 15-9 with Trump support and July 4 legislative momentum"
   ],
-  "reasoning": "The convergence of major regulatory tailwinds (CFTC perpetuals approval, CLARITY Act Senate advancement, Trump endorsement) combined with strong technical support ($500M bids at $70K) creates a bullish setup for swing traders over the 1-7 day window. Institutional infrastructure expansion (Coinbase/Deribit integration, KalshiEX approval) removes long-standing friction points and validates crypto as institutional asset class, likely supporting price recovery from recent six-week lows.",
-  "risks": "Jamie Dimon and JPMorgan's aggressive legislative opposition to the CLARITY Act could derail crypto regulatory clarity momentum or create headline-driven volatility that triggers stop-losses near key support zones.",
+  "reasoning": "Multiple bullish catalysts converge: CFTC's approval of regulated US Bitcoin perpetual futures and Coinbase's global derivatives access significantly expand institutional access and legitimacy. Strong technical support at $70K with heavy order flow, combined with accelerating crypto regulatory clarity (CLARITY Act advancing with executive backing), creates favorable conditions for upside breakout over 1-7 day swing window.",
+  "risks": "JPMorgan and traditional finance opposition could slow CLARITY Act momentum; Senator Lummis warns next legislative window is 2030, suggesting consolidation risk if current bill stalls; macro inflation concerns resurface if data disappoints.",
   "article_count": 36
 }
