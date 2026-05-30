@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-29T21:12:06.6698999Z",
-  "score": 3,
+  "timestamp": "2026-05-30T02:01:43.3653646Z",
+  "score": 4,
   "sentiment": "bullish",
-  "recommendation": "proceed",
+  "recommendation": "boost_size",
   "key_items": [
-    "CFTC approves Bitcoin perpetual futures in US market with Coinbase and Kalshi approval - major regulatory catalyst",
-    "Bitcoin testing $72K support level but analyst suggests 'end of dip' nearby - technical setup favorable for recovery",
-    "Coinbase integrates Deribit access for US institutional clients, expanding derivatives market infrastructure"
+    "CFTC backs crypto perpetual contracts with no-action letter for Coinbase and approval for Kalshi, opening US-regulated derivatives market",
+    "Bitcoin dip buyers place $500M in bids near $70K support with options/futures convergence at same level, indicating strong institutional accumulation",
+    "Treasury Secretary Bessent announces $1B crypto seizure from Iran while CLARITY Act advances through Senate with Trump's explicit backing for crypto-friendly legislation"
   ],
-  "reasoning": "The CFTC's landmark approval of US-regulated Bitcoin perpetual futures represents a significant institutional infrastructure expansion that removes offshore trading friction and legitimizes leverage trading domestically. However, Bitcoin's recent weakness to six-week lows and divergence from strong stock markets, combined with regulatory opposition from JPMorgan and uncertainty around CLARITY Act passage, creates mixed momentum that tempers bullish enthusiasm in the near term.",
-  "risks": "Bitcoin's break below the $72K support zone could trigger capitulation selling and accelerate downside toward $70K technical levels, especially if macro headwinds intensify or the CLARITY Act faces legislative delays beyond the July 4 target.",
+  "reasoning": "The convergence of major regulatory tailwinds (CFTC perpetuals approval, CLARITY Act Senate advancement, Trump endorsement) combined with strong technical support ($500M bids at $70K) creates a bullish setup for swing traders over the 1-7 day window. Institutional infrastructure expansion (Coinbase/Deribit integration, KalshiEX approval) removes long-standing friction points and validates crypto as institutional asset class, likely supporting price recovery from recent six-week lows.",
+  "risks": "Jamie Dimon and JPMorgan's aggressive legislative opposition to the CLARITY Act could derail crypto regulatory clarity momentum or create headline-driven volatility that triggers stop-losses near key support zones.",
   "article_count": 36
 }
