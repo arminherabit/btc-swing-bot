@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-31T02:01:35.5477899Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-05-31T06:01:52.3295743Z",
+  "score": -2,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Spot Bitcoin ETFs see record 10-day outflow streak totaling nearly $3 billion",
-    "Bitcoin is at 'pivotal level' as $65K downside risk looms",
-    "The Fed's rate lever is breaking as bond markets stop following its lead"
+    "Bitcoin at pivotal $65K downside risk level with record spot ETF 10-day outflows totaling $3B",
+    "Regulatory tailwinds with CFTC approval for US Bitcoin perpetual futures and CLARITY Act momentum despite JPMorgan opposition",
+    "Macro headwinds from Fed rate policy breakdown and US debt instability creating uncertainty"
   ],
-  "reasoning": "Institutional outflows from spot Bitcoin ETFs combined with technical breakdown signals and macro uncertainty around Fed policy create near-term downside pressure. Regulatory progress (CLARITY Act, CFTC perp approval) provides some long-term support but insufficient to offset current momentum deterioration and $65K support test risk.",
-  "risks": "Record ETF outflows coupled with $65K support level breach could trigger capitulation selling and liquidations that accelerate downside toward $60K-62K range within 1-7 days.",
+  "reasoning": "Bitcoin faces a critical technical breakdown risk with massive institutional outflows ($3B in 10 days) and analyst warnings of a $65K floor, offset only partially by regulatory progress on perpetual futures and potential CLARITY Act passage. The confluence of technical weakness, institutional capitulation signals, and macro uncertainty outweighs incremental regulatory wins, creating a high-risk, low-reward setup for swing traders over the next 7 days.",
+  "risks": "A breakdown below $65K support could cascade into $60K-$62K if spot ETF outflows accelerate and technical selling accelerates momentum downside.",
   "article_count": 36
 }
