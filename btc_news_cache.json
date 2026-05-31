@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-31T06:01:52.3295743Z",
-  "score": -2,
+  "timestamp": "2026-05-31T11:01:41.7820588Z",
+  "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin at pivotal $65K downside risk level with record spot ETF 10-day outflows totaling $3B",
-    "Regulatory tailwinds with CFTC approval for US Bitcoin perpetual futures and CLARITY Act momentum despite JPMorgan opposition",
-    "Macro headwinds from Fed rate policy breakdown and US debt instability creating uncertainty"
+    "Bitcoin sentiment reaches most 'lopsided positive' ratio for 2026: Santiment warns of historical pullbacks after bullish spikes",
+    "Bitcoin dip buyers present but low volume lacking size to reverse downtrend; $65K downside risk looms",
+    "CFTC approves Coinbase for global crypto perps trading and JPMorgan's Dimon fights CLARITY Act passage"
   ],
-  "reasoning": "Bitcoin faces a critical technical breakdown risk with massive institutional outflows ($3B in 10 days) and analyst warnings of a $65K floor, offset only partially by regulatory progress on perpetual futures and potential CLARITY Act passage. The confluence of technical weakness, institutional capitulation signals, and macro uncertainty outweighs incremental regulatory wins, creating a high-risk, low-reward setup for swing traders over the next 7 days.",
-  "risks": "A breakdown below $65K support could cascade into $60K-$62K if spot ETF outflows accelerate and technical selling accelerates momentum downside.",
+  "reasoning": "Mixed macro signals with elevated bullish sentiment historically preceding pullbacks, combined with weak volume support despite dip buying activity, creates a precarious setup. Positive regulatory developments (Coinbase perps approval, Vietnam SME collateral proposal, CLARITY Act progress) are offset by technical weakness and high sentiment risk warnings from established on-chain analysts.",
+  "risks": "Extreme bullish sentiment combined with low volume support suggests vulnerability to sharp 5-8% pullback toward $65K support within the 1-7 day window if macro headwinds accelerate or leverage unwinds.",
   "article_count": 36
 }
