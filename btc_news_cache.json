@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-31T11:01:41.7820588Z",
+  "timestamp": "2026-05-31T16:01:51.5110315Z",
   "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin sentiment reaches most 'lopsided positive' ratio for 2026: Santiment warns of historical pullbacks after bullish spikes",
-    "Bitcoin dip buyers present but low volume lacking size to reverse downtrend; $65K downside risk looms",
-    "CFTC approves Coinbase for global crypto perps trading and JPMorgan's Dimon fights CLARITY Act passage"
+    "Bitcoin sentiment reaches most 'lopsided positive' ratio for 2026 with historical warning of pullbacks",
+    "Bitcoin's 114-day consolidation set to end with 20% move this week but volumes lack strength to reverse downtrend",
+    "New US inflation report shows headline PCE at 3.8% YoY, hottest in two years, limiting Fed rate cuts"
   ],
-  "reasoning": "Mixed macro signals with elevated bullish sentiment historically preceding pullbacks, combined with weak volume support despite dip buying activity, creates a precarious setup. Positive regulatory developments (Coinbase perps approval, Vietnam SME collateral proposal, CLARITY Act progress) are offset by technical weakness and high sentiment risk warnings from established on-chain analysts.",
-  "risks": "Extreme bullish sentiment combined with low volume support suggests vulnerability to sharp 5-8% pullback toward $65K support within the 1-7 day window if macro headwinds accelerate or leverage unwinds.",
+  "reasoning": "Bitcoin shows contradictory signals: strong holder accumulation and $78K-$101K upside targets are offset by dangerously high sentiment extremes historically preceding pullbacks, weak spot/futures volumes despite dip buying, and rising inflation pressuring macro conditions. The imminent volatility breakout could go either direction given the 114-day consolidation, creating elevated risk for swing traders.",
+  "risks": "Extreme positive sentiment combined with weak volume confirmation suggests a sharp correction could occur if Bitcoin fails to break above $78K resistance, potentially triggering liquidations given leverage positioned at range highs.",
   "article_count": 36
 }
