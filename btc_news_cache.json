@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-30T21:01:39.3228830Z",
-  "score": 1,
-  "sentiment": "neutral",
-  "recommendation": "proceed",
+  "timestamp": "2026-05-31T02:01:35.5477899Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Spot Bitcoin ETFs see record 10-day outflow streak of $3B, but analyst calls it 'contrarian indicator'",
-    "CFTC approves first US-listed Bitcoin perpetual futures, expanding institutional access",
-    "Bitcoin 200-week MA crosses $61K with growing technical strength despite near-term selling pressure"
+    "Spot Bitcoin ETFs see record 10-day outflow streak totaling nearly $3 billion",
+    "Bitcoin is at 'pivotal level' as $65K downside risk looms",
+    "The Fed's rate lever is breaking as bond markets stop following its lead"
   ],
-  "reasoning": "The headline outflows from spot ETFs are offset by their characterization as contrarian bullish signals, while new regulatory approvals for Bitcoin perps expand institutional infrastructure positively. However, significant capital outflows ($40B+), whale selling pressure, and ongoing negative sentiment from traditional finance leaders like Jamie Dimon create headwinds that prevent a strongly bullish outlook.",
-  "risks": "Continued ETF redemptions could accelerate if Bitcoin fails to hold key support levels, triggering technical breakdown below $73K and cascading liquidations in leveraged positions.",
+  "reasoning": "Institutional outflows from spot Bitcoin ETFs combined with technical breakdown signals and macro uncertainty around Fed policy create near-term downside pressure. Regulatory progress (CLARITY Act, CFTC perp approval) provides some long-term support but insufficient to offset current momentum deterioration and $65K support test risk.",
+  "risks": "Record ETF outflows coupled with $65K support level breach could trigger capitulation selling and liquidations that accelerate downside toward $60K-62K range within 1-7 days.",
   "article_count": 36
 }
