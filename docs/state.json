@@ -7,13 +7,13 @@
   "highest_price": 0.0,
   "last_signal": "WATCH: RSI not yet turning up (BEAR confirmation)",
   "last_action": "none",
-  "last_run": "2026-05-31T00:01:34.9042515Z",
+  "last_run": "2026-05-31T01:01:35.0710010Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 73819.48,
+  "btc_price": 73982.01,
   "rsi": 32.5,
-  "sma200": 77983.93,
-  "dip_pct": 5.36,
+  "sma200": 77984.74,
+  "dip_pct": 5.15,
   "fng_value": 28,
   "news_score": 1,
   "partial_target": 0,
@@ -50,9 +50,9 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.0,
-  "rl_action": "NONE",
-  "rl_override": false,
+  "rl_confidence": 0.6,
+  "rl_action": "SELL_PARTIAL",
+  "rl_override": true,
   "last_stopout": "",
   "last_action_time": "",
   "watchdog_boost_active": true,
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 0.34
+  "atr_pct_24h": 0.38
 }
