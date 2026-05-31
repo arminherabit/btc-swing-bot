@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-31T16:01:51.5110315Z",
-  "score": -1,
-  "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-05-31T21:02:11.0881107Z",
+  "score": 4,
+  "sentiment": "bullish",
+  "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin sentiment reaches most 'lopsided positive' ratio for 2026 with historical warning of pullbacks",
-    "Bitcoin's 114-day consolidation set to end with 20% move this week but volumes lack strength to reverse downtrend",
-    "New US inflation report shows headline PCE at 3.8% YoY, hottest in two years, limiting Fed rate cuts"
+    "Michael Saylor/MicroStrategy teasing resumption of Bitcoin purchases after pause",
+    "CFTC approval of Bitcoin perpetual futures with institutional adoption (Kraken launch within month)",
+    "Bitcoin consolidation at key support with technical setup for 10-20% breakout move this week"
   ],
-  "reasoning": "Bitcoin shows contradictory signals: strong holder accumulation and $78K-$101K upside targets are offset by dangerously high sentiment extremes historically preceding pullbacks, weak spot/futures volumes despite dip buying, and rising inflation pressuring macro conditions. The imminent volatility breakout could go either direction given the 114-day consolidation, creating elevated risk for swing traders.",
-  "risks": "Extreme positive sentiment combined with weak volume confirmation suggests a sharp correction could occur if Bitcoin fails to break above $78K resistance, potentially triggering liquidations given leverage positioned at range highs.",
+  "reasoning": "Bitcoin is consolidating at strong holder cost-basis support with multiple institutional bullish catalysts emerging: MicroStrategy appears ready to resume large-scale accumulation, regulatory clarity via CFTC perp approval opens new institutional channels, and technical analysis suggests 114-day consolidation ready to resolve. The $1B Iran crypto seizure and potential Trump Bitcoin reserve add forward-looking support.",
+  "risks": "Elevated inflation data (PCE at 3.8% YoY) could trigger Fed policy concerns and risk-off sentiment; Bitcoin closing May down 3.5% shows current momentum weakness; JPMorgan's Jamie Dimon publicly opposing crypto clarity act signals banking sector resistance to institutional adoption.",
   "article_count": 36
 }
