@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-05-31T21:02:11.0881107Z",
-  "score": 4,
+  "timestamp": "2026-06-01T02:01:40.6484196Z",
+  "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Michael Saylor/MicroStrategy teasing resumption of Bitcoin purchases after pause",
-    "CFTC approval of Bitcoin perpetual futures with institutional adoption (Kraken launch within month)",
-    "Bitcoin consolidation at key support with technical setup for 10-20% breakout move this week"
+    "Bitcoin preps for breakout with 114-day consolidation ending in 20% move this week",
+    "Strategy's Michael Saylor teases BTC buy resumption after pause",
+    "CFTC approves Bitcoin perpetual futures contracts expanding institutional access"
   ],
-  "reasoning": "Bitcoin is consolidating at strong holder cost-basis support with multiple institutional bullish catalysts emerging: MicroStrategy appears ready to resume large-scale accumulation, regulatory clarity via CFTC perp approval opens new institutional channels, and technical analysis suggests 114-day consolidation ready to resolve. The $1B Iran crypto seizure and potential Trump Bitcoin reserve add forward-looking support.",
-  "risks": "Elevated inflation data (PCE at 3.8% YoY) could trigger Fed policy concerns and risk-off sentiment; Bitcoin closing May down 3.5% shows current momentum weakness; JPMorgan's Jamie Dimon publicly opposing crypto clarity act signals banking sector resistance to institutional adoption.",
+  "reasoning": "Multiple bullish catalysts converge: historically low volatility suggests imminent breakout, major institutional player signaling renewed accumulation, and regulatory approval expanding derivatives market access all point to upside momentum. Technical setup shows Bitcoin defending key support levels with record long-term holder accumulation despite price decline, indicating strong conviction from sophisticated players.",
+  "risks": "Inflation remaining elevated at 3.8% YoY PCE could prompt Fed hawkishness that derails risk assets, and geopolitical tensions (Iran sanctions, Russia crypto) create headline risk for sharp reversals.",
   "article_count": 36
 }
