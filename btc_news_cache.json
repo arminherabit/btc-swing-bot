@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-01T07:01:42.6929501Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-01T12:01:41.0012956Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin preps 3% May downside, but US PMI data may boost BTC price",
-    "Bitcoin's 114-Day Sideways Drift Set to End With 20% Move This Week - high volatility breakout imminent",
-    "New US inflation report leaves Bitcoin with a problem - PCE inflation at 3.8% year-on-year, hottest in 2 years"
+    "Bitcoin ETF Losses Near $3B Across 10 Days as YTD Flows Turn Negative",
+    "Bitcoin Price Teeters Near The Edge As Bears Eye Another Breakdown",
+    "New US inflation report leaves Bitcoin with a problem the Fed cannot solve yet"
   ],
-  "reasoning": "Mixed signals dominate: bearish technical weakness (May down 3.5%, consolidating near support at $72,500) and hot inflation data (3.8% PCE) conflict with bullish institutional catalysts (Michael Saylor buy signals, CFTC perpetual futures approval, $1B Iran seizure supporting potential Trump Bitcoin reserve). Bitcoin sits at a critical inflection point with historical volatility compression suggesting an imminent 10-20% directional move but direction remains uncertain.",
-  "risks": "Breakdown below $72,500 support combined with sustained high inflation forcing Fed hawkishness could trigger a sharp 10-15% correction despite positive regulatory developments.",
+  "reasoning": "Multiple headwinds are pressuring BTC: 10-day consecutive ETF outflows totaling ~$3B, price breakdown below key support levels ($73,800-$72,500), and elevated inflation data (3.8% PCE YoY) limiting near-term Fed rate cut expectations. Positive regulatory developments (Coinbase India, CFTC futures approval) are being overwhelmed by macro concerns and technical weakness suggesting further downside risk.",
+  "risks": "If Bitcoin closes below $72,500 support, algorithmic selling and liquidation cascades could trigger a sharp breakdown toward $70,000, particularly given the sustained institutional outflow pattern.",
   "article_count": 36
 }
