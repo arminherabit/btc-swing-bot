@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-06-01T21:17:36.709943+00:00",
+  "status": "DEGRADED",
+  "flags": [
+    "TOO_FEW_TRADES: 2 < 3 in validation"
+  ],
+  "win_rate": 100.0,
+  "alpha_pct": -0.05,
+  "n_trades": 2,
+  "total_return": 0.31,
+  "bah_return": 0.36,
+  "trained_at": "2026-06-01T20:57:41.967584+00:00",
+  "timesteps": 2000000,
+  "win_rate_delta": null,
+  "alpha_delta": null
+}
