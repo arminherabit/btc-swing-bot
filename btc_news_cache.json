@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-01T16:01:55.9304178Z",
-  "score": -4,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-06-01T21:01:42.9922757Z",
+  "score": 2,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "Strategy (MSTR) sells 32 BTC for first time since 2022, breaking HODL streak and signaling institutional weakness",
-    "Bitcoin falls to 2-month low as $1.67B institutional crypto exodus accelerates with negative ETF flows",
-    "Mystery whale exits $1.26B BlackRock Bitcoin ETF position before market decline, suggesting insider weakness"
+    "CME Group Goes Live With 24/7 Crypto Futures and Options, Launches Bitcoin Volatility Contracts",
+    "Japan's ruling party pushes crypto ETFs, yen-denominated stablecoins",
+    "Strategy's BTC sale turns Bitcoin treasury into market stress test"
   ],
-  "reasoning": "Multiple institutional selling signals converge at a critical moment: Strategy's first BTC sale since 2022, massive whale ETF exit, and sustained $1.67B institutional outflows create bearish momentum. The breakdown of the spring rally narrative combined with negative macro positioning suggests further downside pressure over the next week.",
-  "risks": "Continued institutional liquidations and capitulation selling could accelerate downward price action, particularly if BTC breaks below key support levels, potentially triggering cascading leveraged position closures.",
+  "reasoning": "Regulatory tailwinds from Japan and CME infrastructure expansion support medium-term adoption, but near-term sentiment is mixed by institutional profit-taking (Strategy sale, $30M BlackRock ETF exit) and technical weakness suggesting Bitcoin remains range-bound between $60-70K. Macro uncertainty from 4-year cycle concerns and ETH whale liquidations create headwinds offsetting positive regulatory developments.",
+  "risks": "A breakdown below $60K support could trigger cascade liquidations and validate the bearish 4-year cycle theory cited by multiple analysts, accelerating downside momentum.",
   "article_count": 36
 }
