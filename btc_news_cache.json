@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-01T12:01:41.0012956Z",
+  "timestamp": "2026-06-01T16:01:55.9304178Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin ETF Losses Near $3B Across 10 Days as YTD Flows Turn Negative",
-    "Bitcoin Price Teeters Near The Edge As Bears Eye Another Breakdown",
-    "New US inflation report leaves Bitcoin with a problem the Fed cannot solve yet"
+    "Strategy (MSTR) sells 32 BTC for first time since 2022, breaking HODL streak and signaling institutional weakness",
+    "Bitcoin falls to 2-month low as $1.67B institutional crypto exodus accelerates with negative ETF flows",
+    "Mystery whale exits $1.26B BlackRock Bitcoin ETF position before market decline, suggesting insider weakness"
   ],
-  "reasoning": "Multiple headwinds are pressuring BTC: 10-day consecutive ETF outflows totaling ~$3B, price breakdown below key support levels ($73,800-$72,500), and elevated inflation data (3.8% PCE YoY) limiting near-term Fed rate cut expectations. Positive regulatory developments (Coinbase India, CFTC futures approval) are being overwhelmed by macro concerns and technical weakness suggesting further downside risk.",
-  "risks": "If Bitcoin closes below $72,500 support, algorithmic selling and liquidation cascades could trigger a sharp breakdown toward $70,000, particularly given the sustained institutional outflow pattern.",
+  "reasoning": "Multiple institutional selling signals converge at a critical moment: Strategy's first BTC sale since 2022, massive whale ETF exit, and sustained $1.67B institutional outflows create bearish momentum. The breakdown of the spring rally narrative combined with negative macro positioning suggests further downside pressure over the next week.",
+  "risks": "Continued institutional liquidations and capitulation selling could accelerate downward price action, particularly if BTC breaks below key support levels, potentially triggering cascading leveraged position closures.",
   "article_count": 36
 }
