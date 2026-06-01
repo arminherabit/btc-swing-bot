@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-01T02:01:40.6484196Z",
-  "score": 6,
-  "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-06-01T07:01:42.6929501Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin preps for breakout with 114-day consolidation ending in 20% move this week",
-    "Strategy's Michael Saylor teases BTC buy resumption after pause",
-    "CFTC approves Bitcoin perpetual futures contracts expanding institutional access"
+    "Bitcoin preps 3% May downside, but US PMI data may boost BTC price",
+    "Bitcoin's 114-Day Sideways Drift Set to End With 20% Move This Week - high volatility breakout imminent",
+    "New US inflation report leaves Bitcoin with a problem - PCE inflation at 3.8% year-on-year, hottest in 2 years"
   ],
-  "reasoning": "Multiple bullish catalysts converge: historically low volatility suggests imminent breakout, major institutional player signaling renewed accumulation, and regulatory approval expanding derivatives market access all point to upside momentum. Technical setup shows Bitcoin defending key support levels with record long-term holder accumulation despite price decline, indicating strong conviction from sophisticated players.",
-  "risks": "Inflation remaining elevated at 3.8% YoY PCE could prompt Fed hawkishness that derails risk assets, and geopolitical tensions (Iran sanctions, Russia crypto) create headline risk for sharp reversals.",
+  "reasoning": "Mixed signals dominate: bearish technical weakness (May down 3.5%, consolidating near support at $72,500) and hot inflation data (3.8% PCE) conflict with bullish institutional catalysts (Michael Saylor buy signals, CFTC perpetual futures approval, $1B Iran seizure supporting potential Trump Bitcoin reserve). Bitcoin sits at a critical inflection point with historical volatility compression suggesting an imminent 10-20% directional move but direction remains uncertain.",
+  "risks": "Breakdown below $72,500 support combined with sustained high inflation forcing Fed hawkishness could trigger a sharp 10-15% correction despite positive regulatory developments.",
   "article_count": 36
 }
