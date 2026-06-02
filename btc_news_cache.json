@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-02T06:02:02.5764348Z",
-  "score": -1,
+  "timestamp": "2026-06-02T11:01:41.0671480Z",
+  "score": -2,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin bulls eye fresh positions after BTC price drops under $71K -- early bullish positioning in BTC derivatives may signal recovery start",
-    "Mystery whale paid $30M to exit BlackRock Bitcoin ETF before market fell -- largest single off-exchange trade in US spot Bitcoin ETF history",
-    "CME Group launches 24/7 crypto futures and options with Bitcoin volatility contracts -- institutional infrastructure expansion"
+    "Bitcoin price falls under $70K as crypto markets liquidate $800M - fresh two-month lows and 200-day MA breakdown",
+    "Mt. Gox moves $739M in Bitcoin raising speculation about imminent creditor distributions - potential selling pressure",
+    "Strive and Strategy corporate treasury activity shows institutional accumulation continuing despite price weakness"
   ],
-  "reasoning": "Bitcoin is caught between institutional accumulation signals (Bitmine's $52M ETH buy, Strive's $4.2B Bitcoin war chest, derivative positioning) and concerning smart money exits (BlackRock ETF whale selling $1.26B position preemptively). The market shows mixed conviction with price rejected at $71K and early technical recovery attempts offset by regulatory uncertainty and macroeconomic headwinds versus equities.",
-  "risks": "Analyst forecasts of Bitcoin dropping below $61K combined with the well-timed institutional exit before recent selloff suggests informed money is rotating out ahead of further downside in the 1-7 day window.",
+  "reasoning": "Near-term technicals are bearish with BTC breaking two-month lows and facing significant liquidations, but this is partly offset by strong institutional accumulation signals from Strive's $4.2B expansion plans and regulatory tailwinds (CLARITY Act, CME 24/7 trading). The Mt. Gox wallet movement introduces distribution risk that could create selling pressure in the 1-7 day window.",
+  "risks": "Mt. Gox creditor distributions could trigger 500K+ BTC seller pressure if distributions accelerate, combined with BTC's current technical breakdown below $70K creating stop-loss cascades.",
   "article_count": 36
 }
