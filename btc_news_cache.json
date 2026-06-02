@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-01T21:01:42.9922757Z",
-  "score": 2,
+  "timestamp": "2026-06-02T02:01:38.3992894Z",
+  "score": -1,
   "sentiment": "neutral",
-  "recommendation": "proceed",
+  "recommendation": "reduce_size",
   "key_items": [
-    "CME Group Goes Live With 24/7 Crypto Futures and Options, Launches Bitcoin Volatility Contracts",
-    "Japan's ruling party pushes crypto ETFs, yen-denominated stablecoins",
-    "Strategy's BTC sale turns Bitcoin treasury into market stress test"
+    "Bitcoin volatility down 56% with 114-day range suggests 10-20% move but direction uncertain",
+    "Early bullish derivatives positioning after BTC drop below $71K signals potential recovery attempt",
+    "Institutional headwinds: Mystery whale exited $1.26B BlackRock Bitcoin ETF position before market decline"
   ],
-  "reasoning": "Regulatory tailwinds from Japan and CME infrastructure expansion support medium-term adoption, but near-term sentiment is mixed by institutional profit-taking (Strategy sale, $30M BlackRock ETF exit) and technical weakness suggesting Bitcoin remains range-bound between $60-70K. Macro uncertainty from 4-year cycle concerns and ETH whale liquidations create headwinds offsetting positive regulatory developments.",
-  "risks": "A breakdown below $60K support could trigger cascade liquidations and validate the bearish 4-year cycle theory cited by multiple analysts, accelerating downside momentum.",
+  "reasoning": "Bitcoin faces conflicting signals with technical setup favoring a directional breakout but macro conditions deteriorating—bullish on-chain positioning and regulatory progress (CLARITY Act, Japan ETFs) are offset by institutional selling pressure and S&P 500 outperformance reducing risk appetite. The 56% volatility compression into a multi-month consolidation creates binary risk with no clear catalyst directing the next 10-20% move in either direction over the 1-7 day swing window.",
+  "risks": "Continued institutional liquidation from Bitcoin treasury companies and ETF outflows combined with weakening equities correlation could trigger a cascade below $70,500 support, negating the early derivatives bullish setup.",
   "article_count": 36
 }
