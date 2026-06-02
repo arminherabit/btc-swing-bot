@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-02T16:01:51.3852461Z",
+  "timestamp": "2026-06-02T20:02:03.1415699Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin Price Crashes to $67,000 Range, Down 13% in a Week Amid ETF Outflows and Market Fears",
     "Mt. Gox Moves 10,422 Bitcoin While Bitcoin Price Craters Below $69,000",
-    "Bitcoin Traders Flip Bearish as BTC Falls to Lowest Price in Months"
+    "BlackRock Moves $425 Million in Another Bitcoin Sale"
   ],
-  "reasoning": "Bitcoin faces significant near-term headwinds from $400M+ in liquidations, major institutional selling (Strategy, BlackRock), Mt. Gox distribution pressure, and negative trader sentiment with price targets dropping to $55K. However, accumulation signals, institutional buying from Strive/Robinhood, improved regulatory clarity (CLARITY Act), and CME 24/7 trading infrastructure provide medium-term support that prevents a crash-level assessment.",
-  "risks": "Mt. Gox's 35,000 BTC remaining distribution and potential cascade selling if Bitcoin breaks below critical $67K support could trigger capitulation-style selling across leveraged positions.",
+  "reasoning": "Bitcoin is experiencing significant technical breakdown with a 13% weekly decline, death cross formation, and substantial institutional selling pressure from both Mt. Gox liquidations and BlackRock deposit activity creating negative momentum. Offsetting factors include strategic accumulation by Strive (+$185M in BTC), bullish whale positioning on Bitfinex, and pro-crypto political tailwinds (Trump administration appointments), but near-term technical damage and ETF outflows dominate the 1-7 day outlook.",
+  "risks": "Mt. Gox's scheduled 2026 repayments could trigger sustained selling pressure as the market absorbs the reality of ~141,686 BTC flowing to creditors, potentially cascading liquidations if BTC breaks below $65,000 support levels.",
   "article_count": 36
 }
