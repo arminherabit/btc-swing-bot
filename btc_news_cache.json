@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-02T02:01:38.3992894Z",
+  "timestamp": "2026-06-02T06:02:02.5764348Z",
   "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin volatility down 56% with 114-day range suggests 10-20% move but direction uncertain",
-    "Early bullish derivatives positioning after BTC drop below $71K signals potential recovery attempt",
-    "Institutional headwinds: Mystery whale exited $1.26B BlackRock Bitcoin ETF position before market decline"
+    "Bitcoin bulls eye fresh positions after BTC price drops under $71K -- early bullish positioning in BTC derivatives may signal recovery start",
+    "Mystery whale paid $30M to exit BlackRock Bitcoin ETF before market fell -- largest single off-exchange trade in US spot Bitcoin ETF history",
+    "CME Group launches 24/7 crypto futures and options with Bitcoin volatility contracts -- institutional infrastructure expansion"
   ],
-  "reasoning": "Bitcoin faces conflicting signals with technical setup favoring a directional breakout but macro conditions deteriorating—bullish on-chain positioning and regulatory progress (CLARITY Act, Japan ETFs) are offset by institutional selling pressure and S&P 500 outperformance reducing risk appetite. The 56% volatility compression into a multi-month consolidation creates binary risk with no clear catalyst directing the next 10-20% move in either direction over the 1-7 day swing window.",
-  "risks": "Continued institutional liquidation from Bitcoin treasury companies and ETF outflows combined with weakening equities correlation could trigger a cascade below $70,500 support, negating the early derivatives bullish setup.",
+  "reasoning": "Bitcoin is caught between institutional accumulation signals (Bitmine's $52M ETH buy, Strive's $4.2B Bitcoin war chest, derivative positioning) and concerning smart money exits (BlackRock ETF whale selling $1.26B position preemptively). The market shows mixed conviction with price rejected at $71K and early technical recovery attempts offset by regulatory uncertainty and macroeconomic headwinds versus equities.",
+  "risks": "Analyst forecasts of Bitcoin dropping below $61K combined with the well-timed institutional exit before recent selloff suggests informed money is rotating out ahead of further downside in the 1-7 day window.",
   "article_count": 36
 }
