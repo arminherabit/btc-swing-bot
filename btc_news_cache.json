@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-02T11:01:41.0671480Z",
-  "score": -2,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-02T16:01:51.3852461Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin price falls under $70K as crypto markets liquidate $800M - fresh two-month lows and 200-day MA breakdown",
-    "Mt. Gox moves $739M in Bitcoin raising speculation about imminent creditor distributions - potential selling pressure",
-    "Strive and Strategy corporate treasury activity shows institutional accumulation continuing despite price weakness"
+    "Bitcoin Price Crashes to $67,000 Range, Down 13% in a Week Amid ETF Outflows and Market Fears",
+    "Mt. Gox Moves 10,422 Bitcoin While Bitcoin Price Craters Below $69,000",
+    "Bitcoin Traders Flip Bearish as BTC Falls to Lowest Price in Months"
   ],
-  "reasoning": "Near-term technicals are bearish with BTC breaking two-month lows and facing significant liquidations, but this is partly offset by strong institutional accumulation signals from Strive's $4.2B expansion plans and regulatory tailwinds (CLARITY Act, CME 24/7 trading). The Mt. Gox wallet movement introduces distribution risk that could create selling pressure in the 1-7 day window.",
-  "risks": "Mt. Gox creditor distributions could trigger 500K+ BTC seller pressure if distributions accelerate, combined with BTC's current technical breakdown below $70K creating stop-loss cascades.",
+  "reasoning": "Bitcoin faces significant near-term headwinds from $400M+ in liquidations, major institutional selling (Strategy, BlackRock), Mt. Gox distribution pressure, and negative trader sentiment with price targets dropping to $55K. However, accumulation signals, institutional buying from Strive/Robinhood, improved regulatory clarity (CLARITY Act), and CME 24/7 trading infrastructure provide medium-term support that prevents a crash-level assessment.",
+  "risks": "Mt. Gox's 35,000 BTC remaining distribution and potential cascade selling if Bitcoin breaks below critical $67K support could trigger capitulation-style selling across leveraged positions.",
   "article_count": 36
 }
