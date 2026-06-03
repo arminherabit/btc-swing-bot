@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-03T10:01:47.9244924Z",
+  "timestamp": "2026-06-03T15:01:49.9923836Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin falls below $66K as US and Iran launch new strikes with $4,500 single-day drop",
-    "Strategy (MSTR) sells significant Bitcoin position, triggering $428M in long liquidations and ETF outflows",
-    "Bitcoin flash crash below $68K triggers $400M in liquidations; traders hedging against $50K downside"
+    "Bitcoin's crash to $65K triggers $1.8B in crypto liquidations with $60K support test looming",
+    "Bitcoin has hit 'max fear' below $67K as MSTR plummets from Saylor's first Bitcoin sale in years",
+    "Bitcoin flash crash below $68,000 triggers $400M in liquidations in under an hour amid cascading leverage unwinding"
   ],
-  "reasoning": "Multiple bearish catalysts are converging: geopolitical tensions (Iran strikes), major institutional selling (MSTR), significant liquidation cascades, and a clear shift from accumulation to defensive positioning. The $50K hedging bets and repeated breaks below key support levels ($70K, $68K, $66K) suggest momentum is decisively downward with technical breakdown confirmed.",
-  "risks": "Continued geopolitical escalation combined with further institutional capitulation could trigger capitulatory liquidations cascading below $60K support, while quantum computing threats and regulatory crackdowns add systemic headwinds.",
+  "reasoning": "Bitcoin is experiencing significant technical breakdown below key support levels with extreme fear sentiment and cascading liquidations totaling $2.2B+ across multiple episodes, indicating genuine selling pressure and risk of further capitulation toward $60K. Positive regulatory developments (Mastercard stablecoin expansion, Charles Schwab 24/7 futures) and long-term institutional interest are offset by acute near-term weakness driven by forced deleveraging and Mt. Gox distribution concerns.",
+  "risks": "Further capitulation toward $60,000 support could trigger additional $2-3B in liquidations if technical breaks accelerate market structure weakness.",
   "article_count": 36
 }
