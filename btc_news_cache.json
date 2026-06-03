@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-03T01:01:42.2473810Z",
+  "timestamp": "2026-06-03T06:01:41.0765336Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin crashes to $67K range, down 13% in a week amid ETF outflows and Mt. Gox selling pressure",
-    "Strategy (MSTR) reports first BTC sale in years, triggering $400M liquidations and institutional confidence loss",
-    "Political headwinds: Sanders, Warren push Labor Department to block crypto 401(k)s, while regulatory uncertainty persists despite SEC's strategic priority announcement"
+    "Bitcoin crashes to $67K range, down 13% in a week amid $1.5B in liquidations and ETF/institutional outflows",
+    "Strategy (MSTR) sells major Bitcoin position, triggering $400M in flash crash liquidations below $68K",
+    "BlackRock and other institutional holders making significant Bitcoin sales, signaling reduced institutional demand"
   ],
-  "reasoning": "Bitcoin faces a confluence of bearish technical and institutional pressures: major liquidations below $68K, significant ETF outflows, Strategy's symbolic BTC sale signaling reduced institutional conviction, and Mt. Gox transfer concerns. While some positive catalysts exist (SEC strategic framework, Charles Schwab's 2027 crypto trading launch, whale accumulation), the near-term technical damage and negative regulatory sentiment from high-profile Democrats outweigh bullish factors.",
-  "risks": "Continued Mt. Gox liquidations, further institutional capitulation (similar to Strategy's sale), and a macroeconomic shock from weak jobs data on Friday could accelerate Bitcoin toward mid-$60K support levels within the 1-7 day window.",
+  "reasoning": "Near-term bearish pressure dominates as major institutional holders (Strategy, BlackRock) liquidate positions, triggering cascading liquidations and ETF outflows that have pushed BTC down 13% weekly. Regulatory headwinds (SEC stablecoin rules, Labor Department crypto restrictions, quantum computing threats) and macro uncertainty around jobs data create additional downside catalysts over the next 1-7 days.",
+  "risks": "Further institutional capitulation and potential breakdown below $67K support level could accelerate liquidations toward $65K, particularly if upcoming US jobs data disappoints and triggers broader risk-off sentiment.",
   "article_count": 36
 }
