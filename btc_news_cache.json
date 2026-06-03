@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-03T06:01:41.0765336Z",
+  "timestamp": "2026-06-03T10:01:47.9244924Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin crashes to $67K range, down 13% in a week amid $1.5B in liquidations and ETF/institutional outflows",
-    "Strategy (MSTR) sells major Bitcoin position, triggering $400M in flash crash liquidations below $68K",
-    "BlackRock and other institutional holders making significant Bitcoin sales, signaling reduced institutional demand"
+    "Bitcoin falls below $66K as US and Iran launch new strikes with $4,500 single-day drop",
+    "Strategy (MSTR) sells significant Bitcoin position, triggering $428M in long liquidations and ETF outflows",
+    "Bitcoin flash crash below $68K triggers $400M in liquidations; traders hedging against $50K downside"
   ],
-  "reasoning": "Near-term bearish pressure dominates as major institutional holders (Strategy, BlackRock) liquidate positions, triggering cascading liquidations and ETF outflows that have pushed BTC down 13% weekly. Regulatory headwinds (SEC stablecoin rules, Labor Department crypto restrictions, quantum computing threats) and macro uncertainty around jobs data create additional downside catalysts over the next 1-7 days.",
-  "risks": "Further institutional capitulation and potential breakdown below $67K support level could accelerate liquidations toward $65K, particularly if upcoming US jobs data disappoints and triggers broader risk-off sentiment.",
+  "reasoning": "Multiple bearish catalysts are converging: geopolitical tensions (Iran strikes), major institutional selling (MSTR), significant liquidation cascades, and a clear shift from accumulation to defensive positioning. The $50K hedging bets and repeated breaks below key support levels ($70K, $68K, $66K) suggest momentum is decisively downward with technical breakdown confirmed.",
+  "risks": "Continued geopolitical escalation combined with further institutional capitulation could trigger capitulatory liquidations cascading below $60K support, while quantum computing threats and regulatory crackdowns add systemic headwinds.",
   "article_count": 36
 }
