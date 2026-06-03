@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-03T15:01:49.9923836Z",
+  "timestamp": "2026-06-03T20:01:59.1592664Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin's crash to $65K triggers $1.8B in crypto liquidations with $60K support test looming",
-    "Bitcoin has hit 'max fear' below $67K as MSTR plummets from Saylor's first Bitcoin sale in years",
-    "Bitcoin flash crash below $68,000 triggers $400M in liquidations in under an hour amid cascading leverage unwinding"
+    "Bitcoin copying 2022 bear market 'almost perfectly' with key support failing",
+    "Mt. Gox moved $739M in BTC while market under stress, triggering liquidation fears",
+    "Bitcoin plunged to $65K with traders hedging against $50K drop; macro headwinds (oil, bonds, USD strength) intensifying"
   ],
-  "reasoning": "Bitcoin is experiencing significant technical breakdown below key support levels with extreme fear sentiment and cascading liquidations totaling $2.2B+ across multiple episodes, indicating genuine selling pressure and risk of further capitulation toward $60K. Positive regulatory developments (Mastercard stablecoin expansion, Charles Schwab 24/7 futures) and long-term institutional interest are offset by acute near-term weakness driven by forced deleveraging and Mt. Gox distribution concerns.",
-  "risks": "Further capitulation toward $60,000 support could trigger additional $2-3B in liquidations if technical breaks accelerate market structure weakness.",
+  "reasoning": "Multiple technical breakdown signals combined with macro headwinds (rising oil/yields, USD strength) and Mt. Gox movement creating forced liquidation pressure are outweighing positive catalysts like Mastercard stablecoin adoption and potential institutional accumulation. Near-term price action appears vulnerable with key support levels failing and liquidation cascades suggesting momentum to the downside.",
+  "risks": "Bitcoin breaking below $65K support level with $50K now a realistic hedge target if macro conditions (USD, Treasury yields) continue deteriorating; Mt. Gox distribution could accelerate selling pressure.",
   "article_count": 36
 }
