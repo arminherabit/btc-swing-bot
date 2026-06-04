@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T06:01:40.7495383Z",
+  "timestamp": "2026-06-04T10:01:47.8501260Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin plunges below $62,000 with $792M in liquidations as short-term holder stress peaks",
-    "Mt. Gox moves $739M in BTC while market under stress, triggering fear of capitulation selling",
-    "Treasury Secretary Bessent signals progress on strategic Bitcoin reserve and CLARITY Act passage"
+    "Bitcoin price crashed below $62K-$65K range with $600M in longs liquidated, testing support levels not seen since February",
+    "Mt. Gox moving $739M in BTC and legendary chartist Peter Brandt warning of potential 'terminal wash-out' with no bottom until October",
+    "Momentum rotating away from Bitcoin into AI/IPO tokens (Worldcoin, other alts) while macro uncertainty and regulatory headwinds persist"
   ],
-  "reasoning": "Bitcoin is in acute downward pressure with technical breakdown below critical support levels ($65K-$66K), massive liquidations cascading through leveraged positions, and Mt. Gox wallet movements adding seller uncertainty at a vulnerable moment. Counterbalancing bullish regulatory catalysts (strategic reserve, CLARITY Act progress, Revolut stablecoins, Mastercard integration) are being overwhelmed by immediate selling pressure and $60K becoming the next critical battleground in a market rotting toward capitulation.",
-  "risks": "Cascade liquidations accelerating below $60K could trigger panic selling that rapidly tests $50K support as short-term holders reach maximum stress levels and forced unwinding spreads through derivatives markets.",
+  "reasoning": "Multiple technical breakdown signals combined with large whale movements (Mt. Gox liquidations) and negative sentiment from respected analysts indicate sustained downside pressure over the next 1-7 days. The $600M liquidation cascade and loss of key support levels suggest short-term relief bounces toward $70K will face heavy selling, keeping BTC trapped in a bearish structural setup.",
+  "risks": "If Mt. Gox continues dumping BTC or if key support breaks below $62K, capitulation selling could accelerate toward $55K-$58K range, violating multiple months of recovery gains and triggering panic liquidations.",
   "article_count": 36
 }
