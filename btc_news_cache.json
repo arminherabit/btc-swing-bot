@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T19:49:22.1315072Z",
+  "timestamp": "2026-06-04T23:57:31.5267721Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin breaks below $62,000 as $2 trillion erased from crypto market cap with sellers maintaining control",
-    "Capital rotation into AI infrastructure represents $400 billion shift away from Bitcoin, pressuring BTC price",
-    "Standard Chartered identifies three triggers for new Bitcoin lows while miners face $11B+ paper losses alongside major holders"
+    "Bitcoin fell 21% after Strategy's debt buyback news with $60K support level being tested",
+    "Professional investors dumped 52K BTC in Q1 as capital rotates to AI, creating institutional outflows",
+    "Bitcoin Fear Index at 12 (fire sale territory) matching FTX crash levels, with $2T market cap erasure"
   ],
-  "reasoning": "Bitcoin faces a sharp near-term headwind from sustained capital rotation into AI equities, with the $60K support level under acute pressure and major holders like MicroStrategy recording massive unrealized losses that could trigger forced liquidation cascades. However, bullish structural catalysts including Fannie Mae-backed Bitcoin mortgages, miners pivoting to AI infrastructure monetization, and technical support near mining cost basis ($60K) suggest this bearish pressure may be temporary, preventing a -7 crash-level assessment.",
-  "risks": "A break below $60,000 support could trigger cascading liquidations and accelerate capital flight to AI equities, particularly if broader equity markets weaken and reduce risk appetite across all asset classes.",
+  "reasoning": "Bitcoin is experiencing significant institutional selling pressure amid capital rotation to AI infrastructure, with spot ETF outflows and the $60K mining cost level under assault. While some analysts cite wealth transfer and cycle bottom signals, the combination of ETF redemptions, Michael Saylor's forced liquidations breaking Strategy's buy-and-hold narrative, and extreme fear readings suggest further downside risk before stabilization.",
+  "risks": "Breakdown below $60K mining cost support could cascade liquidations and trigger a Terra Luna-style doom loop scenario as leveraged positions unwind across exchanges.",
   "article_count": 36
 }
