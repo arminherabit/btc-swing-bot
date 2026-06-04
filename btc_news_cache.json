@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-03T20:01:59.1592664Z",
-  "score": -5,
+  "timestamp": "2026-06-04T01:01:49.4244021Z",
+  "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin copying 2022 bear market 'almost perfectly' with key support failing",
-    "Mt. Gox moved $739M in BTC while market under stress, triggering liquidation fears",
-    "Bitcoin plunged to $65K with traders hedging against $50K drop; macro headwinds (oil, bonds, USD strength) intensifying"
+    "Bitcoin drops below $66,000 amid $4B ETF outflows in 12 days with mounting sell pressure",
+    "Mt. Gox moves $739M in BTC while market stressed, creating liquidation cascade fears",
+    "US Treasury signals progress on Bitcoin reserve (CLARITY Act) but stablecoin yield restrictions threaten DeFi ecosystem"
   ],
-  "reasoning": "Multiple technical breakdown signals combined with macro headwinds (rising oil/yields, USD strength) and Mt. Gox movement creating forced liquidation pressure are outweighing positive catalysts like Mastercard stablecoin adoption and potential institutional accumulation. Near-term price action appears vulnerable with key support levels failing and liquidation cascades suggesting momentum to the downside.",
-  "risks": "Bitcoin breaking below $65K support level with $50K now a realistic hedge target if macro conditions (USD, Treasury yields) continue deteriorating; Mt. Gox distribution could accelerate selling pressure.",
+  "reasoning": "Near-term bearish technicals dominate with BTC testing critical $60,000 support, heavy ETF outflows signaling institutional weakness, and Mt. Gox movements creating liquidation risks. However, positive regulatory signals (Trump's Bitcoin reserve, Treasury progress) provide structural support preventing a crash scenario, keeping sentiment firmly bearish rather than capitulation.",
+  "risks": "Mt. Gox's $739M BTC movement combined with existing $792M liquidations and 1,614% margin imbalances could cascade into a flash crash below $60,000 if support breaks.",
   "article_count": 36
 }
