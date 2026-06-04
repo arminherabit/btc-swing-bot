@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T10:01:47.8501260Z",
-  "score": -5,
+  "timestamp": "2026-06-04T15:02:00.2883344Z",
+  "score": -7,
   "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "recommendation": "block_trade",
   "key_items": [
-    "Bitcoin price crashed below $62K-$65K range with $600M in longs liquidated, testing support levels not seen since February",
-    "Mt. Gox moving $739M in BTC and legendary chartist Peter Brandt warning of potential 'terminal wash-out' with no bottom until October",
-    "Momentum rotating away from Bitcoin into AI/IPO tokens (Worldcoin, other alts) while macro uncertainty and regulatory headwinds persist"
+    "Bitcoin price crashes below $62,000 with 17% drop in 4 days triggering $4.5B in liquidations",
+    "Arthur Hayes dumps HYPE and NEAR, warns of AI IPO wave draining crypto liquidity before September peak",
+    "Mt. Gox moves $739M in BTC while market stressed; $623M in Bitcoin longs liquidated at 200-week moving average"
   ],
-  "reasoning": "Multiple technical breakdown signals combined with large whale movements (Mt. Gox liquidations) and negative sentiment from respected analysts indicate sustained downside pressure over the next 1-7 days. The $600M liquidation cascade and loss of key support levels suggest short-term relief bounces toward $70K will face heavy selling, keeping BTC trapped in a bearish structural setup.",
-  "risks": "If Mt. Gox continues dumping BTC or if key support breaks below $62K, capitulation selling could accelerate toward $55K-$58K range, violating multiple months of recovery gains and triggering panic liquidations.",
+  "reasoning": "Multiple converging bearish catalysts are creating downward momentum: massive capital rotation into AI/IPOs ($400B), major whale/insider selling (Arthur Hayes, Mt. Gox movements), technical breakdown at key 200-week support level ($61,700), and extreme liquidation pressure suggesting capitulation may not yet be complete. While some analysts see accumulation zones, the combination of liquidity drain, insider selling, and technical breakdown creates a swing-trade environment favoring shorts over the next 1-7 days.",
+  "risks": "Mt. Gox and large holder liquidations could accelerate sell pressure, potentially pushing Bitcoin toward $60,000 or lower if the 200-week moving average support breaks definitively.",
   "article_count": 36
 }
