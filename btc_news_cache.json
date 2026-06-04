@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T01:01:49.4244021Z",
-  "score": -4,
+  "timestamp": "2026-06-04T06:01:40.7495383Z",
+  "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin drops below $66,000 amid $4B ETF outflows in 12 days with mounting sell pressure",
-    "Mt. Gox moves $739M in BTC while market stressed, creating liquidation cascade fears",
-    "US Treasury signals progress on Bitcoin reserve (CLARITY Act) but stablecoin yield restrictions threaten DeFi ecosystem"
+    "Bitcoin plunges below $62,000 with $792M in liquidations as short-term holder stress peaks",
+    "Mt. Gox moves $739M in BTC while market under stress, triggering fear of capitulation selling",
+    "Treasury Secretary Bessent signals progress on strategic Bitcoin reserve and CLARITY Act passage"
   ],
-  "reasoning": "Near-term bearish technicals dominate with BTC testing critical $60,000 support, heavy ETF outflows signaling institutional weakness, and Mt. Gox movements creating liquidation risks. However, positive regulatory signals (Trump's Bitcoin reserve, Treasury progress) provide structural support preventing a crash scenario, keeping sentiment firmly bearish rather than capitulation.",
-  "risks": "Mt. Gox's $739M BTC movement combined with existing $792M liquidations and 1,614% margin imbalances could cascade into a flash crash below $60,000 if support breaks.",
+  "reasoning": "Bitcoin is in acute downward pressure with technical breakdown below critical support levels ($65K-$66K), massive liquidations cascading through leveraged positions, and Mt. Gox wallet movements adding seller uncertainty at a vulnerable moment. Counterbalancing bullish regulatory catalysts (strategic reserve, CLARITY Act progress, Revolut stablecoins, Mastercard integration) are being overwhelmed by immediate selling pressure and $60K becoming the next critical battleground in a market rotting toward capitulation.",
+  "risks": "Cascade liquidations accelerating below $60K could trigger panic selling that rapidly tests $50K support as short-term holders reach maximum stress levels and forced unwinding spreads through derivatives markets.",
   "article_count": 36
 }
