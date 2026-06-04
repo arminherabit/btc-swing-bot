@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T15:02:00.2883344Z",
-  "score": -7,
+  "timestamp": "2026-06-04T19:49:22.1315072Z",
+  "score": -5,
   "sentiment": "bearish",
-  "recommendation": "block_trade",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin price crashes below $62,000 with 17% drop in 4 days triggering $4.5B in liquidations",
-    "Arthur Hayes dumps HYPE and NEAR, warns of AI IPO wave draining crypto liquidity before September peak",
-    "Mt. Gox moves $739M in BTC while market stressed; $623M in Bitcoin longs liquidated at 200-week moving average"
+    "Bitcoin breaks below $62,000 as $2 trillion erased from crypto market cap with sellers maintaining control",
+    "Capital rotation into AI infrastructure represents $400 billion shift away from Bitcoin, pressuring BTC price",
+    "Standard Chartered identifies three triggers for new Bitcoin lows while miners face $11B+ paper losses alongside major holders"
   ],
-  "reasoning": "Multiple converging bearish catalysts are creating downward momentum: massive capital rotation into AI/IPOs ($400B), major whale/insider selling (Arthur Hayes, Mt. Gox movements), technical breakdown at key 200-week support level ($61,700), and extreme liquidation pressure suggesting capitulation may not yet be complete. While some analysts see accumulation zones, the combination of liquidity drain, insider selling, and technical breakdown creates a swing-trade environment favoring shorts over the next 1-7 days.",
-  "risks": "Mt. Gox and large holder liquidations could accelerate sell pressure, potentially pushing Bitcoin toward $60,000 or lower if the 200-week moving average support breaks definitively.",
+  "reasoning": "Bitcoin faces a sharp near-term headwind from sustained capital rotation into AI equities, with the $60K support level under acute pressure and major holders like MicroStrategy recording massive unrealized losses that could trigger forced liquidation cascades. However, bullish structural catalysts including Fannie Mae-backed Bitcoin mortgages, miners pivoting to AI infrastructure monetization, and technical support near mining cost basis ($60K) suggest this bearish pressure may be temporary, preventing a -7 crash-level assessment.",
+  "risks": "A break below $60,000 support could trigger cascading liquidations and accelerate capital flight to AI equities, particularly if broader equity markets weaken and reduce risk appetite across all asset classes.",
   "article_count": 36
 }
