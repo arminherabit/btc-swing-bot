@@ -7,13 +7,13 @@
   "highest_price": 0.0,
   "last_signal": "BLOCKED: News score -5 <= -5",
   "last_action": "none",
-  "last_run": "2026-06-04T23:57:23.2522604Z",
+  "last_run": "2026-06-05T00:01:44.2588574Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 63845.78,
-  "rsi": 70.7,
-  "sma200": 76771.03,
-  "dip_pct": 13.93,
+  "btc_price": 63784.62,
+  "rsi": 72.0,
+  "sma200": 76697.19,
+  "dip_pct": 13.95,
   "fng_value": 12,
   "news_score": -5,
   "partial_target": 0,
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 2.14
+  "atr_pct_24h": 1.76
 }
