@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-05T13:01:46.3005443Z",
+  "timestamp": "2026-06-05T18:01:48.0078496Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin spot ETF net outflows for 17 of last 19 days ($5.6B total) as capital rotates to AI sector",
-    "Bitcoin crashed to $61,349 with $1.76B in liquidations; Fear Index at 12 (FTX crash levels)",
-    "Corporate crypto holders dumping positions (Forward Industries moving $32M SOL to exchange, Arthur Hayes liquidating ZEC)"
+    "Bitcoin Dives Below $60K Following Strong Jobs Data, Zcash Crash Shaking Crypto Confidence",
+    "Bitcoin Crashes Near $60,000: $62B In Treasuries Erased, Analyst Sees Potential Bottom Ahead",
+    "Bitcoin Whales Return To Binance As Selloff Echoes February Panic"
   ],
-  "reasoning": "Bitcoin faces a multi-front liquidity crisis with institutional ETF outflows accelerating, capital rotation to AI equities, and forced selling by corporate treasury holders. While mining cost support near $60K suggests a technical floor, the combination of depleted leverage, low sentiment, and sustained institutional redemptions creates downside vulnerability in the 1-7 day window.",
-  "risks": "Continued institutional ETF redemptions combined with miner/corporate liquidations could trigger another leg down toward $54K-$57K support levels if risk sentiment deteriorates further or S&P 500 weakness accelerates.",
+  "reasoning": "Multiple bearish catalysts converge: hawkish jobs data pressuring macro risk assets, $1.76B in liquidations signaling forced selling, whale accumulation on Binance indicating distribution phases, and contagion fears from Zcash's critical bug eroding confidence. However, technical analysis suggests $60K mining cost support and exhaustion patterns may limit further downside, preventing a crash scenario.",
+  "risks": "Continued macro deterioration or surprise inflation data could trigger cascade liquidations below $60K support, especially with elevated whale activity on exchanges and leverage still present in the market.",
   "article_count": 36
 }
