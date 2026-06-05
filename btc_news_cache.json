@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-04T23:57:31.5267721Z",
+  "timestamp": "2026-06-05T04:01:45.3286993Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin fell 21% after Strategy's debt buyback news with $60K support level being tested",
-    "Professional investors dumped 52K BTC in Q1 as capital rotates to AI, creating institutional outflows",
-    "Bitcoin Fear Index at 12 (fire sale territory) matching FTX crash levels, with $2T market cap erasure"
+    "Bitcoin fell 21% after Strategy's debt buyback news with $60K support being tested",
+    "Professional investors dumped 52K BTC worth of ETFs in Q1 as hedge funds exited positions",
+    "Michael Saylor blames $400 billion capital rotation into AI as Bitcoin dives, with Strategy recording $10.8 billion unrealized loss"
   ],
-  "reasoning": "Bitcoin is experiencing significant institutional selling pressure amid capital rotation to AI infrastructure, with spot ETF outflows and the $60K mining cost level under assault. While some analysts cite wealth transfer and cycle bottom signals, the combination of ETF redemptions, Michael Saylor's forced liquidations breaking Strategy's buy-and-hold narrative, and extreme fear readings suggest further downside risk before stabilization.",
-  "risks": "Breakdown below $60K mining cost support could cascade liquidations and trigger a Terra Luna-style doom loop scenario as leveraged positions unwind across exchanges.",
+  "reasoning": "Multiple negative catalysts converge: institutional outflows (ETF dumping), forced liquidations from Strategy's liquidity crisis, and sustained capital rotation into AI equities are creating downward pressure on BTC. While $60K mining cost support and long-term allocator accumulation provide some floor, the 1-7 day outlook remains negative as these selling pressures persist and test key support levels.",
+  "risks": "A break below the $60K support level could trigger further institutional panic selling and cascade liquidations similar to the Terra Luna doom-loop pattern referenced in headlines.",
   "article_count": 36
 }
