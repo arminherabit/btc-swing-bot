@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-05T09:01:38.1946803Z",
+  "timestamp": "2026-06-05T13:01:46.3005443Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin's $63k slide shows ETF demand fighting AI equities for dollar liquidity - capital rotation into AI is creating sustained selling pressure",
-    "Bitcoin Price In 'Vulnerable Position' As 2022 Playbook Repeats – Is $54,000 Next? - technical breakdown suggests further downside risk to critical support levels",
-    "Michael Saylor's Strategy Inc. records $10.8B unrealized loss amid $62k selloff - major institutional holder experiencing distress could accelerate further liquidation"
+    "Bitcoin spot ETF net outflows for 17 of last 19 days ($5.6B total) as capital rotates to AI sector",
+    "Bitcoin crashed to $61,349 with $1.76B in liquidations; Fear Index at 12 (FTX crash levels)",
+    "Corporate crypto holders dumping positions (Forward Industries moving $32M SOL to exchange, Arthur Hayes liquidating ZEC)"
   ],
-  "reasoning": "Bitcoin is experiencing a multi-front assault combining capital rotation into AI equities, institutional position unwinding (Saylor/Strategy), and technical breakdown below key support levels at $60-63k. The confluence of ETF outflows, miner distribution, and short-heavy positioning creates near-term downside vulnerability, though some analysts identify potential support around mining cost levels.",
-  "risks": "If Bitcoin breaks below $60,000 support level, cascade liquidations and loss of institutional confidence could accelerate decline toward $54k or lower, particularly if AI equity rally continues.",
+  "reasoning": "Bitcoin faces a multi-front liquidity crisis with institutional ETF outflows accelerating, capital rotation to AI equities, and forced selling by corporate treasury holders. While mining cost support near $60K suggests a technical floor, the combination of depleted leverage, low sentiment, and sustained institutional redemptions creates downside vulnerability in the 1-7 day window.",
+  "risks": "Continued institutional ETF redemptions combined with miner/corporate liquidations could trigger another leg down toward $54K-$57K support levels if risk sentiment deteriorates further or S&P 500 weakness accelerates.",
   "article_count": 36
 }
