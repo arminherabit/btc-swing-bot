@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-05T04:01:45.3286993Z",
+  "timestamp": "2026-06-05T09:01:38.1946803Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin fell 21% after Strategy's debt buyback news with $60K support being tested",
-    "Professional investors dumped 52K BTC worth of ETFs in Q1 as hedge funds exited positions",
-    "Michael Saylor blames $400 billion capital rotation into AI as Bitcoin dives, with Strategy recording $10.8 billion unrealized loss"
+    "Bitcoin's $63k slide shows ETF demand fighting AI equities for dollar liquidity - capital rotation into AI is creating sustained selling pressure",
+    "Bitcoin Price In 'Vulnerable Position' As 2022 Playbook Repeats – Is $54,000 Next? - technical breakdown suggests further downside risk to critical support levels",
+    "Michael Saylor's Strategy Inc. records $10.8B unrealized loss amid $62k selloff - major institutional holder experiencing distress could accelerate further liquidation"
   ],
-  "reasoning": "Multiple negative catalysts converge: institutional outflows (ETF dumping), forced liquidations from Strategy's liquidity crisis, and sustained capital rotation into AI equities are creating downward pressure on BTC. While $60K mining cost support and long-term allocator accumulation provide some floor, the 1-7 day outlook remains negative as these selling pressures persist and test key support levels.",
-  "risks": "A break below the $60K support level could trigger further institutional panic selling and cascade liquidations similar to the Terra Luna doom-loop pattern referenced in headlines.",
+  "reasoning": "Bitcoin is experiencing a multi-front assault combining capital rotation into AI equities, institutional position unwinding (Saylor/Strategy), and technical breakdown below key support levels at $60-63k. The confluence of ETF outflows, miner distribution, and short-heavy positioning creates near-term downside vulnerability, though some analysts identify potential support around mining cost levels.",
+  "risks": "If Bitcoin breaks below $60,000 support level, cascade liquidations and loss of institutional confidence could accelerate decline toward $54k or lower, particularly if AI equity rally continues.",
   "article_count": 36
 }
