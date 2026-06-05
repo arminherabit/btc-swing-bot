@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-05T18:01:48.0078496Z",
-  "score": -5,
+  "timestamp": "2026-06-05T22:49:44.6498902Z",
+  "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin Dives Below $60K Following Strong Jobs Data, Zcash Crash Shaking Crypto Confidence",
-    "Bitcoin Crashes Near $60,000: $62B In Treasuries Erased, Analyst Sees Potential Bottom Ahead",
-    "Bitcoin Whales Return To Binance As Selloff Echoes February Panic"
+    "Bitcoin plunges below $60,000 as BTC bulls get jobs report they were hoping to avoid",
+    "Bitcoin bears face $2.6B trap as BTC funding rate drops: Is a short squeeze brewing?",
+    "Bitcoin whales return to Binance as selloff echoes February panic"
   ],
-  "reasoning": "Multiple bearish catalysts converge: hawkish jobs data pressuring macro risk assets, $1.76B in liquidations signaling forced selling, whale accumulation on Binance indicating distribution phases, and contagion fears from Zcash's critical bug eroding confidence. However, technical analysis suggests $60K mining cost support and exhaustion patterns may limit further downside, preventing a crash scenario.",
-  "risks": "Continued macro deterioration or surprise inflation data could trigger cascade liquidations below $60K support, especially with elevated whale activity on exchanges and leverage still present in the market.",
+  "reasoning": "Bitcoin faces significant near-term headwinds from hawkish employment data, whale distribution patterns, and institutional selling pressure evidenced by $10B+ losses at Strategy and BitMine, though extreme fear readings (12 Fear Index) and oversold conditions suggest potential for short-term relief bounces. The $2.6B short position trap presents tactical upside risk, but macro conditions (stronger-than-expected jobs data pressuring Fed rate cut expectations) and behavioral signals (whale deposits to exchanges) indicate downward momentum likely persists over the 1-7 day window.",
+  "risks": "Continued macro deterioration or failed bounce attempt at $60,000 support could trigger cascade liquidations and test significantly lower levels near mining cost equilibrium.",
   "article_count": 36
 }
