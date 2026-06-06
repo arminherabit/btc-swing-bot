@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-06T12:01:32.4191022Z",
+  "timestamp": "2026-06-06T16:01:54.2576988Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin falls below $60,000 on jobs report hawkishness and macro headwinds",
-    "Bitcoin bears hold $2.6B in short positions but funding rates dropping suggest potential squeeze setup",
-    "Zcash bug exposes privacy coin vulnerabilities, creating broader crypto confidence crisis despite unrelated to BTC"
+    "Bitcoin price craters to $60,000 as BTC bulls get jobs report they were hoping to avoid -- May payrolls beat was hawkish enough to pressure crypto",
+    "Bitcoin Has Dumped All of Its Gains Since Trump Was Reelected—And Then Some -- Bitcoin down more than 50% from peak deep into 2025",
+    "Bitcoin bears face $2.6B trap as BTC funding rate drops: Is a short squeeze brewing? -- High leverage positions suggest potential reversal but current momentum is down"
   ],
-  "reasoning": "Bitcoin is experiencing significant downward pressure driven by hawkish US employment data, with price testing $60,000 support level and fear index at extremes (12/100). However, technical capitulation signals, low funding rates, and commentary from institutional analysts pointing to mining cost as cycle bottom suggest reversal setup, making this a swing-trade opportunity for experienced traders rather than sustained crash catalyst.",
-  "risks": "Further macroeconomic deterioration or unexpected hawkish Fed pivot could push BTC below $60,000 to $50,000 support, while regulatory clarity delays and continued ETH weakness could undermine broader market sentiment recovery over the next 7 days.",
+  "reasoning": "Bitcoin is experiencing significant selling pressure with a 50% decline from 2025 peaks, driven by hawkish macroeconomic data (strong jobs report), institutional selling (BlackRock $213M dump, Strategy's disclosure), and technical breakdown below $60K support. While extreme funding rates and fear metrics (Fear Index at 12) suggest capitulation and potential reversal setup, the near-term momentum remains decidedly bearish with 48+ days of continuous selling pressure on major exchanges.",
+  "risks": "Further macroeconomic hawkishness or break below $59K could trigger capitulation cascade and test $40K support levels before any meaningful bounce.",
   "article_count": 36
 }
