@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-06T07:01:47.7124941Z",
+  "timestamp": "2026-06-06T12:01:32.4191022Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin bears face $2.6B trap as BTC funding rate drops: Is a short squeeze brewing?",
-    "Schwab Strategist: Bitcoin's $60,000 Mining Cost Could Mark the Cycle Bottom",
-    "Bitcoin Price Plunges Below 'Fire Sale' Territory as Fear Index Reads 12 — Echoing the FTX Crash"
+    "Bitcoin falls below $60,000 on jobs report hawkishness and macro headwinds",
+    "Bitcoin bears hold $2.6B in short positions but funding rates dropping suggest potential squeeze setup",
+    "Zcash bug exposes privacy coin vulnerabilities, creating broader crypto confidence crisis despite unrelated to BTC"
   ],
-  "reasoning": "Bitcoin has broken below $60K on hawkish May jobs data and broader macro headwinds, creating oversold conditions with extreme fear (Fear Index at 12) and massive short positioning ($2.6B) that could fuel a squeeze. However, the $60K level aligns with mining costs and previous cycle bottoms, providing structural support and suggesting institutional accumulation opportunities despite near-term bearish sentiment.",
-  "risks": "Further macro deterioration or unexpected hawkish Fed signals could drive BTC below $60K support toward $50K, especially if risk-off sentiment spreads from equities and altcoin contagion (Zcash/XRP crashes) accelerates deleveraging.",
+  "reasoning": "Bitcoin is experiencing significant downward pressure driven by hawkish US employment data, with price testing $60,000 support level and fear index at extremes (12/100). However, technical capitulation signals, low funding rates, and commentary from institutional analysts pointing to mining cost as cycle bottom suggest reversal setup, making this a swing-trade opportunity for experienced traders rather than sustained crash catalyst.",
+  "risks": "Further macroeconomic deterioration or unexpected hawkish Fed pivot could push BTC below $60,000 to $50,000 support, while regulatory clarity delays and continued ETH weakness could undermine broader market sentiment recovery over the next 7 days.",
   "article_count": 36
 }
