@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-06T03:01:41.8823570Z",
+  "timestamp": "2026-06-06T07:01:47.7124941Z",
   "score": -5,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin crashes below $60K support for first time in months, breaking 200-week moving average",
-    "Bitcoin bears face $2.6B short trap at $60K with potential for short squeeze reversal",
-    "Strong macro headwind: May payrolls beat triggers hawkish Fed expectations, pressuring crypto assets"
+    "Bitcoin bears face $2.6B trap as BTC funding rate drops: Is a short squeeze brewing?",
+    "Schwab Strategist: Bitcoin's $60,000 Mining Cost Could Mark the Cycle Bottom",
+    "Bitcoin Price Plunges Below 'Fire Sale' Territory as Fear Index Reads 12 — Echoing the FTX Crash"
   ],
-  "reasoning": "Bitcoin is in acute downtrend with macro headwinds from hawkish labor data and technical breakdown below key support levels, creating near-term downside risk. However, extreme fear indicators (Fear Index at 12, $60K approaching mining cost floor) and massive short positioning ($2.6B) suggest capitulation may be near, potentially setting up a reversal within the 1-7 day window.",
-  "risks": "Bitcoin could test $53K-$50K if $60K support fails to hold as macro uncertainty persists and liquidation cascades accelerate institutional selling.",
+  "reasoning": "Bitcoin has broken below $60K on hawkish May jobs data and broader macro headwinds, creating oversold conditions with extreme fear (Fear Index at 12) and massive short positioning ($2.6B) that could fuel a squeeze. However, the $60K level aligns with mining costs and previous cycle bottoms, providing structural support and suggesting institutional accumulation opportunities despite near-term bearish sentiment.",
+  "risks": "Further macro deterioration or unexpected hawkish Fed signals could drive BTC below $60K support toward $50K, especially if risk-off sentiment spreads from equities and altcoin contagion (Zcash/XRP crashes) accelerates deleveraging.",
   "article_count": 36
 }
