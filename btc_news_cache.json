@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-07T01:03:06.4604169Z",
+  "timestamp": "2026-06-07T06:01:47.5864239Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI mirroring setups that preceded 50% and 30% rebounds to $70K",
-    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop, suggesting potential upside catalyst",
-    "$60,000 level aligns with mining cost floor and multiple analysts identifying this as potential cycle bottom"
+    "Bitcoin most oversold since 2020 crash with RSI mirrors suggesting 30-50% rebound potential to $70K",
+    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop from recent capitulation",
+    "Schwab strategist identifies $60K mining cost as potential cycle bottom with technical CVDD data suggesting reversal"
   ],
-  "reasoning": "Bitcoin is at an extreme oversold condition that historically precedes significant rebounds, with massive short positioning creating short-squeeze risk and institutional support emerging at mining-cost levels. However, macroeconomic headwinds (stronger-than-expected jobs data pressuring rates), regulatory uncertainty, and institutional outflows (BlackRock selling $213M) create offsetting downside risks that prevent a strongly bullish stance.",
-  "risks": "Stronger US economic data could trigger Fed rate hikes, while regulatory hearing outcomes and potential banking restrictions on Bitcoin adoption could spark further institutional capital flight and test support levels below $60K.",
+  "reasoning": "Bitcoin has crashed 50% from peaks and now trades near $60K mining cost support with extreme oversold conditions (RSI comparable to 2020/2026 reversals) and massive short positioning creating squeeze dynamics. However, macro headwinds persist including AI capital rotation, stronger-than-expected jobs data pressuring rates, BlackRock selling, and regulatory uncertainty, limiting upside momentum despite technical bounce setup.",
+  "risks": "Continued capital rotation into AI, higher interest rates from stronger employment data, and potential regulatory crackdowns on crypto exchanges and banking access could extend the downside below $60K support despite oversold technicals.",
   "article_count": 36
 }
