@@ -7,13 +7,13 @@
   "highest_price": 0.0,
   "last_signal": "WATCH: RSI 64.6 > T1 threshold 37 (BEAR)",
   "last_action": "none",
-  "last_run": "2026-06-07T20:46:14.0254841Z",
+  "last_run": "2026-06-07T21:01:39.9818599Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 61792.42,
+  "btc_price": 61899.42,
   "rsi": 64.6,
-  "sma200": 75143.41,
-  "dip_pct": 8.33,
+  "sma200": 75143.94,
+  "dip_pct": 8.17,
   "fng_value": 12,
   "news_score": -4,
   "partial_target": 0,
@@ -50,9 +50,9 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.6,
-  "rl_action": "SELL_PARTIAL",
-  "rl_override": true,
+  "rl_confidence": 0.0,
+  "rl_action": "NONE",
+  "rl_override": false,
   "last_stopout": "",
   "last_action_time": "",
   "watchdog_boost_active": true,
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 1.36
+  "atr_pct_24h": 1.37
 }
