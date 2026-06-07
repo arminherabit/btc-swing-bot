@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-07T06:01:47.5864239Z",
+  "timestamp": "2026-06-07T11:01:45.1357700Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI mirrors suggesting 30-50% rebound potential to $70K",
-    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop from recent capitulation",
-    "Schwab strategist identifies $60K mining cost as potential cycle bottom with technical CVDD data suggesting reversal"
+    "Bitcoin most oversold since 2020 crash with RSI mirroring historical 50% rebound setups",
+    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop at $60K support",
+    "Capital rotation into AI and stronger-than-expected jobs data (172K vs 80K expected) supporting rate hold concerns"
   ],
-  "reasoning": "Bitcoin has crashed 50% from peaks and now trades near $60K mining cost support with extreme oversold conditions (RSI comparable to 2020/2026 reversals) and massive short positioning creating squeeze dynamics. However, macro headwinds persist including AI capital rotation, stronger-than-expected jobs data pressuring rates, BlackRock selling, and regulatory uncertainty, limiting upside momentum despite technical bounce setup.",
-  "risks": "Continued capital rotation into AI, higher interest rates from stronger employment data, and potential regulatory crackdowns on crypto exchanges and banking access could extend the downside below $60K support despite oversold technicals.",
+  "reasoning": "Bitcoin is testing critical support at $60K with extreme oversold conditions (Fear Index 12, RSI at 2020 levels) that historically precede 30-50% rebounds, while massive short positioning creates squeeze potential. However, macroeconomic headwinds from stronger-than-expected jobs data, AI capital rotation, and regulatory uncertainties (crypto tax hearings, banking capital rules) prevent a strongly bullish setup in the 1-7 day window.",
+  "risks": "Breakdown below $60K mining cost support combined with macro uncertainty (potential rate decisions, regulatory crackdown) could cascade to $50-55K as Bloomberg's $10K prediction suggests a fundamental loss of institutional confidence.",
   "article_count": 36
 }
