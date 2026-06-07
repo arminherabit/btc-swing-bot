@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-07T15:13:44.8839757Z",
+  "timestamp": "2026-06-07T20:01:47.3360033Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI mirrors suggesting 50-30% rebound potential to $70K",
-    "Bitcoin risks new 'purge' with bear-market losses still $35B below 2022 total indicating bottom may not be in",
-    "Bitcoin Has Dumped All Gains Since Trump Reelection - down 50% from peak; $2.6B short trap brewing but offset by macro headwinds"
+    "Bitcoin worst week since FTX with ~20% single-week decline; realized losses still $35B below 2022 total suggesting deeper bear market ahead",
+    "Bitcoin most oversold since 2020 crash (RSI metrics) with $2.6B short trap potentially brewing, but mining cost floor at $60K may mark cycle bottom",
+    "Macro headwinds: $900B Treasury cash rebuild could drain liquidity, Federal Reserve rate-cut bets evaporating, CLARITY Act passage odds fallen to 60%"
   ],
-  "reasoning": "Bitcoin faces severe short-term headwinds from macroeconomic factors (strong jobs data pushing rate expectations higher, $900B Treasury cash rebuild draining liquidity, AI capital rotation) and technical breakdown below $60K, though extreme oversold conditions (RSI echoing 2020/Feb 2026) and massive short positioning create meaningful rebound potential within the 1-7 day swing window. The contradictory signals suggest a volatile, choppy range with upside risk to $65-70K but downside risk to $55K, making this an unfavorable risk-reward for new entries or aggressive positioning.",
-  "risks": "Continued macro deterioration (Fed rate expectations, liquidity drain from Treasury rebuilding, AI capital competing with crypto allocation) could drive BTC below $55K support, triggering cascading liquidations and invalidating oversold rebound thesis.",
+  "reasoning": "Bitcoin shows extreme oversold technicals (RSI mirrors 2020/Feb 2026 setups) suggesting potential 30-50% rebounds to $70K, creating a mixed short-term bounce setup; however, fundamental bearish pressures dominate: realized losses trajectory points to lower lows ahead, macro liquidity conditions deteriorating, regulatory uncertainty increasing, and institutional adoption narrative being tested by the pullback.",
+  "risks": "Treasury's $900B cash rebuild combined with evaporating rate-cut expectations could trigger sustained liquidity drain, pushing BTC below the $60K mining cost support floor toward the $50K bear market target cited by analysts.",
   "article_count": 36
 }
