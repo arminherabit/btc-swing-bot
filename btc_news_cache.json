@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-07T11:01:45.1357700Z",
-  "score": 2,
-  "sentiment": "neutral",
-  "recommendation": "proceed",
+  "timestamp": "2026-06-07T15:13:44.8839757Z",
+  "score": -4,
+  "sentiment": "bearish",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI mirroring historical 50% rebound setups",
-    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop at $60K support",
-    "Capital rotation into AI and stronger-than-expected jobs data (172K vs 80K expected) supporting rate hold concerns"
+    "Bitcoin most oversold since 2020 crash with RSI mirrors suggesting 50-30% rebound potential to $70K",
+    "Bitcoin risks new 'purge' with bear-market losses still $35B below 2022 total indicating bottom may not be in",
+    "Bitcoin Has Dumped All Gains Since Trump Reelection - down 50% from peak; $2.6B short trap brewing but offset by macro headwinds"
   ],
-  "reasoning": "Bitcoin is testing critical support at $60K with extreme oversold conditions (Fear Index 12, RSI at 2020 levels) that historically precede 30-50% rebounds, while massive short positioning creates squeeze potential. However, macroeconomic headwinds from stronger-than-expected jobs data, AI capital rotation, and regulatory uncertainties (crypto tax hearings, banking capital rules) prevent a strongly bullish setup in the 1-7 day window.",
-  "risks": "Breakdown below $60K mining cost support combined with macro uncertainty (potential rate decisions, regulatory crackdown) could cascade to $50-55K as Bloomberg's $10K prediction suggests a fundamental loss of institutional confidence.",
+  "reasoning": "Bitcoin faces severe short-term headwinds from macroeconomic factors (strong jobs data pushing rate expectations higher, $900B Treasury cash rebuild draining liquidity, AI capital rotation) and technical breakdown below $60K, though extreme oversold conditions (RSI echoing 2020/Feb 2026) and massive short positioning create meaningful rebound potential within the 1-7 day swing window. The contradictory signals suggest a volatile, choppy range with upside risk to $65-70K but downside risk to $55K, making this an unfavorable risk-reward for new entries or aggressive positioning.",
+  "risks": "Continued macro deterioration (Fed rate expectations, liquidity drain from Treasury rebuilding, AI capital competing with crypto allocation) could drive BTC below $55K support, triggering cascading liquidations and invalidating oversold rebound thesis.",
   "article_count": 36
 }
