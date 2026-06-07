@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-06T20:48:36.4126643Z",
-  "score": -4,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-06-07T01:03:06.4604169Z",
+  "score": 2,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI suggesting potential 30-50% rebounds to $70K",
-    "Bitcoin bears face $2.6B short trap as funding rates drop - potential short squeeze setup",
-    "BlackRock dumps $213M in Bitcoin as institutional selling pressure continues amid macro headwinds"
+    "Bitcoin most oversold since 2020 crash with RSI mirroring setups that preceded 50% and 30% rebounds to $70K",
+    "Bitcoin bears face $2.6B short squeeze trap as funding rates drop, suggesting potential upside catalyst",
+    "$60,000 level aligns with mining cost floor and multiple analysts identifying this as potential cycle bottom"
   ],
-  "reasoning": "Bitcoin is deeply oversold with technical indicators (RSI at 2020 levels) suggesting mean reversion upside is possible in a 1-7 day swing, but institutional selling pressure (BlackRock liquidation), negative macro backdrop (stronger-than-expected jobs data pressuring rates), and a 50%+ crash from Trump peaks create conflicting signals favoring caution. The $2.6B short positioning could trigger relief rallies but lacks conviction given regulatory uncertainty (CLARITY Act momentum slowing), capital deployment competition from AI spending boom, and weakening retail participation.",
-  "risks": "Further institutional capitulation and breakdown below $60K support could cascade into $50-55K as the 2020 crash analogy breaks down and macro conditions diverge from previous bull cycle patterns.",
+  "reasoning": "Bitcoin is at an extreme oversold condition that historically precedes significant rebounds, with massive short positioning creating short-squeeze risk and institutional support emerging at mining-cost levels. However, macroeconomic headwinds (stronger-than-expected jobs data pressuring rates), regulatory uncertainty, and institutional outflows (BlackRock selling $213M) create offsetting downside risks that prevent a strongly bullish stance.",
+  "risks": "Stronger US economic data could trigger Fed rate hikes, while regulatory hearing outcomes and potential banking restrictions on Bitcoin adoption could spark further institutional capital flight and test support levels below $60K.",
   "article_count": 36
 }
