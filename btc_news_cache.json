@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-08T06:01:47.1538699Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-08T11:01:47.7276432Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin most oversold since 2020 crash with RSI mirroring setups that preceded 50% rebounds to $70K",
-    "Bitcoin price plunged below fire sale territory with fear index at 12 (FTX crash levels) suggesting capitulation and potential bottom near $60K mining cost",
-    "Bitcoin has dumped all gains since Trump reelection and lost 50% from peak, while macro headwinds persist including potential $900B Treasury liquidity drain and Nasdaq correction risks"
+    "Bitcoin Has Dumped All of Its Gains Since Trump Was Reelected—And Then Some",
+    "Bitcoin price rebound wobbles as Israel defies Trump and hits Iran, sending oil back toward $100",
+    "Bad News For Bitcoin: Historical Lows Show The Bottom Actually Lies Below $30,000"
   ],
-  "reasoning": "Bitcoin exhibits extreme oversold conditions and capitulation signals (fear index 12, realized losses below 2022 bear market) that historically precede bounces, yet macro tailwinds have reversed with Treasury cash rebuilds, Nasdaq weakness, and delayed rate cuts creating conflicting signals. The setup mirrors 2020/February 2026 rebounds but macroeconomic friction and institutional profit-taking remain significant headwinds for sustained upside.",
-  "risks": "Escalating macro deterioration through Treasury liquidity drain and broader equity market correction could trigger another leg down below $60K support, negating the technical oversold bounce opportunity.",
+  "reasoning": "Bitcoin is facing significant near-term headwinds from geopolitical escalation (Israel-Iran tensions), a sharp 50%+ pullback from recent highs, and technical analysis suggesting potential further downside below $60,000 support. While some institutional adoption and mining cost support ($60K floor) provide fundamental grounding, the confluence of risk-off sentiment, legislative uncertainty on crypto regulation (CLARITY Act odds dropping), and historical cycle patterns pointing lower creates a challenging environment for swing traders over the next 1-7 days.",
+  "risks": "Continued geopolitical escalation or broader macro risk-off rotation could trigger capitulation below $60,000 support and test $30,000 historical lows, while regulatory disappointment could accelerate institutional outflows.",
   "article_count": 36
 }
