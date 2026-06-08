@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-08T11:01:47.7276432Z",
-  "score": -4,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-06-08T16:01:52.6924635Z",
+  "score": 1,
+  "sentiment": "neutral",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin Has Dumped All of Its Gains Since Trump Was Reelected—And Then Some",
-    "Bitcoin price rebound wobbles as Israel defies Trump and hits Iran, sending oil back toward $100",
-    "Bad News For Bitcoin: Historical Lows Show The Bottom Actually Lies Below $30,000"
+    "Bitcoin flashes second weekly bullish divergence on record, historically preceded 755% rally",
+    "Spot Bitcoin ETF outflows of $1.7B over four weeks signal institutional retreat and selling pressure",
+    "Michael Saylor's Strategy purchases 1,550 BTC for $101.3M, resuming accumulation after controversial sale"
   ],
-  "reasoning": "Bitcoin is facing significant near-term headwinds from geopolitical escalation (Israel-Iran tensions), a sharp 50%+ pullback from recent highs, and technical analysis suggesting potential further downside below $60,000 support. While some institutional adoption and mining cost support ($60K floor) provide fundamental grounding, the confluence of risk-off sentiment, legislative uncertainty on crypto regulation (CLARITY Act odds dropping), and historical cycle patterns pointing lower creates a challenging environment for swing traders over the next 1-7 days.",
-  "risks": "Continued geopolitical escalation or broader macro risk-off rotation could trigger capitulation below $60,000 support and test $30,000 historical lows, while regulatory disappointment could accelerate institutional outflows.",
+  "reasoning": "Bitcoin shows mixed signals with a strong technical bullish divergence pattern offset by persistent ETF outflows and geopolitical headwinds from Israel-Iran tensions. Institutional buyers like MicroStrategy are opportunistically accumulating on weakness, but the $1.7B four-week outflow streak suggests institutional confidence remains fragile amid economic uncertainty.",
+  "risks": "Israel-Iran military escalation, potential rotation away from risk assets, and historical analysis suggesting Bitcoin bottom could test $30K levels rather than stabilizing at current support.",
   "article_count": 36
 }
