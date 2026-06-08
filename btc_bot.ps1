@@ -213,8 +213,16 @@ function Compute-AggressivenessFactor(
     elseif($fundingRate -lt -20) { $af += 0.05 }
 
     # Daily SMA50 trend alignment
-    if    ($dailyGapPct -gt  5) { $af += 0.05 }   # well above daily SMA50 = strength
-    elseif($dailyGapPct -lt -10) { $af -= 0.05 }  # deep below daily SMA50 = caution
+    # In extreme fear (F&G <= 15), being deep below SMA50 is a mean-reversion BUY signal
+    # In normal/greedy conditions, deep below SMA50 is a caution flag
+    if ($fng.Value -le 15) {
+        if    ($dailyGapPct -lt -15) { $af += 0.10 }  # extreme dip in fear = strong buy setup
+        elseif($dailyGapPct -lt -10) { $af += 0.05 }  # significant dip in fear = mild boost
+        elseif($dailyGapPct -gt   5) { $af += 0.05 }  # above SMA50 = trend strength
+    } else {
+        if    ($dailyGapPct -gt  5)  { $af += 0.05 }  # well above daily SMA50 = strength
+        elseif($dailyGapPct -lt -10) { $af -= 0.05 }  # deep below daily SMA50 = caution
+    }
 
     # Clamp to [-0.20, 0.50]
     return [Math]::Round([Math]::Max(-0.20, [Math]::Min(0.50, $af)), 3)
@@ -414,6 +422,14 @@ function Run-Cycle {
                 else { "near SMA50" }
     Write-Host ("  Daily SMA50: `${0}  Gap: {1}%  [{2}]" -f $daily.Sma50.ToString("N0"), $daily.GapPct, $dailyTag)
 
+    # Extreme fear override: when F&G <= 15, news block is lifted
+    # At historic fear levels the market has already priced in the bad news
+    $extremeFear  = ($fng.Value -le 15)
+    if ($extremeFear -and $newsBlock) {
+        Write-Host ("  [EXTREME FEAR OVERRIDE] News block lifted (F&G={0}, news={1}) -- contrarian entry allowed" -f $fng.Value, $news.Score)
+        $newsBlock = $false
+    }
+
     # Combined block/boost (either source can block or boost)
     $entryBlocked = ($newsBlock -or $fngBlock)
     $entryBoosted = ($newsBoost -or $fngBoost)
@@ -440,6 +456,16 @@ function Run-Cycle {
     $candles          = Get-Klines "4h" 210
     [double[]]$closes = $candles | ForEach-Object { $_.Close }
     $rsi4h            = [Math]::Round((Get-RSI $closes), 1)
+
+    # RSI sanity check: compare against RL inference value
+    # A >20pt gap indicates a calculation anomaly — fall back to RL value
+    if ($null -ne $rl -and $null -ne $rl.rsi -and [double]$rl.rsi -gt 0) {
+        $rsiGap = [Math]::Abs($rsi4h - [double]$rl.rsi)
+        if ($rsiGap -gt 20) {
+            Write-Host ("  [RSI SANITY] Bot RSI={0} vs RL RSI={1} (gap={2}pt) -- using RL value" -f $rsi4h, $rl.rsi, [Math]::Round($rsiGap,1))
+            $rsi4h = [Math]::Round([double]$rl.rsi, 1)
+        }
+    }
 
     # RSI series for divergence detection + direction confirmation
     [double[]]$rsiSeries = Get-RSISeries $closes
@@ -608,12 +634,13 @@ function Run-Cycle {
                 }
             }
         }
-        elseif ($rlAction -eq "BUY_TRANCHE" -and -not $entryBlocked `
-                -and [int]$state.tranche_count -lt $maxTranchesEff `
-                -and $rsi4h -le $rlRsiThreshold) {
+        elseif ($rlAction -eq "BUY_TRANCHE" -and [int]$state.tranche_count -lt $maxTranchesEff `
+                -and (-not $entryBlocked -or ([double]$rl.confidence -ge 0.85 -and -not $fngBlock)) `
+                -and $rsi4h -le ($rlRsiThreshold + (if ([double]$rl.confidence -ge 0.85) { 10 } else { 0 }))) {
             $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
-            Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2})" -f `
-                ([int]$state.tranche_count + 1), ([int]($rl.confidence*100)), $rsi4h)
+            $rlNewsOverrideTag = if (-not $entryBlocked) { "" } else { "  [NEWS OVERRIDE conf>=$([int]($rl.confidence*100))%]" }
+            Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2}){3}" -f `
+                ([int]$state.tranche_count + 1), ([int]($rl.confidence*100)), $rsi4h, $rlNewsOverrideTag)
             $order = Place-MarketOrder "BUY" $qty
             if ($null -ne $order) {
                 $tc = [int]$state.tranche_count
@@ -643,8 +670,8 @@ function Run-Cycle {
 
         $avgEntry  = [double]$state.avg_entry
         $pnlPct    = [Math]::Round((($price - $avgEntry) / $avgEntry) * 100, 2)
-        # Wider trail stop in BEAR mode (4.5%) to avoid getting shaken out by volatility
-        $trailPct  = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct + 1.5 }
+        # Wider trail stop in BEAR mode (7%) — BTC BEAR volatility regularly exceeds 4.5%/day
+        $trailPct  = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct_bear }
         $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - $trailPct / 100.0), 2)
         $hardStop  = [Math]::Round($avgEntry * (1.0 - [double]$cfg.hard_stop_pct / 100.0), 2)
         $partialTgt = [Math]::Round($avgEntry * (1.0 + $partialProfitPct / 100.0), 2)
@@ -693,8 +720,10 @@ function Run-Cycle {
 
         # ── FULL EXIT ─────────────────────────────────────────────────────────
         # Re-read qty after possible partial sell
+        # Use lower RSI exit threshold in BEAR — bounces rarely reach 60 in downtrends
+        $rsiExitThreshold = if ($bullMode) { [int]$cfg.rsi_exit } else { [int]$cfg.rsi_exit_bear }
         $exitReason = ""
-        if ($rsi4h -ge [int]$cfg.rsi_exit)            { $exitReason = "RSI " + $rsi4h + " >= " + $cfg.rsi_exit + " overbought" }
+        if ($rsi4h -ge $rsiExitThreshold)              { $exitReason = "RSI " + $rsi4h + " >= " + $rsiExitThreshold + " (exit threshold)" }
         if ($minHoldMet -and $price -le $trailStop)   { $exitReason = "Trailing stop `$" + $trailStop + " (held " + $holdHours + "h)" }
         if ($price -le $hardStop)                      { $exitReason = "Hard stop `$" + $hardStop }
 
@@ -765,9 +794,10 @@ function Run-Cycle {
         $dipOk     = ($dipPct -ge $dipReq)
         $rsiOk     = ($rsi4h  -le $rsiThreshold)
         $canAdd    = ($tc -lt $maxTranches)
-        # In BEAR mode require RSI turning up (bottom confirmation)
-        # In BULL or NEAR-SMA200 mode, skip turning check (breakout setup)
-        $turningOk = ($bullMode -or $nearSma200 -or $divergence -or $rsiTurning)
+        # T1: no turning confirmation needed — allows entering at the actual bottom
+        # T2/T3: require RSI turning up to avoid averaging down into a falling knife
+        # BULL / NEAR-SMA: no turning check needed (breakout setup)
+        $turningOk = ($bullMode -or $nearSma200 -or $divergence -or $rsiTurning -or $tc -eq 0)
 
         # Boost conditions skip dip check for T1
         if (($entryBoosted -or $divergence) -and $tc -eq 0) { $dipOk = $true }
@@ -860,7 +890,7 @@ function Run-Cycle {
     if ($state.in_position -and [double]$state.avg_entry -gt 0) {
         $avgE  = [double]$state.avg_entry
         $peakP = [double]$state.highest_price
-        $dashTrailPct         = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct + 1.5 }
+        $dashTrailPct         = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct_bear }
         $state.partial_target = [Math]::Round($avgE  * (1.0 + [double]$cfg.partial_profit_pct / 100.0), 2)
         $state.trail_stop     = [Math]::Round($peakP * (1.0 - $dashTrailPct                   / 100.0), 2)
         $state.hard_stop      = [Math]::Round($avgE  * (1.0 - [double]$cfg.hard_stop_pct      / 100.0), 2)

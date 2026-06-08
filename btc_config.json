@@ -12,13 +12,15 @@
   "rsi_tranche2":    36,
   "rsi_tranche3":    30,
   "rsi_exit":        60,
-  "rsi_bear_offset": 7,
+  "rsi_exit_bear":   55,
+  "rsi_bear_offset": 2,
 
   "dip_pct_required": 1.5,
   "dip_pct_bear":     3.0,
-  "trailing_stop_pct": 3.0,
-  "hard_stop_pct":     5.0,
-  "min_hold_hours":   12,
+  "trailing_stop_pct":      3.0,
+  "trailing_stop_pct_bear": 7.0,
+  "hard_stop_pct":          5.0,
+  "min_hold_hours":        12,
 
   "partial_profit_pct":      5.0,
   "partial_profit_pct_bear": 3.0,
@@ -28,7 +30,7 @@
   "fng_boost_threshold": 25,
 
   "news_cache_hours":      4,
-  "news_skip_threshold":  -5,
+  "news_skip_threshold":  -7,
   "news_boost_threshold":  6,
 
   "scalp_enabled":          false,
