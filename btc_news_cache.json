@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-08T01:01:42.4093486Z",
+  "timestamp": "2026-06-08T06:01:47.1538699Z",
   "score": -1,
   "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
     "Bitcoin most oversold since 2020 crash with RSI mirroring setups that preceded 50% rebounds to $70K",
-    "Bitcoin has dumped all gains since Trump reelection with 50% decline from peak, testing institutional adoption narrative",
-    "Multiple technical indicators suggest $60K mining cost floor and potential capitulation bottom, but $35B realized losses still below 2022 bear market total indicating deeper losses possible"
+    "Bitcoin price plunged below fire sale territory with fear index at 12 (FTX crash levels) suggesting capitulation and potential bottom near $60K mining cost",
+    "Bitcoin has dumped all gains since Trump reelection and lost 50% from peak, while macro headwinds persist including potential $900B Treasury liquidity drain and Nasdaq correction risks"
   ],
-  "reasoning": "Bitcoin shows extreme oversold conditions and technical capitulation signals that historically precede bounces, yet macroeconomic headwinds (Treasury liquidity drain, Fed rate-cut reversal, Nasdaq correction risks) and incomplete capitulation metrics (realized losses below 2022 levels) create conflicting signals for the 1-7 day swing timeframe. The setup favors tactical bounces toward $64.5K-$70K rather than sustained rallies, with elevated downside risk if macroeconomic data disappoints.",
-  "risks": "A Treasury cash rebuild exceeding $900B combined with deeper Nasdaq correction could trigger fresh liquidations below the $60K support level, negating capitulation-buy signals and risking a test toward the $50K-$55K electrical cost floor.",
+  "reasoning": "Bitcoin exhibits extreme oversold conditions and capitulation signals (fear index 12, realized losses below 2022 bear market) that historically precede bounces, yet macro tailwinds have reversed with Treasury cash rebuilds, Nasdaq weakness, and delayed rate cuts creating conflicting signals. The setup mirrors 2020/February 2026 rebounds but macroeconomic friction and institutional profit-taking remain significant headwinds for sustained upside.",
+  "risks": "Escalating macro deterioration through Treasury liquidity drain and broader equity market correction could trigger another leg down below $60K support, negating the technical oversold bounce opportunity.",
   "article_count": 36
 }
