@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-08T16:01:52.6924635Z",
-  "score": 1,
+  "timestamp": "2026-06-08T21:01:46.7666361Z",
+  "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin flashes second weekly bullish divergence on record, historically preceded 755% rally",
-    "Spot Bitcoin ETF outflows of $1.7B over four weeks signal institutional retreat and selling pressure",
-    "Michael Saylor's Strategy purchases 1,550 BTC for $101.3M, resuming accumulation after controversial sale"
+    "Bitcoin flashes only second weekly bullish divergence on record, signal that previously preceded 755% rally",
+    "Strategy resumes accumulation with $1.55B purchase while whale buying emerges at record-low RSI levels",
+    "Spot Bitcoin ETF outflows continue for fourth week with $1.7B redemptions, signaling institutional caution despite technical strength"
   ],
-  "reasoning": "Bitcoin shows mixed signals with a strong technical bullish divergence pattern offset by persistent ETF outflows and geopolitical headwinds from Israel-Iran tensions. Institutional buyers like MicroStrategy are opportunistically accumulating on weakness, but the $1.7B four-week outflow streak suggests institutional confidence remains fragile amid economic uncertainty.",
-  "risks": "Israel-Iran military escalation, potential rotation away from risk assets, and historical analysis suggesting Bitcoin bottom could test $30K levels rather than stabilizing at current support.",
+  "reasoning": "Bitcoin shows conflicting signals: strong technical divergence and aggressive institutional accumulation suggest a potential bottom-formation, but persistent ETF outflows and macro headwinds ($60K support fragility, Israel-Iran escalation, AI capital rotation) create near-term downside risk. The next 1-7 days likely sees consolidation with volatility around key support levels rather than decisive directional movement.",
+  "risks": "Geopolitical escalation (Israel-Iran conflict) combined with failure to hold $60K support could trigger another sharp selloff as risk-off sentiment overwhelms technical bullish signals.",
   "article_count": 36
 }
