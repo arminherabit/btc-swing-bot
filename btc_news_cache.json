@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-07T20:01:47.3360033Z",
-  "score": -4,
-  "sentiment": "bearish",
+  "timestamp": "2026-06-08T01:01:42.4093486Z",
+  "score": -1,
+  "sentiment": "neutral",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin worst week since FTX with ~20% single-week decline; realized losses still $35B below 2022 total suggesting deeper bear market ahead",
-    "Bitcoin most oversold since 2020 crash (RSI metrics) with $2.6B short trap potentially brewing, but mining cost floor at $60K may mark cycle bottom",
-    "Macro headwinds: $900B Treasury cash rebuild could drain liquidity, Federal Reserve rate-cut bets evaporating, CLARITY Act passage odds fallen to 60%"
+    "Bitcoin most oversold since 2020 crash with RSI mirroring setups that preceded 50% rebounds to $70K",
+    "Bitcoin has dumped all gains since Trump reelection with 50% decline from peak, testing institutional adoption narrative",
+    "Multiple technical indicators suggest $60K mining cost floor and potential capitulation bottom, but $35B realized losses still below 2022 bear market total indicating deeper losses possible"
   ],
-  "reasoning": "Bitcoin shows extreme oversold technicals (RSI mirrors 2020/Feb 2026 setups) suggesting potential 30-50% rebounds to $70K, creating a mixed short-term bounce setup; however, fundamental bearish pressures dominate: realized losses trajectory points to lower lows ahead, macro liquidity conditions deteriorating, regulatory uncertainty increasing, and institutional adoption narrative being tested by the pullback.",
-  "risks": "Treasury's $900B cash rebuild combined with evaporating rate-cut expectations could trigger sustained liquidity drain, pushing BTC below the $60K mining cost support floor toward the $50K bear market target cited by analysts.",
+  "reasoning": "Bitcoin shows extreme oversold conditions and technical capitulation signals that historically precede bounces, yet macroeconomic headwinds (Treasury liquidity drain, Fed rate-cut reversal, Nasdaq correction risks) and incomplete capitulation metrics (realized losses below 2022 levels) create conflicting signals for the 1-7 day swing timeframe. The setup favors tactical bounces toward $64.5K-$70K rather than sustained rallies, with elevated downside risk if macroeconomic data disappoints.",
+  "risks": "A Treasury cash rebuild exceeding $900B combined with deeper Nasdaq correction could trigger fresh liquidations below the $60K support level, negating capitulation-buy signals and risking a test toward the $50K-$55K electrical cost floor.",
   "article_count": 36
 }
