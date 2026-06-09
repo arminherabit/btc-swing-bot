@@ -20,10 +20,10 @@
   "trailing_stop_pct":      3.0,
   "trailing_stop_pct_bear": 7.0,
   "hard_stop_pct":          5.0,
-  "min_hold_hours":        12,
+  "min_hold_hours":         6,
 
   "partial_profit_pct":      5.0,
-  "partial_profit_pct_bear": 3.0,
+  "partial_profit_pct_bear": 5.0,
   "partial_profit_size": 0.5,
 
   "fng_block_threshold": 80,
