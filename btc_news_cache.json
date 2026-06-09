@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-08T21:01:46.7666361Z",
+  "timestamp": "2026-06-09T02:01:42.4591963Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin flashes only second weekly bullish divergence on record, signal that previously preceded 755% rally",
-    "Strategy resumes accumulation with $1.55B purchase while whale buying emerges at record-low RSI levels",
-    "Spot Bitcoin ETF outflows continue for fourth week with $1.7B redemptions, signaling institutional caution despite technical strength"
+    "Bitcoin flashes only second weekly bullish divergence on record, signal previously preceded 755% rally",
+    "Spot Bitcoin ETF outflows continue ($1.7B over 4 weeks) despite institutional accumulation at lower prices",
+    "Israel-Iran military escalation triggers risk-off rotation, pushing macro headwinds higher as $60K support questioned"
   ],
-  "reasoning": "Bitcoin shows conflicting signals: strong technical divergence and aggressive institutional accumulation suggest a potential bottom-formation, but persistent ETF outflows and macro headwinds ($60K support fragility, Israel-Iran escalation, AI capital rotation) create near-term downside risk. The next 1-7 days likely sees consolidation with volatility around key support levels rather than decisive directional movement.",
-  "risks": "Geopolitical escalation (Israel-Iran conflict) combined with failure to hold $60K support could trigger another sharp selloff as risk-off sentiment overwhelms technical bullish signals.",
+  "reasoning": "Mixed signals create a near-term consolidation setup: technical bullish divergence and institutional whale accumulation at lows conflict with persistent ETF redemptions and geopolitical risk-off sentiment. The 1-7 day outlook hinges on whether macro headwinds (Iran-Israel tensions, Fed uncertainty) break $60K support or if the rare technical divergence catalyzes a relief rally toward $64-70K resistance.",
+  "risks": "Continued geopolitical escalation or macro data deterioration could trigger a break below $60K support, targeting $55-59K as the next capitulation zone.",
   "article_count": 36
 }
