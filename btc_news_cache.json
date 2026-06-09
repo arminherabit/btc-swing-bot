@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-09T02:01:42.4591963Z",
-  "score": 2,
+  "timestamp": "2026-06-09T06:01:51.4857738Z",
+  "score": -1,
   "sentiment": "neutral",
-  "recommendation": "proceed",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin flashes only second weekly bullish divergence on record, signal previously preceded 755% rally",
-    "Spot Bitcoin ETF outflows continue ($1.7B over 4 weeks) despite institutional accumulation at lower prices",
-    "Israel-Iran military escalation triggers risk-off rotation, pushing macro headwinds higher as $60K support questioned"
+    "Bitcoin price $60K support not yet safe as more macro headwinds stack up",
+    "Bitcoin Is 'Boring' AI-Hungry Retail Investors, But Bernstein Still Sees $150K This Year",
+    "Israel defies Trump and hits Iran, sending oil back toward $100 — triggering risk-off rotation"
   ],
-  "reasoning": "Mixed signals create a near-term consolidation setup: technical bullish divergence and institutional whale accumulation at lows conflict with persistent ETF redemptions and geopolitical risk-off sentiment. The 1-7 day outlook hinges on whether macro headwinds (Iran-Israel tensions, Fed uncertainty) break $60K support or if the rare technical divergence catalyzes a relief rally toward $64-70K resistance.",
-  "risks": "Continued geopolitical escalation or macro data deterioration could trigger a break below $60K support, targeting $55-59K as the next capitulation zone.",
+  "reasoning": "Bitcoin faces conflicting pressures: institutional accumulation at lower levels and positive regulatory developments (UK FCA, Strategic Bitcoin Reserve Bill, CLARITY Act momentum) provide bullish underpinnings, but macro headwinds including geopolitical escalation (Israel-Iran), potential $60K breakdown, ETF outflows, and AI capital rotation away from crypto create near-term downside risk. The market appears range-bound with technical support levels fragile, making this an unfavorable swing-trade entry point despite longer-term institutional conviction.",
+  "risks": "Geopolitical escalation between Israel-Iran could trigger broader risk-off sentiment and push BTC below $60K support, breaking the accumulation thesis and extending losses toward $55K or lower.",
   "article_count": 36
 }
