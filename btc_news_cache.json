@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-09T16:02:06.1416329Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-09T21:01:41.1992263Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
+    "Bitcoin price slips toward $62K local lows as bear-market history keeps repeating",
     "Bitcoin bottom? These four charts hint at BTC price dropping to $50K",
-    "Bitcoin's $10 billion liquidation wave reveals why the AI boom is hurting crypto",
-    "Coinbase Executive: Massive Institutions Are Buying Bitcoin's Crash"
+    "Arthur Hayes Warns AI Stock Crash Could Hit Crypto Before BTC Rebounds"
   ],
-  "reasoning": "The market shows conflicting signals with technical indicators warning of potential $50K-$53K lows while institutional buyers accumulate the dip, creating a narrow range-bound environment for swing traders. Regulatory clarity (CLARITY Act, MiCA progress) and protocol funding (Morpho $175M) provide positive macro backdrop, but near-term price action remains pressured by AI capital rotation and elevated leverage positions that could trigger additional liquidations.",
-  "risks": "Another $10B+ liquidation cascade could rapidly cascade BTC below $60K support toward $53K-$50K targets within 2-3 days if risk-off sentiment intensifies.",
+  "reasoning": "Multiple technical analyses suggest Bitcoin could test $50K support levels despite current $60K+ levels, with bear-market patterns repeating and leverage liquidations exposing fragility. Macro headwinds from AI stock valuations, risk-off sentiment, and regulatory pressures (HTX sanctions, prediction market scrutiny) outweigh institutional buying interest, creating a swing-trade environment favoring caution over aggressive accumulation in the 1-7 day window.",
+  "risks": "A sharp AI stock market correction could trigger cascading crypto liquidations and rapid descent toward the $50K psychological level, especially given elevated leverage positions recently rebuilt in the market.",
   "article_count": 36
 }
