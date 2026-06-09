@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-09T10:46:12.6513206Z",
-  "score": 4,
-  "sentiment": "bullish",
-  "recommendation": "boost_size",
+  "timestamp": "2026-06-09T16:02:06.1416329Z",
+  "score": -1,
+  "sentiment": "neutral",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Coinbase reports massive institutions buying Bitcoin crash despite 50% decline from ATH",
-    "Over 200 crypto firms push Senate to pass CLARITY Act with White House talks Wednesday",
-    "Strategic Bitcoin Reserve Bill published with 20-year lock-up, institutional buyers like Strive accumulating at $63,900"
+    "Bitcoin bottom? These four charts hint at BTC price dropping to $50K",
+    "Bitcoin's $10 billion liquidation wave reveals why the AI boom is hurting crypto",
+    "Coinbase Executive: Massive Institutions Are Buying Bitcoin's Crash"
   ],
-  "reasoning": "Strong institutional accumulation during weakness combined with positive regulatory momentum (CLARITY Act, Strategic Reserve Bill) signals conviction buying by smart money, outweighing temporary macro headwinds and AI rotation concerns. Weak futures liquidity suggesting downside risk is offset by evidence of substantial institutional demand at current price levels near $60-63K.",
-  "risks": "AI capital rotation away from crypto and weak futures market liquidity could trigger a sharp retest of $60K support if institutional buying momentum stalls.",
+  "reasoning": "The market shows conflicting signals with technical indicators warning of potential $50K-$53K lows while institutional buyers accumulate the dip, creating a narrow range-bound environment for swing traders. Regulatory clarity (CLARITY Act, MiCA progress) and protocol funding (Morpho $175M) provide positive macro backdrop, but near-term price action remains pressured by AI capital rotation and elevated leverage positions that could trigger additional liquidations.",
+  "risks": "Another $10B+ liquidation cascade could rapidly cascade BTC below $60K support toward $53K-$50K targets within 2-3 days if risk-off sentiment intensifies.",
   "article_count": 36
 }
