@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-10T16:01:49.4980686Z",
+  "timestamp": "2026-06-10T20:01:58.8574546Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Bitcoin jumps above $62,000 after CPI report gives traders room to defend $60,000",
-    "Traditional Finance is Rushing Into Crypto as Institutions Buy Bitcoin's Dip",
-    "Bitcoin's institutional support weakened as ETFs and companies dumped almost 2,000 BTC daily"
+    "Bitcoin rises above $62,000 after CPI report gives traders relief from $60,000 breakdown test",
+    "Bank of Japan rate decision looms with historical 22.5% sell-off average on rate hikes",
+    "Institutional adoption accelerating: TradFi rushing into crypto, Fidelity largest Ethereum purchase in 2 months, Tether-led $1.4B NEURA funding"
   ],
-  "reasoning": "The market shows mixed signals with institutional buying interest offsetting significant ETF outflows, while the CPI relief provides near-term price support around $60-62K. However, fragile momentum and demand concerns limit upside potential in the 1-7 day swing trading window.",
-  "risks": "Institutional dumping of 450% daily supply and weakening demand could trigger a slide toward $30K support if macro sentiment deteriorates or broader tech/equity markets decline.",
+  "reasoning": "Mixed signals dominate the near-term outlook: supportive factors include institutional accumulation on dips, positive inflation data providing relief, and regulatory clarity efforts (CLARITY Act, CFTC prediction markets framework), offsetting technical resistance weakness and BOJ policy uncertainty. However, falling retail demand, layer-2 network shutdowns (Botanix), and security incidents (Humanity Protocol) create headwinds that prevent a stronger bullish lean over the 1-7 day swing window.",
+  "risks": "Bank of Japan rate hike decision could trigger a sharp 15-20% pullback if hawkish, and weak demand despite lower prices suggests institutional buying may not sustain rallies above technical resistance at $62,000-$63,000.",
   "article_count": 36
 }
