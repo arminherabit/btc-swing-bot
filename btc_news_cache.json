@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-10T06:01:47.9490228Z",
-  "score": -3,
-  "sentiment": "bearish",
-  "recommendation": "reduce_size",
+  "timestamp": "2026-06-10T11:01:47.1758252Z",
+  "score": 3,
+  "sentiment": "bullish",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin faces a Wall Street test as AI's mega-IPO wave targets the same capital -- OpenAI S-1 filing signals massive capital reallocation away from crypto",
-    "Bitcoin's $10 billion liquidation wave reveals why the AI boom is hurting crypto -- Leverage unwinding and investor appetite shift toward AI equities creating forced selling",
-    "Bitcoin price slips toward $62K local lows as bear-market history keeps repeating -- Technical breakdown continues with copycat BTC price moves despite geopolitical optimism"
+    "Traditional Finance is Rushing Into Crypto as Institutions Buy Bitcoin's Dip",
+    "Bitcoin Back At Production Cost: Analyst Says Best Value Zone Starts Here",
+    "Japan's Largest Banks Plan Joint Stablecoin Launch by March 2027"
   ],
-  "reasoning": "The convergence of AI capital competition (OpenAI IPO at $850B-$1T valuation), persistent technical weakness ($62K support failing), and ongoing leverage liquidations creates a near-term headwind for Bitcoin despite some institutional dip-buying. The $10B liquidation wave and futures open interest declines signal weakening conviction among leveraged traders, while macro risk-off sentiment positioning Bitcoin as a leading indicator of broader market stress rather than a safe haven.",
-  "risks": "Failure to hold $62K support level could trigger cascade liquidations accelerating decline toward $58K-$60K production cost zone within 3-5 days.",
+  "reasoning": "Positive institutional adoption momentum and macro tailwinds (Trump's pro-crypto stance, potential Iran deal, production cost floor support) outweigh regulatory headwinds and near-term liquidity concerns from the SpaceX IPO squeeze. However, recent $10B liquidation waves and leverage-driven corrections create volatility that caps upside momentum in the 1-7 day swing window.",
+  "risks": "Further regulatory crackdowns on crypto platforms (EU sanctions expansion, GENIUS rule enforcement) combined with persistent macro liquidity drains could trigger another liquidation cascade toward $60k support.",
   "article_count": 36
 }
