@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-10T11:01:47.1758252Z",
-  "score": 3,
-  "sentiment": "bullish",
+  "timestamp": "2026-06-10T16:01:49.4980686Z",
+  "score": 2,
+  "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
+    "Bitcoin jumps above $62,000 after CPI report gives traders room to defend $60,000",
     "Traditional Finance is Rushing Into Crypto as Institutions Buy Bitcoin's Dip",
-    "Bitcoin Back At Production Cost: Analyst Says Best Value Zone Starts Here",
-    "Japan's Largest Banks Plan Joint Stablecoin Launch by March 2027"
+    "Bitcoin's institutional support weakened as ETFs and companies dumped almost 2,000 BTC daily"
   ],
-  "reasoning": "Positive institutional adoption momentum and macro tailwinds (Trump's pro-crypto stance, potential Iran deal, production cost floor support) outweigh regulatory headwinds and near-term liquidity concerns from the SpaceX IPO squeeze. However, recent $10B liquidation waves and leverage-driven corrections create volatility that caps upside momentum in the 1-7 day swing window.",
-  "risks": "Further regulatory crackdowns on crypto platforms (EU sanctions expansion, GENIUS rule enforcement) combined with persistent macro liquidity drains could trigger another liquidation cascade toward $60k support.",
+  "reasoning": "The market shows mixed signals with institutional buying interest offsetting significant ETF outflows, while the CPI relief provides near-term price support around $60-62K. However, fragile momentum and demand concerns limit upside potential in the 1-7 day swing trading window.",
+  "risks": "Institutional dumping of 450% daily supply and weakening demand could trigger a slide toward $30K support if macro sentiment deteriorates or broader tech/equity markets decline.",
   "article_count": 36
 }
