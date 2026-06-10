@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-10T01:01:57.3478512Z",
-  "score": -4,
+  "timestamp": "2026-06-10T06:01:47.9490228Z",
+  "score": -3,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin may act as a 'canary in the coal mine' as risk-off pressure spreads with elevated stablecoin reserves suggesting institutional caution",
-    "Bitcoin faces a Wall Street test as OpenAI's mega-IPO targets same capital allocation, competing for investor funds",
-    "Bitcoin's $10 billion liquidation wave and technical breakdown toward $62K local lows with $50K target warns bottom may not be in despite above $60K support"
+    "Bitcoin faces a Wall Street test as AI's mega-IPO wave targets the same capital -- OpenAI S-1 filing signals massive capital reallocation away from crypto",
+    "Bitcoin's $10 billion liquidation wave reveals why the AI boom is hurting crypto -- Leverage unwinding and investor appetite shift toward AI equities creating forced selling",
+    "Bitcoin price slips toward $62K local lows as bear-market history keeps repeating -- Technical breakdown continues with copycat BTC price moves despite geopolitical optimism"
   ],
-  "reasoning": "Multiple technical breakdown signals combined with macro risk-off sentiment and capital competition from mega-cap AI IPOs create bearish near-term pressure despite institutional buying interest. Stablecoin ratio extremes and $10B liquidation cascade indicate overleveraged positions vulnerable to further downside toward $50K support, though positive regulatory clarity efforts and institutional adoption narratives provide eventual upside potential.",
-  "risks": "Accelerating risk-off across traditional markets combined with liquidation cascade could trigger rapid breakdown below $62K toward $50K support within 3-5 days if macro liquidity tightens further.",
+  "reasoning": "The convergence of AI capital competition (OpenAI IPO at $850B-$1T valuation), persistent technical weakness ($62K support failing), and ongoing leverage liquidations creates a near-term headwind for Bitcoin despite some institutional dip-buying. The $10B liquidation wave and futures open interest declines signal weakening conviction among leveraged traders, while macro risk-off sentiment positioning Bitcoin as a leading indicator of broader market stress rather than a safe haven.",
+  "risks": "Failure to hold $62K support level could trigger cascade liquidations accelerating decline toward $58K-$60K production cost zone within 3-5 days.",
   "article_count": 36
 }
