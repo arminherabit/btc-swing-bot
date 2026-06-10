@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-09T21:01:41.1992263Z",
+  "timestamp": "2026-06-10T01:01:57.3478512Z",
   "score": -4,
   "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin price slips toward $62K local lows as bear-market history keeps repeating",
-    "Bitcoin bottom? These four charts hint at BTC price dropping to $50K",
-    "Arthur Hayes Warns AI Stock Crash Could Hit Crypto Before BTC Rebounds"
+    "Bitcoin may act as a 'canary in the coal mine' as risk-off pressure spreads with elevated stablecoin reserves suggesting institutional caution",
+    "Bitcoin faces a Wall Street test as OpenAI's mega-IPO targets same capital allocation, competing for investor funds",
+    "Bitcoin's $10 billion liquidation wave and technical breakdown toward $62K local lows with $50K target warns bottom may not be in despite above $60K support"
   ],
-  "reasoning": "Multiple technical analyses suggest Bitcoin could test $50K support levels despite current $60K+ levels, with bear-market patterns repeating and leverage liquidations exposing fragility. Macro headwinds from AI stock valuations, risk-off sentiment, and regulatory pressures (HTX sanctions, prediction market scrutiny) outweigh institutional buying interest, creating a swing-trade environment favoring caution over aggressive accumulation in the 1-7 day window.",
-  "risks": "A sharp AI stock market correction could trigger cascading crypto liquidations and rapid descent toward the $50K psychological level, especially given elevated leverage positions recently rebuilt in the market.",
+  "reasoning": "Multiple technical breakdown signals combined with macro risk-off sentiment and capital competition from mega-cap AI IPOs create bearish near-term pressure despite institutional buying interest. Stablecoin ratio extremes and $10B liquidation cascade indicate overleveraged positions vulnerable to further downside toward $50K support, though positive regulatory clarity efforts and institutional adoption narratives provide eventual upside potential.",
+  "risks": "Accelerating risk-off across traditional markets combined with liquidation cascade could trigger rapid breakdown below $62K toward $50K support within 3-5 days if macro liquidity tightens further.",
   "article_count": 36
 }
