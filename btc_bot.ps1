@@ -81,8 +81,8 @@ function Get-RSI([double[]]$closes, [int]$period = 14) {
     $avgG = $gains / $period; $avgL = $losses / $period
     for ($i = ($period + 1); $i -lt $closes.Count; $i++) {
         $d    = $closes[$i] - $closes[$i-1]
-        $avgG = ($avgG * ($period - 1) + (if ($d -gt 0) { $d } else { 0.0 })) / $period
-        $avgL = ($avgL * ($period - 1) + (if ($d -lt 0) { [Math]::Abs($d) } else { 0.0 })) / $period
+        $avgG = ($avgG * ($period - 1) + $(if ($d -gt 0) { $d } else { 0.0 })) / $period
+        $avgL = ($avgL * ($period - 1) + $(if ($d -lt 0) { [Math]::Abs($d) } else { 0.0 })) / $period
     }
     if ($avgL -eq 0) { return 100.0 }
     return 100.0 - (100.0 / (1.0 + ($avgG / $avgL)))
@@ -101,8 +101,8 @@ function Get-RSISeries([double[]]$closes, [int]$period = 14) {
     $result[$period] = if ($avgL -eq 0) { 100.0 } else { 100.0 - (100.0 / (1.0 + $avgG / $avgL)) }
     for ($i = ($period + 1); $i -lt $closes.Count; $i++) {
         $d    = $closes[$i] - $closes[$i-1]
-        $avgG = ($avgG * ($period - 1) + (if ($d -gt 0) { $d } else { 0.0 })) / $period
-        $avgL = ($avgL * ($period - 1) + (if ($d -lt 0) { [Math]::Abs($d) } else { 0.0 })) / $period
+        $avgG = ($avgG * ($period - 1) + $(if ($d -gt 0) { $d } else { 0.0 })) / $period
+        $avgL = ($avgL * ($period - 1) + $(if ($d -lt 0) { [Math]::Abs($d) } else { 0.0 })) / $period
         $result[$i] = if ($avgL -eq 0) { 100.0 } else { 100.0 - (100.0 / (1.0 + $avgG / $avgL)) }
     }
     return $result
@@ -636,7 +636,7 @@ function Run-Cycle {
         }
         elseif ($rlAction -eq "BUY_TRANCHE" -and [int]$state.tranche_count -lt $maxTranchesEff `
                 -and (-not $entryBlocked -or ([double]$rl.confidence -ge 0.85 -and -not $fngBlock)) `
-                -and $rsi4h -le ($rlRsiThreshold + (if ([double]$rl.confidence -ge 0.85) { 10 } else { 0 }))) {
+                -and $rsi4h -le ($rlRsiThreshold + $(if ([double]$rl.confidence -ge 0.85) { 10 } else { 0 }))) {
             $qty = [Math]::Round([double]$cfg.tranche_size_usdt / $price, 5)
             $rlNewsOverrideTag = if (-not $entryBlocked) { "" } else { "  [NEWS OVERRIDE conf>=$([int]($rl.confidence*100))%]" }
             Write-Host ("  RL OVERRIDE: BUY_TRANCHE T{0}/3  (conf={1}%  RSI={2}){3}" -f `
