@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-11T14:02:15.5554118Z",
+  "timestamp": "2026-06-11T19:01:56.1832000Z",
   "score": 2,
   "sentiment": "neutral",
   "recommendation": "proceed",
   "key_items": [
-    "Public companies added 43,557 BTC in May as institutional adoption accelerates despite price weakness",
-    "Bitcoin ETF outflows of $2.1B in June signal exhausted selling pressure with moderated pace",
-    "Bitcoin touches critical support trendline never broken in market cycles, historically signaling reversal opportunity"
+    "Public companies added 43,557 BTC in May ($3.2B) as corporate adoption accelerates",
+    "Wall Street institutional infrastructure expanding: Digital Asset $355M funding, BlackRock Bitcoin Premium Income ETF, multiple stablecoin/tokenization initiatives",
+    "Bitcoin technical signals suggest deep discount phase with 95%+ short-term holders underwater; price holding $60-63K support despite geopolitical risks (Iran Hormuz closure, inflation data)"
   ],
-  "reasoning": "Mixed macro signals show institutional accumulation and technical support holding despite near-term weakness, but substantial ETF outflows and on-chain data indicating continued selling pressure suggest the bottom may not be firmly in place yet. Regulatory tailwinds (Japan ETF bill, Hungary reversal) and traditional finance inflows provide medium-term support, but the 1-7 day swing window faces near-term downside risk from unresolved selling momentum.",
-  "risks": "On-chain PnL Index still in transition phase and Bitcoin demand falling significantly suggest a lower bottom could form before upside reversal, potentially testing $55,000-$58,000 support within the swing timeframe.",
+  "reasoning": "The headline mix shows strong institutional adoption tailwinds and corporate treasury accumulation offsetting near-term bearish technicals and miner pressure. However, deep underwater retail positioning, ETF outflows ($2.1B in June), and warnings of potential correction to $31.5K create conflicting signals that warrant cautious positioning rather than aggressive positioning.",
+  "risks": "Miner capitulation and forced selling could trigger a cascade liquidation below $60K support, with analyst warnings of drops to $31.5K representing a 50% downside from current levels if network difficulty adjustment fails to stabilize miner economics.",
   "article_count": 36
 }
