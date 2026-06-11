@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-11T06:01:37.5635640Z",
-  "score": 2,
+  "timestamp": "2026-06-11T10:01:46.9395535Z",
+  "score": -1,
   "sentiment": "neutral",
-  "recommendation": "proceed",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin whales bought the $60K dip as retail capitulated with 11,000+ BTC leaving exchanges",
-    "Traditional finance rushing into crypto as institutions buy Bitcoin's dip amid macro headwinds",
-    "Bitcoin miner margins at record lows while price struggles to hold $60K floor amid 4%+ US inflation"
+    "US inflation tops 4% creating macro headwinds for Bitcoin",
+    "Bitcoin jumps above $62,000 after CPI report but $12B leaves network signaling capitulation",
+    "Traditional finance institutions rushing into crypto to buy the dip despite TradFi advisers preferring stablecoins and tokenization over Bitcoin"
   ],
-  "reasoning": "Bitcoin faces macro headwinds from elevated inflation and miner capitulation, but institutional accumulation at support levels ($60K) and significant whale buying activity provide stabilizing force during this swing timeframe. The $60K-$62K range represents a critical pivot where institutional demand is offsetting retail panic selling, creating a balanced risk-reward setup for tactical positioning.",
-  "risks": "If Bitcoin breaks decisively below $60K on high volume, it could trigger cascading liquidations and accelerate miner capitulation, potentially testing $55K-$57K support levels within 1-2 days.",
+  "reasoning": "Bitcoin shows mixed signals with institutional accumulation competing against macro inflation concerns and on-chain capitulation indicators. The recent jump to $62,000 appears relief-driven rather than conviction-based, with significant capital outflows and PnL indicator still in transition phase suggesting bottom may not be imminent.",
+  "risks": "Persistent inflation above 4% combined with on-chain capitulation signals and continued Bitcoin ETF outflows ($213.85M net outflow on June 10) could trigger a retest of the $60,000 support level or lower within the 1-7 day timeframe.",
   "article_count": 36
 }
