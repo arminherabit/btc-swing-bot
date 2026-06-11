@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-11T10:01:46.9395535Z",
-  "score": -1,
+  "timestamp": "2026-06-11T14:02:15.5554118Z",
+  "score": 2,
   "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "recommendation": "proceed",
   "key_items": [
-    "US inflation tops 4% creating macro headwinds for Bitcoin",
-    "Bitcoin jumps above $62,000 after CPI report but $12B leaves network signaling capitulation",
-    "Traditional finance institutions rushing into crypto to buy the dip despite TradFi advisers preferring stablecoins and tokenization over Bitcoin"
+    "Public companies added 43,557 BTC in May as institutional adoption accelerates despite price weakness",
+    "Bitcoin ETF outflows of $2.1B in June signal exhausted selling pressure with moderated pace",
+    "Bitcoin touches critical support trendline never broken in market cycles, historically signaling reversal opportunity"
   ],
-  "reasoning": "Bitcoin shows mixed signals with institutional accumulation competing against macro inflation concerns and on-chain capitulation indicators. The recent jump to $62,000 appears relief-driven rather than conviction-based, with significant capital outflows and PnL indicator still in transition phase suggesting bottom may not be imminent.",
-  "risks": "Persistent inflation above 4% combined with on-chain capitulation signals and continued Bitcoin ETF outflows ($213.85M net outflow on June 10) could trigger a retest of the $60,000 support level or lower within the 1-7 day timeframe.",
+  "reasoning": "Mixed macro signals show institutional accumulation and technical support holding despite near-term weakness, but substantial ETF outflows and on-chain data indicating continued selling pressure suggest the bottom may not be firmly in place yet. Regulatory tailwinds (Japan ETF bill, Hungary reversal) and traditional finance inflows provide medium-term support, but the 1-7 day swing window faces near-term downside risk from unresolved selling momentum.",
+  "risks": "On-chain PnL Index still in transition phase and Bitcoin demand falling significantly suggest a lower bottom could form before upside reversal, potentially testing $55,000-$58,000 support within the swing timeframe.",
   "article_count": 36
 }
