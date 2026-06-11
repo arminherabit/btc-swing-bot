@@ -11,7 +11,9 @@ on:
 jobs:
   retrain:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # 2M-timestep main train (~43min) + 3-fold walk-forward (3x300k, ~20min)
+    # + backtest + commit overran the old 60min cap. 90min leaves headroom.
+    timeout-minutes: 90
     permissions:
       contents: write
     steps:
