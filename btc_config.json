@@ -11,8 +11,9 @@
   "rsi_tranche1":    42,
   "rsi_tranche2":    36,
   "rsi_tranche3":    30,
-  "rsi_exit":        60,
-  "rsi_exit_bear":   55,
+  "rsi_exit":        72,
+  "rsi_exit_bear":   70,
+  "rsi_exit_blowoff_offset": 8,
   "rsi_bear_offset": 2,
 
   "dip_pct_required": 1.5,
@@ -22,8 +23,11 @@
   "hard_stop_pct":          5.0,
   "min_hold_hours":         6,
 
+  "profit_trail_trigger_pct": 4.0,
+  "profit_trail_pct":         4.0,
+
   "partial_profit_pct":      5.0,
-  "partial_profit_pct_bear": 5.0,
+  "partial_profit_pct_bear": 4.0,
   "partial_profit_size": 0.5,
 
   "fng_block_threshold": 80,

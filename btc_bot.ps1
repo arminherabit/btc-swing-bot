@@ -672,6 +672,14 @@ function Run-Cycle {
         $pnlPct    = [Math]::Round((($price - $avgEntry) / $avgEntry) * 100, 2)
         # Wider trail stop in BEAR mode (7%) — BTC BEAR volatility regularly exceeds 4.5%/day
         $trailPct  = if ($bullMode) { [double]$cfg.trailing_stop_pct } else { [double]$cfg.trailing_stop_pct_bear }
+        # Profit ratchet: once the position is meaningfully green, tighten the trail to lock the
+        # gain on the runner without capping further upside (let-winners-run, protect-the-win).
+        $profitTrailTrig = [double]$cfg.profit_trail_trigger_pct
+        $profitTrailPct  = [double]$cfg.profit_trail_pct
+        if ($pnlPct -ge $profitTrailTrig -and $profitTrailPct -lt $trailPct) {
+            $trailPct = $profitTrailPct
+            Write-Host ("  [PROFIT TRAIL] PnL +{0}% >= {1}% -- trail tightened to {2}%" -f $pnlPct, $profitTrailTrig, $profitTrailPct)
+        }
         $trailStop = [Math]::Round([double]$state.highest_price * (1.0 - $trailPct / 100.0), 2)
         $hardStop  = [Math]::Round($avgEntry * (1.0 - [double]$cfg.hard_stop_pct / 100.0), 2)
         $partialTgt = [Math]::Round($avgEntry * (1.0 + $partialProfitPct / 100.0), 2)
@@ -719,13 +727,21 @@ function Run-Cycle {
         }
 
         # ── FULL EXIT ─────────────────────────────────────────────────────────
-        # Re-read qty after possible partial sell
-        # Use lower RSI exit threshold in BEAR — bounces rarely reach 60 in downtrends
+        # Re-read qty after possible partial sell.
+        # DON'T sell into strength: on an oversold bounce RSI climbs THROUGH the exit
+        # level on the way up. Selling the instant RSI >= threshold dumps the runner at
+        # the START of the move. Instead, only exit on RSI when it is OVERBOUGHT *and
+        # rolling over* (ticking down from the prior bar) -- i.e. momentum is exhausting
+        # near the top -- or on a vertical blow-off (threshold + offset) regardless.
         $rsiExitThreshold = if ($bullMode) { [int]$cfg.rsi_exit } else { [int]$cfg.rsi_exit_bear }
+        $rsiBlowoff       = $rsiExitThreshold + [int]$cfg.rsi_exit_blowoff_offset
+        $rsiPrevBar       = if ($rsiSeries.Count -ge 2) { [double]$rsiSeries[$rsiSeries.Count - 2] } else { [double]$rsi4h }
+        $rsiRollingOver   = ($rsi4h -lt $rsiPrevBar)
         $exitReason = ""
-        if ($rsi4h -ge $rsiExitThreshold)              { $exitReason = "RSI " + $rsi4h + " >= " + $rsiExitThreshold + " (exit threshold)" }
-        if ($minHoldMet -and $price -le $trailStop)   { $exitReason = "Trailing stop `$" + $trailStop + " (held " + $holdHours + "h)" }
-        if ($price -le $hardStop)                      { $exitReason = "Hard stop `$" + $hardStop }
+        if ($rsi4h -ge $rsiExitThreshold -and $rsiRollingOver) { $exitReason = "RSI " + $rsi4h + " >= " + $rsiExitThreshold + " & rolling over (prev " + [Math]::Round($rsiPrevBar,1) + ")" }
+        if ($rsi4h -ge $rsiBlowoff)                            { $exitReason = "RSI " + $rsi4h + " >= " + $rsiBlowoff + " (blow-off)" }
+        if ($minHoldMet -and $price -le $trailStop)           { $exitReason = "Trailing stop `$" + $trailStop + " (held " + $holdHours + "h)" }
+        if ($price -le $hardStop)                              { $exitReason = "Hard stop `$" + $hardStop }
 
         if ($exitReason -ne "" -and [double]$state.total_qty -gt 0) {
             Write-Host ("  EXIT: {0}" -f $exitReason)
@@ -756,7 +772,7 @@ function Run-Cycle {
                 if ($exitReason -match "stop") { $state.last_stopout = $nowDt.ToString("o") }
             }
         } elseif ($exitReason -eq "") {
-            Write-Host ("  HOLDING  --  RSI {0} (sell >= {1})  Trail {2}" -f $rsi4h, $cfg.rsi_exit, $trailStatus)
+            Write-Host ("  HOLDING  --  RSI {0} (exit >= {1} & rolling over, or >= {2} blow-off)  Trail {3}" -f $rsi4h, $rsiExitThreshold, $rsiBlowoff, $trailStatus)
             if ($state.last_action -ne "PARTIAL_SELL") {
                 $state.last_signal = "HOLD"
                 $state.last_action = "hold"

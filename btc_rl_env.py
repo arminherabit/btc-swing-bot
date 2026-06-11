@@ -186,11 +186,17 @@ class BTCTradingEnv(gym.Env):
         # ── 4. Exit quality shaping (on top of realized P&L) ───────────────
         elif action == SELL_ALL:
             if self.in_position and self.avg_entry > 0:
-                ret = (price - self.avg_entry) / self.avg_entry
+                ret      = (price - self.avg_entry) / self.avg_entry
+                prev_rsi = float(self.df.iloc[max(0, idx - 1)].get("rsi", rsi))
+                rsi_rising = rsi > prev_rsi
                 if ret > 0.06:
                     reward += 0.010       # extra bonus for excellent exit
                 if ret < -0.05:
                     reward += 0.005       # cutting a big loss = ok
+                # Penalise selling into strength: bailing at a small gain while RSI is
+                # still rising and not yet overbought == exiting the START of a swing.
+                if 0.0 < ret < 0.04 and rsi < 65 and rsi_rising:
+                    reward -= 0.015       # "you sold too early on the upside"
 
         elif action == SELL_PARTIAL:
             if self.in_position and self.avg_entry > 0:
@@ -209,7 +215,13 @@ class BTCTradingEnv(gym.Env):
                 elif dd > 0.05:
                     reward -= 0.006
             if self.avg_entry > 0:
-                ret = (price - self.avg_entry) / self.avg_entry
+                ret      = (price - self.avg_entry) / self.avg_entry
+                prev_rsi = float(self.df.iloc[max(0, idx - 1)].get("rsi", rsi))
+                # Reward patience: holding a profitable position while the up-move is
+                # still building (RSI rising, not yet overbought) == let the winner run.
+                if ret > 0.01 and rsi < 68 and rsi > prev_rsi:
+                    reward += 0.006
+                # But still punish overstaying a clearly exhausted, extended position.
                 if ret > 0.10 and rsi > 70:
                     reward -= 0.010
 
