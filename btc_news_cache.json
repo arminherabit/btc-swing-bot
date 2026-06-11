@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-11T01:01:40.2920450Z",
-  "score": -1,
+  "timestamp": "2026-06-11T06:01:37.5635640Z",
+  "score": 2,
   "sentiment": "neutral",
-  "recommendation": "reduce_size",
+  "recommendation": "proceed",
   "key_items": [
-    "Bitcoin miner margins fall to record low: Will BTC's $60K floor hold?",
-    "Pending Bank of Japan rate decision may impact Bitcoin price: Should traders prepare?",
-    "Traditional Finance is Rushing Into Crypto as Institutions Buy Bitcoin's Dip"
+    "Bitcoin whales bought the $60K dip as retail capitulated with 11,000+ BTC leaving exchanges",
+    "Traditional finance rushing into crypto as institutions buy Bitcoin's dip amid macro headwinds",
+    "Bitcoin miner margins at record lows while price struggles to hold $60K floor amid 4%+ US inflation"
   ],
-  "reasoning": "Bitcoin faces near-term headwinds from record-low miner margins, critical $60K support testing, and potential BOJ rate hike volatility (historical 22.5% sell-off), offsetting modest institutional accumulation signals. Regulatory tailwinds (CFTC sports markets, UK crypto hub push, UCITS ETN access) and Wall Street adoption provide medium-term support but lack immediate price catalysts for swing traders.",
-  "risks": "Bank of Japan rate decision could trigger sharp downside volatility if implemented, collapsing miner profitability and testing lower support levels amid already weakened technical structure.",
+  "reasoning": "Bitcoin faces macro headwinds from elevated inflation and miner capitulation, but institutional accumulation at support levels ($60K) and significant whale buying activity provide stabilizing force during this swing timeframe. The $60K-$62K range represents a critical pivot where institutional demand is offsetting retail panic selling, creating a balanced risk-reward setup for tactical positioning.",
+  "risks": "If Bitcoin breaks decisively below $60K on high volume, it could trigger cascading liquidations and accelerate miner capitulation, potentially testing $55K-$57K support levels within 1-2 days.",
   "article_count": 36
 }
