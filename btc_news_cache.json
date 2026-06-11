@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-10T20:01:58.8574546Z",
-  "score": 2,
+  "timestamp": "2026-06-11T01:01:40.2920450Z",
+  "score": -1,
   "sentiment": "neutral",
-  "recommendation": "proceed",
+  "recommendation": "reduce_size",
   "key_items": [
-    "Bitcoin rises above $62,000 after CPI report gives traders relief from $60,000 breakdown test",
-    "Bank of Japan rate decision looms with historical 22.5% sell-off average on rate hikes",
-    "Institutional adoption accelerating: TradFi rushing into crypto, Fidelity largest Ethereum purchase in 2 months, Tether-led $1.4B NEURA funding"
+    "Bitcoin miner margins fall to record low: Will BTC's $60K floor hold?",
+    "Pending Bank of Japan rate decision may impact Bitcoin price: Should traders prepare?",
+    "Traditional Finance is Rushing Into Crypto as Institutions Buy Bitcoin's Dip"
   ],
-  "reasoning": "Mixed signals dominate the near-term outlook: supportive factors include institutional accumulation on dips, positive inflation data providing relief, and regulatory clarity efforts (CLARITY Act, CFTC prediction markets framework), offsetting technical resistance weakness and BOJ policy uncertainty. However, falling retail demand, layer-2 network shutdowns (Botanix), and security incidents (Humanity Protocol) create headwinds that prevent a stronger bullish lean over the 1-7 day swing window.",
-  "risks": "Bank of Japan rate hike decision could trigger a sharp 15-20% pullback if hawkish, and weak demand despite lower prices suggests institutional buying may not sustain rallies above technical resistance at $62,000-$63,000.",
+  "reasoning": "Bitcoin faces near-term headwinds from record-low miner margins, critical $60K support testing, and potential BOJ rate hike volatility (historical 22.5% sell-off), offsetting modest institutional accumulation signals. Regulatory tailwinds (CFTC sports markets, UK crypto hub push, UCITS ETN access) and Wall Street adoption provide medium-term support but lack immediate price catalysts for swing traders.",
+  "risks": "Bank of Japan rate decision could trigger sharp downside volatility if implemented, collapsing miner profitability and testing lower support levels amid already weakened technical structure.",
   "article_count": 36
 }
