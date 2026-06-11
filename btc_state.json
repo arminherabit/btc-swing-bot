@@ -7,25 +7,24 @@
   "highest_price": 63349.92,
   "last_signal": "HOLD",
   "last_action": "hold",
-  "last_run": "2026-06-11T01:01:34.0912510Z",
+  "last_run": "2026-06-11T02:01:32.8325847Z",
   "entry_time": "2026-06-09T00:01:39.6045649Z",
   "partial_taken": false,
-  "btc_price": 61823.28,
+  "btc_price": 62165.84,
   "rsi": 36.8,
-  "sma200": 73400.27,
-  "dip_pct": 3.69,
+  "sma200": 73401.98,
+  "dip_pct": 3.16,
   "fng_value": 12,
   "news_score": -1,
   "partial_target": 66337.2,
   "trail_stop": 58915.43,
   "hard_stop": 60019.38,
   "aggressiveness_factor": 0.35,
-  "cycle_reward": -0.038184,
-  "reward_rolling_avg": -0.04238,
+  "cycle_reward": -0.029241,
+  "reward_rolling_avg": -0.041366,
   "mode": "BEAR",
   "fng_label": "Extreme Fear",
   "reward_history": [
-    -0.053579,
     -0.05041,
     -0.042962,
     -0.053093,
@@ -48,7 +47,8 @@
     -0.050787,
     -0.045754,
     -0.045321,
-    -0.038184
+    -0.038184,
+    -0.029241
   ],
   "rl_confidence": 1.0,
   "rl_action": "BUY_TRANCHE",
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 1.59
+  "atr_pct_24h": 1.71
 }
