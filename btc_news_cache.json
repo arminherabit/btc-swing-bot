@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-12T14:01:47.4893807Z",
+  "timestamp": "2026-06-12T19:03:08.0612781Z",
   "score": 3,
   "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "SpaceX IPO draws $557M-$1B in crypto liquidity with 30% premium, potential profit rotation back into BTC",
-    "Metaplanet's Siiibo acquisition + Japan's SBI crypto rewards signal institutional Bitcoin infrastructure expansion in Asia",
-    "Bitcoin miner capitalization and rock-bottom trading volumes suggest capitulation phase ending, potential relief rally setup"
+    "SpaceX officially joins Bitcoin leaderboard as 8th largest holder with 18,712 BTC",
+    "SpaceX IPO surges with record-breaking performance, driving tokenization boom and institutional adoption",
+    "Michael Saylor declares MicroStrategy still stacking Bitcoin with no sales, reaffirming long-term accumulation"
   ],
-  "reasoning": "The SpaceX IPO event is creating a temporary liquidity drain but shows healthy crypto market maturity and profit-taking mechanics that historically rotate back into Bitcoin. Institutional adoption signals from Japan (Metaplanet, SBI), regulatory improvements (Hungary decriminalization, CLARITY Act progress), and extreme bearish sentiment combined with depressed volumes suggest we're in late-stage capitulation, positioning for a relief bounce in the 1-7 day window.",
-  "risks": "SpaceX first-day pop could extend the liquidity drain longer than expected, and miner capitulation could accelerate if Bitcoin tests lower support levels before relief rally materializes.",
+  "reasoning": "Major institutional adoption signals with SpaceX's public Bitcoin holdings and record IPO demonstrate sustained corporate interest in Bitcoin as treasury asset, while continued accumulation by MicroStrategy and growing tokenization ecosystem support medium-term bullish momentum. However, trading volume at 2-year lows and warnings about weakening large buyer conviction create near-term consolidation pressure that could test support levels.",
+  "risks": "Bitcoin's key price support may crumble according to trader analysis, and predictions of a drop to $50K before any $100K rally suggest significant downside risk if institutional conviction falters.",
   "article_count": 36
 }
