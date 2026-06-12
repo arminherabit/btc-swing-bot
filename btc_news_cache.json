@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-11T23:02:06.0849083Z",
-  "score": -1,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-12T04:01:41.1154644Z",
+  "score": -4,
+  "sentiment": "bearish",
   "recommendation": "reduce_size",
   "key_items": [
-    "Public companies added 43,557 BTC in May ($3.2B) - strong institutional accumulation signal",
-    "Bitcoin touching critical support trendline never broken in market cycles - technical support intact",
-    "Miners forced to unplug amid revenue squeeze with potential drop to $31,500 - major network stress indicator"
+    "$1.9 billion exiting spot Bitcoin ETFs with BTC failing as hedge below $60K support",
+    "Crypto trading volume at 2-year lows signaling investor disengagement and capitulation",
+    "Public companies added 43,557 BTC in May and major institutional adoption (Citi, BlackRock, BitGo) expanding ecosystem demand"
   ],
-  "reasoning": "The market shows mixed signals with institutional accumulation (MicroStrategy, corporate buys) and critical technical support levels offset by mounting miner capitulation pressures and analyst warnings of final bear market phase. Near-term price action likely constrained in $60K-$65K range with elevated downside risk from network stress and weak short-term holder positioning (95% underwater).",
-  "risks": "Miner forced selling combined with sub-$60K support break could cascade to $31,500 if network hash rate correction accelerates, invalidating the critical trendline thesis.",
+  "reasoning": "Near-term bearish pressure from massive ETF outflows, collapsed trading volume, and technical breakdown below $60K support creates a 1-7 day headwind for swing traders. However, long-term catalysts including institutional adoption infrastructure, corporate treasury accumulation, and regulatory tailwinds (Hungary decriminalization, El Salvador tax haven status) limit downside and suggest this correction may be capitulation-driven rather than structural.",
+  "risks": "BTC could test $55K-$58K support levels if $60K breaks decisively, amplified by forced liquidations in leveraged longs given low volume and trader capitulation signals.",
   "article_count": 36
 }
