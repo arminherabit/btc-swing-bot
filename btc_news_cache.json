@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-12T09:01:43.3455838Z",
-  "score": 2,
-  "sentiment": "neutral",
+  "timestamp": "2026-06-12T14:01:47.4893807Z",
+  "score": 3,
+  "sentiment": "bullish",
   "recommendation": "proceed",
   "key_items": [
-    "Public Companies Added 43,557 BTC in May as SpaceX Enters Bitcoin Treasury Race - major institutional adoption signal",
-    "BlackRock races Goldman Sachs to turn Bitcoin volatility into ETF income - new derivative products increasing institutional exposure",
-    "Bitcoin's $60,000 support is still a bet on the dollar breaking with 95% of short-term holders underwater - extreme capitulation suggests potential reversal"
+    "SpaceX IPO draws $557M-$1B in crypto liquidity with 30% premium, potential profit rotation back into BTC",
+    "Metaplanet's Siiibo acquisition + Japan's SBI crypto rewards signal institutional Bitcoin infrastructure expansion in Asia",
+    "Bitcoin miner capitalization and rock-bottom trading volumes suggest capitulation phase ending, potential relief rally setup"
   ],
-  "reasoning": "The news presents a mixed but slightly positive macro backdrop: strong institutional accumulation (SpaceX, public companies), regulatory tailwinds (Hungary decriminalization, SEC Rule 611 tokenization clarity, Japan banking integration), and innovative product launches (Coinbase AI agents, BitGo Lightning Earn) provide underlying support. However, this is heavily offset by capitulation signals (2-year low trading volumes, 95% of holders underwater, multiple coins at deep discounts), which suggests the market is priced for continued weakness but may be setting up for relief rallies rather than sustained bull moves.",
-  "risks": "Law enforcement actions against crypto money-laundering ($390M ring bust) could accelerate regulatory crackdowns and drive institutional hesitation, while persistent macro uncertainty and the dollar strength narrative remain headwinds that could trigger another leg down if technical support at $60k breaks.",
+  "reasoning": "The SpaceX IPO event is creating a temporary liquidity drain but shows healthy crypto market maturity and profit-taking mechanics that historically rotate back into Bitcoin. Institutional adoption signals from Japan (Metaplanet, SBI), regulatory improvements (Hungary decriminalization, CLARITY Act progress), and extreme bearish sentiment combined with depressed volumes suggest we're in late-stage capitulation, positioning for a relief bounce in the 1-7 day window.",
+  "risks": "SpaceX first-day pop could extend the liquidity drain longer than expected, and miner capitulation could accelerate if Bitcoin tests lower support levels before relief rally materializes.",
   "article_count": 36
 }
