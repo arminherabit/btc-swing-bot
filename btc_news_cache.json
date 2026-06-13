@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-13T10:01:45.9250294Z",
-  "score": 6,
+  "timestamp": "2026-06-13T15:01:44.6068838Z",
+  "score": 5,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin rally to $70K builds as orderbook structure highlights traders' confidence with positive bid-ask readings and bullish RSI divergence",
-    "SpaceX officially joins public Bitcoin leaderboard as 8th largest holder with 18,712 BTC, signaling major institutional conviction",
-    "Standard Chartered calls crypto bottom as Bitcoin recovers from $59,000 low, suggesting cycle low is likely in"
+    "Standard Chartered calls crypto bottom at $59,000 with conviction Bitcoin has bottomed",
+    "SpaceX joins public Bitcoin leaderboard as 8th largest holder with 18,712 BTC, legitimizing corporate adoption",
+    "Bitcoin ETFs return to positive territory with $86M net inflows and all 12 funds recording inflows"
   ],
-  "reasoning": "Multiple institutional accumulation signals (SpaceX's 18.7k BTC, Metaplanet's ecosystem expansion, Standard Chartered cycle bottom call) combined with strong technical bullish setup ($70K target, positive orderbook structure, RSI divergence) indicate rising institutional conviction and reduced downside risk. Regulatory headwinds (Anthropic AI restrictions, SBF appeal loss) are manageable and crypto-specific rather than systemic to Bitcoin fundamentals.",
-  "risks": "Major buyer conviction loss among ETFs and public company treasuries could trigger sharp liquidation cascade if $70K resistance fails and technical setup breaks down.",
+  "reasoning": "Multiple confluence signals point to a market bottom and recovery phase: institutional conviction (Standard Chartered, corporate adoption via SpaceX/Strategy), strong ETF inflows reversing outflow trends, and whale accumulation in ETH suggesting confidence. Counterbalance comes from mining difficulty collapse indicating miner stress, inflation concerns, and Wall Street leverage dynamics creating volatility, but institutional infrastructure buildout (Kraken futures, staking standardization) supports a bullish 1-7 day swing.",
+  "risks": "Unexpected inflation data or further margin collapse among miners could trigger a sharp retest toward $59k support if institutional conviction wavers.",
   "article_count": 36
 }
