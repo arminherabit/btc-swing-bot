@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-12T19:03:08.0612781Z",
-  "score": 3,
+  "timestamp": "2026-06-13T00:01:48.7539329Z",
+  "score": 6,
   "sentiment": "bullish",
-  "recommendation": "proceed",
+  "recommendation": "boost_size",
   "key_items": [
-    "SpaceX officially joins Bitcoin leaderboard as 8th largest holder with 18,712 BTC",
-    "SpaceX IPO surges with record-breaking performance, driving tokenization boom and institutional adoption",
-    "Michael Saylor declares MicroStrategy still stacking Bitcoin with no sales, reaffirming long-term accumulation"
+    "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
+    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low",
+    "SEC targets 20-year-old rule standing between Wall Street and blockchain trading"
   ],
-  "reasoning": "Major institutional adoption signals with SpaceX's public Bitcoin holdings and record IPO demonstrate sustained corporate interest in Bitcoin as treasury asset, while continued accumulation by MicroStrategy and growing tokenization ecosystem support medium-term bullish momentum. However, trading volume at 2-year lows and warnings about weakening large buyer conviction create near-term consolidation pressure that could test support levels.",
-  "risks": "Bitcoin's key price support may crumble according to trader analysis, and predictions of a drop to $50K before any $100K rally suggest significant downside risk if institutional conviction falters.",
+  "reasoning": "Multiple institutional adoption catalysts including SpaceX's massive Bitcoin purchase, Standard Chartered's bullish cycle bottom call, and regulatory tailwinds from SEC's push to modernize trading infrastructure create a strong near-term bullish setup. Bitcoin's recovery to $64K with major corporate treasury stacking and growing institutional infrastructure (Fireblocks ETH staking, Kraken sports sponsorships) suggests conviction from large players despite some volatility warnings.",
+  "risks": "Kalshi traders predict potential drop to $50K before $100K, and largest institutional buyers showing reduced conviction could cause a sharp pullback if risk sentiment deteriorates.",
   "article_count": 36
 }
