@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-13T05:01:53.9692928Z",
+  "timestamp": "2026-06-13T10:01:45.9250294Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin rally to $70K builds as orderbook structure highlights traders' confidence",
-    "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
-    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low"
+    "Bitcoin rally to $70K builds as orderbook structure highlights traders' confidence with positive bid-ask readings and bullish RSI divergence",
+    "SpaceX officially joins public Bitcoin leaderboard as 8th largest holder with 18,712 BTC, signaling major institutional conviction",
+    "Standard Chartered calls crypto bottom as Bitcoin recovers from $59,000 low, suggesting cycle low is likely in"
   ],
-  "reasoning": "Multiple institutional adoption signals (SpaceX IPO, Standard Chartered bottom call, major exchange expansion into stocks/ETFs) combined with positive technical structure ($70K target, bullish RSI divergence) create favorable swing trade setup. Institutional conviction through corporate treasury accumulation and ETF inflows provides a reliable backstop despite some weakness in leverage demand and macro headwinds.",
-  "risks": "Large Bitcoin holders losing conviction as noted in CryptoSlate report could trigger a sharp correction if institutional buyers fail to defend support levels around current price action.",
+  "reasoning": "Multiple institutional accumulation signals (SpaceX's 18.7k BTC, Metaplanet's ecosystem expansion, Standard Chartered cycle bottom call) combined with strong technical bullish setup ($70K target, positive orderbook structure, RSI divergence) indicate rising institutional conviction and reduced downside risk. Regulatory headwinds (Anthropic AI restrictions, SBF appeal loss) are manageable and crypto-specific rather than systemic to Bitcoin fundamentals.",
+  "risks": "Major buyer conviction loss among ETFs and public company treasuries could trigger sharp liquidation cascade if $70K resistance fails and technical setup breaks down.",
   "article_count": 36
 }
