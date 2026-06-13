@@ -5,15 +5,15 @@
   "total_qty": 0.0,
   "total_cost": 0.0,
   "highest_price": 0.0,
-  "last_signal": "WATCH: RSI 60.5 > T1 threshold 44 (BEAR)",
+  "last_signal": "WATCH: RSI 61.9 > T1 threshold 44 (BEAR)",
   "last_action": "none",
-  "last_run": "2026-06-13T21:14:34.1549887Z",
+  "last_run": "2026-06-13T22:01:43.0085568Z",
   "entry_time": "",
   "partial_taken": false,
-  "btc_price": 64250.5,
-  "rsi": 60.5,
-  "sma200": 71933.43,
-  "dip_pct": 0.12,
+  "btc_price": 64407.73,
+  "rsi": 61.9,
+  "sma200": 71934.22,
+  "dip_pct": 0.46,
   "fng_value": 13,
   "news_score": 4,
   "partial_target": 0,
@@ -50,7 +50,7 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.867,
+  "rl_confidence": 0.933,
   "rl_action": "SELL_PARTIAL",
   "rl_override": true,
   "last_stopout": "",
@@ -61,5 +61,5 @@
   "scalp_qty": 0.0,
   "scalp_entry_time": "",
   "last_scalp_exit_time": "",
-  "atr_pct_24h": 0.46
+  "atr_pct_24h": 0.59
 }
