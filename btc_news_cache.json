@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-13T00:01:48.7539329Z",
+  "timestamp": "2026-06-13T05:01:53.9692928Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
+    "Bitcoin rally to $70K builds as orderbook structure highlights traders' confidence",
     "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
-    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low",
-    "SEC targets 20-year-old rule standing between Wall Street and blockchain trading"
+    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low"
   ],
-  "reasoning": "Multiple institutional adoption catalysts including SpaceX's massive Bitcoin purchase, Standard Chartered's bullish cycle bottom call, and regulatory tailwinds from SEC's push to modernize trading infrastructure create a strong near-term bullish setup. Bitcoin's recovery to $64K with major corporate treasury stacking and growing institutional infrastructure (Fireblocks ETH staking, Kraken sports sponsorships) suggests conviction from large players despite some volatility warnings.",
-  "risks": "Kalshi traders predict potential drop to $50K before $100K, and largest institutional buyers showing reduced conviction could cause a sharp pullback if risk sentiment deteriorates.",
+  "reasoning": "Multiple institutional adoption signals (SpaceX IPO, Standard Chartered bottom call, major exchange expansion into stocks/ETFs) combined with positive technical structure ($70K target, bullish RSI divergence) create favorable swing trade setup. Institutional conviction through corporate treasury accumulation and ETF inflows provides a reliable backstop despite some weakness in leverage demand and macro headwinds.",
+  "risks": "Large Bitcoin holders losing conviction as noted in CryptoSlate report could trigger a sharp correction if institutional buyers fail to defend support levels around current price action.",
   "article_count": 36
 }
