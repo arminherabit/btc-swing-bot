@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-14T08:01:57.0890817Z",
-  "score": 4,
+  "timestamp": "2026-06-14T13:01:52.7176814Z",
+  "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "SpaceX joins public Bitcoin leaderboard as 8th largest holder with 18,712 BTC - major institutional adoption signal",
-    "Standard Chartered calls crypto bottom in, Bitcoin recovers from $59,000 low - institutional confidence returning",
-    "Mining difficulty drops nearly 10% easing miner pressure and potential capitulation bottom - technical support building"
+    "Bitcoin nears $65K as Trump says Hormuz will 'open to all' in Sunday Iran peace deal",
+    "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
+    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low"
   ],
-  "reasoning": "Multiple bullish structural developments including SpaceX's significant Bitcoin acquisition, Standard Chartered's capitulation call, and mining difficulty relief suggest institutional accumulation phase and market stabilization. Positive regulatory developments (Kraken futures launch, Hester Peirce's departure signaling potential policy shift) and strong alternative asset flows (XRP ETF dominance, $1.8T asset manager crypto ETF) indicate broadening institutional participation beyond Bitcoin alone.",
-  "risks": "Macro inflation concerns (PPI data historically knocked Bitcoin lower) and geopolitical tensions (Iran peace deal uncertainty) could trigger sudden risk-off sentiment despite positive on-chain signals.",
+  "reasoning": "Multiple positive catalysts are converging including geopolitical peace deal prospects reopening risk-on asset flows, major corporate Bitcoin adoption (SpaceX now 8th largest holder), and institutional validation that the crypto cycle low is in place. Analyst consensus from Scaramucci and Novogratz predicts $70K retest by end of July, supported by positive ETF inflows and institutional accumulation signals.",
+  "risks": "Sharp profit-taking pullback of 10-15% if Iran peace deal fails to materialize or deteriorates, and unresolved quantum computing security concerns for long-term Bitcoin custody could trigger fear-driven selling.",
   "article_count": 36
 }
