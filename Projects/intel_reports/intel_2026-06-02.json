@@ -1,0 +1,299 @@
+[
+  {
+    "id": "ALERT-001",
+    "priority": "CRITICAL",
+    "headline": "Golden Dome / SHIELD: $151B Contract Vehicle + $3.2B Space-Based Interceptor Awards",
+    "date": "2026-04-xx (SBI awards); SHIELD pool ongoing",
+    "sources": [
+      "GovCon Wire — https://www.govconwire.com/articles/mda-shield-golden-dome-multi-award-contract",
+      "Air & Space Forces — https://www.airandspaceforces.com/space-force-reveals-space-based-interceptor-awards-golden-dome/",
+      "SpaceNews — https://spacenews.com/space-force-awards-up-to-3-2-billion-for-golden-dome-interceptor-prototypes/",
+      "Breaking Defense — https://breakingdefense.com/2026/04/space-force-tasks-a-dozen-companies-for-golden-dome-space-based-interceptors/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "NOC",  "company": "Northrop Grumman",    "direction": "BULLISH", "role": "Prime SHIELD awardee; strong SBI positioning" },
+      { "ticker": "RTX",  "company": "RTX / Raytheon",      "direction": "BULLISH", "role": "Patriot / LTAMDS integration layer" },
+      { "ticker": "LMT",  "company": "Lockheed Martin",     "direction": "BULLISH", "role": "THAAD, Aegis integration" },
+      { "ticker": "BA",   "company": "Boeing",              "direction": "BULLISH", "role": "GMD / SBI layer" },
+      { "ticker": "SPCE / RocketLab (RKLB)", "company": "Space primes", "direction": "BULLISH", "role": "SBI launch & satellite tracking" },
+      { "ticker": "RKLB", "company": "Rocket Lab",          "direction": "BULLISH", "role": "Space-layer SBI awardee" }
+    ],
+    "thesis": "Golden Dome is the single largest missile defense procurement vehicle in US history at $151B ceiling. Space-based interceptor awards ($3.2B across 12 firms) confirm the architecture is advancing rapidly toward an initial 2028 capability. All major primes are on contract. Near-term catalyst: Congressional appropriations hearing and further task orders in Q3 2026. NOC and RTX are best-positioned single-name plays given existing interceptor IP.",
+    "options_implication": {
+      "direction": "BULLISH",
+      "call_put_skew": "Call skew across NOC, RTX, LMT; sector ETFs (ITA, DFEN) also benefiting",
+      "iv_expectation": "IV likely to EXPAND ahead of July Ankara NATO summit and Q3 Golden Dome task order announcements",
+      "trade_structure": "Long NOC/RTX call spreads 60-90 DTE; long ITA calls as lower-risk sector expression",
+      "iv_crush_risk": "Low — multiple catalysts remain (task orders, Ankara summit, SBI follow-ons)"
+    },
+    "magnitude": "HIGH",
+    "timeline": "Immediate + ongoing through 2028",
+    "confidence": 0.90
+  },
+
+  {
+    "id": "ALERT-002",
+    "priority": "HIGH",
+    "headline": "F/A-XX 6th-Gen Navy Fighter: August 2026 Contract Award — CNO Says One Bidder 'Can't Deliver'; NOC Favored",
+    "date": "2026-04-20 (CNO statement); Award target: August 2026",
+    "sources": [
+      "DefenseScoop — https://defensescoop.com/2026/04/20/navy-f-a-xx-contract-award-planned-august-adm-caudle/",
+      "Aviation Week — https://aviationweek.com/defense/aircraft-propulsion/nearing-contract-award-long-term-plan-eludes-fa-xx-program",
+      "Breaking Defense — https://breakingdefense.com/2026/04/f-a-xx-fighter-downselect-coming-in-august-cno/",
+      "The Aviationist — https://theaviationist.com/2026/04/21/northrop-grumman-teases-notional-fa-xx-design/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "NOC", "company": "Northrop Grumman", "direction": "STRONGLY BULLISH (win)", "role": "Finalist; first fighter production in 50+ years if awarded" },
+      { "ticker": "BA",  "company": "Boeing",           "direction": "MILDLY BEARISH (loss)", "role": "Finalist; strained by F-47, quality issues; low market expectations" }
+    ],
+    "thesis": "CNO statement that one bidder 'can't deliver on schedule' is widely read as Boeing, which is already committed to Air Force F-47 production. Northrop's April public design reveal signals confidence. A NOC win is transformational: first fighter jet in 50+ years, multi-decade program, potential $100B+ lifecycle value. Market has partially priced the probability but not the confirmation pop. Boeing loss is incremental negative, minimal additional downside given already depressed sentiment.",
+    "options_implication": {
+      "direction": "Long NOC; neutral-to-short BA on this specific catalyst",
+      "call_put_skew": "NOC call skew will build into August; BA put skew already elevated from separate issues",
+      "iv_expectation": "NOC IV will EXPAND into August announcement — enter now before vol bid",
+      "trade_structure": "NOC Aug/Sep call spread (e.g. 580/620 strikes); or long straddle if Boeing surprise possible. BA: existing puts sufficient hedge.",
+      "iv_crush_risk": "HIGH post-announcement — exit before award date or roll immediately after"
+    },
+    "magnitude": "HIGH",
+    "timeline": "Weeks (August 2026 binary event)",
+    "confidence": 0.82
+  },
+
+  {
+    "id": "ALERT-003",
+    "priority": "HIGH",
+    "headline": "Low-Cost Containerized Missiles (LCCM): 10,000+ Missiles, $10B+ Ceiling — Assessment Buys Begin June 2026",
+    "date": "2026-05-13 (agreements); Assessment phase: June 2026",
+    "sources": [
+      "DefenseScoop — https://defensescoop.com/2026/05/15/defense-department-low-cost-containerized-missile-contracts/",
+      "Military Times — https://www.militarytimes.com/industry/techwatch/2026/05/13/pentagon-reaches-agreements-with-defense-firms-on-containerized-missiles/",
+      "Breaking Defense — https://breakingdefense.com/2026/05/pentagon-launches-new-framework-agreements-to-acquire-10000-low-cost-cruise-missiles/",
+      "Military Times (Anduril) — https://www.militarytimes.com/industry/techwatch/2026/05/15/us-army-to-receive-thousands-of-barracuda-500m-cruise-missiles-in-anduril-deal/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "LDOS", "company": "Leidos",   "direction": "BULLISH", "role": "3,000-unit initial commitment; Black Arrow/AGM-190A production 2027" },
+      { "ticker": "LMT",  "company": "Lockheed", "direction": "NEUTRAL", "role": "Adjacent JASSM program; watch for substitution risk" },
+      { "ticker": "RTX",  "company": "RTX",      "direction": "MILDLY BEARISH", "role": "LCCM competes with Tomahawk at lower price point" }
+    ],
+    "thesis": "LDOS is the primary public-market beneficiary. 3,000 initial units + $10B+ IDIQ ceiling represents multi-year revenue visibility. Iran conflict demand signal validates urgency. Assessment-phase test buys start NOW (June 2026), meaning near-term contract flow activity. Anduril (private) captures Barracuda side. RTX faces pricing pressure as LCCM undercuts Tomahawk unit economics.",
+    "options_implication": {
+      "direction": "Long LDOS; mildly short RTX on munitions mix shift",
+      "call_put_skew": "LDOS call skew building; RTX put skew moderate",
+      "iv_expectation": "LDOS IV may expand into next earnings as guidance raise becomes expected",
+      "trade_structure": "LDOS long calls 60-90 DTE; pair with RTX put spread as hedge",
+      "iv_crush_risk": "Moderate post-earnings; position sizing accordingly"
+    },
+    "magnitude": "HIGH",
+    "timeline": "Immediate (assessment buys this month); Revenue 2027+",
+    "confidence": 0.87
+  },
+
+  {
+    "id": "ALERT-004",
+    "priority": "HIGH",
+    "headline": "Perennial Autonomy $500M C-UAS Contract — Largest Single Counter-Drone Award in Pentagon History",
+    "date": "2026-05-19",
+    "sources": [
+      "Defense News — https://www.defensenews.com/industry/techwatch/2026/05/19/pentagon-inks-500-million-deal-with-perennial-autonomy-for-counter-drone-tech/",
+      "DefenseScoop — https://defensescoop.com/2026/05/19/pentagon-awards-500-million-contract-to-perennial-autonomy-for-counter-drone-systems/",
+      "Inside Unmanned Systems — https://insideunmannedsystems.com/pentagon-awards-500m-to-perennial-autonomy-for-counter-drone-interceptors-proven-in-ukraine/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "RTX",  "company": "RTX (Coyote C-UAS)", "direction": "BEARISH",          "role": "Legacy C-UAS incumbent losing share to AI-native startups" },
+      { "ticker": "LDOS", "company": "Leidos",             "direction": "MILDLY BEARISH",    "role": "Lost bid on this specific vehicle" },
+      { "ticker": "DFEN", "company": "Direxion Defense ETF","direction": "BULLISH",           "role": "Sector sentiment positive on AI drone tech spending" },
+      { "ticker": "ITA",  "company": "iShares Aerospace ETF","direction": "BULLISH",          "role": "Defense tech spending tailwind" }
+    ],
+    "thesis": "Signal is structural, not one-off: DoD is codifying Ukraine-proven, AI-native C-UAS doctrine as standard procurement. Perennial (private, Eric Schmidt) captures the direct value. Public impact is RTX margin compression on C-UAS line as Pentagon signals preference for cheap/fast interceptors over expensive legacy systems. ETF expressions (DFEN, ITA, SHLD) capture the broader AI-defense buildout.",
+    "options_implication": {
+      "direction": "Mildly bearish RTX specific to C-UAS; bullish defense AI/drone ETFs",
+      "call_put_skew": "RTX light put skew on C-UAS news; ETF call skew building",
+      "iv_expectation": "No single large vol event; gradual RTX repricing",
+      "trade_structure": "RTX put spread (downside limited; company has many other programs). DFEN/ITA calls 30-60 DTE.",
+      "iv_crush_risk": "Low — no binary event; directional drift"
+    },
+    "magnitude": "MEDIUM",
+    "timeline": "Days to weeks (sector rotation); months (fundamental repricing)",
+    "confidence": 0.75
+  },
+
+  {
+    "id": "ALERT-005",
+    "priority": "HIGH",
+    "headline": "Shipbuilding Surge: $27B FY2026 + One Big Beautiful Bill Funds Two Virginia SSNs + Hadrian AI Facility",
+    "date": "2026-01 (budget); AI facility announcement 2026",
+    "sources": [
+      "Defense One — https://www.defenseone.com/business/2026/01/navy-shipbuilding-stands-get-27-billion-funding-2026/410959/",
+      "USNI News — https://news.usni.org/2025/12/15/new-bill-authorizes-26b-for-shipbuilding-adds-flexibility-for-navy-acquisition",
+      "Naval Technology — https://www.naval-technology.com/news/gdeb-virginia-class-submarines-contract/",
+      "ExecutiveGov (Hadrian) — https://www.executivegov.com/articles/hadrian-navy-shipbuilding-submarine-production"
+    ],
+    "impacted_tickers": [
+      { "ticker": "HII",  "company": "Huntington Ingalls", "direction": "BULLISH", "role": "Primary Virginia-class and Columbia SSN/SSBN builder" },
+      { "ticker": "GD",   "company": "General Dynamics",   "direction": "BULLISH", "role": "Electric Boat — Virginia-class co-prime; $2.3B contract mod" },
+      { "ticker": "LMT",  "company": "Lockheed Martin",    "direction": "BULLISH", "role": "Combat systems, sonar suites" },
+      { "ticker": "LDOS", "company": "Leidos",             "direction": "BULLISH", "role": "ShipOS AI production mgmt system" }
+    ],
+    "thesis": "Bipartisan $27.2B shipbuilding appropriation + One Big Beautiful Bill injection is the largest peacetime maritime investment in decades. AUKUS Pillar 1 rotational deployments begin 2027, amplifying demand. HII and GD are direct revenue beneficiaries with multi-year backlog locked. AI production systems (ShipOS/Hadrian) add margin expansion potential for LDOS. Key risk: shipyard labor capacity constraints remain a ceiling on delivery rates.",
+    "options_implication": {
+      "direction": "Long HII, GD; LDOS secondary",
+      "call_put_skew": "HII and GD call skew; steady accumulation play",
+      "iv_expectation": "IV low — no single binary event; underlying drift bullish",
+      "trade_structure": "HII/GD long calls or stock with protective puts given macro risk. 90-180 DTE preferred for multi-catalyst exposure.",
+      "iv_crush_risk": "Low"
+    },
+    "magnitude": "HIGH",
+    "timeline": "Medium (months to quarters); Revenue 2026-2032",
+    "confidence": 0.88
+  },
+
+  {
+    "id": "ALERT-006",
+    "priority": "HIGH",
+    "headline": "China Rare Earth Wave 2 Suspension EXPIRES November 2026 — Five Additional REEs Return to Full Control; No Extension Confirmed",
+    "date": "Ongoing; expiry: November 2026",
+    "sources": [
+      "CSIS — https://www.csis.org/analysis/rare-earth-export-restrictions-one-year-later",
+      "Clark Hill PLC — https://www.clarkhill.com/news-events/news/china-hits-pause-on-rare-earth-export-controls-and-what-it-means-for-supply-chains/",
+      "War on the Rocks — https://warontherocks.com/the-burn-and-the-choke-why-semiconductor-controls-will-outlast-chinas-rare-earth-weapon/",
+      "Rare Earth Exchanges — https://rareearthexchanges.com/news/china-temporarily-lifts-export-controls-on-rare-earths-and-battery-materials/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "MP",   "company": "MP Materials",     "direction": "STRONGLY BULLISH", "role": "US domestic REE miner/processor; direct beneficiary of any China restriction snap-back" },
+      { "ticker": "UAMY", "company": "US Antimony",      "direction": "BULLISH",          "role": "Adjacent critical minerals" },
+      { "ticker": "LMT",  "company": "Lockheed Martin",  "direction": "BEARISH (supply chain)", "role": "REE-dependent magnets, sensors, F-35 actuators" },
+      { "ticker": "RTX",  "company": "RTX",              "direction": "BEARISH (supply chain)", "role": "Missile guidance, radar systems" },
+      { "ticker": "NVDA", "company": "NVIDIA",           "direction": "MILDLY BEARISH",   "role": "Lutetium in EUV lithography supply chain" },
+      { "ticker": "TSLA", "company": "Tesla",            "direction": "MILDLY BEARISH",   "role": "Heavy REEs in motor magnets" },
+      { "ticker": "GM",   "company": "General Motors",   "direction": "MILDLY BEARISH",   "role": "EV drivetrain rare earth dependency" }
+    ],
+    "thesis": "HIGHEST CONVICTION MACRO TRADE FOR Q3/Q4 2026. The May 2026 US-China summit produced no binding renewal commitment for the Wave 2 suspension. If the November 2026 expiry is not extended, five additional rare earth elements (samarium, gadolinium, lutetium + others) return to full PRC export licensing simultaneously. This is a supply shock event for defense primes and EV/semiconductor supply chains. MP Materials is the clearest public-market beneficiary. The market is underpricing this tail risk. Watch for: (1) any State Dept announcement of extension as covering event; (2) DoD critical materials exemption orders as bullish MP signal.",
+    "options_implication": {
+      "direction": "Long MP calls; hedges on LMT/RTX via put spreads",
+      "call_put_skew": "MP call skew will build as November approaches; defense prime put skew as supply chain risk reprices",
+      "iv_expectation": "IV on MP will EXPAND significantly into October/November. Enter now.",
+      "trade_structure": "MP long calls Sep/Oct/Nov expiry (ladder into expiry date); LMT/RTX put spreads as supply chain hedge.",
+      "iv_crush_risk": "High if extension announced — set stop-loss on MP calls at extension news"
+    },
+    "magnitude": "HIGH",
+    "timeline": "Weeks to months (November 2026 expiry is the hard catalyst)",
+    "confidence": 0.85
+  },
+
+  {
+    "id": "ALERT-007",
+    "priority": "MEDIUM-HIGH",
+    "headline": "NATO Ankara Summit July 7-8, 2026: 5% GDP Defense Spending Target — European Rearmament Acceleration",
+    "date": "2026-07-07 to 2026-07-08",
+    "sources": [
+      "Türkiye Today — https://www.turkiyetoday.com/nation/nato-summit-in-ankara-to-focus-on-defense-investment-and-ukraine-support-3215126",
+      "Atlantic Council — https://www.atlanticcouncil.org/dispatches/five-ideas-to-make-the-upcoming-nato-summit-in-ankara-a-success/",
+      "NATO — https://www.nato.int/en/what-we-do/partnerships-and-cooperation/natos-support-for-ukraine",
+      "Wikipedia — https://en.wikipedia.org/wiki/2026_Ankara_NATO_summit"
+    ],
+    "impacted_tickers": [
+      { "ticker": "NOC",  "company": "Northrop Grumman", "direction": "BULLISH", "role": "European air defense, IBCS" },
+      { "ticker": "RTX",  "company": "RTX",              "direction": "BULLISH", "role": "Patriot, AMRAAM export demand" },
+      { "ticker": "LMT",  "company": "Lockheed Martin",  "direction": "BULLISH", "role": "F-35 European orders, HIMARS" },
+      { "ticker": "RHM",  "company": "Rheinmetall (DE)", "direction": "STRONGLY BULLISH", "role": "German rearmament prime; artillery, vehicles" },
+      { "ticker": "BAESY","company": "BAE Systems (UK)", "direction": "BULLISH", "role": "European rearmament beneficiary" },
+      { "ticker": "ITA",  "company": "iShares Aerospace ETF", "direction": "BULLISH", "role": "Broad defense sector tailwind" }
+    ],
+    "thesis": "Ankara is a pre-positioned catalyst. Trump's 5% GDP target is driving concrete allied procurement decisions ahead of the summit to demonstrate compliance. European spending +20% YoY in 2025 already; Ankara will set 2027-2030 acquisition roadmaps. US primes capture FMS (Foreign Military Sales) flow. German Rheinmetall (RHM.DE) is the standout European single-name with largest ammunition and vehicle ramp. Key downside risk: Ukraine exclusion from summit agenda creates political noise but does not change procurement fundamentals.",
+    "options_implication": {
+      "direction": "Long US defense primes into July summit; long RHM.DE as European expression",
+      "call_put_skew": "Call skew on ITA/LMT/RTX/NOC into July; RHM on European exchanges",
+      "iv_expectation": "IV likely to EXPAND into summit then CRUSH post-announcement unless surprise commitments",
+      "trade_structure": "Long ITA calls or straddle into summit for vol expansion trade; single-name longs in LMT/RTX for FMS order flow.",
+      "iv_crush_risk": "MODERATE — buy before July, manage through summit"
+    },
+    "magnitude": "MEDIUM-HIGH",
+    "timeline": "Weeks (July 7-8 catalyst)",
+    "confidence": 0.80
+  },
+
+  {
+    "id": "ALERT-008",
+    "priority": "MEDIUM",
+    "headline": "JHTO Hypersonic S2MARTS Awards: Kratos, Leidos, GoHypersonic — $68M Across Six Vendors (Feb 2026)",
+    "date": "2026-02-12 to 2026-02-18",
+    "sources": [
+      "DefenseScoop — https://defensescoop.com/2026/02/12/pentagon-taps-6-vendors-for-accelerated-hypersonics-research-development/",
+      "Defense Post — https://thedefensepost.com/2026/02/13/us-hypersonic-tech-contracts/",
+      "ExecutiveGov — https://www.executivegov.com/articles/jhto-nswc-s2marts-ota-award-leidos-kratos",
+      "Kratos Defense — https://www.kratosdefense.com/newsroom/kratos-awarded-contract-to-streamline-hypersonic-materials-development"
+    ],
+    "impacted_tickers": [
+      { "ticker": "KTOS", "company": "Kratos Defense",   "direction": "BULLISH", "role": "Thermal protection systems; hypersonic materials test & eval" },
+      { "ticker": "LDOS", "company": "Leidos",           "direction": "BULLISH", "role": "Pilot-to-target systems, aerodynamics" },
+      { "ticker": "LMT",  "company": "Lockheed Martin",  "direction": "BULLISH", "role": "Adjacent LRHW and Dark Eagle programs" }
+    ],
+    "thesis": "S2MARTS OTAs signal DoD is accelerating hypersonics R&D pipeline across a broader vendor base. Kratos (KTOS) is the standout public-market small-cap beneficiary — hypersonic materials + drones + autonomous systems is its core thesis. Contract values are modest ($68M total) but OTA awards historically precede larger EMD contracts. Watch KTOS for follow-on awards in H2 2026.",
+    "options_implication": {
+      "direction": "Long KTOS calls; LDOS secondary",
+      "call_put_skew": "KTOS call skew; small-cap vol elevated",
+      "iv_expectation": "KTOS IV elevated baseline; watch for follow-on awards as spike catalyst",
+      "trade_structure": "KTOS long calls or long stock + protective put. 90 DTE preferred.",
+      "iv_crush_risk": "Moderate; size carefully in small-cap"
+    },
+    "magnitude": "MEDIUM",
+    "timeline": "Medium (follow-on awards H2 2026)",
+    "confidence": 0.72
+  },
+
+  {
+    "id": "ALERT-009",
+    "priority": "MEDIUM",
+    "headline": "Supreme Court IEEPA Ruling + 10% Universal Tariff: Trade Policy Framework Shift (Feb 2026)",
+    "date": "2026-02-20",
+    "sources": [
+      "White House — https://www.whitehouse.gov/fact-sheets/2026/02/fact-sheet-president-donald-j-trump-imposes-a-temporary-import-duty-to-address-fundamental-international-payment-problems/",
+      "Ballotpedia — https://ballotpedia.org/Donald_Trump's_executive_orders_and_actions_on_trade_and_tariffs,_2025-2026",
+      "White House — https://www.whitehouse.gov/presidential-actions/2026/02/ending-certain-tariff-actions/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "CAT",  "company": "Caterpillar",    "direction": "MILDLY BEARISH", "role": "Global supply chain cost inflation" },
+      { "ticker": "DE",   "company": "Deere",          "direction": "MILDLY BEARISH", "role": "Input cost / retaliatory tariff risk" },
+      { "ticker": "XLI",  "company": "Industrial ETF", "direction": "MILDLY BEARISH", "role": "Broad industrial tariff cost pass-through uncertainty" },
+      { "ticker": "GLD",  "company": "Gold ETF",       "direction": "BULLISH",        "role": "Safe haven bid on trade uncertainty" },
+      { "ticker": "TLT",  "company": "Long Treasury ETF","direction": "MIXED",        "role": "Flight to safety vs. inflation concerns" }
+    ],
+    "thesis": "SCOTUS invalidated IEEPA as tariff authority, forcing Trump to use Section 122 (10% universal tariff). This is legally weaker and time-limited (150 days), creating policy uncertainty cliff risk. Copper tariff decision due by June 30, 2026 per OMB direction — watch for announcement this week. Defense primes largely insulated (domestic procurement). Industrials and import-dependent sectors face margin pressure. Copper tariff could benefit FCX, SCCO if domestic production preference codified.",
+    "options_implication": {
+      "direction": "GLD calls; copper miners (FCX, SCCO) calls on copper tariff announcement; XLI puts as hedge",
+      "call_put_skew": "GLD call skew; FCX call skew building into June 30 copper announcement",
+      "iv_expectation": "FCX/SCCO IV to EXPAND into copper tariff decision; buy now",
+      "trade_structure": "FCX long calls June 30/July expiry for copper decision catalyst; GLD calls as macro hedge",
+      "iv_crush_risk": "HIGH post-announcement — short-dated options only"
+    },
+    "magnitude": "MEDIUM",
+    "timeline": "IMMEDIATE — copper tariff decision due by June 30, 2026",
+    "confidence": 0.73
+  },
+
+  {
+    "id": "ALERT-010",
+    "priority": "MEDIUM",
+    "headline": "LMT F-35 EW Modernization $991M + $3.6B Logistics Mod — Steady Sustainment Flow Within Guidance",
+    "date": "2026-05-20 (EW award)",
+    "sources": [
+      "Defense Post — https://thedefensepost.com/2026/05/20/pentagon-f-35-ew/",
+      "GovCon Wire — https://www.govconwire.com/articles/lockheed-navy-f-35-logistics-contract-modification",
+      "Air & Space Forces — https://www.airandspaceforces.com/f-35-lots-18-and-19-contract/"
+    ],
+    "impacted_tickers": [
+      { "ticker": "LMT", "company": "Lockheed Martin", "direction": "NEUTRAL-BULLISH", "role": "Prime on all F-35 awards; sustainment cadence in line with guidance" }
+    ],
+    "thesis": "F-35 sustainment awards ($991M EW + $3.6B logistics) are within expected run-rate. Not a step-change catalyst but confirm backlog is intact. Key watch: Q2 2026 earnings delivery pace and margin guidance. F-35 delivery shortfalls (engine/supply issues) remain the swing factor. Long-term: F-47 and F/A-XX program budget competition is the structural headwind for LMT platform growth.",
+    "options_implication": {
+      "direction": "Neutral; slight call skew on earnings beat probability",
+      "call_put_skew": "Balanced; slight call skew if sector continues rally",
+      "iv_expectation": "IV likely to compress post-awards; may expand ahead of Q2 earnings",
+      "trade_structure": "LMT stock or covered call strategy; no aggressive directional options play warranted here",
+      "iv_crush_risk": "MODERATE on earnings"
+    },
+    "magnitude": "SMALL-MEDIUM",
+    "timeline": "Immediate (priced); earnings revision risk 30-60 days",
+    "confidence": 0.78
+  }
+]

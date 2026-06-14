@@ -59,19 +59,6 @@ jobs:
           gh workflow run    bot.yml || true
           echo "Watchdog re-enabled and re-dispatched bot.yml"
 
-      - name: Heal — alert via email
-        if: steps.live.outputs.stale == 'true'
-        env:
-          RESEND_API_KEY:   ${{ secrets.RESEND_API_KEY }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          ALERT_EMAIL_TO:   ${{ secrets.ALERT_EMAIL_TO }}
-          ALERT_EMAIL_FROM: ${{ secrets.ALERT_EMAIL_FROM }}
-        run: |
-          BODY="The trading flow appeared stalled and the watchdog auto-restarted it.
-          Detail: ${{ steps.live.outputs.detail }}
-          Action: re-enabled and re-dispatched bot.yml."
-          python3 notify_email.py "BTC Bot WATCHDOG — flow stalled, auto-restarted" "$BODY"
-
       - name: Heartbeat — keep schedules alive
         run: |
           git config user.name  "btc-watchdog[bot]"

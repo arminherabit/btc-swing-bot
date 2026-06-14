@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BTC Dip Ladder Bot - Architecture &amp; Rules</title>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+  body { width: 277mm; height: 190mm; background: #fff; color: #111; font-size: 9px; overflow: hidden; }
+
+  .title-bar {
+    background: #0d1117; color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 5px 12px;
+  }
+  .title-bar h1 { font-size: 13px; letter-spacing: 0.5px; }
+  .title-bar span { font-size: 8px; color: #8b949e; }
+
+  .page { display: flex; flex-direction: column; height: 100%; }
+  .flow-section { flex: 1; padding: 6px 6px 4px; display: flex; }
+  .rules-section { padding: 4px 6px 5px; border-top: 1.5px solid #e1e4e8; }
+
+  .flow { display: flex; align-items: stretch; width: 100%; gap: 0; }
+
+  .col {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 5px;
+  }
+  .col-label {
+    font-size: 7.5px; font-weight: 700; color: #8b949e;
+    text-transform: uppercase; letter-spacing: 0.7px;
+    text-align: center; padding-bottom: 2px; flex-shrink: 0;
+  }
+
+  .box {
+    flex: 1;
+    border-radius: 6px;
+    padding: 8px 7px;
+    text-align: center;
+    line-height: 1.45;
+    font-size: 8.5px;
+    font-weight: 600;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+  }
+  .box sub { font-size: 7.2px; font-weight: 400; display: block; margin-top: 3px; line-height: 1.4; }
+
+  .box-trigger  { background: #161b22; color: #79c0ff; border: 1.5px solid #1f6feb; }
+  .box-infra    { background: #161b22; color: #d2a8ff; border: 1.5px solid #8957e5; }
+  .box-data     { background: #fff8e1; color: #7d5800; border: 1.5px solid #d29922; }
+  .box-signal   { background: #e8f5e9; color: #1a7f37; border: 1.5px solid #2ea043; }
+  .box-news     { background: #e3f2fd; color: #0550ae; border: 1.5px solid #1f6feb; }
+  .box-fng      { background: #fff3e0; color: #7d3c00; border: 1.5px solid #d4870a; }
+  .box-exit     { background: #fce4ec; color: #a40e26; border: 1.5px solid #cf222e; }
+  .box-trade    { background: #1a7f37; color: #fff;    border: 1.5px solid #2ea043; }
+  .box-output   { background: #0d1117; color: #fff;    border: 1.5px solid #30363d; }
+  .box-sms      { background: #6639ba; color: #fff;    border: 1.5px solid #8957e5; }
+
+  .arr {
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #6e7781; font-size: 14px; height: 14px;
+  }
+  .arr-h {
+    flex-shrink: 0; width: 18px;
+    display: flex; align-items: center; justify-content: center;
+    color: #6e7781; font-size: 14px;
+    align-self: center;
+  }
+
+  .rules { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; }
+  .rule-card { border: 1px solid #e1e4e8; border-radius: 5px; overflow: hidden; }
+  .rule-card h3 { background: #0d1117; color: #79c0ff; font-size: 8px; padding: 4px 7px; letter-spacing: 0.4px; }
+  .rule-card ul { padding: 3px 7px 5px; list-style: none; }
+  .rule-card li {
+    font-size: 8px; color: #24292f; padding: 1.8px 0;
+    border-bottom: 1px solid #f6f8fa;
+    display: flex; justify-content: space-between; gap: 4px;
+  }
+  .rule-card li:last-child { border-bottom: none; }
+  .rule-card li span { font-weight: 700; color: #0d1117; text-align: right; }
+  .bull { color: #1a7f37 !important; }
+  .bear { color: #cf222e !important; }
+  .neu  { color: #7d5800 !important; }
+  .v3   { color: #6639ba !important; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="title-bar">
+    <h1>&#9889; BTC Dip Ladder Bot &mdash; Architecture &amp; Rules &nbsp;<span style="background:#6639ba;color:#fff;border-radius:3px;padding:1px 6px;font-size:9px;">v3</span></h1>
+    <span>Binance.US &nbsp;|&nbsp; GitHub Actions (every hour) &nbsp;|&nbsp; Claude Haiku News &bull; F&amp;G Gate &bull; Divergence &bull; Partial Profit &nbsp;|&nbsp; Twilio SMS</span>
+  </div>
+
+  <div class="flow-section">
+    <div class="flow">
+
+      <!-- COL 1: Trigger -->
+      <div class="col">
+        <div class="col-label">Trigger</div>
+        <div class="box box-trigger">GitHub Actions<sub>cron: 0 * * * *<br>every 1 hour</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-trigger">workflow_dispatch<sub>manual trigger<br>from GitHub UI</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-infra">Checkout Repo<sub>actions/checkout@v4<br>GITHUB_TOKEN auth</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 2: Setup -->
+      <div class="col">
+        <div class="col-label">Setup</div>
+        <div class="box box-infra">Load Config<sub>btc_config.json<br>API secrets from ENV</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-infra">Server Time Sync<sub>GET /api/v3/time<br>prevents drift error</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-infra">Auth: HMAC-SHA256<sub>signs every order<br>with api_secret</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 3: Market Data -->
+      <div class="col">
+        <div class="col-label">Market Data</div>
+        <div class="box box-data">Binance.US API<sub>api.binance.us<br>symbol: BTCUSD</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-data">4H Candles (200 bars)<sub>close &bull; high &bull; low<br>RSI series for divergence</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-data">Bull / Bear Mode<sub>SMA200(4H) filter<br>bull: RSI 42/36/30<br>bear: RSI 35/29/23</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 4: Signals -->
+      <div class="col">
+        <div class="col-label">News &amp; Sentiment</div>
+        <div class="box box-news">RSS Scrape (6 feeds)<sub>Cointelegraph &bull; Decrypt<br>CryptoSlate &bull; NewsBTC<br>BitcoinMag &bull; UToday</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-news">Claude Haiku Score<sub>-10 to +10 &bull; 4h cache<br>block &le;-5 &nbsp;&bull;&nbsp; boost &ge;+6</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-fng">Fear &amp; Greed Index<sub>api.alternative.me/fng<br>block &ge;80 (Extreme Greed)<br>boost &le;25 (Extreme Fear)</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 5: Entry Logic -->
+      <div class="col">
+        <div class="col-label">Entry Logic (Buy Dips)</div>
+        <div class="box box-signal">Tranche 1 &nbsp;&mdash;&nbsp; $167<sub>RSI(4H) &lt; 42 (bull) / 35 (bear)<br>dip &ge;1.5% (bull) / 4% (bear)<br>divergence: RSI gate +5 pts</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-signal">Tranche 2 &nbsp;&mdash;&nbsp; $167<sub>RSI(4H) &lt; 36 (bull) / 29 (bear)<br>deeper dip &bull; lowers avg<br>news/F&amp;G block respected</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-signal">Tranche 3 &nbsp;&mdash;&nbsp; $167<sub>RSI(4H) &lt; 30 (bull) / 23 (bear)<br>capitulation buy<br>$500 fully deployed</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 6: Exit Logic -->
+      <div class="col">
+        <div class="col-label">Exit Logic</div>
+        <div class="box box-trade">Partial Profit &#9733;<sub>sell 50% at avg+5%<br>one-time per position<br>lowers risk &amp; locks gains</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-exit">RSI Exit &bull; Trail &bull; Hard Stop<sub>RSI(4H) &ge;60 &rarr; sell all<br>trail: 3% below peak (12h min)<br>hard: 5% below avg entry</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-exit">Bullish Divergence<sub>price lower low +<br>RSI higher low on 4H<br>relaxes T1 RSI by 5 pts</sub></div>
+      </div>
+
+      <div class="arr-h">&#8594;</div>
+
+      <!-- COL 7: Output -->
+      <div class="col">
+        <div class="col-label">Output</div>
+        <div class="box box-output">btc_state.json<sub>tranches &bull; avg entry<br>peak price &bull; partial_taken<br>committed to repo</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-output">dashboard.html<sub>live price &bull; PnL table<br>F&amp;G gauge &bull; news score<br>GitHub artifact</sub></div>
+        <div class="arr">&#8595;</div>
+        <div class="box box-sms">Twilio SMS Alert<sub>signal &bull; tranches &bull; avg entry<br>sent every cycle</sub></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rules -->
+  <div class="rules-section">
+    <div class="rules">
+
+      <div class="rule-card">
+        <h3>&#9881; Position &amp; Risk Rules</h3>
+        <ul>
+          <li>Paper trading <span>OFF (live)</span></li>
+          <li>Total capital <span>$500 USD</span></li>
+          <li>Tranche size <span>$167 x 3</span></li>
+          <li>Partial profit <span class="v3">50% at avg+5% &#9733;</span></li>
+          <li>Trailing stop <span class="bear">3% below peak (12h min)</span></li>
+          <li>Hard stop <span class="bear">5% below avg entry</span></li>
+          <li>Exchange <span>Binance.US / BTCUSD</span></li>
+          <li>Order type <span>Market (signed)</span></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>&#128200; Entry Conditions</h3>
+        <ul>
+          <li>T1 RSI (bull / bear) <span class="bull">&lt;42 / &lt;35</span></li>
+          <li>T2 RSI (bull / bear) <span class="bull">&lt;36 / &lt;29</span></li>
+          <li>T3 RSI (bull / bear) <span class="bull">&lt;30 / &lt;23</span></li>
+          <li>Dip required (bull) <span>&ge;1.5% from 5-day high</span></li>
+          <li>Dip required (bear) <span>&ge;4.0% from 5-day high</span></li>
+          <li>Divergence gate <span class="v3">RSI thresh +5 pts &#9733;</span></li>
+          <li>F&amp;G boost (T1) <span class="v3">score &le;25 skips dip &#9733;</span></li>
+          <li>RSI method <span>Wilder smoothing (14)</span></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>&#128240; Exit Conditions</h3>
+        <ul>
+          <li>Partial profit exit <span class="v3">50% at avg+5% &#9733;</span></li>
+          <li>RSI overbought exit <span class="bear">RSI(4H) &ge;60</span></li>
+          <li>Trailing stop <span class="bear">peak &times; 0.97 (after 12h)</span></li>
+          <li>Hard stop <span class="bear">avg entry &times; 0.95</span></li>
+          <li>Exit scope <span>ALL tranches at once</span></li>
+          <li>Re-entry <span>allowed next cycle</span></li>
+          <li>News block <span class="bear">score &le;-5 no entry</span></li>
+          <li>F&amp;G block <span class="v3 bear">score &ge;80 no entry &#9733;</span></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>&#9729; News, F&amp;G &amp; Infrastructure</h3>
+        <ul>
+          <li>News block entries <span class="bear">score &le;-5</span></li>
+          <li>News boost T1 <span class="bull">score &ge;+6</span></li>
+          <li>F&amp;G block <span class="v3 bear">index &ge;80 (Extreme Greed) &#9733;</span></li>
+          <li>F&amp;G boost <span class="v3 bull">index &le;25 (Extreme Fear) &#9733;</span></li>
+          <li>News cache TTL <span>4 hours</span></li>
+          <li>AI model <span>Claude Haiku 4.5</span></li>
+          <li>Run schedule <span>Every 1 hour</span></li>
+          <li>SMS alerts <span>Twilio every run</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
