@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-13T19:23:12.3594047Z",
+  "timestamp": "2026-06-14T00:01:42.9804338Z",
   "score": 4,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Standard Chartered Says Bitcoin Bottomed Near $59,000 As Crypto Winter Ends",
     "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
-    "Strategy Stock MSTR Offers Bitcoin Exposure At 18% Discount"
+    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low",
+    "Michael Saylor Celebrates Elon Musk as 25% of Mag8 Hold BTC Following Historic IPO"
   ],
-  "reasoning": "Multiple institutional adoption signals (SpaceX, Metaplanet, Kraken regulatory progress) combined with analyst calls of a market bottom create a constructive backdrop for swing traders. Macro headwinds from inflation data and mining difficulty drops are partially offset by strong whale accumulation and corporate treasury expansion trends.",
-  "risks": "Kalshi prediction markets showing 69% probability of BTC hitting $50,000 before $100,000 suggests significant downside risk remains if key support levels break.",
+  "reasoning": "Major institutional adoption signals with SpaceX's IPO success adding 18,712 BTC to public holdings, combined with analyst confirmation of cycle lows and broadening corporate accumulation (Strategy, Metaplanet), create positive momentum for a 1-7 day swing. However, persistent inflation concerns, mixed ETF flows favoring XRP, and upcoming mining difficulty adjustments provide meaningful headwinds.",
+  "risks": "Mining margin collapse and potential $47,000 support test if macroeconomic data deteriorates or retail capitulation accelerates before institutional buyers step in decisively.",
   "article_count": 36
 }
