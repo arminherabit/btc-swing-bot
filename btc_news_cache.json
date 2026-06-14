@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-14T17:19:54.8200496Z",
-  "score": 6,
-  "sentiment": "bullish",
+  "timestamp": "2026-06-14T22:01:55.3173825Z",
+  "score": 7,
+  "sentiment": "strongly_bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "Bitcoin nears $65K as Trump says Hormuz will 'open to all' in Sunday Iran peace deal",
-    "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
-    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low"
+    "Standard Chartered calls crypto bottom with cycle low likely in; Bitcoin nears $65K on Trump Iran peace deal pledge reopening Strait of Hormuz liquidity",
+    "Spot Bitcoin ETF inflows resume after 5-day outflow streak; institutional adoption accelerates with SpaceX joining top 10 holders and banks building Bitcoin vaults",
+    "Geopolitical de-escalation (Iran peace deal) combined with positive macro catalysts (CFTC digital commodities guidance, Coinbase derivatives expansion, Blockworks-Messari consolidation)"
   ],
-  "reasoning": "Multiple positive macro catalysts are converging including the potential Iran peace deal reopening the Strait of Hormuz (which would redirect liquidity to risk-on assets), institutional adoption accelerating with major companies adding Bitcoin reserves (SpaceX, MicroStrategy, BNY Melon), and analyst consensus suggesting the crypto cycle low is in place. The security infrastructure improvements (quantum-proofing, institutional custody solutions) and regulatory clarity (CFTC no-action letters) remove medium-term uncertainty while Bitcoin consolidates near strong support levels.",
-  "risks": "A breakdown of Trump's Iran peace deal negotiations or unexpected geopolitical escalation could quickly reverse risk-on sentiment and trigger stop-loss cascades below $64,000.",
+  "reasoning": "Multiple bullish catalysts converge: major institutional validation (Standard Chartered bottom call, SpaceX Bitcoin holdings, BNY vault announcement), geopolitical risk reduction (Iran peace deal reopening trade routes), and regulatory clarity (CFTC no-action letter, SEC tokenization pathway). ETF flows have stabilized after weakness, suggesting institutional accumulation into $65K resistance.",
+  "risks": "Iran peace deal announcement contradicted by Tehran creates execution risk; if negotiations fail or escalate, risk-on asset flows could reverse sharply, breaking $64K support within 24-48 hours.",
   "article_count": 36
 }
