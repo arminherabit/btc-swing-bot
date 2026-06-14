@@ -36,3 +36,19 @@ alpaca_schedule_setup.ps1
 .env
 Music/
 .claude/worktrees/
+
+# ── Personal / non-bot files that share this folder (NEVER commit) ────────────
+Projects/
+dashboard_latest/
+bot_diagram.html
+sync.ffs_db
+*.ffs_db
+*.ffs_gui
+GitHub Actions run*.txt
+D*Claude-codebtc_bot.ps1
+*.xlsx
+intel_*.csv
+intel_*.json
+intel_dashboard_*.html
+alpaca_bot.yml
+.github/workflows/alpaca_bot.yml
