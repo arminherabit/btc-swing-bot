@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-14T04:01:48.3476012Z",
-  "score": 5,
+  "timestamp": "2026-06-14T08:01:57.0890817Z",
+  "score": 4,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
-    "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
-    "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low",
-    "Michael Saylor Celebrates Elon Musk as 25% of Mag8 Hold BTC Following Historic IPO"
+    "SpaceX joins public Bitcoin leaderboard as 8th largest holder with 18,712 BTC - major institutional adoption signal",
+    "Standard Chartered calls crypto bottom in, Bitcoin recovers from $59,000 low - institutional confidence returning",
+    "Mining difficulty drops nearly 10% easing miner pressure and potential capitulation bottom - technical support building"
   ],
-  "reasoning": "Major institutional adoption signals are accumulating with SpaceX's 18,712 BTC acquisition, Elon Musk's entry into corporate Bitcoin holdings at scale, and Standard Chartered's bottom-call providing analyst confidence support. Multiple positive catalysts (Kraken regulated futures, Strategy/MSTR discount trading, whale Ethereum accumulation) suggest institutional momentum is building despite recent volatility and mining difficulty challenges.",
-  "risks": "Inflation data sensitivity and potential sharp 20% downside candle if retail capitulation occurs before institutional buying reaches critical mass, with mining cost floor at $47,000 providing marginal support but not absolute guarantee.",
+  "reasoning": "Multiple bullish structural developments including SpaceX's significant Bitcoin acquisition, Standard Chartered's capitulation call, and mining difficulty relief suggest institutional accumulation phase and market stabilization. Positive regulatory developments (Kraken futures launch, Hester Peirce's departure signaling potential policy shift) and strong alternative asset flows (XRP ETF dominance, $1.8T asset manager crypto ETF) indicate broadening institutional participation beyond Bitcoin alone.",
+  "risks": "Macro inflation concerns (PPI data historically knocked Bitcoin lower) and geopolitical tensions (Iran peace deal uncertainty) could trigger sudden risk-off sentiment despite positive on-chain signals.",
   "article_count": 36
 }
