@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+      actions: write            # needed to auto-dispatch rl-retrain.yml
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -27,6 +28,19 @@ jobs:
       - name: Run RL health check
         run: |
           python btc_rl_health.py 2>&1 | tee rl_health_output.txt
+
+      - name: Auto-retrain on degradation (self-learning loop)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          STATUS=$(python3 -c "import json; print(json.load(open('rl_health_report.json')).get('status','UNKNOWN'))" 2>/dev/null || echo UNKNOWN)
+          echo "Health status: $STATUS"
+          if [ "$STATUS" = "DEGRADED" ]; then
+            echo "::warning::Model DEGRADED — auto-dispatching rl-retrain.yml"
+            gh workflow run rl-retrain.yml || true
+          else
+            echo "Model healthy — no retrain needed."
+          fi
 
       - name: Commit health report
         run: |

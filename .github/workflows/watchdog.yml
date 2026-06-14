@@ -1,0 +1,87 @@
+name: Bot Watchdog (self-healing)
+
+# Liveness guard for the trading flow. Runs every 30 min, offset from the
+# hourly bot. If the bot has not produced a fresh state within 90 minutes
+# (cron stalled, runner starvation, a failed cycle, or GitHub auto-disabling
+# the schedule), the watchdog RE-ENABLES and RE-DISPATCHES the bot and sends
+# an alert. It also commits a heartbeat so the repo never goes idle long
+# enough for GitHub to disable the scheduled workflows.
+
+on:
+  schedule:
+    - cron: "15,45 * * * *"   # :15 and :45 — between hourly bot ticks
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write             # needed to enable / dispatch bot.yml
+
+concurrency:
+  group: btc-watchdog
+  cancel-in-progress: true
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Liveness check
+        id: live
+        run: |
+          set +e
+          OUT=$(python btc_self_heal.py --liveness 90)
+          CODE=$?
+          echo "$OUT"
+          echo "detail=$OUT" >> "$GITHUB_OUTPUT"
+          if [ "$CODE" -eq 3 ]; then
+            echo "stale=true"  >> "$GITHUB_OUTPUT"
+          else
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Heal — restart stalled flow
+        if: steps.live.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::warning::Bot flow appears stalled — ${{ steps.live.outputs.detail }}"
+          # Re-enable the schedule in case GitHub disabled it, then restart a cycle.
+          gh workflow enable bot.yml || true
+          gh workflow run    bot.yml || true
+          echo "Watchdog re-enabled and re-dispatched bot.yml"
+
+      - name: Heal — alert via SMS
+        if: steps.live.outputs.stale == 'true'
+        env:
+          TWILIO_SID:   ${{ secrets.TWILIO_SID }}
+          TWILIO_TOKEN: ${{ secrets.TWILIO_TOKEN }}
+          TWILIO_FROM:  ${{ secrets.TWILIO_FROM }}
+          TWILIO_TO:    ${{ secrets.TWILIO_TO }}
+        run: |
+          if [ -z "$TWILIO_SID" ]; then echo "No Twilio secrets — skipping alert"; exit 0; fi
+          MSG="BTC Bot WATCHDOG | flow stalled, auto-restarted | ${{ steps.live.outputs.detail }}"
+          curl -s -X POST "https://api.twilio.com/2010-04-01/Accounts/${TWILIO_SID}/Messages.json" \
+            --user "${TWILIO_SID}:${TWILIO_TOKEN}" \
+            --data-urlencode "From=${TWILIO_FROM}" \
+            --data-urlencode "To=${TWILIO_TO}" \
+            --data-urlencode "Body=${MSG}" || true
+
+      - name: Heartbeat — keep schedules alive
+        run: |
+          git config user.name  "btc-watchdog[bot]"
+          git config user.email "btc-watchdog@users.noreply.github.com"
+          mkdir -p .watchdog
+          date -u +%Y-%m-%dT%H:%M:%SZ > .watchdog/heartbeat.txt
+          git add -f .watchdog/heartbeat.txt
+          git diff --staged --quiet || git commit -m "watchdog: heartbeat $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git pull --rebase origin master || true
+          git push || true
