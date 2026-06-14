@@ -7,7 +7,7 @@
   "highest_price": 0.0,
   "last_signal": "WATCH: RSI 54.4 > T1 threshold 43 (BEAR)",
   "last_action": "none",
-  "last_run": "2026-06-14T21:01:46.3814160Z",
+  "last_run": "2026-06-14T21:11:02.7872146Z",
   "entry_time": "",
   "partial_taken": false,
   "btc_price": 64007.82,
@@ -50,7 +50,7 @@
     0.0,
     0.0
   ],
-  "rl_confidence": 0.867,
+  "rl_confidence": 0.733,
   "rl_action": "SELL_ALL",
   "rl_override": true,
   "last_stopout": "",
