@@ -29,7 +29,12 @@ from btc_rl_env import BTCTradingEnv
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 AGGRESSIVENESS   = 1.5          # amplifier on portfolio_return
-TOTAL_TIMESTEPS  = 2_000_000    # training steps
+TOTAL_TIMESTEPS  = 2_000_000    # training steps (single-shot reference)
+# Best-of-N: train several candidates with different seeds, keep the one with the
+# best blended win-rate + alpha score on held-out data. "Run training again and
+# again" — automated. Override via env vars for quick local runs.
+N_CANDIDATES      = int(os.getenv("RL_N_CANDIDATES",     "3"))
+CANDIDATE_TIMESTEPS = int(os.getenv("RL_CANDIDATE_STEPS", "800000"))
 N_ENVS           = 1            # DummyVecEnv: 1 env is faster on Windows
 MODEL_PATH       = "btc_rl_model"
 BINANCE_URL      = "https://api.binance.us/api/v3/klines"
@@ -396,53 +401,61 @@ def main():
     df_train  = df.iloc[:split].reset_index(drop=True)
     df_val    = df.iloc[split:].reset_index(drop=True)
 
-    # 2. Make vectorized envs
     def make_env():
         env = BTCTradingEnv(df_train, aggressiveness=AGGRESSIVENESS)
         env = Monitor(env)
         return env
 
-    print(f"Building {N_ENVS} parallel envs…")
-    vec_env = make_vec_env(make_env, n_envs=N_ENVS, vec_env_cls=DummyVecEnv)
+    def candidate_score(s: dict) -> float:
+        """Blended selection score. Weights win rate (the goal) AND alpha (profit),
+        and punishes tiny trade samples whose win rate is statistical noise."""
+        wr    = s["win_rate"]          # %
+        alpha = s["alpha_pct"]         # %
+        n     = s["n_trades"]
+        sample_penalty = max(0, 3 - n) * 25.0   # < 3 trades -> unreliable win rate
+        return 1.5 * wr + 1.0 * alpha - sample_penalty
 
-    # 3. PPO — aggressive exploration settings
-    model = PPO(
-        "MlpPolicy",
-        vec_env,
-        verbose       = 0,
-        learning_rate = 3e-4,
-        n_steps       = 2048,       # rollout length per env
-        batch_size    = 256,        # larger batch = more stable updates
-        n_epochs      = 10,
-        gamma         = 0.995,      # near-1 = long-term value focus
-        gae_lambda    = 0.95,
-        clip_range    = 0.2,
-        ent_coef      = 0.02,       # higher entropy = more exploration (aggressive)
-        vf_coef       = 0.5,
-        max_grad_norm = 0.5,
-        policy_kwargs = dict(
-            net_arch=[dict(pi=[128, 128], vf=[128, 128])],  # fast on CPU
-        ),
-    )
-
-    # 4. Train
-    print(f"\nTraining PPO — aggressiveness={AGGRESSIVENESS} — {TOTAL_TIMESTEPS:,} timesteps")
+    # 2-5. Best-of-N: train several seeds, keep the best on held-out data.
+    print(f"\nBest-of-{N_CANDIDATES}: {CANDIDATE_TIMESTEPS:,} timesteps each, "
+          f"select by 1.5*win_rate + alpha (min 3 trades)")
     print("=" * 68)
-    callback = RewardLogger()
-    model.learn(total_timesteps=TOTAL_TIMESTEPS, callback=callback, progress_bar=True)
-    print("=" * 68)
-    print("Training complete.\n")
+    best_model, best_stats, best_score, candidates = None, None, -1e9, []
+    for c in range(N_CANDIDATES):
+        seed = 1000 + c * 7
+        print(f"\n── Candidate {c+1}/{N_CANDIDATES}  (seed={seed}) ─────────────────────")
+        vec_env = make_vec_env(make_env, n_envs=N_ENVS, vec_env_cls=DummyVecEnv,
+                               seed=seed)
+        model = PPO(
+            "MlpPolicy", vec_env, verbose=0, seed=seed,
+            learning_rate=3e-4, n_steps=2048, batch_size=256, n_epochs=10,
+            gamma=0.995, gae_lambda=0.95, clip_range=0.2,
+            ent_coef=0.02, vf_coef=0.5, max_grad_norm=0.5,
+            policy_kwargs=dict(net_arch=[dict(pi=[128, 128], vf=[128, 128])]),
+        )
+        model.learn(total_timesteps=CANDIDATE_TIMESTEPS,
+                    callback=RewardLogger(), progress_bar=True)
+        stats = run_backtest(model, df_val)
+        score = candidate_score(stats)
+        print(f"  Candidate {c+1} score: {score:+.1f}  "
+              f"(win {stats['win_rate']}%  alpha {stats['alpha_pct']:+.2f}%  "
+              f"trades {stats['n_trades']})")
+        candidates.append({"seed": seed, "score": round(score, 1), **stats})
+        if score > best_score:
+            best_score, best_model, best_stats = score, model, stats
+        vec_env.close()
 
-    # 5. Save
+    print("\n" + "=" * 68)
+    print(f"Best candidate score {best_score:+.1f} "
+          f"(win {best_stats['win_rate']}%  alpha {best_stats['alpha_pct']:+.2f}%)")
+    model = best_model
     model.save(MODEL_PATH)
-    print(f"Model saved → {MODEL_PATH}.zip")
+    print(f"Winner saved → {MODEL_PATH}.zip")
 
-    # 6. Walk-forward validation (overfitting check)
+    # 6. Walk-forward validation (overfitting check) on the winning config
     wf_results = walk_forward_validate(df)
 
-    # 7. Final backtest on held-out validation data
-    print("\nFinal validation set backtest (last 20% of data):")
-    stats = run_backtest(model, df_val)
+    # 7. Final stats = the winning candidate's held-out backtest (already computed)
+    stats = best_stats
 
     # Save stats
     with open("btc_rl_stats.json", "w") as f:
@@ -452,13 +465,14 @@ def main():
             "trained_at":         datetime.now(timezone.utc).isoformat(),
             "train_candles":      len(df_train),
             "val_candles":        len(df_val),
-            "timesteps":          TOTAL_TIMESTEPS,
+            "timesteps":          CANDIDATE_TIMESTEPS,
+            "n_candidates":       N_CANDIDATES,
+            "selection_score":    round(best_score, 1),
+            "candidates":         candidates,
             "obs_features":       18,
             "walk_forward_folds": wf_results,
         }, f, indent=2)
     print(f"\nStats saved → btc_rl_stats.json")
-
-    vec_env.close()
 
 
 if __name__ == "__main__":

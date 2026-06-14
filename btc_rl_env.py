@@ -197,6 +197,12 @@ class BTCTradingEnv(gym.Env):
                 # still rising and not yet overbought == exiting the START of a swing.
                 if 0.0 < ret < 0.04 and rsi < 65 and rsi_rising:
                     reward -= 0.015       # "you sold too early on the upside"
+                # Win-rate pressure: book green closes, discourage red closes (on top of
+                # raw P&L). Biases the policy toward setups that actually close positive.
+                if ret > 0.0:
+                    reward += 0.008
+                else:
+                    reward -= 0.008
 
         elif action == SELL_PARTIAL:
             if self.in_position and self.avg_entry > 0:

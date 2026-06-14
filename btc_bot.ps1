@@ -810,10 +810,13 @@ function Run-Cycle {
         $dipOk     = ($dipPct -ge $dipReq)
         $rsiOk     = ($rsi4h  -le $rsiThreshold)
         $canAdd    = ($tc -lt $maxTranches)
-        # T1: no turning confirmation needed — allows entering at the actual bottom
-        # T2/T3: require RSI turning up to avoid averaging down into a falling knife
-        # BULL / NEAR-SMA: no turning check needed (breakout setup)
-        $turningOk = ($bullMode -or $nearSma200 -or $divergence -or $rsiTurning -or $tc -eq 0)
+        # Reversal confirmation, mode-dependent:
+        # BULL / NEAR-SMA: no turning check — buying a dip in an uptrend is a high-prob setup.
+        # BEAR: EVERY tranche (incl. T1) requires RSI turning up OR bullish divergence.
+        #   The old blanket "T1 skips turning" waiver let the bot buy any oversold dip
+        #   mid-downtrend while price was still falling -> knife-catching, the #1 driver
+        #   of the 27-33% win rate. In a downtrend we only buy CONFIRMED reversals.
+        $turningOk = ($bullMode -or $nearSma200 -or $divergence -or $rsiTurning)
 
         # Boost conditions skip dip check for T1
         if (($entryBoosted -or $divergence) -and $tc -eq 0) { $dipOk = $true }
