@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T13:01:52.7176814Z",
+  "timestamp": "2026-06-14T17:19:54.8200496Z",
   "score": 6,
   "sentiment": "bullish",
   "recommendation": "boost_size",
@@ -8,7 +8,7 @@
     "SpaceX Officially Joins Public Bitcoin Leaderboard as 8th Largest Holder With 18,712 BTC",
     "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low"
   ],
-  "reasoning": "Multiple positive catalysts are converging including geopolitical peace deal prospects reopening risk-on asset flows, major corporate Bitcoin adoption (SpaceX now 8th largest holder), and institutional validation that the crypto cycle low is in place. Analyst consensus from Scaramucci and Novogratz predicts $70K retest by end of July, supported by positive ETF inflows and institutional accumulation signals.",
-  "risks": "Sharp profit-taking pullback of 10-15% if Iran peace deal fails to materialize or deteriorates, and unresolved quantum computing security concerns for long-term Bitcoin custody could trigger fear-driven selling.",
+  "reasoning": "Multiple positive macro catalysts are converging including the potential Iran peace deal reopening the Strait of Hormuz (which would redirect liquidity to risk-on assets), institutional adoption accelerating with major companies adding Bitcoin reserves (SpaceX, MicroStrategy, BNY Melon), and analyst consensus suggesting the crypto cycle low is in place. The security infrastructure improvements (quantum-proofing, institutional custody solutions) and regulatory clarity (CFTC no-action letters) remove medium-term uncertainty while Bitcoin consolidates near strong support levels.",
+  "risks": "A breakdown of Trump's Iran peace deal negotiations or unexpected geopolitical escalation could quickly reverse risk-on sentiment and trigger stop-loss cascades below $64,000.",
   "article_count": 36
 }
