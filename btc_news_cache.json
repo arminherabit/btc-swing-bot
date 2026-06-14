@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-14T00:01:42.9804338Z",
-  "score": 4,
+  "timestamp": "2026-06-14T04:01:48.3476012Z",
+  "score": 5,
   "sentiment": "bullish",
   "recommendation": "boost_size",
   "key_items": [
@@ -8,7 +8,7 @@
     "Standard Chartered Calls Crypto Bottom as Bitcoin Price Recovers From $59,000 Low",
     "Michael Saylor Celebrates Elon Musk as 25% of Mag8 Hold BTC Following Historic IPO"
   ],
-  "reasoning": "Major institutional adoption signals with SpaceX's IPO success adding 18,712 BTC to public holdings, combined with analyst confirmation of cycle lows and broadening corporate accumulation (Strategy, Metaplanet), create positive momentum for a 1-7 day swing. However, persistent inflation concerns, mixed ETF flows favoring XRP, and upcoming mining difficulty adjustments provide meaningful headwinds.",
-  "risks": "Mining margin collapse and potential $47,000 support test if macroeconomic data deteriorates or retail capitulation accelerates before institutional buyers step in decisively.",
+  "reasoning": "Major institutional adoption signals are accumulating with SpaceX's 18,712 BTC acquisition, Elon Musk's entry into corporate Bitcoin holdings at scale, and Standard Chartered's bottom-call providing analyst confidence support. Multiple positive catalysts (Kraken regulated futures, Strategy/MSTR discount trading, whale Ethereum accumulation) suggest institutional momentum is building despite recent volatility and mining difficulty challenges.",
+  "risks": "Inflation data sensitivity and potential sharp 20% downside candle if retail capitulation occurs before institutional buying reaches critical mass, with mining cost floor at $47,000 providing marginal support but not absolute guarantee.",
   "article_count": 36
 }
